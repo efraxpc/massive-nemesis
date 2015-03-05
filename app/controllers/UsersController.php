@@ -17,7 +17,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return View::make(Config::get('confide::signup_form'));
+        return View::make('backend.admin.users');
     }
 
     /**
@@ -29,7 +29,6 @@ class UsersController extends Controller
     {
         $repo = App::make('UserRepository');
         $user = $repo->signup(Input::all());
-
         if ($user->id) {
             if (Config::get('confide::signup_email')) {
                 Mail::queueOn(
@@ -44,14 +43,10 @@ class UsersController extends Controller
                 );
             }
 
-            return Redirect::action('UsersController@login')
-                ->with('notice', Lang::get('confide::confide.alerts.account_created'));
+            return View::make('backend.user.login');
         } else {
-            $error = $user->errors()->all(':message');
 
-            return Redirect::action('UsersController@create')
-                ->withInput(Input::except('password'))
-                ->with('error', $error);
+            return View::make('backend.user.login');
         }
     }
 
@@ -60,13 +55,14 @@ class UsersController extends Controller
      *
      * @return  Illuminate\Http\Response
      */
-    public function login()
+        public function login()
     {
-        if (Confide::user()) {
-            return Redirect::to('/');
-        } else {
-            return View::make(Config::get('confide::login_form'));
+        
+        $user = Auth::user();
+        if(!empty($user->id)){
+            return View::make('Backend.Admin.User.login');
         }
+     return View::make('Backend.Admin.User.login');
     }
 
     /**

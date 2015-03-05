@@ -16,10 +16,9 @@ Route::get('/', function()
 	return View::make('hello');
 });
 //
-
 // Confide routes
-Route::get('users/create', 'UsersController@create');
-Route::post('users', 'UsersController@store');
+Route::get('users/create',  array('as' => 'create_user', 	'uses' =>	'UsersController@create'));
+Route::post('users/pipo', 'UsersController@store');
 Route::get('users/login', 'UsersController@login');
 Route::post('users/login', 'UsersController@doLogin');
 Route::get('users/confirm/{code}', 'UsersController@confirm');

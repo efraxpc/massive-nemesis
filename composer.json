@@ -5,7 +5,9 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"zizaco/confide": "~4.3@dev"
+		"zizaco/confide": "~4.3@dev",
+		"itsgoingd/clockwork": "1.*",
+		"barryvdh/laravel-debugbar": "~1.8"
 	},
 	"autoload": {
 		"classmap": [
@@ -14,6 +16,7 @@
 			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
+			"app/views",
 			"app/tests/TestCase.php"
 		]
 	},
