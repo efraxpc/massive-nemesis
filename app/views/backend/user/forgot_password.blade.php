@@ -2,32 +2,27 @@
 @section('content')
 <div id="login-page">
     <div class="container">
-            <form method="POST" class="form-login" action="{{ URL::to('/users/forgot_password') }}" accept-charset="UTF-8">
-                <h2 class="form-login-heading">Reiniciar Contraseña</h2>
-                <input type="hidden"  name="_token" value="{{{ Session::getToken() }}}">
+<form method="POST" action="{{ URL::to('/users/forgot_password') }}" accept-charset="UTF-8">
+    <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
 
-                <div class="login-wrap">
+    <div class="form-group">
+        <label for="email">{{{ Lang::get('confide::confide.e_mail') }}}</label>
+        <div class="input-append input-group">
+            <input class="form-control" placeholder="{{{ Lang::get('confide::confide.e_mail') }}}" type="text" name="email" id="email" value="{{{ Input::old('email') }}}">
+            <span class="input-group-btn">
+                <input class="btn btn-default" type="submit" value="{{{ Lang::get('confide::confide.forgot.submit') }}}">
+            </span>
+        </div>
+    </div>
 
-                        <input class="form-control" placeholder="{{{ Lang::get('confide::confide.e_mail') }}}" type="text" name="email" id="email" value="{{{ Input::old('email') }}}" autofocus>
-                        <br/>
-                        <button class="btn btn-theme btn-block" type="submit"><i class="fa fa-lock"></i> {{{ Lang::get('confide::confide.forgot.submit') }}}</button>
-                        <hr/>
-                        <div class="registration">
-                            {{{Lang::get('main.create_account_above_message')}}}<br/>
-                            <a class="" href="{{URL::route('create_user')}}">
-                                {{{Lang::get('main.create_an_ccount')}}}<br/>
-                            </a>
-                        </div>
-                </div>
+    @if (Session::get('error'))
+        <div class="alert alert-error alert-danger">{{{ Session::get('error') }}}</div>
+    @endif
 
-                @if (Session::get('error'))
-                <div class="alert alert-error alert-danger">{{{ Session::get('error') }}}</div>
-                @endif
-
-                @if (Session::get('notice'))
-                <div class="alert">{{{ Session::get('notice') }}}</div>
-                @endif
-            </form>
+    @if (Session::get('notice'))
+        <div class="alert">{{{ Session::get('notice') }}}</div>
+    @endif
+</form>
 
             <!-- Modal -->
             <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">

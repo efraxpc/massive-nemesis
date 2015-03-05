@@ -60,9 +60,9 @@ class UsersController extends Controller
         
         $user = Auth::user();
         if(!empty($user->id)){
-            return View::make('Backend.Admin.User.login');
+            return View::make('backend.user.login');
         }
-     return View::make('Backend.Admin.User.login');
+     return View::make('backend.user.login');
     }
 
     /**
