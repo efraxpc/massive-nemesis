@@ -119,7 +119,7 @@ class UsersController extends Controller
      */
     public function forgotPassword()
     {
-        return View::make(Config::get('confide::forgot_password_form'));
+        return View::make('backend.user.forgot_password');
     }
 
     /**
@@ -150,8 +150,7 @@ class UsersController extends Controller
      */
     public function resetPassword($token)
     {
-        return View::make(Config::get('confide::reset_password_form'))
-                ->with('token', $token);
+        return View::make('backend.user.reset_password')->with('token', $token);
     }
 
     /**

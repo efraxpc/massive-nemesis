@@ -1,10 +1,9 @@
-@extends('Backend/User/layout_login')
+@extends('backend/user/layout_login')
 @section('content')
 <div id="login-page">
     <div class="container">
 
-        <form method="POST" class="form-login" action="{{{ URL::to('/users/reset_password') }}}" accept-charset="UTF-8">
-            <h4>eee</h4>
+        <form method="POST" class="form-login" action="{{{ URL::to('users/resetear_password') }}}" accept-charset="UTF-8">
             <input type="hidden" name="token" value="{{{ $token }}}">
             <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
             <h2 class="form-login-heading">Reiniciar fConatrraseña</h2>
