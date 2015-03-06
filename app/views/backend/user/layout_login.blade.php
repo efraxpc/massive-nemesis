@@ -154,12 +154,3 @@
     </div>
 </header>
 @stop
-@section('scripts')
-<script>
-    $('#datepicker').datepicker({
-        language: "es-ES",
-        autoclose: true,
-        todayHighlight: true
-    })
-</script>
-@stop
