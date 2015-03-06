@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => '3qr_nuevo',
+			'database'  => 'bike_3qr_nuevo',
 			'username'  => 'root',
 			'password'  => '123456',
 			'charset'   => 'utf8',

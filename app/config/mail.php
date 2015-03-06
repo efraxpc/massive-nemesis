@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => "efraxpc@gmail.com", 'name' => "Efrain"),
+	'from' => array('address' => "bikestationcol@gmail.com", 'name' => "Efrain"),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => "efraxpc@gmail.com",
+	'username' => "bikestationcol@gmail.com",
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => "Judy2011",
+	'password' => "aerhzmdxfxpbvdki",
 
 	/*
 	|--------------------------------------------------------------------------
