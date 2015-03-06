@@ -29,6 +29,7 @@ class UsersController extends Controller
     {
         $repo = App::make('UserRepository');
         $user = $repo->signup(Input::all());
+
         if ($user->id) {
             if (Config::get('confide::signup_email')) {
                 Mail::queueOn(

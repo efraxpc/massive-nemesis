@@ -23,6 +23,19 @@ class UserRepository
 
         $user->email    = array_get($input, 'email');
         $user->password = array_get($input, 'password');
+        $user->grupo_sanguineo = array_get($input, 'grupo_sanguineo');
+        $user->eps = array_get($input, 'eps');
+        $user->observaciones_generales = array_get($input, 'observaciones_generales');
+        $user->facebook = array_get($input, 'facebook');
+        $user->twitter = array_get($input, 'twitter');
+
+        
+        $date = strtotime(array_get($input, 'fecha_nacimiento'));
+        $fecha = date('Y/n/d H:i:s', $date);
+        $user->fecha_nacimiento = $fecha;
+        
+        $user->serial_marco = array_get($input, 'serial_marco');
+
 
         // The password confirmation will be removed from model
         // before saving. This field will be used in Ardent's

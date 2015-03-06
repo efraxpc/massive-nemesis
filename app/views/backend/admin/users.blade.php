@@ -19,10 +19,10 @@
                                 @if (Cache::remember('username_in_confide', 5, function() {
                                     return Schema::hasColumn(Config::get('auth.table'), 'username');
                                 }))
-                                    <div class="form-group">
-                                        <label for="username">{{{ Lang::get('confide::confide.username') }}}</label>
-                                        <input class="form-control" placeholder="{{{ Lang::get('confide::confide.username') }}}" type="text" name="username" id="username" value="{{{ Input::old('username') }}}">
-                                    </div>
+                                <div class="form-group">
+                                    <label for="username">{{{ Lang::get('confide::confide.username') }}}</label>
+                                    <input class="form-control" placeholder="{{{ Lang::get('confide::confide.username') }}}" type="text" name="username" id="username" value="{{{ Input::old('username') }}}">
+                                </div>
                                 @endif
                                 <div class="form-group">
                                     <label for="email">{{{ Lang::get('confide::confide.e_mail') }}} <small>{{ Lang::get('confide::confide.signup.confirmation_required') }}</small></label>
@@ -39,14 +39,17 @@
                                     <input class="form-control" placeholder="{{{Lang::get('main.eps')}}}" type="text" name="eps" id="eps" value="{{{ Input::old('eps') }}}">
                                 </div>
 
+                             
                                 <div class="form-group">
-                                    <label for="observacionesGenerales">{{{Lang::get('main.observacionesGenerales')}}}</label>
-                                    <input class="form-control" placeholder="{{{Lang::get('main.observacionesGenerales')}}}" type="text" name="observacionesGenerales" id="observacionesGenerales" value="{{{ Input::old('observacionesGenerales') }}}">
+                                    {{{Lang::get('main.observaciones_generales')}}}
+                                    <br>  
+                                {{ Form::textarea('observaciones_generales', null, ['class' => 'form-control']) }}
                                 </div>
 
+
                                 <div class="form-group">
-                                    <label for="serialMarco">{{{Lang::get('main.serialMarco')}}}</label>
-                                    <input class="form-control" placeholder="{{{Lang::get('main.serialMarco')}}}" type="text" name="serialMarco" id="serialMarco" value="{{{ Input::old('serialMarco') }}}">
+                                    <label for="serial_marco">{{{Lang::get('main.serial_marco')}}}</label>
+                                    <input class="form-control" placeholder="{{{Lang::get('main.serial_marco')}}}" type="text" name="serial_marco" id="serial_marco" value="{{{ Input::old('serial_marco') }}}">
                                 </div>
 
                                 <div class="form-group">
@@ -60,8 +63,8 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="fechaNacimiento">{{{Lang::get('main.fechaNacimiento')}}}</label>
-                                    <input class="form-control" placeholder="{{{Lang::get('main.fechaNacimiento')}}}" type="text" name="fechaNacimiento" id="datepicker" value="{{{ Input::old('fechaNacimiento') }}}">
+                                    <label for="fecha_nacimiento">{{{Lang::get('main.fecha_nacimiento')}}}</label>
+                                    <input class="form-control" placeholder="{{{Lang::get('main.fecha_nacimiento')}}}" type="text" name="fecha_nacimiento" id="datepicker" value="{{{ Input::old('fecha_nacimiento') }}}">
                                 </div>
                                 <div class="form-group">
                                     <label for="password">{{{ Lang::get('confide::confide.password') }}}</label>
@@ -87,7 +90,6 @@
                                 <div class="form-actions form-group">
                                   <button type="submit" class="btn btn-primary">{{{ Lang::get('confide::confide.signup.submit') }}}</button>
                                 </div>
-
                             </fieldset>
                         </form>
 
