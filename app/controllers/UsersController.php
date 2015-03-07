@@ -17,7 +17,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return View::make('backend.admin.users');
+        $tipo_de_sangre = DB::table('tipo_de_sangre')->orderBy('nombre', 'asc')->lists('nombre','id');
+        return View::make('backend.admin.users', array('tipo_de_sangre' => $tipo_de_sangre));
     }
 
     /**

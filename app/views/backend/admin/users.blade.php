@@ -29,9 +29,10 @@
                                     <input class="form-control" placeholder="{{{ Lang::get('confide::confide.e_mail') }}}" type="text" name="email" id="email" value="{{{ Input::old('email') }}}">
                                 </div>
                                 
+
                                 <div class="form-group">
-                                    <label for="grupo_sanguineo">{{{Lang::get('main.grupo_sanguineo')}}}</label>
-                                    <input class="form-control" placeholder="{{{Lang::get('main.grupo_sanguineo')}}}" type="text" name="grupo_sanguineo" id="grupo_sanguineo" value="{{{ Input::old('grupo_sanguineo') }}}">
+                                    
+                                    {{ Form::select('grupo_sanguineo', $tipo_de_sangre ,Input::old('grupo_sanguineo'),array('class'=>'form-control')) }}
                                 </div>
 
                                 <div class="form-group">
