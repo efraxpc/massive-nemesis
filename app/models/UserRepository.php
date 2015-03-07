@@ -21,7 +21,7 @@ class UserRepository
 
         $user->email    = array_get($input, 'email');
         $user->password = array_get($input, 'password');
-        $user->grupo_sanguineo = array_get($input, 'grupo_sanguineo');
+        $user->grupo_sanguineo_id = array_get($input, 'grupo_sanguineo_id');
         $user->eps = array_get($input, 'eps');
         $user->observaciones_generales = array_get($input, 'observaciones_generales');
         $user->facebook = array_get($input, 'facebook');

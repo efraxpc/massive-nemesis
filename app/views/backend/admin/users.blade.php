@@ -32,7 +32,7 @@
 
                                 <div class="form-group">
                                     
-                                    {{ Form::select('grupo_sanguineo', $tipo_de_sangre ,Input::old('grupo_sanguineo'),array('class'=>'form-control')) }}
+                                    {{ Form::select('grupo_sanguineo_id', $tipo_de_sangre ,Input::old('grupo_sanguineo_id'),array('class'=>'form-control')) }}
                                 </div>
 
                                 <div class="form-group">

@@ -12,7 +12,11 @@ class AddGrupoSanguineoIdForeingkey extends Migration {
 	 */
 	public function up()
 	{
-		//
+		Schema::table('users', function($table)
+		{
+			$table->integer('grupo_sanguineo_id')->unsigned();
+			$table->foreign('grupo_sanguineo_id')->references('id')->on('tipo_de_sangre');
+		});
 	}
 
 	/**
@@ -22,7 +26,8 @@ class AddGrupoSanguineoIdForeingkey extends Migration {
 	 */
 	public function down()
 	{
-		//
+		Schema::drop('password_reminders');
+        Schema::drop('users');
 	}
 
 }
