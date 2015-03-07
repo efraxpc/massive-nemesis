@@ -28,6 +28,8 @@ Route::get('users/reset_password/{token}', 'UsersController@resetPassword');
 Route::post('users/resetear_password', 'UsersController@doResetPassword');
 Route::get('users/logout', 'UsersController@logout');
 
+Route::get('users/crear/admin', 'UsersController@createAdmin');
+
 Route::get('/teste_role',function(){
 	$user = Auth::user();//obtenemos el usuario logueado
 	if ($user->hasRole('users'))
@@ -40,6 +42,14 @@ Route::get('/teste_role',function(){
 	}
 	echo "nada!!";
 });
+
+Route::get('/asignar_role_admin',function(){
+	$user = DB::table('users')->where('name', 'John')->first();
+	$role = Role::where('name','=','users')->first();
+	$user->roles()->attach($role->id);
+});
+
+
 	// Route::get('/permissions',function()
 	// {
 

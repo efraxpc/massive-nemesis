@@ -22,6 +22,16 @@ class UsersController extends Controller
     }
 
     /**
+     * Displays the form for admin account creation
+     *
+     * @return  Illuminate\Http\Response
+     */
+    public function createAdmin()
+    {
+        return View::make('backend.user.create_admin');
+    }
+
+    /**
      * Stores new account
      *
      * @return  Illuminate\Http\Response
