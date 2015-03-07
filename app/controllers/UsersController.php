@@ -30,6 +30,8 @@ class UsersController extends Controller
     {
         $repo = App::make('UserRepository');
         $user = $repo->signup(Input::all());
+        $role = Role::where('name','=','users')->first();
+        $user->roles()->attach($role->id);
 
         if ($user->id) {
             if (Config::get('confide::signup_email')) {
@@ -47,7 +49,6 @@ class UsersController extends Controller
 
             return View::make('backend.user.login');
         } else {
-
             return View::make('backend.user.login');
         }
     }

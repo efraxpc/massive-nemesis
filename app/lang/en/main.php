@@ -12,6 +12,11 @@ return array(
     | you want to customize your views to better match your application.
     |
     */
+
+    //General
+    'app_name'                       => 'BikeStation.co',
+    'app_name_title_page'            => '.::BikeStation.co::.',
+
     //Register form
     'fecha_nacimiento'               => 'Fecha de Nacimiento',
     'twitter'                        => 'Twitter',

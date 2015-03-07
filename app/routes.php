@@ -27,3 +27,44 @@ Route::post('users/forgot_password', 'UsersController@doForgotPassword');
 Route::get('users/reset_password/{token}', 'UsersController@resetPassword');
 Route::post('users/resetear_password', 'UsersController@doResetPassword');
 Route::get('users/logout', 'UsersController@logout');
+
+Route::get('/teste_role',function(){
+	$user = Auth::user();//obtenemos el usuario logueado
+	if ($user->hasRole('users'))
+	{
+		return "usuario tiene rol user!";
+	}
+	if ($user->hasRole('admin'))
+	{
+		return "usuario tiene rol admin!";
+	}
+	echo "nada!!";
+});
+	// Route::get('/permissions',function()
+	// {
+
+	// 	$admin = new Role;
+	// 	$admin->name = 'admin';
+	// 	$admin->save();
+		
+	// 	$user = new Role;
+	// 	$user->name = 'users';
+	// 	$user->save();
+
+		
+	// 	$manageProfile = new Permission; // Can edit, delete & enter data.
+	// 	$manageProfile->name = 'manage_profile';
+	// 	$manageProfile->display_name = 'Manage Profile';
+	// 	$manageProfile->save();
+		
+	  
+	// 	$manageUsers = new Permission;
+	// 	$manageUsers->name = 'manage_users';
+	// 	$manageUsers->display_name = 'Manage Users';
+	// 	$manageUsers->save();
+
+	// 	$admin->perms()->sync(array($manageUsers->id));
+	// 	$user->perms()->sync(array($manageProfile->id));
+		
+	
+	// });
