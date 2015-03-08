@@ -40,9 +40,15 @@ class UsersController extends Controller
     {
         $repo = App::make('UserRepository');
         $user = $repo->signup(Input::all());
-        $role = Role::where('name','=','users')->first();
-        $user->roles()->attach($role->id);
-
+        
+        if (Input::all()['tipo'] == 'user') {
+            $role = Role::where('name','=','users')->first();
+            $user->roles()->attach($role->id);
+        }else{
+            $role = Role::where('name','=','admin')->first();
+            $user->roles()->attach($role->id);
+        }
+        
         if ($user->id) {
             if (Config::get('confide::signup_email')) {
                 Mail::queueOn(

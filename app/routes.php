@@ -35,12 +35,12 @@ Route::get('/teste_role',function(){
 	if ($user->hasRole('users'))
 	{
 		return "usuario tiene rol user!";
-	}
-	if ($user->hasRole('admin'))
+	}elseif($user->hasRole('admin'))
 	{
 		return "usuario tiene rol admin!";
+	}else{
+		echo "nada!!";
 	}
-	echo "nada!!";
 });
 
 Route::get('/asignar_role_admin',function(){
