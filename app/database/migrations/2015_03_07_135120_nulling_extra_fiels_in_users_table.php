@@ -21,7 +21,7 @@ class NullingExtraFielsInUsersTable extends Migration {
 			DB::statement('ALTER TABLE users MODIFY twitter varchar(30) null');
 			DB::statement('ALTER TABLE users MODIFY fecha_nacimiento varchar(30) null');
 			DB::statement('ALTER TABLE users MODIFY serial_marco varchar(30) null');
-			DB::statement('ALTER TABLE users MODIFY grupo_sanguineo_id varchar(30) null');
+			DB::statement('ALTER TABLE users MODIFY grupo_sanguineo_id int(10) null');
 
 		});
 	}
