@@ -30,7 +30,7 @@ class UserRepository
 
             
             $date = strtotime(array_get($input, 'fecha_nacimiento'));
-            $fecha = date('Y/n/d H:i:s', $date);
+            $fecha = date('Y/m/d H:i:s', $date);
             $user->fecha_nacimiento = $fecha;
             
             $user->serial_marco = array_get($input, 'serial_marco');

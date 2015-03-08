@@ -40,7 +40,15 @@ class UsersController extends Controller
     {
         $repo = App::make('UserRepository');
         $user = $repo->signup(Input::all());
+////////////////
         
+        $validator = Validator::make(Input::all(), array('email' => 'required|max:2'));
+$messages = $validator->messages();
+        if ($validator->fails())
+        {
+            return Redirect::to('users/create')->withErrors($validator);
+        }
+        ////////////////7
         if (Input::all()['tipo'] == 'user') {
             $role = Role::where('name','=','users')->first();
             $user->roles()->attach($role->id);

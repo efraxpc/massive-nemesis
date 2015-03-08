@@ -23,19 +23,27 @@
                                 <div class="form-group">
                                     <label for="username">{{{ Lang::get('confide::confide.username') }}}</label>
                                     <input class="form-control" placeholder="{{{ Lang::get('confide::confide.username') }}}" type="text" name="username" id="username" value="{{{ Input::old('username') }}}">
+                                    @if ($errors->has('username')) 
+                                    <div class="alert alert-danger">{{ $errors->first('username')  }}</div> @endif
                                 </div>
                                 @endif
                                 <div class="form-group">
                                     <label for="email">{{{ Lang::get('confide::confide.e_mail') }}} <small>{{ Lang::get('confide::confide.signup.confirmation_required') }}</small></label>
                                     <input class="form-control" placeholder="{{{ Lang::get('confide::confide.e_mail') }}}" type="text" name="email" id="email" value="{{{ Input::old('email') }}}">
+                                    @if ($errors->has('email')) 
+                                    <div class="alert alert-danger">{{ $errors->first('email')  }}</div> @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="password">{{{ Lang::get('confide::confide.password') }}}</label>
                                     <input class="form-control" placeholder="{{{ Lang::get('confide::confide.password') }}}" type="password" name="password" id="password">
+                                    @if ($errors->has('password')) 
+                                    <div class="alert alert-danger">{{ $errors->first('password')  }}</div> @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="password_confirmation">{{{ Lang::get('confide::confide.password_confirmation') }}}</label>
                                     <input class="form-control" placeholder="{{{ Lang::get('confide::confide.password_confirmation') }}}" type="password" name="password_confirmation" id="password_confirmation">
+                                    @if ($errors->has('password_confirmation')) 
+                                    <div class="alert alert-danger">{{ $errors->first('password_confirmation')  }}</div> @endif
                                 </div>
 
                                 @if (Session::get('error'))
