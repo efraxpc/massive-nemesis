@@ -12,7 +12,7 @@
                         <br/>
                         <br/>
                         <div class="space-6"></div>
-                        <p> Ingresa tu información para empezfar: </p>
+                        <p> Ingresa tu información para empezar: </p>
                         <form method="POST" action="{{{ URL::to('users/pipo') }}}" accept-charset="UTF-8">
                             <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
                             <input type="hidden" name="tipo" value="user">

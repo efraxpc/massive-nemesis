@@ -38,25 +38,28 @@ class UsersController extends Controller
      */
     public function store()
     {
+        //////////////// ERRor Handling///////////
+        if (Input::all()['tipo'] == 'user') {
+            $errors =  array('email'=>'required','eps'=>'required','serial_marco'=>'required','fecha_nacimiento'=>'required','password'=>'confirmed','password'=>'required');
+            $validator = Validator::make(Input::all(), $errors);
+
+            if ($validator->fails())
+            {
+                return Redirect::to('users/create')->withErrors($validator);
+            }
+        }elseif(Input::all()['tipo'] == 'admin'){
+            $errors =  array('email'=>'required','password'=>'confirmed','password'=>'required');
+            $validator = Validator::make(Input::all(), $errors);
+            
+            if ($validator->fails())
+            {
+                return Redirect::to('users/crear/admin')->withErrors($validator);
+            }
+        }
+        /////////////////
         $repo = App::make('UserRepository');
         $user = $repo->signup(Input::all());
-////////////////
-        
-        $validator = Validator::make(Input::all(), array('email' => 'required|max:2'));
-$messages = $validator->messages();
-        if ($validator->fails())
-        {
-            return Redirect::to('users/create')->withErrors($validator);
-        }
-        ////////////////7
-        if (Input::all()['tipo'] == 'user') {
-            $role = Role::where('name','=','users')->first();
-            $user->roles()->attach($role->id);
-        }else{
-            $role = Role::where('name','=','admin')->first();
-            $user->roles()->attach($role->id);
-        }
-        
+
         if ($user->id) {
             if (Config::get('confide::signup_email')) {
                 Mail::queueOn(
@@ -70,10 +73,20 @@ $messages = $validator->messages();
                     }
                 );
             }
-
-            return View::make('backend.user.login');
-        } else {
-            return View::make('backend.user.login');
+            if (Input::all()['tipo'] == 'user') {
+                $role = Role::where('name','=','users')->first();
+                $user->roles()->attach($role->id); 
+            }elseif(Input::all()['tipo'] == 'admin'){
+                $role = Role::where('name','=','admin')->first();
+                $user->roles()->attach($role->id);
+            }
+            return Redirect::action('UsersController@login')
+                ->with('notice', Lang::get('confide::confide.alerts.account_created'));
+        } else {      
+            $error = $user->errors()->all(':message');
+            return Redirect::action('UsersController@create')
+                ->withInput(Input::except('password'))
+                ->with('error', $error);
         }
     }
 
