@@ -92,7 +92,6 @@ class UsersController extends Controller
 
     /**
      * Displays the login form
-     *
      * @return  Illuminate\Http\Response
      */
         public function login()
@@ -107,7 +106,6 @@ class UsersController extends Controller
 
     /**
      * Attempt to do login
-     *
      * @return  Illuminate\Http\Response
      */
     public function doLogin()
@@ -116,7 +114,11 @@ class UsersController extends Controller
         $input = Input::all();
 
         if ($repo->login($input)) {
-            return Redirect::intended('/');
+            if(Entrust::hasRole('admin')) {
+                return Redirect::intended('users/profile');
+            }else{
+                return Redirect::intended('user/profiles');
+            }
         } else {
             if ($repo->isThrottled($input)) {
                 $err_msg = Lang::get('confide::confide.alerts.too_many_attempts');
@@ -133,10 +135,17 @@ class UsersController extends Controller
     }
 
     /**
+     * PostLogin action
+     * @return  Illuminate\Http\Response
+     */
+        public function postLogin()
+    {
+        return View::make('backend.admin.home_admin');
+    }
+
+    /**
      * Attempt to confirm account with code
-     *
      * @param  string $code
-     *
      * @return  Illuminate\Http\Response
      */
     public function confirm($code)

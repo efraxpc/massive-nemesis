@@ -29,6 +29,34 @@ Route::post('users/resetear_password', 'UsersController@doResetPassword');
 Route::get('users/logout', 'UsersController@logout');
 
 Route::get('users/crear/admin', 'UsersController@createAdmin');
+Route::get('users/profile', 'UsersController@postLogin');
+Route::when('users/profile*', 'owner_role');
+
+Route::filter('owner_role', function()
+{
+    if (! Entrust::hasRole('admin') ) // Checks the current user
+    {
+        App::abort(403);
+    }
+});
+
+App::error(function($exception, $code)
+{
+    switch ($code)
+    {
+        case 403:
+            return Response::view('backend.errors.home_403', array(), 403);
+
+        case 404:
+            return Response::view('backend.errors.home_403', array(), 404);
+
+        case 500:
+            return Response::view('errors.500', array(), 500);
+
+        default:
+            return Response::view('errors.default', array(), $code);
+    }
+});
 
 Route::get('/teste_role',function(){
 	$user = Auth::user();//obtenemos el usuario logueado

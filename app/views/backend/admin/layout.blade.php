@@ -1,4 +1,4 @@
-@extends('Backend/base')
+@extends('backend/base')
 @section('header')
 <header class="header black-bg">
     <div class="sidebar-toggle-box">
