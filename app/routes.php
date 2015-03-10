@@ -19,8 +19,8 @@ Route::get('/', function()
 // Confide routes
 Route::get('users/create',  array('as' => 'create_user', 	'uses' =>	'UsersController@create'));
 Route::post('users/pipo', 'UsersController@store');
-Route::get('users/login', 'UsersController@login');
-Route::post('users/login', 'UsersController@doLogin');
+Route::get('usuarios', 'UsersController@login');
+Route::post('usuarios', 'UsersController@doLogin');
 Route::get('users/confirm/{code}', 'UsersController@confirm');
 Route::get('users/forgot_password', 'UsersController@forgotPassword');
 Route::post('users/forgot_password', 'UsersController@doForgotPassword');
@@ -29,14 +29,14 @@ Route::post('users/resetear_password', 'UsersController@doResetPassword');
 Route::get('users/logout', 'UsersController@logout');
 
 Route::get('users/crear/admin', 'UsersController@createAdmin');
-Route::get('users/profile', 'UsersController@postLogin');
+Route::post('users/profile', 'UsersController@postLogin');
+// Route::when('users/profile', 'user_role');
+
 Route::get('users/profile/admin', 'UsersController@postLogin');
 
-// Route::when('users/profile*', 'owner_role');
-
-// Route::filter('owner_role', function()
+// Route::filter('user_role', function()
 // {
-//     if (! Entrust::hasRole('admin') ) // Checks the current user
+//     if (! Entrust::hasRole('user') ) // Checks the current user
 //     {
 //         App::abort(403);
 //     }
