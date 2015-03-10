@@ -115,9 +115,9 @@ class UsersController extends Controller
 
         if ($repo->login($input)) {
             if(Entrust::hasRole('admin')) {
-                return Redirect::intended('users/profile');
+                return Redirect::intended('users/profile/admin');
             }else{
-                return Redirect::intended('user/profiles');
+                return Redirect::intended('users/profile');
             }
         } else {
             if ($repo->isThrottled($input)) {
@@ -140,7 +140,11 @@ class UsersController extends Controller
      */
         public function postLogin()
     {
-        return View::make('backend.admin.home_admin');
+        if(Entrust::hasRole('admin')) {
+            return View::make('backend.admin.home_admin');
+        }else{
+            return View::make('backend.admin.home_user');
+        }
     }
 
     /**

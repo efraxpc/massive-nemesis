@@ -30,15 +30,17 @@ Route::get('users/logout', 'UsersController@logout');
 
 Route::get('users/crear/admin', 'UsersController@createAdmin');
 Route::get('users/profile', 'UsersController@postLogin');
-Route::when('users/profile*', 'owner_role');
+Route::get('users/profile/admin', 'UsersController@postLogin');
 
-Route::filter('owner_role', function()
-{
-    if (! Entrust::hasRole('admin') ) // Checks the current user
-    {
-        App::abort(403);
-    }
-});
+// Route::when('users/profile*', 'owner_role');
+
+// Route::filter('owner_role', function()
+// {
+//     if (! Entrust::hasRole('admin') ) // Checks the current user
+//     {
+//         App::abort(403);
+//     }
+// });
 
 App::error(function($exception, $code)
 {
