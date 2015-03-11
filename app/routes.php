@@ -30,17 +30,10 @@ Route::get('users/logout', 'UsersController@logout');
 
 Route::get('users/crear/admin', 'UsersController@createAdmin');
 Route::post('users/profile', 'UsersController@postLogin');
-// Route::when('users/profile', 'user_role');
 
 Route::get('users/profile/admin', 'UsersController@postLogin');
 
-// Route::filter('user_role', function()
-// {
-//     if (! Entrust::hasRole('user') ) // Checks the current user
-//     {
-//         App::abort(403);
-//     }
-// });
+
 
 App::error(function($exception, $code)
 {
@@ -50,7 +43,7 @@ App::error(function($exception, $code)
             return Response::view('backend.errors.home_403', array(), 403);
 
         case 404:
-            return Response::view('backend.errors.home_403', array(), 404);
+            return Response::view('backend.errors.home_404', array(), 404);
 
         case 500:
             return Response::view('errors.500', array(), 500);
