@@ -17,23 +17,25 @@ Route::get('/', function()
 });
 //
 // Confide routes
-Route::get('users/create',  array('as' => 'create_user', 	'uses' =>	'UsersController@create'));
-Route::post('users/pipo', 'UsersController@store');
+
+
+Route::get('profile/{id}', 'UsersController@update');
 Route::get('usuarios', 'UsersController@login');
 Route::post('usuarios', 'UsersController@doLogin');
-Route::get('users/confirm/{code}', 'UsersController@confirm');
-Route::get('users/forgot_password', 'UsersController@forgotPassword');
-Route::post('users/forgot_password', 'UsersController@doForgotPassword');
-Route::get('users/reset_password/{token}', 'UsersController@resetPassword');
-Route::post('users/resetear_password', 'UsersController@doResetPassword');
-Route::get('users/logout', 'UsersController@logout');
 
-Route::get('users/crear/admin', 'UsersController@createAdmin');
-Route::post('users/profile', 'UsersController@postLogin');
-
-Route::get('users/profile/admin', 'UsersController@postLogin');
-
-
+Route::group(array('prefix' => 'users'), function()
+{
+	Route::get('create',  array('as' => 'create_user', 	'uses' =>	'UsersController@create'));
+	Route::post('pipo', 'UsersController@store');
+	Route::get('confirm/{code}', 'UsersController@confirm');
+	Route::get('forgot_password', 'UsersController@forgotPassword');
+	Route::post('forgot_password', 'UsersController@doForgotPassword');
+	Route::get('reset_password/{token}', 'UsersController@resetPassword');
+	Route::post('resetear_password', 'UsersController@doResetPassword');
+	Route::get('logout', 'UsersController@logout');
+	Route::get('crear/admin', 'UsersController@createAdmin');
+	Route::get('profile/admin', 'UsersController@postLogin');
+});
 
 App::error(function($exception, $code)
 {
@@ -46,7 +48,7 @@ App::error(function($exception, $code)
             return Response::view('backend.errors.home_404', array(), 404);
 
         case 500:
-            return Response::view('errors.500', array(), 500);
+            return Response::view('backend.errors.home_500', array(), 500);
 
         default:
             return Response::view('errors.default', array(), $code);
