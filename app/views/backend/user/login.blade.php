@@ -2,7 +2,7 @@
 @section('content')
     <div id="login-page">
         <div class="container">
-            <form role="form" method="POST" action="{{{ URL::to('/usuarios') }}}" accept-charset="UTF-8">
+            <form role="form" method="POST" action="{{{ URL::to('/usuario') }}}" accept-charset="UTF-8">
             <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
                 <h2 class="form-login-heading">sign in now</h2>
                 <div class="login-wrap">
@@ -17,7 +17,7 @@
                 </label>
                 <input class="form-control" tabindex="2" placeholder="{{{ Lang::get('confide::confide.password') }}}" type="password" name="password" id="password">
                 <p class="help-block">
-                    <a href="{{{ URL::to('/users/forgot_password') }}}">{{{ Lang::get('confide::confide.login.forgot_password') }}}</a>
+                    <a href="{{{ URL::to('/usuario/forgot_password') }}}">{{{ Lang::get('confide::confide.login.forgot_password') }}}</a>
                 </p>
                 </div>
                 <div class="checkbox">

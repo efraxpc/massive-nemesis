@@ -45,7 +45,7 @@ class UsersController extends Controller
 
             if ($validator->fails())
             {
-                return Redirect::to('users/create')->withErrors($validator);
+                return Redirect::to('usuario/create')->withErrors($validator);
             }
         }elseif(Input::all()['tipo'] == 'admin'){
             $errors =  array('email'=>'required','password'=>'confirmed','password'=>'required');
@@ -53,7 +53,7 @@ class UsersController extends Controller
             
             if ($validator->fails())
             {
-                return Redirect::to('users/crear/admin')->withErrors($validator);
+                return Redirect::to('usuario/crear/admin')->withErrors($validator);
             }
         }
         /////////////////
@@ -154,9 +154,6 @@ class UsersController extends Controller
      */
     public function doLogin()
     {
-        $users  = UserInfo::all();
-        dd($users);
-        exit;
         $repo = App::make('UserRepository');
         $input = Input::all();
 

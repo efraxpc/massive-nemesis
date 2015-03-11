@@ -13,18 +13,17 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('backend.user.login');
 });
-//
+
 // Confide routes
-
-
 Route::get('profile/{id}', 'UsersController@update');
-Route::get('usuarios', 'UsersController@login');
-Route::post('usuarios', 'UsersController@doLogin');
 
-Route::group(array('prefix' => 'users'), function()
+
+Route::group(array('prefix' => 'usuario'), function()
 {
+	Route::get('/', 'UsersController@login');
+	Route::post('/', 'UsersController@doLogin');
 	Route::get('create',  array('as' => 'create_user', 	'uses' =>	'UsersController@create'));
 	Route::post('pipo', 'UsersController@store');
 	Route::get('confirm/{code}', 'UsersController@confirm');
