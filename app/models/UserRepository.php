@@ -35,18 +35,14 @@ class UserRepository
             
             $user->serial_marco = array_get($input, 'serial_marco');
         }
-        
         // The password confirmation will be removed from model
         // before saving. This field will be used in Ardent's
         // auto validation.
         $user->password_confirmation = array_get($input, 'password_confirmation');
-
         // Generate a random confirmation code
         $user->confirmation_code     = md5(uniqid(mt_rand(), true));
-
         // Save if valid. Password field will be hashed before save
         $this->save($user);
-
         return $user;
     }
 

@@ -17,14 +17,12 @@ Route::get('/', function()
 });
 
 // Confide routes
-Route::get('profile/{id}', 'UsersController@update');
-
-
 Route::group(array('prefix' => 'usuario'), function()
 {
-	Route::get('/', 'UsersController@login');
+	Route::get('/',  array('as' => 'login','uses' =>'UsersController@login'));
 	Route::post('/', 'UsersController@doLogin');
 	Route::get('create',  array('as' => 'create_user', 	'uses' =>	'UsersController@create'));
+	Route::get('editar/{id}', 'UsersController@edit');
 	Route::post('pipo', 'UsersController@store');
 	Route::get('confirm/{code}', 'UsersController@confirm');
 	Route::get('forgot_password', 'UsersController@forgotPassword');

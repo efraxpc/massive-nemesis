@@ -89,51 +89,20 @@ class UsersController extends Controller
                 ->with('error', $error);
         }
     }
-    //método para actualizar un post, si se hace una petición post se ejecuta el
-    //formulario, en otro caso se muestra la vista normal
-    public function update($id)
+    
+    public function edit($id)
     {
-
-        $post = Post::find($id);//obtenemos el post que queremos actualizar o mostrar
-        if(Input::get())
+        $user = User::find($id);
+        echo "<pre>";
+        echo $user;
+        exit();
+        if (is_null($user))
         {
-
-            //si existe el post a editar lo hacemos
-            if($post)
-            {
-
-                if($this->validateForms(Input::all()) === true)
-                {
-
-                     $post->title = Input::get("title");
-                     $post->content = Input::get("content");
-
-                     if($post->save())
-                     {
-
-                         return Redirect::to('crud/show')->with(array('mensaje' => 'El post se ha actualizado correctamente.'));
-
-                     }
-
-                }else{
-
-                    return Redirect::to("crud/update/$id")->withErrors($this->validateForms(Input::all()))->withInput();
-
-                }
-
-            }else{
-
-                return Redirect::to('crud/show')->with(array('mensaje' => 'El post no existe.'));
-                
-            }
-
-        }else{
-
-            return View::make("crud/update", array("post" => $post));
-            
+            return Redirect::route('login');
         }
-
+        return View::make('users.edit', compact('user'));
     }
+
     /**
      * Displays the login form
      * @return  Illuminate\Http\Response
