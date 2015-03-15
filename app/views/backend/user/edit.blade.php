@@ -33,7 +33,8 @@
                                     <label for="email">{{{ Lang::get('confide::confide.e_mail') }}} <small>{{ Lang::get('confide::confide.signup.confirmation_required') }}</small></label>
                                     <input class="form-control" placeholder="{{{ Lang::get('confide::confide.e_mail') }}}" type="text" name="email" id="email" value="{{$user->email}}">
                                     @if ($errors->has('email')) 
-                                    <div class="alert alert-danger">{{ $errors->first('email')  }}</div> @endif
+                                    <div class="alert alert-danger">{{ $errors->first('email')  }}</div> 
+                                    @endif
                                 </div>
                                 <div class="form-group">
                                     {{ Form::select('grupo_sanguineo_id', $tipo_de_sangre ,Input::old('grupo_sanguineo_id'),array('class'=>'form-control')) }}

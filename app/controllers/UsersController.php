@@ -56,6 +56,7 @@ class UsersController extends Controller
         /////////////////
         $repo = App::make('UserRepository');
         $user = $repo->signup(Input::all());
+
         if ($user->id) {
             if (Config::get('confide::signup_email')) {
                 Mail::queueOn(
@@ -91,26 +92,33 @@ class UsersController extends Controller
         //echo "<pre>";
         //dd(Input::all()['tipo']);die; 
         //////////////// ERRor Handling///////////
-        if (Input::all()['tipo'] === 'user') {
-            $errors =  array('email'=>'required','eps'=>'required','serial_marco'=>'required','fecha_nacimiento'=>'required');
-            $validator = Validator::make(Input::all(), $errors);
-            if ($validator->fails())
-            {
-                return Redirect::to('usuario/editar/25')->withErrors($validator);
-            }
-        }elseif(Input::all()['tipo'] === 'admin'){
-            $errors =  array('email'=>'required');
-            $validator = Validator::make(Input::all(), $errors);
-            
-            if ($validator->fails())
-            {
-                return Redirect::to('usuario/editar/25')->withErrors($validator);
-            }
+        $errors =  array('email'=>'required','eps'=>'required','serial_marco'=>'required','fecha_nacimiento'=>'required');
+        $validator = Validator::make(Input::all(), $errors);
+        if ($validator->fails())
+        {
+            return Redirect::to('usuario/editar/25')->withErrors($validator);
         }
-
         /////////////////
         $repo = App::make('UserRepository');
-        $user = $repo->signupEditar(Input::all());   
+        //$user = $repo->signupEditar(Input::all()); 
+        $id = Input::all()['id'];
+        $user = User::find($id); 
+        $user->email = Input::all()['email'];
+
+        $pieces = explode("/", Input::all()['fecha_nacimiento']);
+        $dia  = $pieces[0];
+        $mes  = $pieces[1];
+        $anio = $pieces[2]; 
+        $user->fecha_nacimiento = \Carbon\Carbon::createFromDate($anio,$mes,$dia)->toDateTimeString();
+        
+        //$user->grupo_sanguineo_id = array_get($input, 'grupo_sanguineo_id');
+        $user->eps = Input::all()['eps'];
+        $user->observaciones_generales = Input::all()['observaciones_generales'];
+        $user->facebook = Input::all()['facebook'];
+        $user->twitter = Input::all()['twitter'];
+        $user->serial_marco = Input::all()['serial_marco'];
+
+        $user->save();
 
         $error = $user->errors()->all(':message');
         return Redirect::action('UsersController@edit')

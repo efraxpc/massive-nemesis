@@ -54,7 +54,6 @@ class UserRepository
     {
         $id = array_get($input, 'id'); 
         $user = User::find($id);   
-        $user->email    = array_get($input, 'email');
         $user->password = array_get($input, 'password');
         $user->nombre_completo = array_get($input, 'nombre_completo');
         $user->active    = true;
@@ -80,9 +79,7 @@ class UserRepository
         $user->confirmation_code     = md5(uniqid(mt_rand(), true));
         // Save if valid. Password field will be hashed before save
         $this->save($user);
-        // echo "<pre>";
-        // dd($user);
-        // die;  
+
         return $user;
     }
 
