@@ -89,29 +89,26 @@ class UsersController extends Controller
 
        public function storeEdit()
     {     
-        //echo "<pre>";
-        //dd(Input::all()['tipo']);die; 
         //////////////// ERRor Handling///////////
-        $errors =  array('email'=>'required','eps'=>'required','serial_marco'=>'required','fecha_nacimiento'=>'required');
+        $errors =  array('email' => 'required|email|unique:users','eps'=>'required','serial_marco'=>'required','fecha_nacimiento'=>'required');
         $validator = Validator::make(Input::all(), $errors);
         if ($validator->fails())
         {
             return Redirect::to('usuario/editar/25')->withErrors($validator);
-        }
+        }      
         /////////////////
         $repo = App::make('UserRepository');
-        //$user = $repo->signupEditar(Input::all()); 
         $id = Input::all()['id'];
         $user = User::find($id); 
-        $user->email = Input::all()['email'];
-
+        $user->email = Input::all()['email'];  
         $pieces = explode("/", Input::all()['fecha_nacimiento']);
         $dia  = $pieces[0];
         $mes  = $pieces[1];
         $anio = $pieces[2]; 
         $user->fecha_nacimiento = \Carbon\Carbon::createFromDate($anio,$mes,$dia)->toDateTimeString();
-        
-        //$user->grupo_sanguineo_id = array_get($input, 'grupo_sanguineo_id');
+        // echo "<pre>";
+        // dd($user);die; 
+        $user->grupo_sanguineo_id = Input::all()['grupo_sanguineo_id'];
         $user->eps = Input::all()['eps'];
         $user->observaciones_generales = Input::all()['observaciones_generales'];
         $user->facebook = Input::all()['facebook'];
@@ -119,7 +116,8 @@ class UsersController extends Controller
         $user->serial_marco = Input::all()['serial_marco'];
 
         $user->save();
-
+        // echo "<pre>";
+        // echo("aqui llega 3");die; 
         $error = $user->errors()->all(':message');
         return Redirect::action('UsersController@edit')
             ->withInput(Input::except('password'))
