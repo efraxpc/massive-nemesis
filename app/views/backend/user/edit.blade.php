@@ -76,7 +76,7 @@
                                     <label for="fecha_nacimiento">{{{Lang::get('main.fecha_nacimiento')}}}</label>
                                     <input class="form-control" placeholder="{{{Lang::get('main.fecha_nacimiento')}}}" type="text" name="fecha_nacimiento" id="datepicker" value="{{ date("d/m/Y",strtotime($user->fecha_nacimiento)) }}">
                                     @if ($errors->has('fecha_nacimiento')) 
-                                    <div class="alert alert-danger">{{ $errors->first('fecha_nacimiento')  }}</div> @endif
+                                    <div class="alert alert-danger">{{$errors->first('fecha_nacimiento')}}</div> @endif
                                 </div>
                                 @if (Session::get('error'))
                                     <div class="alert alert-error alert-danger">
@@ -95,7 +95,6 @@
                                 </div>
                             </fieldset>
                         </form>
-
                     </div>
                 </div><!--/widget-body-->
             </div><!--/signup-box-->

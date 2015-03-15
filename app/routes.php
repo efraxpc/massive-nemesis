@@ -21,13 +21,15 @@ Route::group(array('prefix' => 'usuario'), function()
 {
 	Route::get('/',  array('as' => 'login','uses' =>'UsersController@login'));
 	Route::post('/', 'UsersController@doLogin');
+
 	Route::get('create',  array('as' => 'create_user', 	'uses' =>	'UsersController@create'));
-	Route::get('editar/{id}', 'UsersController@edit');
-	Route::post('editar/usuario',  array('as' => 'users.update', 'uses' =>	'UsersController@update'));
+
+	Route::get('editar/{id}',  array('as' => 'edit_user','uses' =>	'UsersController@edit'));
 	Route::post('pipo', 'UsersController@store');
-	Route::post('pipo2', 'UsersController@storeEdit');
+	Route::post('pipo2',  array('uses' =>	'UsersController@storeEdit'));
+	
 	Route::get('confirm/{code}', 'UsersController@confirm');
-	Route::get('forgot_password', 'UsersController@forgotPassword');
+	Route::get('forgot_password', 'UsersControllerforgotPassword');
 	Route::post('forgot_password', 'UsersController@doForgotPassword');
 	Route::get('reset_password/{token}', 'UsersController@resetPassword');
 	Route::post('resetear_password', 'UsersController@doResetPassword');

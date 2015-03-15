@@ -89,16 +89,16 @@ class UsersController extends Controller
 
        public function storeEdit()
     {     
+        $id = Input::all()['id'];
         //////////////// ERRor Handling///////////
         $errors =  array('email' => 'required|email|','eps'=>'required','serial_marco'=>'required','fecha_nacimiento'=>'required');
         $validator = Validator::make(Input::all(), $errors);
         if ($validator->fails())
         {
-            return Redirect::to('usuario/editar/25')->withErrors($validator);
+            return Redirect::route('edit_user', array('id' => $id))->withErrors($validator);
         }      
         /////////////////
         $repo = App::make('UserRepository');
-        $id = Input::all()['id'];
         $user = User::find($id); 
         $user->email = Input::all()['email'];  
         $pieces = explode("/", Input::all()['fecha_nacimiento']);
@@ -106,8 +106,6 @@ class UsersController extends Controller
         $mes  = $pieces[1];
         $anio = $pieces[2]; 
         $user->fecha_nacimiento = \Carbon\Carbon::createFromDate($anio,$mes,$dia)->toDateTimeString();
-        // echo "<pre>";
-        // dd($user);die; 
         $user->grupo_sanguineo_id = Input::all()['grupo_sanguineo_id'];
         $user->eps = Input::all()['eps'];
         $user->observaciones_generales = Input::all()['observaciones_generales'];
@@ -116,8 +114,6 @@ class UsersController extends Controller
         $user->serial_marco = Input::all()['serial_marco'];
 
         $user->save();
-        // echo "<pre>";
-        // echo("aqui llega 3");die; 
         $error = $user->errors()->all(':message');
         return Redirect::action('UsersController@edit')
             ->withInput(Input::except('password'))
@@ -135,21 +131,6 @@ class UsersController extends Controller
         $array = array('tipo_de_sangre' => $tipo_de_sangre,
                       'user'           => $user);
         return View::make('backend.user.edit', $array);
-    }
-
-    public function update($id)
-    {
-    //     $input = Input::all();
-    //     $validation = Validator::make($input, User::$rules);
-    //     if ($validation->passes()){
-    //         $user = User::find($id);
-    //         $user->update($input);
-    //         return Redirect::route('users.show', $id);
-    //     }
-    //     return Redirect::route('users.edit', $id)
-    //         ->withInput()
-    //         ->withErrors($validation)
-    //         ->with('message', 'There were validation errors.');
     }
 
     /**
