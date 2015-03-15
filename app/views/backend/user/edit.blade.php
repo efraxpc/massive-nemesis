@@ -78,19 +78,6 @@
                                     @if ($errors->has('fecha_nacimiento')) 
                                     <div class="alert alert-danger">{{ $errors->first('fecha_nacimiento')  }}</div> @endif
                                 </div>
-                                <div class="form-group">
-                                    <label for="password">{{{ Lang::get('confide::confide.password') }}}</label>
-                                    <input class="form-control" placeholder="{{{ Lang::get('confide::confide.password') }}}" type="password" name="password" id="password">
-                                    @if ($errors->has('password')) 
-                                    <div class="alert alert-danger">{{ $errors->first('password')  }}</div> @endif
-                                </div>
-                                <div class="form-group">
-                                    <label for="password_confirmation">{{{ Lang::get('confide::confide.password_confirmation') }}}</label>
-                                    <input class="form-control" placeholder="{{{ Lang::get('confide::confide.password_confirmation') }}}" type="password" name="password_confirmation" id="password_confirmation">
-                                    @if ($errors->has('password_confirmation')) 
-                                    <div class="alert alert-danger">{{ $errors->first('password_confirmation')  }}</div> @endif
-                                </div>
-
                                 @if (Session::get('error'))
                                     <div class="alert alert-error alert-danger">
                                         @if (is_array(Session::get('error')))
