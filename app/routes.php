@@ -25,6 +25,7 @@ Route::group(array('prefix' => 'usuario'), function()
 	Route::get('editar/{id}', 'UsersController@edit');
 	Route::post('editar/usuario',  array('as' => 'users.update', 'uses' =>	'UsersController@update'));
 	Route::post('pipo', 'UsersController@store');
+	Route::post('pipo2', 'UsersController@storeEdit');
 	Route::get('confirm/{code}', 'UsersController@confirm');
 	Route::get('forgot_password', 'UsersController@forgotPassword');
 	Route::post('forgot_password', 'UsersController@doForgotPassword');

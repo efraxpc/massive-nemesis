@@ -50,6 +50,43 @@ class UserRepository
         return $user;
     }
 
+    public function signupEditar($input)
+    {
+        $id = array_get($input, 'id'); 
+        $user = User::find($id);   
+        $user->email    = array_get($input, 'email');
+        $user->password = array_get($input, 'password');
+        $user->nombre_completo = array_get($input, 'nombre_completo');
+        $user->active    = true;
+        if ($input['tipo'] == 'user') {
+            $user->grupo_sanguineo_id = array_get($input, 'grupo_sanguineo_id');
+            $user->eps = array_get($input, 'eps');
+            $user->observaciones_generales = array_get($input, 'observaciones_generales');
+            $user->facebook = array_get($input, 'facebook');
+            $user->twitter = array_get($input, 'twitter');
+            
+            $date = strtotime(array_get($input, 'fecha_nacimiento'));
+            $fecha = date('Y/m/d H:i:s', $date);
+            $user->fecha_nacimiento = $fecha;
+            
+            $user->serial_marco = array_get($input, 'serial_marco');
+        }
+        
+        // The password confirmation will be removed from model
+        // before saving. This field will be used in Ardent's
+        // auto validation.
+        $user->password_confirmation = array_get($input, 'password_confirmation');
+        // Generate a random confirmation code
+        $user->confirmation_code     = md5(uniqid(mt_rand(), true));
+        // Save if valid. Password field will be hashed before save
+        $this->save($user);
+        // echo "<pre>";
+        // dd($user);
+        // die;  
+        return $user;
+    }
+
+
     /**
      * Attempts to login with the given credentials.
      *

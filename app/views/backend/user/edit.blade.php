@@ -13,10 +13,11 @@
                         <br/>
                         <div class="space-6"></div>
                         <p> Ingresa tu información para empezar: </p>
-                        <form method="POST" action="{{{ URL::to('usuario/pipo') }}}" accept-charset="UTF-8">
+                        <form method="POST" action="{{{ URL::to('usuario/pipo2') }}}" accept-charset="UTF-8">
                             <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
                             <input type="hidden" name="tipo" value="user">
                             <input type="hidden" name="editar" value="true">
+                            <input type="hidden" name="id" value="{{$user->id}}">
                             <fieldset>
                                 @if (Cache::remember('username_in_confide', 5, function() {
                                     return Schema::hasColumn(Config::get('auth.table'), 'username');

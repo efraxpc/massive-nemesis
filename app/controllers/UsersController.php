@@ -50,7 +50,7 @@ class UsersController extends Controller
             
             if ($validator->fails())
             {
-                return Redirect::to('usuario/crear/admin')->withErrors($validator);
+                return Redirect::to('usuario/create')->withErrors($validator);
             }
         }
         /////////////////
@@ -84,6 +84,38 @@ class UsersController extends Controller
                 ->withInput(Input::except('password'))
                 ->with('error', $error);
         }
+    }
+
+       public function storeEdit()
+    {     
+        //echo "<pre>";
+        //dd(Input::all()['tipo']);die; 
+        //////////////// ERRor Handling///////////
+        if (Input::all()['tipo'] === 'user') {
+            $errors =  array('email'=>'required','eps'=>'required','serial_marco'=>'required','fecha_nacimiento'=>'required');
+            $validator = Validator::make(Input::all(), $errors);
+            if ($validator->fails())
+            {
+                return Redirect::to('usuario/editar/25')->withErrors($validator);
+            }
+        }elseif(Input::all()['tipo'] === 'admin'){
+            $errors =  array('email'=>'required');
+            $validator = Validator::make(Input::all(), $errors);
+            
+            if ($validator->fails())
+            {
+                return Redirect::to('usuario/editar/25')->withErrors($validator);
+            }
+        }
+
+        /////////////////
+        $repo = App::make('UserRepository');
+        $user = $repo->signupEditar(Input::all());   
+
+        $error = $user->errors()->all(':message');
+        return Redirect::action('UsersController@edit')
+            ->withInput(Input::except('password'))
+            ->with('error', $error);
     }
     
     public function edit($id)
