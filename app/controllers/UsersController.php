@@ -90,7 +90,7 @@ class UsersController extends Controller
        public function storeEdit()
     {     
         //////////////// ERRor Handling///////////
-        $errors =  array('email' => 'required|email|unique:users','eps'=>'required','serial_marco'=>'required','fecha_nacimiento'=>'required');
+        $errors =  array('email' => 'required|email|','eps'=>'required','serial_marco'=>'required','fecha_nacimiento'=>'required');
         $validator = Validator::make(Input::all(), $errors);
         if ($validator->fails())
         {

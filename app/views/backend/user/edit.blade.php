@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="fecha_nacimiento">{{{Lang::get('main.fecha_nacimiento')}}}</label>
-                                    <input class="form-control" placeholder="{{{Lang::get('main.fecha_nacimiento')}}}" type="text" name="fecha_nacimiento" id="datepicker" value="{{$user->fecha_nacimiento}}">
+                                    <input class="form-control" placeholder="{{{Lang::get('main.fecha_nacimiento')}}}" type="text" name="fecha_nacimiento" id="datepicker" value="{{ date("d/m/Y",strtotime($user->fecha_nacimiento)) }}">
                                     @if ($errors->has('fecha_nacimiento')) 
                                     <div class="alert alert-danger">{{ $errors->first('fecha_nacimiento')  }}</div> @endif
                                 </div>
