@@ -23,6 +23,7 @@ Route::group(array('prefix' => 'usuario'), function()
 	Route::post('/', 'UsersController@doLogin');
 	Route::get('create',  array('as' => 'create_user', 	'uses' =>	'UsersController@create'));
 	Route::get('editar/{id}', 'UsersController@edit');
+	Route::post('editar/usuario',  array('as' => 'users.update', 'uses' =>	'UsersController@update'));
 	Route::post('pipo', 'UsersController@store');
 	Route::get('confirm/{code}', 'UsersController@confirm');
 	Route::get('forgot_password', 'UsersController@forgotPassword');
@@ -34,23 +35,23 @@ Route::group(array('prefix' => 'usuario'), function()
 	Route::get('profile/admin', 'UsersController@postLogin');
 });
 
-App::error(function($exception, $code)
-{
-    switch ($code)
-    {
-        case 403:
-            return Response::view('backend.errors.home_403', array(), 403);
+// App::error(function($exception, $code)
+// {
+//     switch ($code)
+//     {
+//         case 403:
+//             return Response::view('backend.errors.home_403', array(), 403);
 
-        case 404:
-            return Response::view('backend.errors.home_404', array(), 404);
+//         case 404:
+//             return Response::view('backend.errors.home_404', array(), 404);
 
-        case 500:
-            return Response::view('backend.errors.home_500', array(), 500);
+//         case 500:
+//             return Response::view('backend.errors.home_500', array(), 500);
 
-        default:
-            return Response::view('errors.default', array(), $code);
-    }
-});
+//         default:
+//             return Response::view('errors.default', array(), $code);
+//     }
+// });
 
 Route::get('/teste_role',function(){
 	$user = Auth::user();//obtenemos el usuario logueado

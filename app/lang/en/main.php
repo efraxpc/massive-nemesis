@@ -25,6 +25,7 @@ return array(
     'observaciones_generales'        => 'Observaciones Generales',
     'eps'                            => 'Eps',
     'grupo_sanguineo'                => 'Grupo Sanguineo',
+    'nombre_completo'                => 'Nombre Completo',
 
     //Login Form
     'create_account_above_message'   => '¿Aún no tiene una cuenta?',

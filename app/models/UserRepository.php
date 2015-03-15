@@ -15,19 +15,22 @@ class UserRepository
      *
      * @return  User User object that may or may not be saved successfully. Check the id to make sure.
      */
-    public function signup($input)
+   public function signup($input)
     {
+        // echo "<pre>";
+        // dd($input);
+        // die;
         $user = new User;
         $user->email    = array_get($input, 'email');
         $user->password = array_get($input, 'password');
-
+        $user->nombre_completo = array_get($input, 'nombre_completo');
+        $user->active    = true;
         if ($input['tipo'] == 'user') {
             $user->grupo_sanguineo_id = array_get($input, 'grupo_sanguineo_id');
             $user->eps = array_get($input, 'eps');
             $user->observaciones_generales = array_get($input, 'observaciones_generales');
             $user->facebook = array_get($input, 'facebook');
             $user->twitter = array_get($input, 'twitter');
-
             
             $date = strtotime(array_get($input, 'fecha_nacimiento'));
             $fecha = date('Y/m/d H:i:s', $date);
@@ -35,6 +38,7 @@ class UserRepository
             
             $user->serial_marco = array_get($input, 'serial_marco');
         }
+        
         // The password confirmation will be removed from model
         // before saving. This field will be used in Ardent's
         // auto validation.

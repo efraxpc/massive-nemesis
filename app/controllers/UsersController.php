@@ -1,7 +1,5 @@
 <?php
 
-
-
 /**
  * UsersController Class
  *
@@ -42,7 +40,6 @@ class UsersController extends Controller
         if (Input::all()['tipo'] == 'user') {
             $errors =  array('email'=>'required','eps'=>'required','serial_marco'=>'required','fecha_nacimiento'=>'required','password'=>'confirmed','password'=>'required');
             $validator = Validator::make(Input::all(), $errors);
-
             if ($validator->fails())
             {
                 return Redirect::to('usuario/create')->withErrors($validator);
@@ -59,7 +56,6 @@ class UsersController extends Controller
         /////////////////
         $repo = App::make('UserRepository');
         $user = $repo->signup(Input::all());
-
         if ($user->id) {
             if (Config::get('confide::signup_email')) {
                 Mail::queueOn(
@@ -93,14 +89,29 @@ class UsersController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        echo "<pre>";
-        echo $user;
-        exit();
         if (is_null($user))
         {
             return Redirect::route('login');
         }
-        return View::make('users.edit', compact('user'));
+        $tipo_de_sangre = DB::table('tipo_de_sangre')->orderBy('nombre', 'asc')->lists('nombre','id');
+        $array = array('tipo_de_sangre' => $tipo_de_sangre,
+                      'user'           => $user);
+        return View::make('backend.user.edit', $array);
+    }
+
+    public function update($id)
+    {
+    //     $input = Input::all();
+    //     $validation = Validator::make($input, User::$rules);
+    //     if ($validation->passes()){
+    //         $user = User::find($id);
+    //         $user->update($input);
+    //         return Redirect::route('users.show', $id);
+    //     }
+    //     return Redirect::route('users.edit', $id)
+    //         ->withInput()
+    //         ->withErrors($validation)
+    //         ->with('message', 'There were validation errors.');
     }
 
     /**

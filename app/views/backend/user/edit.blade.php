@@ -16,7 +16,7 @@
                         <form method="POST" action="{{{ URL::to('usuario/pipo') }}}" accept-charset="UTF-8">
                             <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
                             <input type="hidden" name="tipo" value="user">
-                            <input type="hidden" name="editar" value="false">
+                            <input type="hidden" name="editar" value="true">
                             <fieldset>
                                 @if (Cache::remember('username_in_confide', 5, function() {
                                     return Schema::hasColumn(Config::get('auth.table'), 'username');
@@ -26,19 +26,13 @@
                                     <input class="form-control" placeholder="{{{ Lang::get('confide::confide.username') }}}" type="text" name="username" id="username" value="{{{ Input::old('username') }}}">
                                     @if ($errors->has('username')) 
                                     <div class="alert alert-danger">{{ $errors->first('username')  }}</div> @endif
-                                </div>z
+                                </div>
                                 @endif
                                 <div class="form-group">
                                     <label for="email">{{{ Lang::get('confide::confide.e_mail') }}} <small>{{ Lang::get('confide::confide.signup.confirmation_required') }}</small></label>
-                                    <input class="form-control" placeholder="{{{ Lang::get('confide::confide.e_mail') }}}" type="text" name="email" id="email" value="{{{ Input::old('email') }}}">
+                                    <input class="form-control" placeholder="{{{ Lang::get('confide::confide.e_mail') }}}" type="text" name="email" id="email" value="{{$user->email}}">
                                     @if ($errors->has('email')) 
                                     <div class="alert alert-danger">{{ $errors->first('email')  }}</div> @endif
-                                </div>
-                                <div class="form-group">
-                                    <label for="nombre_completo">{{{Lang::get('main.nombre_completo')}}}</label>
-                                    <input class="form-control" placeholder="{{{Lang::get('main.nombre_completo')}}}" type="text" name="nombre_completo" id="nombre_completo" value="{{{ Input::old('nombre_completo') }}}">
-                                    @if ($errors->has('nombre_completo')) 
-                                    <div class="alert alert-danger">{{ $errors->first('nombre_completo')  }}</div> @endif
                                 </div>
                                 <div class="form-group">
                                     {{ Form::select('grupo_sanguineo_id', $tipo_de_sangre ,Input::old('grupo_sanguineo_id'),array('class'=>'form-control')) }}
@@ -47,38 +41,38 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="eps">{{{Lang::get('main.eps')}}}</label>
-                                    <input class="form-control" placeholder="{{{Lang::get('main.eps')}}}" type="text" name="eps" id="eps" value="{{{ Input::old('eps') }}}">
+                                    <input class="form-control" placeholder="{{{Lang::get('main.eps')}}}" type="text" name="eps" id="eps" value="{{$user->eps}}">
                                     @if ($errors->has('eps')) 
                                     <div class="alert alert-danger">{{ $errors->first('eps')  }}</div> @endif
                                 </div>
                                 <div class="form-group">
                                     {{{Lang::get('main.observaciones_generales') }}}
                                     <br>  
-                                    {{ Form::textarea('observaciones_generales', null, ['class' => 'form-control', 'placeholder' => "Observaciones Generales"]) }}
+                                    {{ Form::textarea('observaciones_generales', $user->observaciones_generales, ['class' => 'form-control', 'placeholder' => "Observaciones Generales"]) }}
                                     @if ($errors->has('observaciones_generales')) 
                                     <div class="alert alert-danger">{{ $errors->first('observaciones_generales')  }}</div> @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="serial_marco">{{{Lang::get('main.serial_marco')}}}</label>
-                                    <input class="form-control" placeholder="{{{Lang::get('main.serial_marco')}}}" type="text" name="serial_marco" id="serial_marco" value="{{{ Input::old('serial_marco') }}}">
+                                    <input class="form-control" placeholder="{{{Lang::get('main.serial_marco')}}}" type="text" name="serial_marco" id="serial_marco" value="{{$user->serial_marco}}">
                                     @if ($errors->has('serial_marco')) 
                                     <div class="alert alert-danger">{{ $errors->first('serial_marco')  }}</div> @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="facebook">{{{Lang::get('main.facebook')}}}</label>
-                                    <input class="form-control" placeholder="{{{Lang::get('main.facebook')}}}" type="text" name="facebook" id="facebook" value="{{{ Input::old('facebook') }}}">
+                                    <input class="form-control" placeholder="{{{Lang::get('main.facebook')}}}" type="text" name="facebook" id="facebook" value="{{$user->facebook}}">
                                     @if ($errors->has('facebook')) 
                                     <div class="alert alert-danger">{{ $errors->first('facebook')  }}</div> @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="twitter">{{{Lang::get('main.twitter')}}}</label>
-                                    <input class="form-control" placeholder="{{{Lang::get('main.twitter')}}}" type="text" name="twitter" id="twitter" value="{{{ Input::old('twitter') }}}">
+                                    <input class="form-control" placeholder="{{{Lang::get('main.twitter')}}}" type="text" name="twitter" id="twitter" value="{{$user->twitter}}">
                                     @if ($errors->has('twitter')) 
                                     <div class="alert alert-danger">{{ $errors->first('twitter')  }}</div> @endif
                                 </div>
                                 <div class="form-group">
                                     <label for="fecha_nacimiento">{{{Lang::get('main.fecha_nacimiento')}}}</label>
-                                    <input class="form-control" placeholder="{{{Lang::get('main.fecha_nacimiento')}}}" type="text" name="fecha_nacimiento" id="datepicker" value="{{{ Input::old('fecha_nacimiento') }}}">
+                                    <input class="form-control" placeholder="{{{Lang::get('main.fecha_nacimiento')}}}" type="text" name="fecha_nacimiento" id="datepicker" value="{{$user->fecha_nacimiento}}">
                                     @if ($errors->has('fecha_nacimiento')) 
                                     <div class="alert alert-danger">{{ $errors->first('fecha_nacimiento')  }}</div> @endif
                                 </div>
