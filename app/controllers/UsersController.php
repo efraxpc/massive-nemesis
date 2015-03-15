@@ -38,14 +38,14 @@ class UsersController extends Controller
     {
         //////////////// ERRor Handling///////////
         if (Input::all()['tipo'] == 'user') {
-            $errors =  array('email'=>'required','eps'=>'required','serial_marco'=>'required','fecha_nacimiento'=>'required','password'=>'confirmed','password'=>'required');
+            $errors =  array('email' => 'required|email|unique:users','eps'=>'required','serial_marco'=>'required','fecha_nacimiento'=>'required','password'=>'confirmed','password'=>'required');
             $validator = Validator::make(Input::all(), $errors);
             if ($validator->fails())
             {
                 return Redirect::to('usuario/create')->withErrors($validator);
             }
         }elseif(Input::all()['tipo'] == 'admin'){
-            $errors =  array('email'=>'required','password'=>'confirmed','password'=>'required');
+            $errors =  array('email' => 'required|email|unique:users','password'=>'confirmed','password'=>'required');
             $validator = Validator::make(Input::all(), $errors);
             
             if ($validator->fails())
