@@ -87,7 +87,7 @@ class UsersController extends Controller
         }
     }
 
-       public function storeEdit()
+    public function storeEdit()
     {     
         $id = Input::all()['id'];
         //////////////// ERRor Handling///////////
@@ -160,10 +160,13 @@ class UsersController extends Controller
             if(Entrust::hasRole('admin')) {
                 //return Redirect::intended('users/profile/admin');
                 return View::make('backend.admin.home_admin');
-                
             }else{
+                $id = Auth::id();
+                // echo "<pre>";
+                // dd($id);die;
+                $array = array('id'=>$id);
                 //return Redirect::intended('users/profile');
-                return View::make('backend.admin.home_user');
+                return View::make('backend.user.home_user')->with($array);
             }
         } else {
             if ($repo->isThrottled($input)) {

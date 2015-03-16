@@ -1,4 +1,4 @@
-@extends('backend/admin/layout')
+@extends('backend/user/layout_panel_user')
 @section('content')
 <!--main content start-->
 <section id="main-content">
@@ -27,4 +27,25 @@
             </div><! --/row -->
     </section>
 </section>
+@stop
+@section('sidebar')
+    <aside>
+        <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
+
+                <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                <h5 class="centered">Marcel Newman</h5>
+
+                <li class="mt">
+                    <a class="active" href="{{ URL::to('usuario/editar', array($id)) }}">
+                        <i class="fa fa-dashboard"></i>
+                        <span>{{{Lang::get('main.editar_datos_de_usuario')}}}</span>
+                    </a>
+                </li>
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!--sidebar end-->
 @stop

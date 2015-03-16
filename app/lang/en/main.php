@@ -31,5 +31,8 @@ return array(
     'create_account_above_message'   => '¿Aún no tiene una cuenta?',
     'create_an_ccount'               => 'Crear una cuenta',
 
+    //Control Panel
+    'editar_datos_de_usuario'        => 'Editar mis Datos',
+
 
 );
