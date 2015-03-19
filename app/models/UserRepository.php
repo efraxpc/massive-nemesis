@@ -25,6 +25,7 @@ class UserRepository
         $user->password = array_get($input, 'password');
         $user->nombre_completo = array_get($input, 'nombre_completo');
         $user->active    = true;
+        $user->qrcode    = uniqid();
         if ($input['tipo'] == 'user') {
             $user->grupo_sanguineo_id = array_get($input, 'grupo_sanguineo_id');
             $user->eps = array_get($input, 'eps');
