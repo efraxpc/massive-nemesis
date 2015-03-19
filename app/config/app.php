@@ -125,6 +125,7 @@ return array(
 		'Zizaco\Entrust\EntrustServiceProvider',
 		'Clockwork\Support\Laravel\ClockworkServiceProvider',
 		'Barryvdh\Debugbar\ServiceProvider',
+		'Dinesh\Barcode\BarcodeServiceProvider'
 
 	),
 

@@ -114,10 +114,20 @@ class UsersController extends Controller
         $user->serial_marco = Input::all()['serial_marco'];
 
         $user->save();
+
         $error = $user->errors()->all(':message');
-        return Redirect::action('UsersController@edit')
-            ->withInput(Input::except('password'))
-            ->with('error', $error);
+
+        if (!is_null($error)) {
+            $id = Auth::id();
+            $array = array('id'=>$id);
+            return View::make('backend.user.home_user', $array);
+        }else{
+
+            return Redirect::action('UsersController@edit')
+                ->withInput(Input::except('password'))
+                ->with('error', $error);
+        }
+
     }
     
     public function edit($id)
@@ -162,8 +172,6 @@ class UsersController extends Controller
                 return View::make('backend.admin.home_admin');
             }else{
                 $id = Auth::id();
-                // echo "<pre>";
-                // dd($id);die;
                 $array = array('id'=>$id);
                 //return Redirect::intended('users/profile');
                 return View::make('backend.user.home_user')->with($array);
@@ -187,12 +195,12 @@ class UsersController extends Controller
      * PostLogin action
      * @return  Illuminate\Http\Response
      */
-        public function postLogin()
+    public function postLogin()
     {
         if(Entrust::hasRole('admin')) {
             return View::make('backend.admin.home_admin');
         }elseif(Entrust::hasRole('user')){
-            return Redirect::intended('backend.admin.home_user');
+            return Redirect::intended('backend.user.home_user');
         }
     }
 

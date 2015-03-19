@@ -16,6 +16,15 @@ Route::get('/', function()
 	return View::make('backend.user.login');
 });
 
+Route::get('/qr', function()
+{
+    //salvamos la imagen
+    //los parametros son, data, tipo, ancho, alto y un array con el color en formato rgb
+    DNS2D::getBarcodePngPath("unodepiera", "QRCODE", 7, 7, array(255,0,0));
+    echo "<img src='unodepiera.png' />";
+ 
+});
+
 // Confide routes
 Route::group(array('prefix' => 'usuario'), function()
 {
