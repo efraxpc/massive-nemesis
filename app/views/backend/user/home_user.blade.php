@@ -20,6 +20,18 @@
                 </div><!-- /col-lg-9 END SECTION MIDDLE -->
 
 <h2>home user</h2>
+<p>Generar Codigo Qr</p>
+
+<a class="active" href="{{ URL::to('usuario/generar_qr', array($user->qrcode)) }}">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Generar Codigo Qr</span>
+                    </a>
+                    <br>
+<h3>Codigo ya generado</h3>                    
+@if($user->qrcode)
+{{ HTML::image($user->qrcode.".png") }}
+@endif                    
+
 
                 <!-- **********************************************************************************************************************************************************
                 RIGHT SIDEBAR CONTENT

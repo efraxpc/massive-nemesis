@@ -173,8 +173,9 @@ class UsersController extends Controller
             }else{
                 $id = Auth::id();
                 $array = array('id'=>$id);
+                $user  = User::find($id);
                 //return Redirect::intended('users/profile');
-                return View::make('backend.user.home_user')->with($array);
+                return View::make('backend.user.home_user')->with($array)->withUser($user);
             }
         } else {
             if ($repo->isThrottled($input)) {
@@ -300,5 +301,34 @@ class UsersController extends Controller
         Confide::logout();
 
         return Redirect::to('/');
+    }
+
+    /**
+     * Mostrar
+     *
+     * @return  Illuminate\Http\Response
+     */
+    public function mostrar($qrcode)
+    {
+        $user = DB::table('users')->where('qrcode', $qrcode)->first();
+        $grupo_sanguineo_id = $user->grupo_sanguineo_id;
+        $grupo_sanguineo = TipoDeSangre::find($grupo_sanguineo_id);
+        $qrcode_full = $user->qrcode;
+        return View::make('backend.user.mostrar',['user' =>$user,'grupo_sanguineo'=>$grupo_sanguineo,'qrcode'=>$qrcode]);
+    }
+
+    /**
+     * Mostrar
+     *
+     * @return  Illuminate\Http\Response
+     */
+    public function generate_qr($qrcode)
+    {
+        $user = DB::table('users')->where('qrcode', $qrcode)->first();
+        $grupo_sanguineo_id = $user->grupo_sanguineo_id;
+        $grupo_sanguineo = TipoDeSangre::find($grupo_sanguineo_id);
+        $qrcode_full = $user->qrcode;
+        DNS2D::getBarcodePngPath($qrcode_full, "QRCODE", 7, 7, array(0,0,0));
+        return View::make('backend.user.mostrar',['user' =>$user,'grupo_sanguineo'=>$grupo_sanguineo,'qrcode'=>$qrcode]);
     }
 }

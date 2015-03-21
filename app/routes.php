@@ -15,23 +15,22 @@ Route::get('/', function()
 {
 	return View::make('backend.user.login');
 });
-
 Route::get('/qr', function()
 {
-    //salvamos la imagen
-    //los parametros son, data, tipo, ancho, alto y un array con el color en formato rgb
-    DNS2D::getBarcodePngPath("unodepiera", "QRCODE", 7, 7, array(255,0,0));
-    echo "<img src='unodepiera.png' />";
- 
+	DNS2D::getBarcodePngPath('$qrcode_full', "QRCODE", 7, 7, array(0,0,0));
 });
+
 
 // Confide routes
 Route::group(array('prefix' => 'usuario'), function()
 {
+	Route::get('/mostrar/{qrcode}',  array('as' => 'mostrar','uses' =>'UsersController@mostrar'));
+
 	Route::get('/',  array('as' => 'login','uses' =>'UsersController@login'));
 	Route::post('/', 'UsersController@doLogin');
 
 	Route::get('create',  array('as' => 'create_user', 	'uses' =>	'UsersController@create'));
+	Route::get('/generar_qr/{qrcode}',  array('as' => 'generar_qr','uses' =>'UsersController@generate_qr'));
 
 	Route::get('editar/{id}',  array('as' => 'edit_user','uses' =>	'UsersController@edit'));
 	Route::post('pipo', 'UsersController@store');
