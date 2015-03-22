@@ -336,6 +336,7 @@ class UsersController extends Controller
         QrCode::format('png');
         QrCode::size(300);
         QrCode::color(255,0,0);
+        QrCode::margin(1);
         QrCode::generate(URL::route('generar_qr',$user->qrcode),'../public/qrcodes/'.$qrcode);
         return View::make('backend.user.mostrar',['user' =>$user,'grupo_sanguineo'=>$grupo_sanguineo,'qrcode'=>$qrcode]);
     }

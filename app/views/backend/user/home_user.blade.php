@@ -27,9 +27,10 @@
                         <span>Generar Codigo Qr</span>
                     </a>
                     <br>
-<h3>Codigo ya generado</h3>                    
+                   
 @if($user->qrcode)
-{{ HTML::image($user->qrcode.".png") }}
+<h3>Codigo ya generado</h3> 
+{{ HTML::image('qrcodes/'.$user->qrcode) }}
 @endif                    
 
 
