@@ -125,7 +125,8 @@ return array(
 		'Zizaco\Entrust\EntrustServiceProvider',
 		'Clockwork\Support\Laravel\ClockworkServiceProvider',
 		'Barryvdh\Debugbar\ServiceProvider',
-		'Dinesh\Barcode\BarcodeServiceProvider'
+		'Dinesh\Barcode\BarcodeServiceProvider',
+		'SimpleSoftwareIO\QrCode\QrCodeServiceProvider',
 
 	),
 
@@ -196,6 +197,7 @@ return array(
 		'Confide'    => 'Zizaco\Confide\Facade',
 		'Debugbar' => 'Barryvdh\Debugbar\Facade',
 		'Entrust'    => 'Zizaco\Entrust\EntrustFacade',
+		'QrCode' => 'SimpleSoftwareIO\QrCode\Facades\QrCode',
 	),
 
 );

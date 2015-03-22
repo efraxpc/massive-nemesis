@@ -318,17 +318,25 @@ class UsersController extends Controller
     }
 
     /**
-     * Mostrar
+     * Generar
      *
      * @return  Illuminate\Http\Response
      */
     public function generate_qr($qrcode)
     {
         $user = DB::table('users')->where('qrcode', $qrcode)->first();
+        $nome=Request::root().'/'.$qrcode.'.png';
+        // echo "<pre>";
+        // dd();
+        // die;
+        $user = DB::table('users')->where('qrcode', $qrcode)->first();
         $grupo_sanguineo_id = $user->grupo_sanguineo_id;
         $grupo_sanguineo = TipoDeSangre::find($grupo_sanguineo_id);
         $qrcode_full = $user->qrcode;
-        DNS2D::getBarcodePngPath($qrcode_full, "QRCODE", 7, 7, array(0,0,0));
+        QrCode::format('png');
+        QrCode::size(300);
+        QrCode::color(255,0,0);
+        QrCode::generate(URL::route('generar_qr',$user->qrcode),'../public/qrcodes/'.$qrcode);
         return View::make('backend.user.mostrar',['user' =>$user,'grupo_sanguineo'=>$grupo_sanguineo,'qrcode'=>$qrcode]);
     }
 }

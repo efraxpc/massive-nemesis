@@ -18,7 +18,7 @@
     <tr>
         <td>
             <p>Código Qr</p>
-            <p>{{ HTML::image($qrcode.".png") }}</p>
+            <p>{{ HTML::image('qrcodes/'.$qrcode) }}</p>
         </td>
     </tr>
 </table>

@@ -10,7 +10,8 @@
 		"barryvdh/laravel-debugbar": "~1.8",
 		"doctrine/dbal": "v2.4.2",
 		"zizaco/entrust": "1.2.*@dev",
-		"dinesh/barcode": "dev-master"
+		"dinesh/barcode": "dev-master",
+		"simplesoftwareio/simple-qrcode": "1.2.*"
 	},
 	"autoload": {
 		"classmap": [
