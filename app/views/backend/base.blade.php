@@ -60,10 +60,7 @@
       <!--footer start-->
       <footer class="site-footer">
           <div class="text-center">
-              2014 - Alvarez.is
-              <a href="index.html#" class="go-top">
-                  <i class="fa fa-angle-up"></i>
-              </a>
+              {{{Lang::get('main.app_name_title_page') }}}
           </div>
       </footer>
       <!--footer end-->
@@ -136,8 +133,6 @@
                 ]
             });
         });
-        
-        
         function myNavFunction(id) {
             $("#date-popover").hide();
             var nav = $("#" + id).data("navigation");
