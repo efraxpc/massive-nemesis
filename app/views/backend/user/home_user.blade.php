@@ -24,7 +24,7 @@
 
                 <a class="active" href="{{ URL::to('usuario/mostrar', array($user->qrcode)) }}">
                                         <i class="fa fa-dashboard"></i>
-                                        <span>Generar Codigo Qr</span>
+                                        <span>Ver mis datos públicos</span>
                                     </a>
 
                 <!-- **********************************************************************************************************************************************************
