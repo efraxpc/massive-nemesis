@@ -19,20 +19,13 @@
                     <!-- SERVER STATUS PANELS -->
                 </div><!-- /col-lg-9 END SECTION MIDDLE -->
 
-<h2>home user</h2>
-<p>Generar Codigo Qr</p>
+                <h2>home user</h2>
+                <p>Generar Codigo Qr</p>
 
-<a class="active" href="{{ URL::to('usuario/generar_qr', array($user->qrcode)) }}">
-                        <i class="fa fa-dashboard"></i>
-                        <span>Generar Codigo Qr</span>
-                    </a>
-                    <br>
-                   
-@if($user->qrcode)
-<h3>Codigo ya generado</h3> 
-{{ HTML::image('qrcodes/'.$user->qrcode) }}
-@endif                    
-
+                <a class="active" href="{{ URL::to('usuario/mostrar', array($user->qrcode)) }}">
+                                        <i class="fa fa-dashboard"></i>
+                                        <span>Generar Codigo Qr</span>
+                                    </a>
 
                 <!-- **********************************************************************************************************************************************************
                 RIGHT SIDEBAR CONTENT
