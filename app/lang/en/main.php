@@ -33,6 +33,7 @@ return array(
 
     //Control Panel
     'editar_datos_de_usuario'        => 'Editar mis Datos',
+    'guardar_cambios'                => 'Guardar Cambios'
 
 
 );

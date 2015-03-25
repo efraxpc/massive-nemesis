@@ -118,7 +118,7 @@ class UsersController extends Controller
 
         if (!is_null($error)) {
             $id = Auth::id();
-            $array = array('id'=>$id);
+            $array = array('id'=>$id,'user'=>$user);
             return View::make('backend.user.home_user', $array);
         }else{
 
