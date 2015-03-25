@@ -15,12 +15,12 @@ Route::get('/', function()
 {
 	return View::make('backend.user.login');
 });
-Route::get('/qr', function()
+
+Route::get('/upload', function()
 {
-	DNS2D::getBarcodePngPath('$qrcode_full', "QRCODE", 7, 7, array(0,0,0));
+	return View::make('backend.user.create_image');
 });
-
-
+Route::post('upload', 'FileController@upload_image');
 // Confide routes
 Route::group(array('prefix' => 'usuario'), function()
 {

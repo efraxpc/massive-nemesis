@@ -1,4 +1,7 @@
 @extends('backend/user/layout_panel_user')
+@section('scripts_imagem')
+    @include('backend.includes.styledropzone')
+@stop  
 @section('content')
 <!--main content start-->
 <section id="main-content">
