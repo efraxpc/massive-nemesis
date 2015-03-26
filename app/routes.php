@@ -15,7 +15,10 @@ Route::get('/', function()
 {
 	return View::make('backend.user.login');
 });
-
+Route::get('/demo', function()
+{
+	return View::make('backend.demo');
+});
 Route::get('/upload', function()
 {
 	return View::make('backend.user.create_image');

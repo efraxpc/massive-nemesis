@@ -38,7 +38,7 @@ class FileController extends Controller
   		$fileInput = Input::file('file');
 
   		if (Input::hasFile('file')) {
-  			$filename = Hash::make( $fileInput[0]->getClientOriginalName() );
+  			$filename = "imagen__".uniqid();
   			$path     = public_path().'/uploads/';
   			$fileType = $fileInput[0]->getClientOriginalName();
   			$fileSize = $fileInput[0]->getClientSize()/1024;

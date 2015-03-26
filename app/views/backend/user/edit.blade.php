@@ -152,13 +152,9 @@
                             </div>
                         </div> 
 
-                        @foreach ($files as $file)
-                            {{ HTML::image(  '/uploads/'. $file->nombre .'.'. $file->tipo  ) }}
-                        @endforeach
-
-                        <div class="col-md-6 col-md-offset-3">
-                        <h3>columna extra</h3>
-                        </div>
+                        @for ($i = 0; $i < count($files); $i++)
+                            {{ HTML::image('/uploads/'. $files[$i]->nombre .'.'. $files[$i]->tipo, 'a picture', array('class' => 'img-rounded','width' => 150, 'height' => 130)) }}
+                        @endfor
 
                     </div>
                 </div><!--/widget-body-->
