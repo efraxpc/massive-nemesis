@@ -1,7 +1,7 @@
 @extends('backend/user/layout_create')
 @section('content')
 <div class="row-fluid">
-    <div class="col-md-6 col-md-offset-3"">
+    <div class="col-md-6 col-md-offset-3">
         <div class="position-relative">
             <div class="signup-box visible widget-box no-border">
                 <div class="widget-body">

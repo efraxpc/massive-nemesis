@@ -33,7 +33,7 @@ return array(
 
     //Control Panel
     'editar_datos_de_usuario'        => 'Editar mis Datos',
-    'guardar_cambios'                => 'Guardar Cambios'
-
-
+    'guardar_cambios'                => 'Guardar Cambios',
+    'subir_imagenes'                 => 'Subir imagenes',
+    'para_terminar_cerrar'           => 'Para erminar cierre la ventana'
 );

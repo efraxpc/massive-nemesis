@@ -57,7 +57,6 @@ class FileController extends Controller
   			$file ->user()->associate($usuario);
 
   			//guardamos el file en el server
-
   			if ( $fileInput[0]->move($path,$filename.'.'.$fileInput[0]->getClientOriginalName() ) ) {
   				$file->save();
   			}

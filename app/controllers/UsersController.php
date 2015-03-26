@@ -86,6 +86,25 @@ class UsersController extends Controller
         }
     }
 
+    public function edit($id)
+    {
+        $user = User::find($id);
+        if (is_null($user))
+        {
+            return Redirect::route('login');
+        }
+        $tipo_de_sangre = DB::table('tipo_de_sangre')->orderBy('nombre', 'asc')->lists('nombre','id');
+
+        $files = DB::table('users')
+            ->join('files', 'users.id', '=', 'files.user_id')
+            ->select('files.id','files.nombre','files.tipo')
+            ->get();
+        $array = array('tipo_de_sangre' => $tipo_de_sangre,
+                      'user'            => $user,
+                      'files'            => $files,);
+        return View::make('backend.user.edit', $array);
+    }
+
     public function storeEdit()
     {     
         $id = Input::all()['id'];
@@ -127,19 +146,6 @@ class UsersController extends Controller
                 ->with('error', $error);
         }
 
-    }
-    
-    public function edit($id)
-    {
-        $user = User::find($id);
-        if (is_null($user))
-        {
-            return Redirect::route('login');
-        }
-        $tipo_de_sangre = DB::table('tipo_de_sangre')->orderBy('nombre', 'asc')->lists('nombre','id');
-        $array = array('tipo_de_sangre' => $tipo_de_sangre,
-                      'user'           => $user);
-        return View::make('backend.user.edit', $array);
     }
 
     /**

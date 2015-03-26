@@ -1,7 +1,10 @@
 @extends('backend/user/layout_create')
+@section('scripts_imagem')
+    @include('backend.includes.styledropzone')
+@stop  
 @section('content')
 <div class="row-fluid">
-    <div class="col-md-6 col-md-offset-3"">
+    <div class="col-md-6 col-md-offset-3">
         <div class="position-relative">
             <div class="signup-box visible widget-box no-border">
                 <div class="widget-body">
@@ -95,6 +98,68 @@
                                 </div>
                             </fieldset>
                         </form>
+
+                        <div class="bs-example">
+                            <!-- Button HTML (to Trigger Modal) -->
+                            <a href="#myModal" class="btn btn-lg btn-primary" data-toggle="modal">{{{Lang::get('main.subir_imagenes')}}}</a>
+                            
+                            <!-- Modal HTML -->
+                            <div id="myModal" class="modal fade">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                            <h4 class="modal-title">{{{Lang::get('main.para_terminar_cerrar')}}}</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="col-md-6 col-md-offset-3">
+                                                <div class="position-relative">
+                                                    <div class="signup-box visible widget-box no-border">
+                                                        <div class="widget-body">
+                                                            <div class="widget-main">
+
+                                                                <div class="widget-main">
+                                                                    <div class="row">
+                                                <br/>
+                                                <br/>
+                                                <br/>
+                                                                         <div class="col-md-10">
+                                                                            <div class="panel panel-primary">
+                                                                                {{Form::open(array(
+                                                                                    'url'=> 'upload',
+                                                                                    'files'=>true,
+                                                                                    'class'=>'dropzone',
+                                                                                    'id'=>'my-dropzone',
+                                                                                    'method'=>'post',
+                                                                                ))}}
+                                                                                {{Form::close()}}
+                                                                            </div>                                 
+                                                                         </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div><!--/widget-body-->
+                                                    </div><!--/signup-box-->
+                                                </div><!--/position-relative-->
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+
+                        @foreach ($files as $file)
+                            {{ HTML::image(  '/uploads/'. $file->nombre .'.'. $file->tipo  ) }}
+                        @endforeach
+
+                        <div class="col-md-6 col-md-offset-3">
+                        <h3>columna extra</h3>
+                        </div>
+
                     </div>
                 </div><!--/widget-body-->
             </div><!--/signup-box-->

@@ -166,6 +166,7 @@
     <script type="text/javascript">
         Dropzone.options.myDropzone={
             AutoProcessQueue : true,
+            addRemoveLinks: true
         };
     </script>
 @stop
