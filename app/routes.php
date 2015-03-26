@@ -36,6 +36,7 @@ Route::group(array('prefix' => 'usuario'), function()
 	Route::get('/generar_qr/{qrcode}',  array('as' => 'generar_qr','uses' =>'UsersController@generate_qr'));
 
 	Route::get('editar/{id}',  array('as' => 'edit_user','uses' =>	'UsersController@edit'));
+	Route::get('editar/imagen/{id}',  array('as' => 'edit_imagen_user','uses' =>	'FileController@edit_imagen'));
 	Route::post('pipo', 'UsersController@store');
 	Route::post('pipo2',  array('uses' =>	'UsersController@storeEdit'));
 	

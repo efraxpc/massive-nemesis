@@ -52,6 +52,12 @@
                         <span>{{{Lang::get('main.editar_datos_de_usuario')}}}</span>
                     </a>
                 </li>
+                <li class="mt">
+                    <a class="active" href="{{ URL::to('usuario/editar/imagen', array($id)) }}">
+                        <i class="fa fa-dashboard"></i>
+                        <span>{{{Lang::get('main.editar_datos_de_usuario')}}}</span>
+                    </a>
+                </li>                
             </ul>
             <!-- sidebar menu end-->
         </div>

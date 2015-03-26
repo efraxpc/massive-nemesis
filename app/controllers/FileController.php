@@ -63,4 +63,21 @@ class FileController extends Controller
 
   		}
     }
+
+    public function edit_imagen($id)
+    {
+        $user = User::find($id);
+        if (is_null($user))
+        {
+            return Redirect::route('login');
+        }
+
+        $files = DB::table('users')
+            ->join('files', 'users.id', '=', 'files.user_id')
+            ->select('files.id','files.nombre','files.tipo')
+            ->get();
+        $array = array('user'            => $user,
+                      'files'            => $files,);
+        return View::make('backend.user.edit_images', $array);
+    }    
 }
