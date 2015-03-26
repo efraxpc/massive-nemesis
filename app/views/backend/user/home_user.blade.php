@@ -55,7 +55,7 @@
                 <li class="mt">
                     <a class="active" href="{{ URL::to('usuario/editar/imagen', array($id)) }}">
                         <i class="fa fa-dashboard"></i>
-                        <span>{{{Lang::get('main.editar_datos_de_usuario')}}}</span>
+                        <span>{{{Lang::get('main.administrar_imagenes')}}}</span>
                     </a>
                 </li>                
             </ul>

@@ -164,25 +164,6 @@
                                 </div>                             
                             </div> 
                         </div> 
-                        <div class="row-fluid">
-                            <div class="col-md-12 col-md-offset-0">
-                                <h4>Imagenes Subidas</h4>
-                                @if (count($files) != 0)
-                                <table class="table">
-                                    @for ($i = 0; $i < 6; $i++)
-                                        <tr>
-                                            <td>
-                                                @for ($i = 0; $i < count($files); $i++)
-                                                    {{ HTML::image('/uploads/'. $files[$i]->nombre .'.'. $files[$i]->tipo, 'a picture', array('class' => 'img-rounded','width' => 150, 'height' => 130)) }}
-                                                @endfor  
-                                            </td>
-                                        </tr>
-                                    @endfor
-                                </table>
-                                @endif
-                            </div>
-
-                        </div>
                     </div>
                 </div><!--/widget-body-->
             </div><!--/signup-box-->

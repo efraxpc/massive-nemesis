@@ -82,7 +82,7 @@
                                 <h4>Imagenes Subidas</h4>
                                 @if (count($files) != 0)
                                     <table class="table">
-                                        @for ($i = 0; $i < 6; $i++)
+                                        @for ($i = 0; $i < 5; $i++)
                                             <tr>
                                                 <td>
                                                     @for ($i = 0; $i < count($files); $i++)
@@ -106,10 +106,10 @@
 @section('scripts')
 <script type="text/javascript">
     $( "#myModal" ).click(function() {
-      location.reload();
+      // location.reload();
     });
     $( ".close" ).click(function() {
-      location.reload();
+      // location.reload();
     });
 </script>
 
