@@ -35,6 +35,6 @@ return array(
     'editar_datos_de_usuario'        => 'Editar mis Datos',
     'guardar_cambios'                => 'Guardar Cambios',
     'subir_imagenes'                 => 'Subir imagenes',
-    'para_terminar_cerrar'           => 'Para erminar cierre la ventana',
+    'para_terminar_cerrar'           => 'Para terminar cierre esta ventana',
     'administrar_imagenes'           => 'Administrar imágenes',
 );
