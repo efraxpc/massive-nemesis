@@ -85,8 +85,11 @@ class FileController extends Controller
         $files = DB::table('users')
             ->join('files', 'users.id', '=', 'files.user_id')
             ->select('files.id','files.nombre','files.tipo','users.email')
+            ->where('users.id', '=', $id)
             ->get();
-
+          echo "<pre>";
+          dd($files);
+          die;
         $array = array('user'            => $user,
                       'files'            => $files,);
         return View::make('backend.user.edit_images', $array);
