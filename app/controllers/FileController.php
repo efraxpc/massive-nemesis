@@ -56,9 +56,19 @@ class FileController extends Controller
 
   			$file ->user()->associate($usuario);
 
+        // $img = Image::make(public_path().'/uploads/'.'imagen__55146a4612175.cartera.jpg')->resize(300, 200);
+        // $img->save(public_path().'/uploads/'.$filename);
+
+        // Image::make($image->getRealPath())->resize('280', '280')->save('public/up/city/'.$name)
+
   			//guardamos el file en el server
   			if ( $fileInput[0]->move($path,$filename.'.'.$fileInput[0]->getClientOriginalName() ) ) {
   				$file->save();
+
+          //Image::make($path.'/'.$file->nombre .'.'. $file->tipo)->resize('50', '50')->save(public_path().'/uploads/'.$filename);
+          // echo "<pre>";
+          // dd($file);
+          // die;
   			}
 
   		}
@@ -77,9 +87,6 @@ class FileController extends Controller
             ->select('files.id','files.nombre','files.tipo','users.email')
             ->get();
 
-            // echo "<pre>";
-            // dd($files);
-            // die;
         $array = array('user'            => $user,
                       'files'            => $files,);
         return View::make('backend.user.edit_images', $array);

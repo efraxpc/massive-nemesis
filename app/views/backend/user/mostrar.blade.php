@@ -62,5 +62,3 @@
         </td>
     </tr>
 </table>
-@stop
-@section('scripts')

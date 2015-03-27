@@ -15,6 +15,15 @@ Route::get('/', function()
 {
 	return View::make('backend.user.login');
 });
+
+Route::get('/resize', function()
+{
+    $img = Image::make(public_path().'/uploads/'.'imagen__55146a4612175.cartera.jpg')->resize(300, 200);
+    $img->save(public_path().'/uploads/ded.jpg');
+
+
+    return $img->response('jpg');
+});
 Route::get('/demo', function()
 {
 	return View::make('backend.demo');
@@ -41,7 +50,7 @@ Route::group(array('prefix' => 'usuario'), function()
 	Route::post('pipo2',  array('uses' =>	'UsersController@storeEdit'));
 	
 	Route::get('confirm/{code}', 'UsersController@confirm');
-	Route::get('forgot_password', 'UsersControllerforgotPassword');
+	Route::get('forgot_password', 'UsersController@forgotPassword');
 	Route::post('forgot_password', 'UsersController@doForgotPassword');
 	Route::get('reset_password/{token}', 'UsersController@resetPassword');
 	Route::post('resetear_password', 'UsersController@doResetPassword');

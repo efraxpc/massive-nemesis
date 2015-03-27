@@ -78,11 +78,12 @@
                             </div> 
                         </div> 
                         <div class="row-fluid">
+
                             <div class="col-md-12 col-md-offset-0">
                                 <h4>Imagenes Subidas</h4>
                                 @if (count($files) != 0)
                                     <table class="table">
-                                        @for ($i = 0; $i < 5; $i++)
+                                        @for ($i = 0; $i < 2; $i++)
                                             <tr>
                                                 <td>
                                                     @for ($i = 0; $i < count($files); $i++)
@@ -102,15 +103,4 @@
         </div><!--/position-relative-->
     </div>
 </div>
-@stop
-@section('scripts')
-<script type="text/javascript">
-    $( "#myModal" ).click(function() {
-      // location.reload();
-    });
-    $( ".close" ).click(function() {
-      // location.reload();
-    });
-</script>
-
 @stop

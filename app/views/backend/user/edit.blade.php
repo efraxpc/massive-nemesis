@@ -164,6 +164,10 @@
                                 </div>                             
                             </div> 
                         </div> 
+                                                <div class="row-fluid">
+
+
+                        </div>
                     </div>
                 </div><!--/widget-body-->
             </div><!--/signup-box-->
