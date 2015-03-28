@@ -59,13 +59,7 @@ class FileController extends Controller
   			//guardamos el file en el server
   			if ( $fileInput[0]->move($path,$filename.'.'.$fileInput[0]->getClientOriginalName() ) ) {
   				$file->save();
-
-          //Image::make($path.'/'.$file->nombre .'.'. $file->tipo)->resize('50', '50')->save(public_path().'/uploads/'.$filename);
-          // echo "<pre>";
-          // dd($file);
-          // die;
   			}
-
   		}
     }
 
@@ -82,9 +76,6 @@ class FileController extends Controller
             ->select('files.id','files.nombre','files.tipo','users.email')
             ->where('users.id', '=', $id)
             ->get();
-          // echo "<pre>";
-          // dd($files);
-          // die;
         $array = array('user'            => $user,
                       'files'            => $files,);
         return View::make('backend.user.edit_images', $array);
@@ -93,7 +84,19 @@ class FileController extends Controller
     public function remove_image()
     {
       $id =Input::get('id');
+      $file = DB::table('files')->where('id', '=', $id)->first();
+      $path_file = public_path().'/uploads/'.$file->nombre.'.'.$file->tipo;
+
+      if (is_readable($path_file)) {
+        unlink($path_file);
+      }else
+      {
+        echo "error";
+        die;
+      }
+      //Borrar imagem de bd
       DB::table('files')->where('id', '=', $id)->delete();
+
       return Response::json( array( 'responde'=>true ));      
     }
         
