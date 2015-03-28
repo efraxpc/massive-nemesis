@@ -88,5 +88,13 @@ class FileController extends Controller
         $array = array('user'            => $user,
                       'files'            => $files,);
         return View::make('backend.user.edit_images', $array);
-    }    
+    }
+
+    public function remove_image()
+    {
+      $id =Input::get('id');
+      DB::table('files')->where('id', '=', $id)->delete();
+      return Response::json( array( 'responde'=>true ));      
+    }
+        
 }

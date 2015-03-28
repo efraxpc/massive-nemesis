@@ -11,28 +11,13 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('backend.user.login');
-});
+Route::get('/', function(){	return View::make('backend.user.login');});
 
-Route::get('/resize', function()
-{
-    $img = Image::make(public_path().'/uploads/'.'imagen__55146a4612175.cartera.jpg')->resize(300, 200);
-    $img->save(public_path().'/uploads/ded.jpg');
-
-
-    return $img->response('jpg');
-});
-Route::get('/demo', function()
-{
-	return View::make('backend.demo');
-});
-Route::get('/upload', function()
-{
-	return View::make('backend.user.create_image');
-});
+Route::get('/demo', function(){	return View::make('backend.demo');});
+Route::get('/upload', function(){ return View::make('backend.user.create_image'); });
 Route::post('upload', 'FileController@upload_image');
+Route::post('ajax_remove_image', 'FileController@remove_image');
+
 // Confide routes
 Route::group(array('prefix' => 'usuario'), function()
 {

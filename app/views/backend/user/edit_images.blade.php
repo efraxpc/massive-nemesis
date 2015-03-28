@@ -87,7 +87,7 @@
                                             <tr>
                                                 <td>
                                                     @for ($i = 0; $i < count($files); $i++)
-                                                        {{ HTML::image('/uploads/'. $files[$i]->nombre .'.'. $files[$i]->tipo, 'a picture', array('class' => 'img-rounded','width' => 150, 'height' => 130)) }}
+                                                        {{ HTML::image('/uploads/'. $files[$i]->nombre .'.'. $files[$i]->tipo, 'a picture', array('class' => 'img-rounded foto','width' => 150, 'height' => 130, 'id'=>$files[$i]->id)) }}
                                                     @endfor  
                                                 </td>
                                             </tr>
@@ -104,3 +104,26 @@
     </div>
 </div>
 @stop
+@section('scripts')
+<script type="text/javascript">
+//clickamos una foto
+    $( ".foto" ).click(function() {
+
+        var parametros = { 'id' : $( this ).attr('id') };
+
+        $.ajax({
+                data:  parametros,
+                url:   '{{URL::to('ajax_remove_image')}}',
+                type:  'post',
+                beforeSend: function () {
+                        $("#resultado").html("Procesando, espere por favor...");
+                },
+                success:  function (data) {
+                    console.log(data.responde);
+
+                }
+        });
+    });
+</script>
+@stop  
+
