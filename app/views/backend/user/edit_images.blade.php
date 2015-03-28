@@ -97,6 +97,7 @@
                             </div>
 
                         </div>
+
                     </div>
                 </div><!--/widget-body-->
             </div><!--/signup-box-->
@@ -105,25 +106,24 @@
 </div>
 @stop
 @section('scripts')
-<script type="text/javascript">
-//clickamos una foto
-    $( ".foto" ).click(function() {
+    <script type="text/javascript">
+    //clickamos una foto
+        $( ".foto" ).easyconfirm({locale: { title: 'Borrar imagen', button: ['No','Si'] ,text: '¿Realmente desea borrar esta imagen?',}}).click(function() {
+            var parametros = { 'id' : $( this ).attr('id') };
 
-        var parametros = { 'id' : $( this ).attr('id') };
-
-        $.ajax({
-                data:  parametros,
-                url:   '{{URL::to('ajax_remove_image')}}',
-                type:  'post',
-                beforeSend: function () {
-                        $("#resultado").html("Procesando, espere por favor...");
-                },
-                success:  function (data) {
-                    console.log(data.responde);
-
-                }
+            $.ajax({
+                    data:  parametros,
+                    url:   '{{URL::to('ajax_remove_image')}}',
+                    type:  'post',
+                    beforeSend: function () {
+                            $("#resultado").html("Procesando, espere por favor...");
+                    },
+                    success:  function (data) {
+                        console.log(data.responde);
+                    }
+            });
         });
-    });
-</script>
+
+    </script>
 @stop  
 

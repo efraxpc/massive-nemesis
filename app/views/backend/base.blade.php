@@ -28,7 +28,10 @@
     {{ HTML::script('assets/js/chart-master/Chart.js') }}
     {{ HTML::script('assets/js/jquery-1.8.3.min.js') }}
     @section('scripts_imagem')
-    @show   
+    @show
+    @section('scripts_header')
+    @show
+       
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>

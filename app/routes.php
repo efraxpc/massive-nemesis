@@ -17,6 +17,10 @@ Route::get('/demo', function(){	return View::make('backend.demo');});
 Route::get('/upload', function(){ return View::make('backend.user.create_image'); });
 Route::post('upload', 'FileController@upload_image');
 Route::post('ajax_remove_image', 'FileController@remove_image');
+Route::get('/delete/files', function(){DB::table('files')->delete(); });
+
+
+
 
 // Confide routes
 Route::group(array('prefix' => 'usuario'), function()

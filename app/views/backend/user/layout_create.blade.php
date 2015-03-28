@@ -1,4 +1,10 @@
 @extends('backend/base')
+@section('scripts_header')
+    {{ HTML::script('jquery.easy-confirm-dialog/jquery.easy-confirm-dialog.js') }}
+    {{ HTML::script('http://code.jquery.com/ui/1.10.3/jquery-ui.js') }}
+
+    {{ HTML::style('http://code.jquery.com/ui/1.10.3/themes/blitzer/jquery-ui.css') }}
+@stop
 @section('header')
 <header class="header black-bg">
     <div class="sidebar-toggle-box">

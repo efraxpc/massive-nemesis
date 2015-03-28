@@ -96,8 +96,6 @@ class FileController extends Controller
       }
       //Borrar imagem de bd
       DB::table('files')->where('id', '=', $id)->delete();
-
       return Response::json( array( 'responde'=>true ));      
     }
-        
 }
