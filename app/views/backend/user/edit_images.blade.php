@@ -120,6 +120,7 @@
                     },
                     success:  function (data) {
                         console.log(data.responde);
+                        location.reload();
                     }
             });
         });
