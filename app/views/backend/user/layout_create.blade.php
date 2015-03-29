@@ -30,9 +30,19 @@
     </script>
 
     <script type="text/javascript">
-        Dropzone.options.myDropzone={
-            AutoProcessQueue : true,
-            addRemoveLinks: true
-        };
+Dropzone.autoDiscover = false;
+    var md = new Dropzone(".mydropzone", {
+        url: "/user/upload/", # your post url
+        maxFilesize: "5", #max file size for upload, 5MB
+        addRemoveLinks: true # Add file remove button.
+    });
+
+        md.on("complete", function (file) {
+        if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
+            alert('YOur action, Refresh your page here. ');
+        }
+
+        md.removeFile(file); # remove file from the zone.
+    });
     </script>
 @stop

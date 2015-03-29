@@ -98,6 +98,7 @@
 
                         </div>
 
+
                     </div>
                 </div><!--/widget-body-->
             </div><!--/signup-box-->
@@ -124,6 +125,7 @@
                     }
             });
         });
+
 
     </script>
 @stop  
