@@ -25,7 +25,9 @@
                             <div class="col-md-12 col-md-offset-0">
                                 <div class="bs-example">
                                     <!-- Button HTML (to Trigger Modal) -->
-                                    <a href="#myModal" class="btn btn-lg btn-primary" data-toggle="modal">{{{Lang::get('main.subir_imagenes')}}}</a>
+                                    @if($files_asociated_table->files_aso == 0 )
+                                        <a href="#myModal" class="btn btn-lg btn-primary" data-toggle="modal">{{{Lang::get('main.subir_imagenes')}}}</a>
+                                    @endif
                                     
                                     <!-- Modal HTML -->
                                     <div id="myModal" class="modal fade">
@@ -83,7 +85,7 @@
                                 <h4>Imagenes Subidas</h4>
                                 @if (count($files) != 0)
                                     <table class="table">
-                                        @for ($i = 0; $i < 2; $i++)
+                                        @for ($i = 0; $i <= count($files); $i++)
                                             <tr>
                                                 <td>
                                                     @for ($i = 0; $i < count($files); $i++)
@@ -126,7 +128,32 @@
             });
         });
 
+        // Dropzone.options.myDropzone = {
 
+        //     // Prevents Dropzone from uploading dropped files immediately
+        //     autoProcessQueue : true,
+
+        //     init : function() {
+
+        //     // Create the mock file:
+        //     var mockFile = { name: "Filename", size: 12345 };
+
+        //     // Call the default addedfile event handler
+        //     myDropzone.emit("addedfile", mockFile);
+
+        //     // And optionally show the thumbnail of the file:
+        //     myDropzone.emit("thumbnail", mockFile, "/image/url");
+
+        //     // Make sure that there is no progress bar, etc...
+        //     myDropzone.emit("complete", mockFile);
+
+        //     // If you use the maxFiles option, make sure you adjust it to the
+        //     // correct amount:
+        //     var existingFileCount = 1; // The number of files already uploaded
+        //     myDropzone.options.maxFiles = myDropzone.options.maxFiles - existingFileCount;
+
+        //     }
+        // };
     </script>
 @stop  
 

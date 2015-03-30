@@ -21,10 +21,13 @@ Route::get('/delete/files', function(){DB::table('files')->delete(); });
 
 Route::get('/stored', function(){
 
-	$param1 = 1; $param2 = 8; $total = 'total';
-	$result = DB::select('call test3(?,?)',array($param1,$param2));
-	echo "<pre>";
-print_r($result);
+        $max_3_files_asociated_in_files_table = DB::select('SELECT max_3_files_asociated_in_files_table(?) as files_aso',array(40));
+
+        // DB::statement('CALL update_ranking(3,10,@olduser,@newuser)');
+        //$dberg = DB::select('select @responde as responde');
+		echo "<pre>";
+		print_r($max_3_files_asociated_in_files_table[0]->files_aso);
+		die;
 });
 
 

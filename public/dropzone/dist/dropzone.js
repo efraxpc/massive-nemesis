@@ -94,7 +94,6 @@
     return Emitter;
 
   })();
-
   Dropzone = (function(_super) {
     var extend, resolveOption;
 
@@ -117,7 +116,7 @@
       url: null,
       method: "post",
       withCredentials: false,
-      parallelUploads: 2,
+      parallelUploads: 1,
       uploadMultiple: true,
       maxFilesize: 256,
       paramName: "file",
@@ -1737,3 +1736,4 @@
   contentLoaded(window, Dropzone._autoDiscoverFunction);
 
 }).call(this);
+

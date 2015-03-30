@@ -14,7 +14,6 @@
 <br>
 <br>
 <br>
-
 <table class="table table-hover">
 
     <tr>
@@ -53,13 +52,16 @@
             <p>{{$user->fecha_nacimiento}}</p>
         </td>
     </tr>
+
     @for ($i = 0; $i < count($imagenes_de_usuario); $i++)
-    <tr>
-        <td class="text-center">
-            <p><strong>{{{Lang::get('main.foto_de_la_bicicleta') }}}</strong></p>
-            {{ HTML::image('/uploads/'.$imagenes_de_usuario[$i]->nombre.'.'.$imagenes_de_usuario[$i]->tipo, 'a picture', array('class' => 'img-thumbnail','width' => 150, 'height' => 130)) }}
-        </td>
-    </tr>
+        @if($imagenes_de_usuario[$i])
+        <tr>
+            <td class="text-center">
+                <p><strong>{{{Lang::get('main.foto_de_la_bicicleta') }}}</strong></p>
+                {{ HTML::image('/uploads/'.$imagenes_de_usuario[$i]->nombre.'.'.$imagenes_de_usuario[$i]->tipo, 'a picture', array('class' => 'img-thumbnail','width' => 150, 'height' => 130)) }}
+            </td>
+        </tr>
+        @endif
     @endfor     
     <tr>
         <td class="text-center">

@@ -321,17 +321,17 @@ class UsersController extends Controller
         $user = DB::table('users')->where('qrcode', $qrcode)->first();
         $grupo_sanguineo_id = $user->grupo_sanguineo_id;
         $grupo_sanguineo = TipoDeSangre::find($grupo_sanguineo_id);
-        $nome=Request::root().'/mostrar/'.$qrcode;
-        //$imagenes_de_usuario = DB::select('call select_imagenes_de_usuario(?)',array($user->id));
+        $nome=Request::root().'/usuario/mostrar/'.$qrcode;
+        $imagenes_de_usuario = DB::select('call select_imagenes_de_usuario(?)',array($user->id));
 
-        $imagenes_de_usuario = DB::table('files')
-            ->join('users', 'users.id', '=', 'files.user_id')
-            ->select('files.id','files.nombre','files.tipo')
-            ->where('files.user_id', $user->id)
-            ->get();
-// echo "<pre>";
-// dd($imagenes_de_usuario);
-// die;
+        // $imagenes_de_usuario = DB::table('files')
+        //     ->join('users', 'users.id', '=', 'files.user_id')
+        //     ->select('files.id','files.nombre','files.tipo')
+        //     ->where('files.user_id', $user->id)
+        //     ->get();
+ // echo "<pre>";
+ // dd($imagenes_de_usuario);
+ // die;
         return View::make('backend.user.mostrar',['user' =>$user,'grupo_sanguineo'=>$grupo_sanguineo,'qrcode'=>$nome,'imagenes_de_usuario'=>$imagenes_de_usuario]);
     }
 

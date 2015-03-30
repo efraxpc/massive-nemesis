@@ -44,22 +44,29 @@ class FileController extends Controller
   			$fileSize = $fileInput[0]->getClientSize()/1024;
 
   			//Ahora procedemos a guardar en la bd
-
   			$id = Auth::user()->id;
-  			$usuario = User::find($id);
+        $max_3_files_asociated_in_files_table = DB::select('SELECT max_3_files_asociated_in_files_table(?) as files_aso',array($id));
+        $usuario = User::find($id);
 
-  			$file = New Archivo;
-  			$file->nombre = $filename;
-  			$file->ruta   = $path;
-  			$file->tipo   = $fileType;
-  			$file->tamaño = $fileSize;
+        // echo "<pre>";
+        // dd($max_3_files_asociated_in_files_table[0]);
+        // die;    
 
-  			$file ->user()->associate($usuario);
+        if ($max_3_files_asociated_in_files_table[0]->files_aso == 0) {
+          $file = New Archivo;
+          $file->nombre = $filename;
+          $file->ruta   = $path;
+          $file->tipo   = $fileType;
+          $file->tamaño = $fileSize;
 
-  			//guardamos el file en el server
-  			if ( $fileInput[0]->move($path,$filename.'.'.$fileInput[0]->getClientOriginalName() ) ) {
-  				$file->save();
-  			}
+          $file ->user()->associate($usuario);
+                  //guardamos el file en el server
+        if ( $fileInput[0]->move($path,$filename.'.'.$fileInput[0]->getClientOriginalName() ) ) {
+          $file->save();
+        }
+        }else{
+          echo "tienes ma de 3";
+        }
   		}
     }
 
@@ -76,8 +83,16 @@ class FileController extends Controller
             ->select('files.id','files.nombre','files.tipo','users.email')
             ->where('users.id', '=', $id)
             ->get();
-        $array = array('user'            => $user,
-                      'files'            => $files,);
+
+        $max_3_files_asociated_in_files_table = DB::select('SELECT max_3_files_asociated_in_files_table(?) as files_aso',array($id));
+
+        $array = array('user'                 => $user,
+                      'files'                 => $files,
+                      'files_asociated_table' =>$max_3_files_asociated_in_files_table[0]);
+
+            // echo "<pre>";
+            // dd($max_3_files_asociated_in_files_table[0]);
+            // die;
         return View::make('backend.user.edit_images', $array);
     }
 
