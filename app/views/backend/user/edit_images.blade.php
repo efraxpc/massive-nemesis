@@ -101,10 +101,10 @@
                         </div>
                         <div class="row-fluid">
                             <div class="col-md-12 col-md-offset-0">
-                                <h5>Solo podrá subir <strong>3</strong> imágenes</h5>  
+                                <h5>{{{Lang::get('main.solo_podra_subir')}}}<strong>3</strong>{{{Lang::get('main.imagenes')}}}</h5>  
                             </div>
                             <div class="col-md-12 col-md-offset-0">
-                                <h6>Para hacer aparecer el botón para subir imagenes debe de eliminar una imagen dando <strong>click</strong> en ella</h6>  
+                                <h6>{{{Lang::get('main.para_hacer_aparecer')}}}<strong>{{{Lang::get('main.click')}}}</strong>{{{Lang::get('main.en_ella')}}}</h6>  
                             </div>
                         </div>
                     </div>
