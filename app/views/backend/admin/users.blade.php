@@ -94,6 +94,11 @@
                                     @if ($errors->has('password_confirmation')) 
                                     <div class="alert alert-danger">{{ $errors->first('password_confirmation')  }}</div> @endif
                                 </div>
+                                <div class="form-group">
+                                    <div id='map_canvas'></div>
+                                    <input type="hidden" id="lat" name="lat" value="4.589">
+                                    <input type="hidden" id="lng" name="lng" value="-73.930">
+                                </div>
 
                                 @if (Session::get('error'))
                                     <div class="alert alert-error alert-danger">
@@ -119,4 +124,35 @@
         </div><!--/position-relative-->
     </div>
 </div>
+@stop
+@section('scripts')
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript">
+        var map = new google.maps.Map(document.getElementById('map_canvas'), {
+            zoom: 6,
+            center: new google.maps.LatLng(4.589 , -73.930),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        var myMarker = new google.maps.Marker({
+            position: new google.maps.LatLng(4.589, -73.930),
+            draggable: true
+        });
+
+        google.maps.event.addListener(myMarker, 'dragend', function(evt){
+            document.getElementById("lat").value = evt.latLng.lat().toFixed(3);
+            document.getElementById("lng").value = evt.latLng.lng().toFixed(3);
+        });
+
+        map.setCenter(myMarker.position);
+        myMarker.setMap(map);
+    </script> 
+
+    <script>
+        $('#datepicker').datepicker({
+            language: "es-ES",
+            autoclose: true,
+            todayHighlight: true
+        })
+    </script>    
 @stop

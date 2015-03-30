@@ -24,6 +24,7 @@
     {{ HTML::style('assets/css/style.css') }}
     {{ HTML::style('assets/css/style-responsive.css') }}
 
+    {{ HTML::style('assets/googlemaps/style.css') }}
 
     {{ HTML::script('assets/js/chart-master/Chart.js') }}
     {{ HTML::script('assets/js/jquery-1.8.3.min.js') }}
@@ -39,7 +40,7 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body onload="initialize()">
 
   <section id="container" >
       <!-- **********************************************************************************************************************************************************
@@ -92,7 +93,7 @@
 
     @section('scripts')
     @show
-	<script type="text/javascript">
+  <script type="text/javascript">
         $(document).ready(function () {
         var unique_id = $.gritter.add({
             // (string | mandatory) the heading of the notification
@@ -111,9 +112,9 @@
 
         return false;
         });
-	</script>
-	
-	<script type="application/javascript">
+  </script>
+  
+  <script type="application/javascript">
         $(document).ready(function () {
             $("#date-popover").popover({html: true, trigger: "manual"});
             $("#date-popover").hide();

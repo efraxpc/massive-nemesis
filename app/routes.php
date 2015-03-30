@@ -19,6 +19,13 @@ Route::post('upload', 'FileController@upload_image');
 Route::post('ajax_remove_image', 'FileController@remove_image');
 Route::get('/delete/files', function(){DB::table('files')->delete(); });
 
+Route::get('/stored', function(){
+
+	$param1 = 1; $param2 = 8; $total = 'total';
+	$result = DB::select('call test3(?,?)',array($param1,$param2));
+	echo "<pre>";
+print_r($result);
+});
 
 
 
