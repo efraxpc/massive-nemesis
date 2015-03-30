@@ -37,4 +37,5 @@ return array(
     'subir_imagenes'                 => 'Subir imagenes',
     'para_terminar_cerrar'           => 'Para terminar cierre esta ventana',
     'administrar_imagenes'           => 'Administrar imágenes',
+    'foto_de_la_bicicleta'           =>'Foto de la bicicleta'
 );

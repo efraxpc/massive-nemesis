@@ -319,7 +319,13 @@ class UsersController extends Controller
         $grupo_sanguineo_id = $user->grupo_sanguineo_id;
         $grupo_sanguineo = TipoDeSangre::find($grupo_sanguineo_id);
         $nome=Request::root().'/mostrar/'.$qrcode;
-        return View::make('backend.user.mostrar',['user' =>$user,'grupo_sanguineo'=>$grupo_sanguineo,'qrcode'=>$nome]);
+
+        $imagenes_de_usuario = DB::select('call select_imagenes_de_usuario(?)',array($user->id));
+        // echo "<pre>";
+        // print_r($imagenes_de_usuario);
+        // die;
+               
+        return View::make('backend.user.mostrar',['user' =>$user,'grupo_sanguineo'=>$grupo_sanguineo,'qrcode'=>$nome,'imagenes_de_usuario'=>$imagenes_de_usuario]);
     }
 
 }
