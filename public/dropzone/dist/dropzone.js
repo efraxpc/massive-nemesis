@@ -125,7 +125,7 @@
       thumbnailWidth: 120,
       thumbnailHeight: 120,
       filesizeBase: 1000,
-      maxFiles: 3,
+      maxFiles: 1,
       filesizeBase: 1000,
       params: {},
       clickable: true,

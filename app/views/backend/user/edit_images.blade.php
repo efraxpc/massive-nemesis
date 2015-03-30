@@ -99,8 +99,14 @@
                             </div>
 
                         </div>
-
-
+                        <div class="row-fluid">
+                            <div class="col-md-12 col-md-offset-0">
+                                <h5>Solo podrá subir <strong>3</strong> imágenes</h5>  
+                            </div>
+                            <div class="col-md-12 col-md-offset-0">
+                                <h6>Para hacer aparecer el botón para subir imagenes debe de eliminar una imagen dando <strong>click</strong> en ella</h6>  
+                            </div>
+                        </div>
                     </div>
                 </div><!--/widget-body-->
             </div><!--/signup-box-->
