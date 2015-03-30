@@ -2,7 +2,7 @@
 @section('content')
     <div id="login-page">
         <div class="container">
-            <form role="form" method="POST" action="{{{ URL::to('/usuario') }}}" accept-charset="UTF-8">
+            <form role="form" method="POST" action="{{{ URL::route('login_post') }}}" accept-charset="UTF-8">
             <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
                 <h2 class="form-login-heading">sign in now</h2>
                 <div class="login-wrap">

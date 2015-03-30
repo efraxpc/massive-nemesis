@@ -5,7 +5,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
     </div>
     <!--logo start-->
-    <a href="index.html" class="logo"><b>{{{Lang::get('main.app_name') }}}</b></a>
+    <a href="{{URL::route('login')}}" class="logo"><b>{{{Lang::get('main.app_name') }}}</b></a>
     <!--logo end-->
 
     <div class="top-menu">

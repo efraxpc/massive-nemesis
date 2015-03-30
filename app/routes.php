@@ -34,8 +34,8 @@ Route::group(array('prefix' => 'usuario'), function()
 {
 	Route::get('/mostrar/{qrcode}',  array('as' => 'mostrar','uses' =>'UsersController@mostrar'));
 
-	Route::get('/',  array('as' => 'login','uses' =>'UsersController@login'));
-	Route::post('/', 'UsersController@doLogin');
+	Route::get('/login',  array('as' => 'login','uses' =>'UsersController@login'));
+	Route::post('/login/post',  array('as' => 'login_post','uses' =>'UsersController@doLogin'));
 
 	Route::get('create',  array('as' => 'create_user', 	'uses' =>	'UsersController@create'));
 	Route::get('/generar_qr/{qrcode}',  array('as' => 'generar_qr','uses' =>'UsersController@generate_qr'));
