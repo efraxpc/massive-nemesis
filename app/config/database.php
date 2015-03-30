@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'bike_3qr_nuevo',
 			'username'  => 'root',
-			'password'  => '123456',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
