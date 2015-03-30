@@ -42,7 +42,7 @@
     </tr>
     <tr>
         <td class="text-center">
-            <p><strong>{{{Lang::get('main.foto_de_la_bicicleta') }}}</strong></p>
+            <p><strong>{{{Lang::get('main.serial_marco') }}}</strong></p>
             <p>{{$user->serial_marco}}</p>
         </td>
     </tr>
