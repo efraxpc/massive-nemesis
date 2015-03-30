@@ -81,6 +81,11 @@
                                     @if ($errors->has('fecha_nacimiento')) 
                                     <div class="alert alert-danger">{{$errors->first('fecha_nacimiento')}}</div> @endif
                                 </div>
+                                <div class="form-group">
+                                    <div id='map_canvas'></div>
+                                    <input type="hidden" id="lat" name="lat" value="{{$user->lat}}">
+                                    <input type="hidden" id="lng" name="lng" value="{{$user->lng}}">
+                                </div>                                
                                 @if (Session::get('error'))
                                     <div class="alert alert-error alert-danger">
                                         @if (is_array(Session::get('error')))
@@ -98,8 +103,6 @@
                                 </div>
                             </fieldset>
                         </form>
-
-
                         <br>
                         <br>
                         {{-- Tratamiento de imagenes --}}
@@ -109,4 +112,35 @@
         </div><!--/position-relative-->
     </div>
 </div>
+@stop
+@section('scripts')
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script type="text/javascript">
+        var map = new google.maps.Map(document.getElementById('map_canvas'), {
+            zoom: 6,
+            center: new google.maps.LatLng(document.getElementById("lat").value , document.getElementById("lng").value),
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        });
+
+        var myMarker = new google.maps.Marker({
+            position: new google.maps.LatLng(document.getElementById("lat").value, document.getElementById("lng").value),
+            draggable: true
+        });
+
+        google.maps.event.addListener(myMarker, 'dragend', function(evt){
+            document.getElementById("lat").value = evt.latLng.lat().toFixed(3);
+            document.getElementById("lng").value = evt.latLng.lng().toFixed(3);
+        });
+
+        map.setCenter(myMarker.position);
+        myMarker.setMap(map);
+    </script> 
+
+    <script>
+        $('#datepicker').datepicker({
+            language: "es-ES",
+            autoclose: true,
+            todayHighlight: true
+        })
+    </script>    
 @stop

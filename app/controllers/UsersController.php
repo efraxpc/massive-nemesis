@@ -130,6 +130,8 @@ class UsersController extends Controller
         $user->facebook = Input::all()['facebook'];
         $user->twitter = Input::all()['twitter'];
         $user->serial_marco = Input::all()['serial_marco'];
+        $user->lat = Input::all()['lat'];
+        $user->lng = Input::all()['lng'];
 
         $user->save();
 
@@ -320,7 +322,7 @@ class UsersController extends Controller
         $grupo_sanguineo = TipoDeSangre::find($grupo_sanguineo_id);
         $nome=Request::root().'/mostrar/'.$qrcode;
         $imagenes_de_usuario = DB::select('call select_imagenes_de_usuario(?)',array($user->id));
-        
+
         return View::make('backend.user.mostrar',['user' =>$user,'grupo_sanguineo'=>$grupo_sanguineo,'qrcode'=>$nome,'imagenes_de_usuario'=>$imagenes_de_usuario]);
     }
 
