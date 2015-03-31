@@ -36,7 +36,7 @@
                                     </td>  
                                     <td>
                                       <div class="switch">
-                                        <input id="cmn-toggle_{{$user->id}}" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                                        <input id="cmn-toggle_{{$user->id}}" class="cmn-toggle cmn-toggle-yes-no" id_user = '{{$user->id}}' type="checkbox">
                                         <label for="cmn-toggle_{{$user->id}}" data-on="SI" data-off="NO"></label>
                                       </div>
                                     </td>
@@ -57,7 +57,8 @@
     <script type="text/javascript">
 
         $( ".cmn-toggle" ).change(function() {
-            var parametros = { 'switch_active_value' : $( this ).is(':checked') ? 1 : 0 };
+            var parametros = { 'switch_active_value' : $( this ).is(':checked') ? 1 : 0,
+                               'id_user' : $( this ).attr('id_user') };
 
 // console.log(parametros);
 // exit;

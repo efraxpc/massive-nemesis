@@ -46,11 +46,7 @@ class FileController extends Controller
   			//Ahora procedemos a guardar en la bd
   			$id = Auth::user()->id;
         $max_3_files_asociated_in_files_table = DB::select('SELECT max_3_files_asociated_in_files_table(?) as files_aso',array($id));
-        $usuario = User::find($id);
-
-        // echo "<pre>";
-        // dd($max_3_files_asociated_in_files_table[0]);
-        // die;    
+        $usuario = User::find($id);  
 
         if ($max_3_files_asociated_in_files_table[0]->files_aso == 0) {
           $file = New Archivo;

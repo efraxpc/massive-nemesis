@@ -18,6 +18,8 @@ Route::get('/upload', function(){ return View::make('backend.user.create_image')
 //Route::post('upload', 'FileController@upload_image');
 Route::post('ajax_remove_image', 'FileController@remove_image');
 Route::post('/ajax_change_status_user', 'AdminController@ajax_change_status_user');
+Route::post('/login/post',  		array('as' 		=> 'login_post','uses' 	=>'UsersController@doLogin'));
+
 
 Route::get('/delete/files', function(){DB::table('files')->delete(); });
 
@@ -25,6 +27,8 @@ Route::group(array('prefix' => 'admin'), function()
 {
 	Route::get('/home',  					array('as' => 'login_admin','uses' 	           =>'AdminController@doLogin'));
 	Route::get('/administrar/usuarios',  	array('as' => 'administrar_usuarios','uses'    =>'AdminController@administrar_usuarios'));
+	Route::get('create/', 'UsersController@createAdmin');
+	Route::get('profile/admin', 'UsersController@postLogin');
 
 });
 
@@ -34,7 +38,6 @@ Route::group(array('prefix' => 'usuario'), function()
 	Route::get('/mostrar/{qrcode}',  	array('as' 		=> 'mostrar','uses' 	=>'UsersController@mostrar'));
 
 	Route::get('/login',  				array('as' 		=> 'login','uses' 		=>'UsersController@login'));
-	Route::post('/login/post',  		array('as' 		=> 'login_post','uses' 	=>'UsersController@doLogin'));
 	Route::get('/home/',  			    array('as' 		=> 'main','uses' 		=>'UsersController@main'));
 
 	Route::get('/cerrar/sesion',  		array('as' 		=> 'logout','uses' 		=>'UsersController@logout'));
@@ -53,8 +56,6 @@ Route::group(array('prefix' => 'usuario'), function()
 	Route::get('reset_password/{token}', 'UsersController@resetPassword');
 	Route::post('resetear_password', 'UsersController@doResetPassword');
 	Route::get('logout', 'UsersController@logout');
-	Route::get('crear/admin', 'UsersController@createAdmin');
-	Route::get('profile/admin', 'UsersController@postLogin');
 });
 
 // App::error(function($exception, $code)
@@ -95,8 +96,8 @@ Route::get('/asignar_role_admin',function(){
 });
 
 
-	Route::get('/permissions',function()
-	{
+	// Route::get('/permissions',function()
+	// {
 
 	// 	$admin = new Role;
 	// 	$admin->name = 'admin';
@@ -126,4 +127,4 @@ Route::get('/asignar_role_admin',function(){
 	// 	$user->perms()->sync(array($manageProfile->id));
 		
 	
-	});
+	//});

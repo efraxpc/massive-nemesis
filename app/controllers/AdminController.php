@@ -12,13 +12,12 @@ class AdminController extends Controller
 {
     public function ajax_change_status_user()
     {
-      $id = Auth::id();
-      dd($id);
-      die;
+      $id = Input::get('id_user');
       $switch_active_value = Input::get('switch_active_value');
-      dd($switch_active_value);
-      die;
-      $update_role_to_redemption = DB::select('CALL update_role_to_redemption(?)',array($id));
+
+
+      $update_role_user = DB::select('CALL update_role_user(?,?)',array($id,$switch_active_value));
+
     }
 
     public function doLogin()
@@ -29,8 +28,6 @@ class AdminController extends Controller
     public function administrar_usuarios()
     {
       $users = DB::select('CALL select_users()');
-      // dd($users);
-      // die;
       $array = array('users' => $users );
       return View::make('backend.admin.administrar_usuarios', $array);
     }
