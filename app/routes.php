@@ -19,34 +19,24 @@ Route::post('upload', 'FileController@upload_image');
 Route::post('ajax_remove_image', 'FileController@remove_image');
 Route::get('/delete/files', function(){DB::table('files')->delete(); });
 
-Route::get('/stored', function(){
-
-        $max_3_files_asociated_in_files_table = DB::select('SELECT max_3_files_asociated_in_files_table(?) as files_aso',array(40));
-
-        // DB::statement('CALL update_ranking(3,10,@olduser,@newuser)');
-        //$dberg = DB::select('select @responde as responde');
-		echo "<pre>";
-		print_r($max_3_files_asociated_in_files_table[0]->files_aso);
-		die;
-});
-
-
-
 // Confide routes
 Route::group(array('prefix' => 'usuario'), function()
 {
-	Route::get('/mostrar/{qrcode}',  array('as' => 'mostrar','uses' =>'UsersController@mostrar'));
+	Route::get('/mostrar/{qrcode}',  	array('as' 		=> 'mostrar','uses' 	=>'UsersController@mostrar'));
 
-	Route::get('/login',  array('as' => 'login','uses' =>'UsersController@login'));
-	Route::post('/login/post',  array('as' => 'login_post','uses' =>'UsersController@doLogin'));
+	Route::get('/login',  				array('as' 		=> 'login','uses' 		=>'UsersController@login'));
+	Route::post('/login/post',  		array('as' 		=> 'login_post','uses' 	=>'UsersController@doLogin'));
+	Route::get('/home/',  			    array('as' 		=> 'main','uses' 		=>'UsersController@main'));
 
-	Route::get('create',  array('as' => 'create_user', 	'uses' =>	'UsersController@create'));
-	Route::get('/generar_qr/{qrcode}',  array('as' => 'generar_qr','uses' =>'UsersController@generate_qr'));
+	Route::get('/cerrar/sesion',  		array('as' 		=> 'logout','uses' 	=>'UsersController@logout'));
 
-	Route::get('editar/{id}',  array('as' => 'edit_user','uses' =>	'UsersController@edit'));
-	Route::get('editar/imagen/{id}',  array('as' => 'edit_imagen_user','uses' =>	'FileController@edit_imagen'));
+	Route::get('create',  				array('as' 		=> 'create_user','uses' =>	'UsersController@create'));
+	Route::get('/generar_qr/{qrcode}',  array('as' 		=> 'generar_qr','uses'  =>'UsersController@generate_qr'));
+
+	Route::get('editar/{id}',  			array('as' 		=> 'edit_user','uses' 	=>	'UsersController@edit'));
+	Route::get('editar/imagen/{id}',  	array('as' 		=> 'edit_imagen_user','uses' =>	'FileController@edit_imagen'));
 	Route::post('pipo', 'UsersController@store');
-	Route::post('pipo2',  array('uses' =>	'UsersController@storeEdit'));
+	Route::post('pipo2',  				array('uses' 	=>	'UsersController@storeEdit'));
 	
 	Route::get('confirm/{code}', 'UsersController@confirm');
 	Route::get('forgot_password', 'UsersController@forgotPassword');

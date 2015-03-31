@@ -1,7 +1,23 @@
-@extends('backend/user/layout_create')
+@extends('backend/base')
 @section('scripts_imagem')
     @include('backend.includes.styledropzone')
 @stop  
+@section('scripts_header')
+    {{ HTML::script('jquery.easy-confirm-dialog/jquery.easy-confirm-dialog.js') }}
+    {{ HTML::script('http://code.jquery.com/ui/1.10.3/jquery-ui.js') }}
+
+    {{ HTML::style('http://code.jquery.com/ui/1.10.3/themes/blitzer/jquery-ui.css') }}
+@stop
+@section('header')
+<header class="header black-bg">
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+    </div>
+    <!--logo start-->
+    <a href="{{URL::route('main')}}" class="logo"><b><strong>{{{Lang::get('main.app_name_title_page') }}}</strong></b></a>
+    <!--logo end-->
+</header>
+@stop
 @section('content')
 <div class="row-fluid">
     <div class="col-md-6 col-md-offset-3">

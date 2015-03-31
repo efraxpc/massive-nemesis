@@ -308,7 +308,7 @@ class UsersController extends Controller
     {
         Confide::logout();
 
-        return Redirect::to('/');
+        return Redirect::to('/usuario/login');
     }
 
     /**
@@ -323,16 +323,23 @@ class UsersController extends Controller
         $grupo_sanguineo = TipoDeSangre::find($grupo_sanguineo_id);
         $nome=Request::root().'/usuario/mostrar/'.$qrcode;
         $imagenes_de_usuario = DB::select('call select_imagenes_de_usuario(?)',array($user->id));
-
-        // $imagenes_de_usuario = DB::table('files')
-        //     ->join('users', 'users.id', '=', 'files.user_id')
-        //     ->select('files.id','files.nombre','files.tipo')
-        //     ->where('files.user_id', $user->id)
-        //     ->get();
- // echo "<pre>";
- // dd($imagenes_de_usuario);
- // die;
         return View::make('backend.user.mostrar',['user' =>$user,'grupo_sanguineo'=>$grupo_sanguineo,'qrcode'=>$nome,'imagenes_de_usuario'=>$imagenes_de_usuario]);
     }
 
+    /**
+     * Mostrar pagina inical
+     *
+     * @return  Illuminate\Http\Response
+     */
+    public function main()
+    {
+        $id = Auth::id();
+        $user = DB::table('users')->find($id);
+        $tipo_de_sangre = DB::table('tipo_de_sangre')->orderBy('nombre', 'asc')->lists('nombre','id');
+        $array = array('user' => $user,
+                       'tipo_de_sangre' => $tipo_de_sangre,
+                       'id'             => $id );
+        return View::make('backend.user.home_user',$array);
+
+    }
 }

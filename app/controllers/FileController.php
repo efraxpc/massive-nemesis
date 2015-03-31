@@ -88,7 +88,7 @@ class FileController extends Controller
 
         $array = array('user'                 => $user,
                       'files'                 => $files,
-                      'files_asociated_table' =>$max_3_files_asociated_in_files_table[0]);
+                      'files_asociated_table' => $max_3_files_asociated_in_files_table[0]);
 
             // echo "<pre>";
             // dd($max_3_files_asociated_in_files_table[0]);
@@ -111,6 +111,5 @@ class FileController extends Controller
       }
       //Borrar imagem de bd
       DB::table('files')->where('id', '=', $id)->delete();
-      return Response::json( array( 'responde'=>true ));      
     }
 }

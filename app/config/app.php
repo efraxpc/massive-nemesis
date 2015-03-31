@@ -193,10 +193,10 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-		'Confide'    => 'Zizaco\Confide\Facade',
-		'Debugbar' => 'Barryvdh\Debugbar\Facade',
-		'Entrust'    => 'Zizaco\Entrust\EntrustFacade',
-		'Image' => 'Intervention\Image\Facades\Image'
+		'Confide'    	  => 'Zizaco\Confide\Facade',
+		'Debugbar' 		  => 'Barryvdh\Debugbar\Facade',
+		'Entrust'         => 'Zizaco\Entrust\EntrustFacade',
+		'Image' 		  => 'Intervention\Image\Facades\Image'
 	),
 
 );

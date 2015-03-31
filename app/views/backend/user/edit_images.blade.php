@@ -2,6 +2,21 @@
 @section('scripts_imagem')
     @include('backend.includes.styledropzone')
 @stop  
+@section('header')
+<header class="header black-bg">
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+    </div>
+    <!--logo start-->
+    <a href="{{URL::route('main')}}" class="logo"><b>{{{Lang::get('main.app_name') }}}</b></a>
+    <!--logo end-->
+    <div class="top-menu">
+        <ul class="nav pull-right top-menu">
+            <li><a href="{{URL::route('logout')}}" class="logo"><b>{{{Lang::get('main.logout') }}}</b></a></li>
+        </ul>
+    </div>
+</header>
+@stop
 @section('content')
 <div class="row-fluid">
     <div class="col-md-6 col-md-offset-3">
@@ -101,7 +116,7 @@
                         </div>
                         <div class="row-fluid">
                             <div class="col-md-12 col-md-offset-0">
-                                <h5>{{{Lang::get('main.solo_podra_subir')}}}<strong>3</strong>{{{Lang::get('main.imagenes')}}}</h5>  
+                                <h5>{{{Lang::get('main.solo_podra_subir')}}} <strong>3</strong> {{{Lang::get('main.imagenes')}}}</h5>  
                             </div>
                             <div class="col-md-12 col-md-offset-0">
                                 <h6>{{{Lang::get('main.para_hacer_aparecer')}}}<strong>{{{Lang::get('main.click')}}}</strong>{{{Lang::get('main.en_ella')}}}</h6>  

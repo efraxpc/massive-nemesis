@@ -39,9 +39,10 @@ return array(
     'administrar_imagenes'           => 'Administrar imágenes',
     'foto_de_la_bicicleta'           => 'Foto de la bicicleta',
     'solo_podra_subir'               => 'Solo podrá subir',
-    'imagenes'                       => 'imágenes'
-    'para_hacer_aparecer'            => 'Para hacer aparecer el botón para subir imagenes debe de eliminar una imagen dando' 
+    'imagenes'                       => 'imágenes',
+    'para_hacer_aparecer'            => 'Para hacer aparecer el botón para subir imagenes debe de eliminar una imagen dando',
     'click'                          => 'click',
     'en_ella'                        => 'en ella',
+    'logout'                         => 'Cerrar sesión'
 
 );
