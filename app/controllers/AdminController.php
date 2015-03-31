@@ -15,7 +15,6 @@ class AdminController extends Controller
       $id = Input::get('id_user');
       $switch_active_value = Input::get('switch_active_value');
 
-
       $update_role_user = DB::select('CALL update_role_user(?,?)',array($id,$switch_active_value));
 
     }
@@ -28,7 +27,11 @@ class AdminController extends Controller
     public function administrar_usuarios()
     {
       $users = DB::select('CALL select_users()');
-      $array = array('users' => $users );
+      $assigned_roles = DB::select('CALL select_assigned_roles()');
+      // dd($assigned_roles);
+      // die;
+      $array = array('users' => $users,
+                     'assigned_roles' => $assigned_roles );
       return View::make('backend.admin.administrar_usuarios', $array);
     }
 

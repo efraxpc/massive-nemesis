@@ -9,6 +9,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
+
                         <table class='table'>
                             <tr>
                                 <th>{{{Lang::get('main.nombre_completo') }}}</th>
@@ -16,7 +17,8 @@
                                 <th>{{{Lang::get('main.fecha_nacimiento') }}}</th>
                                 <th>{{{Lang::get('main.eps') }}}</th>
                                 <th>{{{Lang::get('main.observaciones_generales') }}}</th>
-                            </tr>                        
+                            </tr>    
+                            {{$i = 0}}                    
                             @foreach ($users as $user)
                                 <tr>
                                     <td>
@@ -36,11 +38,12 @@
                                     </td>  
                                     <td>
                                       <div class="switch">
-                                        <input id="cmn-toggle_{{$user->id}}" class="cmn-toggle cmn-toggle-yes-no" id_user = '{{$user->id}}' type="checkbox">
+                                        <input id="cmn-toggle_{{$user->id}}" class="cmn-toggle cmn-toggle-yes-no recorrer_activate_switch" id_user = '{{$user->id}}' type="checkbox" counter={{$i}} rol='{{ $assigned_roles[$i]->role_id }}'>
                                         <label for="cmn-toggle_{{$user->id}}" data-on="SI" data-off="NO"></label>
                                       </div>
                                     </td>
                                 </tr>
+                                {{$i++}}
                             @endforeach                            
                         </table>
                     </div>
@@ -55,6 +58,10 @@
 @stop
 @section('scripts')
     <script type="text/javascript">
+        var obj = $('.recorrer_activate_switch');
+        $.each( obj, function( key, value ) {
+            
+        });
 
         $( ".cmn-toggle" ).change(function() {
             var parametros = { 'switch_active_value' : $( this ).is(':checked') ? 1 : 0,
