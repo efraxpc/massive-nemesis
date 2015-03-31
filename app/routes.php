@@ -15,11 +15,20 @@ Route::get('/', function(){	return View::make('backend.user.login');});
 
 Route::get('/demo', function(){	return View::make('backend.demo');});
 Route::get('/upload', function(){ return View::make('backend.user.create_image'); });
-Route::post('upload', 'FileController@upload_image');
+//Route::post('upload', 'FileController@upload_image');
 Route::post('ajax_remove_image', 'FileController@remove_image');
+Route::post('/ajax_change_status_user', 'AdminController@ajax_change_status_user');
+
 Route::get('/delete/files', function(){DB::table('files')->delete(); });
 
-// Confide routes
+Route::group(array('prefix' => 'admin'), function()
+{
+	Route::get('/home',  					array('as' => 'login_admin','uses' 	           =>'AdminController@doLogin'));
+	Route::get('/administrar/usuarios',  	array('as' => 'administrar_usuarios','uses'    =>'AdminController@administrar_usuarios'));
+
+});
+
+//Rudas usuario
 Route::group(array('prefix' => 'usuario'), function()
 {
 	Route::get('/mostrar/{qrcode}',  	array('as' 		=> 'mostrar','uses' 	=>'UsersController@mostrar'));
@@ -28,7 +37,7 @@ Route::group(array('prefix' => 'usuario'), function()
 	Route::post('/login/post',  		array('as' 		=> 'login_post','uses' 	=>'UsersController@doLogin'));
 	Route::get('/home/',  			    array('as' 		=> 'main','uses' 		=>'UsersController@main'));
 
-	Route::get('/cerrar/sesion',  		array('as' 		=> 'logout','uses' 	=>'UsersController@logout'));
+	Route::get('/cerrar/sesion',  		array('as' 		=> 'logout','uses' 		=>'UsersController@logout'));
 
 	Route::get('create',  				array('as' 		=> 'create_user','uses' =>	'UsersController@create'));
 	Route::get('/generar_qr/{qrcode}',  array('as' 		=> 'generar_qr','uses'  =>'UsersController@generate_qr'));
@@ -86,13 +95,17 @@ Route::get('/asignar_role_admin',function(){
 });
 
 
-	// Route::get('/permissions',function()
-	// {
+	Route::get('/permissions',function()
+	{
 
 	// 	$admin = new Role;
 	// 	$admin->name = 'admin';
 	// 	$admin->save();
 		
+	// $admin = new Role;
+	// $admin->name = 'redemption';
+	// $admin->save();
+
 	// 	$user = new Role;
 	// 	$user->name = 'users';
 	// 	$user->save();
@@ -113,4 +126,4 @@ Route::get('/asignar_role_admin',function(){
 	// 	$user->perms()->sync(array($manageProfile->id));
 		
 	
-	// });
+	});

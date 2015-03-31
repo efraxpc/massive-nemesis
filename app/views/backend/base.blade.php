@@ -23,6 +23,8 @@
     <!-- Custom styles for this template -->
     {{ HTML::style('assets/css/style.css') }}
     {{ HTML::style('assets/css/style-responsive.css') }}
+    {{ HTML::style('assets/css/style_swith.css') }}
+    
 
     {{ HTML::style('assets/googlemaps/style.css') }}
 

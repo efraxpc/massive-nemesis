@@ -26,6 +26,7 @@ return array(
     'eps'                            => 'Eps',
     'grupo_sanguineo'                => 'Grupo Sanguineo',
     'nombre_completo'                => 'Nombre Completo',
+    'mail'                           => 'Email',
 
     //Login Form
     'create_account_above_message'   => '¿Aún no tiene una cuenta?',
@@ -43,6 +44,6 @@ return array(
     'para_hacer_aparecer'            => 'Para hacer aparecer el botón para subir imagenes debe de eliminar una imagen dando',
     'click'                          => 'click',
     'en_ella'                        => 'en ella',
-    'logout'                         => 'Cerrar sesión'
-
+    'logout'                         => 'Cerrar sesión',
+    'ver_mis_datos_publicos'         => 'Ver mis datos públicos'
 );
