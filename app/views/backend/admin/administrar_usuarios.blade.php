@@ -18,7 +18,7 @@
                                 <th>{{{Lang::get('main.eps') }}}</th>
                                 <th>{{{Lang::get('main.observaciones_generales') }}}</th>
                             </tr>    
-                            {{$i = 0}}                    
+                            {{--*/ $i = 0 /*--}}                  
                             @foreach ($users as $user)
                                 <tr>
                                     <td>
@@ -43,7 +43,7 @@
                                       </div>
                                     </td>
                                 </tr>
-                                {{$i++}}
+                                {{--*/ $i++ /*--}}    
                             @endforeach                            
                         </table>
                     </div>
@@ -60,7 +60,11 @@
     <script type="text/javascript">
         var obj = $('.recorrer_activate_switch');
         $.each( obj, function( key, value ) {
-            
+            if ( $(this).attr('rol') == 2 ) {
+                $(this).attr('checked', true);
+            }else if( $(this).attr('rol') == 4 ){
+                $(this).attr('checked', false);
+            };
         });
 
         $( ".cmn-toggle" ).change(function() {
