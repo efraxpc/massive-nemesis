@@ -30,15 +30,12 @@
                     <!-- SERVER STATUS PANELS -->
                 </div><!-- /col-lg-9 END SECTION MIDDLE -->
 
-                <h2>home user</h2>
                 <p>Generar Codigo Qr</p>
-                {{$id}}
 
                 <a class="active" href="{{ URL::to('usuario/mostrar', array($user->qrcode)) }}">
                                         <i class="fa fa-dashboard"></i>
                                         <span>Ver mis datos públicos</span>
                                     </a>
-<h4>sera!!</h4> 
                 <!-- **********************************************************************************************************************************************************
                 RIGHT SIDEBAR CONTENT
                 *********************************************************************************************************************************************************** -->

@@ -149,7 +149,7 @@
     </div>
     <div class="top-menu">
         <ul class="nav pull-right top-menu">
-            <li><a class="logout" href="login.html">Logout</a></li>
+            <li><a href="{{URL::route('logout')}}" class="logo"><b>{{{Lang::get('main.logout') }}}</b></a></li>
         </ul>
     </div>
 </header>
