@@ -15,20 +15,21 @@ CREATE TABLE IF NOT EXISTS `assigned_roles` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int(10) unsigned NOT NULL,
   `role_id` int(10) unsigned NOT NULL,
+  `role_auxilar` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `assigned_roles_user_id_foreign` (`user_id`),
   KEY `assigned_roles_role_id_foreign` (`role_id`),
   CONSTRAINT `assigned_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
   CONSTRAINT `assigned_roles_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=54 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Volcando datos para la tabla bike_3qr_nuevo.assigned_roles: ~3 rows (aproximadamente)
 DELETE FROM `assigned_roles`;
 /*!40000 ALTER TABLE `assigned_roles` DISABLE KEYS */;
-INSERT INTO `assigned_roles` (`id`, `user_id`, `role_id`) VALUES
-	(43, 41, 2),
-	(46, 44, 1),
-	(48, 46, 2);
+INSERT INTO `assigned_roles` (`id`, `user_id`, `role_id`, `role_auxilar`) VALUES
+	(43, 41, 2, 'user'),
+	(46, 44, 1, 'admin'),
+	(53, 50, 2, 'user');
 /*!40000 ALTER TABLE `assigned_roles` ENABLE KEYS */;
 
 
@@ -65,6 +66,17 @@ INSERT INTO `files` (`id`, `nombre`, `ruta`, `tipo`, `tamaño`, `user_id`, `crea
 /*!40000 ALTER TABLE `files` ENABLE KEYS */;
 
 
+-- Volcando estructura para procedimiento bike_3qr_nuevo.insert_aux_role_in_assigned_roles_table
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_aux_role_in_assigned_roles_table`(IN `id_user` INT, IN `slug` VARCHAR(50))
+BEGIN
+	UPDATE assigned_roles 
+	SET role_auxilar = slug
+	WHERE user_id = id_user;
+END//
+DELIMITER ;
+
+
 -- Volcando estructura para función bike_3qr_nuevo.max_3_files_asociated_in_files_table
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` FUNCTION `max_3_files_asociated_in_files_table`(`user_id` INT) RETURNS tinyint(4)
@@ -96,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bike_3qr_nuevo.migrations: ~21 rows (aproximadamente)
+-- Volcando datos para la tabla bike_3qr_nuevo.migrations: ~22 rows (aproximadamente)
 DELETE FROM `migrations`;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
@@ -121,7 +133,8 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 	('2015_03_23_001019_remove_qrcode_full_field_from_users_table', 19),
 	('2015_03_25_135704_create_file_table', 20),
 	('2015_03_30_094459_create_lat_and_lng_fields_in_users_table', 21),
-	('2015_04_01_120104_create_role_aux_nullable_field_in_users_table', 22);
+	('2015_04_01_120104_create_role_aux_nullable_field_in_users_table', 22),
+	('2015_04_01_145006_add_role_auxilar_in_assigned_roles', 23);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 
@@ -208,7 +221,7 @@ INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `select_assigned_roles`()
 BEGIN
-	SELECT * FROM assigned_roles;
+	SELECT * FROM assigned_roles ORDER BY role_auxilar DESC;
 END//
 DELIMITER ;
 
@@ -227,26 +240,7 @@ DELIMITER ;
 DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `select_users`()
 BEGIN
-	SELECT * FROM users ORDER BY role_auxilar ASC;
-END//
-DELIMITER ;
-
-
--- Volcando estructura para procedimiento bike_3qr_nuevo.test3
-DELIMITER //
-CREATE DEFINER=`root`@`localhost` PROCEDURE `test3`(IN `opcion` int,IN `municipio_id` int)
-BEGIN
-/** opcion 1: muestra toda la info de un solo municipio **/
-	IF opcion = 1 THEN 
-					 /*el  asterisco ( * ) es como medida ilustrativa, en ambiente de producción se deben seleccionar los campos*/
-		SELECT * FROM files; 
-	END IF;
-	 
-	/** opcion 2: muestra todos los municipios por nombre y ID **/
-	IF opcion = 2 THEN
-		SELECT * FROM users;
-	END IF;
-	 
+	SELECT * FROM users ORDER BY role_auxilar DESC;
 END//
 DELIMITER ;
 
@@ -279,7 +273,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `update_role_user`(IN `id_user` INT,
 BEGIN
     IF (switch_active_value = 0) THEN
         UPDATE assigned_roles SET role_id = 4 WHERE user_id = id_user;
-    ELSE 
+    ELSEIF (switch_active_value = 1) THEN
         UPDATE assigned_roles SET role_id = 2 WHERE user_id = id_user;
     END IF;
 END//
@@ -313,15 +307,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`),
   KEY `users_grupo_sanguineo_id_foreign` (`grupo_sanguineo_id`),
   CONSTRAINT `users_grupo_sanguineo_id_foreign` FOREIGN KEY (`grupo_sanguineo_id`) REFERENCES `tipo_de_sangre` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Volcando datos para la tabla bike_3qr_nuevo.users: ~3 rows (aproximadamente)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `email`, `password`, `confirmation_code`, `remember_token`, `confirmed`, `created_at`, `updated_at`, `eps`, `observaciones_generales`, `facebook`, `twitter`, `fecha_nacimiento`, `serial_marco`, `grupo_sanguineo_id`, `active`, `nombre_completo`, `qrcode`, `lat`, `lng`, `role_auxilar`) VALUES
-	(41, 'albeiroaranzazu@gmail.com', '$2y$10$DDbOUzy1m3gzv7KemS1RmOpT2PPd/A3yY3MXjjrAhOi..UATXRIlq', '21f6acc681ce09b7e4ec1d9d04a5216d', NULL, 1, '2015-03-26 16:03:25', '2015-03-27 23:08:52', 'COOMEVA', 'ASLDHASKLÑDA\r\nSDAS\r\nDAS\r\nDAS\r\n', '', '', '1975-03-25 22:38:52', '12345', 2, 1, 'joaquin', '551426c578187', '', '', NULL),
+	(41, 'albeiroaranzazu@gmail.com', '$2y$10$DDbOUzy1m3gzv7KemS1RmOpT2PPd/A3yY3MXjjrAhOi..UATXRIlq', '21f6acc681ce09b7e4ec1d9d04a5216d', NULL, 1, '2015-03-26 16:03:25', '2015-03-27 23:08:52', 'COOMEVA', 'ASLDHASKLÑDA\r\nSDAS\r\nDAS\r\nDAS\r\n', '', '', '1975-03-25 22:38:52', '12345', 2, 1, 'joaquin', '551426c578187', '', '', 'user'),
 	(44, 'efraxpc@gmail.com', '$2y$10$9qhdi8hGZs/E6fGsY9afiOS31cgeJJ9kaRqkCVSkGrQZsjF2w.iAa', '83b626fab119d7528611dfcc8c77cfc7', '9L7dQCf16mL3c3PuIysRbK6HsnUGzXWqfkFhBRWK1g0AaBC3T5k96TmeVbv5', 1, '2015-03-31 19:54:03', '2015-04-01 11:56:12', 'Eps', 'Observaciones Generales ', 'Facebook', 'Twitter', '1970/01/01 00:00:00', 'Serial de Marco', 2, 1, 'Efrain Colmenares', '551afb5ba3e06', '4.589', '-73.930', 'admin\r\n'),
-	(46, 'programador.jtguerrero@hotmail.com', '$2y$10$GlukaFmk9Ul5.RbTcT/R8.7WslYfjnBhGQKI7fgzC6yqm1GBLGQTO', 'ec2a077859ea8560225371c8af197082', 'yj9tfM5RL6Ngi966l74vCeP44PEph89VwDPXqleMOOHL00Bv9SdYsZSOB2hM', 1, '2015-04-01 11:56:35', '2015-04-01 11:57:11', 'ed', 'ed', 'ed', 'ede', '2015/08/04 00:00:00', 'ed', 2, 1, 'Ede', '551bdcf3952b4', '4.589', '-73.930', NULL);
+	(50, 'programador.jtguerrero@hotmail.com', '$2y$10$3fJ3G2Ei65D/E1nNDW.r6eFS3sHevhvHWB.IHT.UR.6Nr7VUu3LU6', '868dd04786cb338c1eb85e454d385d6d', NULL, 1, '2015-04-01 15:20:24', '2015-04-01 15:20:24', 'Eps', 'Observaciones Generales ', 'Facebook', 'Twitter', '2015/01/05 00:00:00', 'Serial de Marco', 2, 1, 'Nombre Completo', '551c0cb87b49d', '4.589', '-73.930', 'user');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

@@ -16,7 +16,6 @@ class AdminController extends Controller
       $switch_active_value = Input::get('switch_active_value');
 
       $update_role_user = DB::select('CALL update_role_user(?,?)',array($id,$switch_active_value));
-
     }
 
     public function ajax_delete_user(){
@@ -36,8 +35,8 @@ class AdminController extends Controller
       $users = DB::select('CALL select_users()');
       $assigned_roles = DB::select('CALL select_assigned_roles()');
       $id = Auth::id();
-      //dd($users);
-      //die;
+      // dd($assigned_roles);
+      // die;
       $array = array('users' => $users,
                      'assigned_roles' => $assigned_roles,
                      'user_id'             => $id );

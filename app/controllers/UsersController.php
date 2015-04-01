@@ -69,12 +69,18 @@ class UsersController extends Controller
                     }
                 );
             }
+            $user_id = $user->id;
             if (Input::all()['tipo'] == 'user') {
                 $role = Role::where('name','=','users')->first();
-                $user->roles()->attach($role->id); 
+                $user->roles()->attach($role->id);
+                $slug = 'user';
+                $assigned_roles = DB::select( 'CALL insert_aux_role_in_assigned_roles_table(?,?)',array( $user_id,$slug ) );
+
             }elseif(Input::all()['tipo'] == 'admin'){
                 $role = Role::where('name','=','admin')->first();
                 $user->roles()->attach($role->id);
+                $slug = 'admin';
+                $assigned_roles = DB::select( 'CALL insert_aux_role_in_assigned_roles_table(?,?)',array( $user_id,$slug ) );
             }
             return Redirect::action('UsersController@login')
                 ->with('notice', Lang::get('confide::confide.alerts.account_created'));
