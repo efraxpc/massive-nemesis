@@ -49,5 +49,6 @@ return array(
     'status_usuario'                 => 'Status',
     'eliminar'                       => 'Eliminar',
     'administrar_usuarios'           => 'Administrar Usuarios',
-    'habilitar_registro_admin'       => 'Habilitar Rgistro de Administradores'
+    'habilitar_registro_admin'       => 'Habilitar Registro de Administradores',
+    'lista_de_usuarios'              => 'Lista de Usuarios',
 );

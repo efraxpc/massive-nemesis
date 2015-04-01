@@ -36,15 +36,12 @@
                     </a>
                 </li>
                 <li class="mt">
-                    <div class="row">
-                      <div class="question">
-                        Do you like bananas?
-                      </div>
+                    <div class="col-md-6 col-md-offset-3">
                       <div class="switch">
-                        <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
-                        <label for="cmn-toggle-1"></label>
+                        <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
+                        <label for="cmn-toggle-1" data-on='SI' data-off='NO'></label>
                       </div>
-                    </div><!-- /row -->
+                    </div>
                     <span>{{{Lang::get('main.habilitar_registro_admin') }}}</span>
                 </li>
             </ul>

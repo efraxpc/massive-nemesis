@@ -9,51 +9,59 @@
 
                 <div class="row">
                     <div class="col-md-12">
+                        <div class='content-panel'>
+                            <h4>
+                                <i class='fa fa-angle-right'></i>
+                                {{{Lang::get('main.lista_de_usuarios') }}}
+                            </h4>
+                            <hr>
+                            <div class='unseen'>
+                                <table class='table table-bordered table-striped table-condensed'>
+                                    <tr>
+                                        <th>{{{Lang::get('main.nombre_completo') }}}</th>
+                                        <th>{{{Lang::get('main.mail') }}}</th>
+                                        <th>{{{Lang::get('main.fecha_nacimiento') }}}</th>
+                                        <th>{{{Lang::get('main.eps') }}}</th>
+                                        <th>{{{Lang::get('main.observaciones_generales') }}}</th>
+                                        <th>{{{Lang::get('main.status_usuario') }}}</th>
+                                    </tr>
+                                    {{--*/ $i = 0 /*--}}  
+                                    @foreach ($users as $user)
+                                        <tr>
+                                            @if( $user->role_auxilar <> 'admin' )
+                                                <td>
+                                                    {{$user->nombre_completo}}
+                                                </td>
 
-                        <table class='table'>
-                            <tr>
-                                <th>{{{Lang::get('main.nombre_completo') }}}</th>
-                                <th>{{{Lang::get('main.mail') }}}</th>
-                                <th>{{{Lang::get('main.fecha_nacimiento') }}}</th>
-                                <th>{{{Lang::get('main.eps') }}}</th>
-                                <th>{{{Lang::get('main.observaciones_generales') }}}</th>
-                                <th>{{{Lang::get('main.status_usuario') }}}</th>
-                            </tr>
-                            {{--*/ $i = 0 /*--}}  
-                            @foreach ($users as $user)
-                                <tr>
-                                    @if( $user->role_auxilar <> 'admin' )
-                                        <td>
-                                            {{$user->nombre_completo}}
-                                        </td>
+                                                <td>
+                                                    {{$user->email}}
+                                                </td>
+                                                <td>
+                                                    {{$user->fecha_nacimiento}}
+                                                </td>
+                                                <td>
+                                                    {{$user->eps}}
+                                                </td>
+                                                <td>
+                                                    {{$user->observaciones_generales}}
+                                                </td>
+                                                <td>
+                                                    <div class="switch">
+                                                        <input id="cmn-toggle_{{$user->id}}" class="cmn-toggle cmn-toggle-yes-no recorrer_activate_switch" id_user = '{{$user->id}}' type="checkbox" counter={{$i}} rol='{{ $assigned_roles[$i]->role_id }}'>
+                                                        <label for="cmn-toggle_{{$user->id}}" data-on="ACTIVO" data-off="INACTIVO"></label>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <button type="button" class="btn btn-danger eliminar_usuario" id_user = '{{$user->id}}'>{{{ Lang::get('main.eliminar') }}}</button>
+                                                </td>
+                                            @endif
 
-                                        <td>
-                                            {{$user->email}}
-                                        </td>
-                                        <td>
-                                            {{$user->fecha_nacimiento}}
-                                        </td>
-                                        <td>
-                                            {{$user->eps}}
-                                        </td>
-                                        <td>
-                                            {{$user->observaciones_generales}}
-                                        </td>
-                                        <td>
-                                            <div class="switch">
-                                                <input id="cmn-toggle_{{$user->id}}" class="cmn-toggle cmn-toggle-yes-no recorrer_activate_switch" id_user = '{{$user->id}}' type="checkbox" counter={{$i}} rol='{{ $assigned_roles[$i]->role_id }}'>
-                                                <label for="cmn-toggle_{{$user->id}}" data-on="ACTIVO" data-off="INACTIVO"></label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <button type="button" class="btn btn-danger eliminar_usuario" id_user = '{{$user->id}}'>{{{ Lang::get('main.eliminar') }}}</button>
-                                        </td>
-                                    @endif
-
-                                </tr>
-                                {{--*/ $i++ /*--}}    
-                            @endforeach                            
-                        </table>
+                                        </tr>
+                                        {{--*/ $i++ /*--}}    
+                                    @endforeach                            
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
