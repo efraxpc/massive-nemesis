@@ -40,6 +40,8 @@ class UserRepository
             $user->fecha_nacimiento = $fecha;
             
             $user->serial_marco = array_get($input, 'serial_marco');
+        }elseif ($input['tipo'] == 'admin') {
+            $user->role_auxilar = "admin";
         }
         
         // The password confirmation will be removed from model
