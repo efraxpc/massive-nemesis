@@ -17,6 +17,7 @@
                                 <th>{{{Lang::get('main.fecha_nacimiento') }}}</th>
                                 <th>{{{Lang::get('main.eps') }}}</th>
                                 <th>{{{Lang::get('main.observaciones_generales') }}}</th>
+                                <th>{{{Lang::get('main.status_usuario') }}}</th>
                             </tr>    
                             {{--*/ $i = 0 /*--}}                  
                             @foreach ($users as $user)
@@ -39,7 +40,7 @@
                                     <td>
                                       <div class="switch">
                                         <input id="cmn-toggle_{{$user->id}}" class="cmn-toggle cmn-toggle-yes-no recorrer_activate_switch" id_user = '{{$user->id}}' type="checkbox" counter={{$i}} rol='{{ $assigned_roles[$i]->role_id }}'>
-                                        <label for="cmn-toggle_{{$user->id}}" data-on="SI" data-off="NO"></label>
+                                        <label for="cmn-toggle_{{$user->id}}" data-on="ACTIVO" data-off="INACTIVO"></label>
                                       </div>
                                     </td>
                                 </tr>
@@ -48,10 +49,22 @@
                         </table>
                     </div>
                 </div>
-
+<br>
                 <!-- **********************************************************************************************************************************************************
                 RIGHT SIDEBAR CONTENT
                 *********************************************************************************************************************************************************** -->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+                
             </div><! --/row -->
     </section>
 </section>
@@ -59,6 +72,7 @@
 @section('scripts')
     <script type="text/javascript">
         var obj = $('.recorrer_activate_switch');
+        //Recuperar status de usuarios
         $.each( obj, function( key, value ) {
             if ( $(this).attr('rol') == 2 ) {
                 $(this).attr('checked', true);

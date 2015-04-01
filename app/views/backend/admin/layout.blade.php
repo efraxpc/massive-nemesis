@@ -5,7 +5,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
     </div>
     <!--logo start-->
-    <a href="{{URL::route('login')}}" class="logo"><b>DASHGUM FREE</b></a>
+    <a href="{{URL::route('main')}}" class="logo"><b>{{{Lang::get('main.app_name') }}}</b></a>
     <!--logo end-->
     <div class="top-menu">
         <ul class="nav pull-right top-menu">
@@ -21,7 +21,7 @@
             <ul class="sidebar-menu" id="nav-accordion">
 
                 <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                <h5 class="centered">Marcel Newman</h5>
+                <h5 class="centered">{{$user->nombre_completo}}</h5>
 
                 <li class="mt">
                     <a class="active" href="{{URL::route('administrar_usuarios')}}">

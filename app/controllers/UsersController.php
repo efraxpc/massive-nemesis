@@ -176,8 +176,9 @@ class UsersController extends Controller
 
         if ($repo->login($input)) {
             if(Entrust::hasRole('admin')) {
-                //return Redirect::intended('users/profile/admin');
-                return View::make('backend.admin.home_admin');
+                $id = Auth::id();
+                $user  = User::find($id);
+                return View::make('backend.admin.home_admin')->withUser($user);
             }else{
                 $id = Auth::id();
                 $array = array('id'=>$id);

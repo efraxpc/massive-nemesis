@@ -45,5 +45,6 @@ return array(
     'click'                          => 'click',
     'en_ella'                        => 'en ella',
     'logout'                         => 'Cerrar sesión',
-    'ver_mis_datos_publicos'         => 'Ver mis datos públicos'
+    'ver_mis_datos_publicos'         => 'Ver mis datos públicos',
+    'status_usuario'                 => 'Status'
 );
