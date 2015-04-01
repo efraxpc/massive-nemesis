@@ -32,7 +32,7 @@ Route::group(array('prefix' => 'admin'), function()
 	Route::get('profile/admin', 'UsersController@postLogin');
 
 });
-
+Route::when('admin/*', 'admin');
 //Rudas usuario
 Route::group(array('prefix' => 'usuario'), function()
 {
