@@ -18,36 +18,39 @@
                                 <th>{{{Lang::get('main.eps') }}}</th>
                                 <th>{{{Lang::get('main.observaciones_generales') }}}</th>
                                 <th>{{{Lang::get('main.status_usuario') }}}</th>
+                                <th>{{$users[0]->role_auxilar}}</th>
                             </tr>    
                             {{--*/ $i = 0 /*--}}  
                             @foreach ($users as $user)
                                 <tr>
-                                    <td>
-                                        {{$user->nombre_completo}}
-                                    </td>
-                                    <td>
-                                        {{$user->email}}
-                                    </td>
-                                    <td>
-                                        {{$user->fecha_nacimiento}}
-                                    </td>
-                                    <td>
-                                        {{$user->eps}}
-                                    </td>
-                                    <td>
-                                        {{$user->observaciones_generales}}
-                                    </td>  
-                                    <td>
-                                    @if($user_id != $user->id)
-                                        <div class="switch">
-                                            <input id="cmn-toggle_{{$user->id}}" class="cmn-toggle cmn-toggle-yes-no recorrer_activate_switch" id_user = '{{$user->id}}' type="checkbox" counter={{$i}} rol='{{ $assigned_roles[$i]->role_id }}'>
-                                            <label for="cmn-toggle_{{$user->id}}" data-on="ACTIVO" data-off="INACTIVO"></label>
-                                          </div>
+                                    @if( $user->role_auxilar <> 'admin' )
+                                        <td>
+                                            {{$user->nombre_completo}}
+                                        </td>
+
+                                        <td>
+                                            {{$user->email}}
+                                        </td>
+                                        <td>
+                                            {{$user->fecha_nacimiento}}
+                                        </td>
+                                        <td>
+                                            {{$user->eps}}
+                                        </td>
+                                        <td>
+                                            {{$user->observaciones_generales}}
+                                        </td>
+                                        <td>
+                                            <div class="switch">
+                                                <input id="cmn-toggle_{{$user->id}}" class="cmn-toggle cmn-toggle-yes-no recorrer_activate_switch" id_user = '{{$user->id}}' type="checkbox" counter={{$i}} rol='{{ $assigned_roles[$i]->role_id }}'>
+                                                <label for="cmn-toggle_{{$user->id}}" data-on="ACTIVO" data-off="INACTIVO"></label>
+                                            </div>
                                         </td>
                                         <td>
                                             <button type="button" class="btn btn-danger eliminar_usuario" id_user = '{{$user->id}}'>{{{ Lang::get('main.eliminar') }}}</button>
                                         </td>
                                     @endif
+
                                 </tr>
                                 {{--*/ $i++ /*--}}    
                             @endforeach                            
