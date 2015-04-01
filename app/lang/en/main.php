@@ -46,5 +46,6 @@ return array(
     'en_ella'                        => 'en ella',
     'logout'                         => 'Cerrar sesión',
     'ver_mis_datos_publicos'         => 'Ver mis datos públicos',
-    'status_usuario'                 => 'Status'
+    'status_usuario'                 => 'Status',
+    'eliminar'                       => 'Eliminar',
 );

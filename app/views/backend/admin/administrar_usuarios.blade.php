@@ -13,7 +13,7 @@
                         <table class='table'>
                             <tr>
                                 <th>{{{Lang::get('main.nombre_completo') }}}</th>
-                                <th>{{{Lang::get('main.email') }}}</th>
+                                <th>{{{Lang::get('main.mail') }}}</th>
                                 <th>{{{Lang::get('main.fecha_nacimiento') }}}</th>
                                 <th>{{{Lang::get('main.eps') }}}</th>
                                 <th>{{{Lang::get('main.observaciones_generales') }}}</th>
@@ -43,6 +43,9 @@
                                         <label for="cmn-toggle_{{$user->id}}" data-on="ACTIVO" data-off="INACTIVO"></label>
                                       </div>
                                     </td>
+                                    <td>
+                                        <button type="button" class="btn btn-danger eliminar_usuario" id_user = '{{$user->id}}'>{{{ Lang::get('main.eliminar') }}}</button>
+                                    </td>
                                 </tr>
                                 {{--*/ $i++ /*--}}    
                             @endforeach                            
@@ -64,7 +67,7 @@
 <br>
 <br>
 <br>
-                
+
             </div><! --/row -->
     </section>
 </section>
@@ -74,10 +77,10 @@
         var obj = $('.recorrer_activate_switch');
         //Recuperar status de usuarios
         $.each( obj, function( key, value ) {
-            if ( $(this).attr('rol') == 2 ) {
-                $(this).attr('checked', true);
+            if ( $( this ).attr('rol') == 2 ) {
+                $( this ).attr('checked', true);
             }else if( $(this).attr('rol') == 4 ){
-                $(this).attr('checked', false);
+                $( this ).attr('checked', false);
             };
         });
 
@@ -85,8 +88,6 @@
             var parametros = { 'switch_active_value' : $( this ).is(':checked') ? 1 : 0,
                                'id_user' : $( this ).attr('id_user') };
 
-// console.log(parametros);
-// exit;
             $.ajax({
                     data:  parametros,
                     url:   '{{ URL::to('ajax_change_status_user') }}',
@@ -96,6 +97,22 @@
 
                     }
             });
+        });
+
+        $( ".eliminar_usuario" ).easyconfirm({locale: { title: 'Borrar usuario', button: ['No','Si'] ,text: '¿Realmente desea borrar este usuario?',}}).click(function() {
+            var id_user = $(this).attr('id_user');
+            var parametros = {'id_user':id_user};
+            console.log(id_user);
+
+            $.ajax({
+                    data:  parametros,
+                    url:   '{{ URL::to('ajax_delete_user') }}',
+                    type:  'post',
+                    success:  function (data) {
+                        location.reload();
+                    }
+            });
+
         });
     </script>
 @stop
