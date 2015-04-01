@@ -49,7 +49,7 @@ class UsersController extends Controller
             
             if ($validator->fails())
             {
-                return Redirect::to('usuario/create')->withErrors($validator);
+                return Redirect::to('admin/create')->withErrors($validator);
             }
         }
         /////////////////
@@ -57,7 +57,7 @@ class UsersController extends Controller
         $user = $repo->signup(Input::all());
 
         if ($user->id) {
-            if (Config::get('confide::signup_email')) {
+            if ( Config::get('confide::signup_email') ) {
                 Mail::queueOn(
                     Config::get('confide::email_queue'),
                     Config::get('confide::email_account_confirmation'),
@@ -70,13 +70,13 @@ class UsersController extends Controller
                 );
             }
             $user_id = $user->id;
-            if (Input::all()['tipo'] == 'user') {
+            if ( Input::all()['tipo'] == 'user' ) {
                 $role = Role::where('name','=','users')->first();
                 $user->roles()->attach($role->id);
                 $slug = 'user';
                 $assigned_roles = DB::select( 'CALL insert_aux_role_in_assigned_roles_table(?,?)',array( $user_id,$slug ) );
 
-            }elseif(Input::all()['tipo'] == 'admin'){
+            }elseif( Input::all()['tipo'] == 'admin' ){
                 $role = Role::where('name','=','admin')->first();
                 $user->roles()->attach($role->id);
                 $slug = 'admin';

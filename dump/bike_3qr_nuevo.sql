@@ -35,7 +35,7 @@ INSERT INTO `assigned_roles` (`id`, `user_id`, `role_id`, `role_auxilar`) VALUES
 
 -- Volcando estructura para procedimiento bike_3qr_nuevo.delete_user
 DELIMITER //
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_user`(IN `id_user` INT)
+CREATE   PROCEDURE `delete_user`(IN `id_user` INT)
 BEGIN
 	DELETE FROM users WHERE id = id_user;
 	DELETE FROM assigned_roles WHERE user_id = id_user;
@@ -68,7 +68,7 @@ INSERT INTO `files` (`id`, `nombre`, `ruta`, `tipo`, `tamaño`, `user_id`, `crea
 
 -- Volcando estructura para procedimiento bike_3qr_nuevo.insert_aux_role_in_assigned_roles_table
 DELIMITER //
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_aux_role_in_assigned_roles_table`(IN `id_user` INT, IN `slug` VARCHAR(50))
+CREATE   PROCEDURE `insert_aux_role_in_assigned_roles_table`(IN `id_user` INT, IN `slug` VARCHAR(50))
 BEGIN
 	UPDATE assigned_roles 
 	SET role_auxilar = slug
@@ -79,7 +79,7 @@ DELIMITER ;
 
 -- Volcando estructura para función bike_3qr_nuevo.max_3_files_asociated_in_files_table
 DELIMITER //
-CREATE DEFINER=`root`@`localhost` FUNCTION `max_3_files_asociated_in_files_table`(`user_id` INT) RETURNS tinyint(4)
+CREATE   FUNCTION `max_3_files_asociated_in_files_table`(`user_id` INT) RETURNS tinyint(4)
 BEGIN
 	DECLARE cantidad_reistros_usuario_files INT DEFAULT 0;
 	DECLARE total_count INT DEFAULT 0;
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bike_3qr_nuevo.migrations: ~22 rows (aproximadamente)
+-- Volcando datos para la tabla bike_3qr_nuevo.migrations: ~23 rows (aproximadamente)
 DELETE FROM `migrations`;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
@@ -207,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   UNIQUE KEY `roles_name_unique` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bike_3qr_nuevo.roles: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla bike_3qr_nuevo.roles: ~3 rows (aproximadamente)
 DELETE FROM `roles`;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
 INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -219,7 +219,7 @@ INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
 
 -- Volcando estructura para procedimiento bike_3qr_nuevo.select_assigned_roles
 DELIMITER //
-CREATE DEFINER=`root`@`localhost` PROCEDURE `select_assigned_roles`()
+CREATE   PROCEDURE `select_assigned_roles`()
 BEGIN
 	SELECT * FROM assigned_roles ORDER BY role_auxilar DESC;
 END//
@@ -228,7 +228,7 @@ DELIMITER ;
 
 -- Volcando estructura para procedimiento bike_3qr_nuevo.select_imagenes_de_usuario
 DELIMITER //
-CREATE DEFINER=`root`@`localhost` PROCEDURE `select_imagenes_de_usuario`(IN `id_user` int)
+CREATE   PROCEDURE `select_imagenes_de_usuario`(IN `id_user` int)
 BEGIN
 	#Routine body goes here...
 SELECT * FROM files WHERE user_id = id_user;
@@ -238,7 +238,7 @@ DELIMITER ;
 
 -- Volcando estructura para procedimiento bike_3qr_nuevo.select_users
 DELIMITER //
-CREATE DEFINER=`root`@`localhost` PROCEDURE `select_users`()
+CREATE   PROCEDURE `select_users`()
 BEGIN
 	SELECT * FROM users ORDER BY role_auxilar DESC;
 END//
@@ -269,7 +269,7 @@ INSERT INTO `tipo_de_sangre` (`id`, `nombre`) VALUES
 
 -- Volcando estructura para procedimiento bike_3qr_nuevo.update_role_user
 DELIMITER //
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_role_user`(IN `id_user` INT, IN `switch_active_value` INT)
+CREATE   PROCEDURE `update_role_user`(IN `id_user` INT, IN `switch_active_value` INT)
 BEGIN
     IF (switch_active_value = 0) THEN
         UPDATE assigned_roles SET role_id = 4 WHERE user_id = id_user;
