@@ -18,8 +18,7 @@
                                 <th>{{{Lang::get('main.eps') }}}</th>
                                 <th>{{{Lang::get('main.observaciones_generales') }}}</th>
                                 <th>{{{Lang::get('main.status_usuario') }}}</th>
-                                <th>{{$users[0]->role_auxilar}}</th>
-                            </tr>    
+                            </tr>
                             {{--*/ $i = 0 /*--}}  
                             @foreach ($users as $user)
                                 <tr>
@@ -57,25 +56,9 @@
                         </table>
                     </div>
                 </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-            </div><! --/row -->
+
+            </div>
+        </div>
     </section>
 </section>
 @stop
@@ -106,7 +89,7 @@
             });
         });
 
-        $( ".eliminar_usuario" ).easyconfirm({locale: { title: 'Borrar usuario', button: ['No','Si'] ,text: '¿Realmente desea borrar este usuario?',}}).click(function() {
+        $( ".eliminar_usuario" ).easyconfirm({locale: { title: 'Borrar usuario', button: ['No','Si'] ,text: '¿Realmente desea borrar este usuario?'}}).click(function() {
             var id_user = $(this).attr('id_user');
             var parametros = {'id_user':id_user};
             console.log(id_user);
