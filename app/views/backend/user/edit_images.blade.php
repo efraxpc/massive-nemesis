@@ -130,7 +130,6 @@
                             $("#resultado").html("Procesando, espere por favor...");
                     },
                     success:  function (data) {
-                        console.log(data.responde);
                         location.reload();
                     }
             });
