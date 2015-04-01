@@ -14,15 +14,17 @@ class AdminController extends Controller
     {
       $id = Input::get('id_user');
       $switch_active_value = Input::get('switch_active_value');
-
       $update_role_user = DB::select('CALL update_role_user(?,?)',array($id,$switch_active_value));
     }
 
     public function ajax_delete_user(){
       $id = Input::get('id_user');
-      // echo $id;
-      // die;
       $delete_user = DB::select('CALL delete_user(?)',array($id));
+    }
+
+    public function ajax_permissions_create_admin(){
+      $switch_active_value = Input::get('switch_active_value');
+      DB::select('CALL update_permissions_create_admin(?)',array($switch_active_value));
     }
 
     public function doLogin()
@@ -35,8 +37,6 @@ class AdminController extends Controller
       $users = DB::select('CALL select_users()');
       $assigned_roles = DB::select('CALL select_assigned_roles()');
       $id = Auth::id();
-      // dd($assigned_roles);
-      // die;
       $array = array('users' => $users,
                      'assigned_roles' => $assigned_roles,
                      'user_id'             => $id );

@@ -19,6 +19,7 @@ Route::get('/upload', function(){ return View::make('backend.user.create_image')
 Route::post('ajax_remove_image', 'FileController@remove_image');
 Route::post('/ajax_change_status_user', 'AdminController@ajax_change_status_user');
 Route::post('/ajax_delete_user', 'AdminController@ajax_delete_user');
+Route::post('/ajax_permissions_create_admin', 'AdminController@ajax_permissions_create_admin');
 Route::post('/login/post',  		array('as' 		=> 'login_post','uses' 	=>'UsersController@doLogin'));
 
 

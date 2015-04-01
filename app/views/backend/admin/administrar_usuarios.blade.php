@@ -92,7 +92,6 @@
         $( ".eliminar_usuario" ).easyconfirm({locale: { title: 'Borrar usuario', button: ['No','Si'] ,text: '¿Realmente desea borrar este usuario?'}}).click(function() {
             var id_user = $(this).attr('id_user');
             var parametros = {'id_user':id_user};
-            console.log(id_user);
 
             $.ajax({
                     data:  parametros,

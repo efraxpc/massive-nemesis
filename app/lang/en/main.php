@@ -48,4 +48,6 @@ return array(
     'ver_mis_datos_publicos'         => 'Ver mis datos públicos',
     'status_usuario'                 => 'Status',
     'eliminar'                       => 'Eliminar',
+    'administrar_usuarios'           => 'Administrar Usuarios',
+    'habilitar_registro_admin'       => 'Habilitar Rgistro de Administradores'
 );

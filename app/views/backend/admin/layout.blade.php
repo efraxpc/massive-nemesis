@@ -32,12 +32,42 @@
                 <li class="mt">
                     <a class="active" href="{{URL::route('administrar_usuarios')}}">
                         <i class="fa fa-dashboard"></i>
-                        <span>Administrar Usuarios</span>
+                        <span>{{{Lang::get('main.administrar_usuarios') }}}</span>
                     </a>
+                </li>
+                <li class="mt">
+                    <div class="row">
+                      <div class="question">
+                        Do you like bananas?
+                      </div>
+                      <div class="switch">
+                        <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-round" type="checkbox">
+                        <label for="cmn-toggle-1"></label>
+                      </div>
+                    </div><!-- /row -->
+                    <span>{{{Lang::get('main.habilitar_registro_admin') }}}</span>
                 </li>
             </ul>
             <!-- sidebar menu end-->
         </div>
     </aside>
     <!--sidebar end-->
+@stop
+@section('scripts')
+    <script>
+        //Script de cambio de opcion para habilitar o deshabilitar regitro de admins
+        $( ".cmn-toggle" ).change(function() {
+            var parametros = { 'switch_active_value' : $( this ).is(':checked') ? 1 : 0 };
+
+            $.ajax({
+                    data:  parametros,
+                    url:   '{{ URL::to('ajax_permissions_create_admin') }}',
+                    type:  'post',
+                    success:  function (data) {
+                        console.log('te amo');
+
+                    }
+            });
+        });
+    </script>
 @stop
