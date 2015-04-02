@@ -39,13 +39,17 @@
             <p><h6>{{{ Lang::get('main.descripcion_imprimir') }}}</h6></p
           </div>
         </div>  
+        
+        <div class="row mt">
+            <!-- SERVER STATUS PANELS -->
+        </div><!-- /col-lg-9 END SECTION MIDDLE -->
 
         <div class="row">
-          <div class="col-md- col-md-offset-6">
+          <div class="col-md- col-md-offset-6 qrcode_imprimir">
             {{ HTML::image('https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2F'.$qrcode.'%2F&choe=UTF-8') }}
           </div>
         </div>
-        
+
         <div class="row mt">
             <!-- SERVER STATUS PANELS -->
         </div><!-- /col-lg-9 END SECTION MIDDLE -->

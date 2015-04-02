@@ -352,9 +352,12 @@ class UsersController extends Controller
         $user = DB::table('users')->find($id);
         $tipo_de_sangre = DB::table('tipo_de_sangre')->orderBy('nombre', 'asc')->lists('nombre','id');
         $select_habilitar_registro_admin_option = DB::select('call select_habilitar_registro_admin_option()');
+        $qrcode = $user->qrcode;
+        $nome=Request::root().'/usuario/mostrar/'.$qrcode;
         $array = array('user' => $user,
                        'tipo_de_sangre' => $tipo_de_sangre,
                        'id'             => $id,
+                       'qrcode'         => $nome,
                        'habilitar_registro_admin_option'=>$select_habilitar_registro_admin_option[0]->confirmed );
         $select_role_of_user = DB::select('CALL select_role_of_user(?)',array($id));
 
