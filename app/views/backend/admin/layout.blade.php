@@ -17,7 +17,6 @@
 @section('scripts_header')
     {{ HTML::script('jquery.easy-confirm-dialog/jquery.easy-confirm-dialog.js') }}
     {{ HTML::script('http://code.jquery.com/ui/1.10.3/jquery-ui.js') }}
-
     {{ HTML::style('http://code.jquery.com/ui/1.10.3/themes/blitzer/jquery-ui.css') }}
 @stop
 @section('sidebar')
@@ -67,8 +66,11 @@
 
         if ( habilitar_registro_admin_option == 1 ) {
             $('#switch_active_value_url_admin').attr('checked', true);
+            $('.ocultar_direccion_administrador').show();
         }else if( habilitar_registro_admin_option == 0 ){
             $('#switch_active_value_url_admin').attr('checked', false);
+            //ocultar direccion registrar usuario
+            $('.ocultar_direccion_administrador').hide();
         };        
 
         $( ".recorrer_activate_switch" ).change(function() {
@@ -103,7 +105,13 @@
         //Script de cambio de opcion para habilitar o deshabilitar regitro de admins
         $( "#switch_active_value_url_admin" ).change(function() {
             var parametros = { 'switch_active_value' : $( this ).is(':checked') ? 1 : 0 };
-            //console.log(parametros);
+
+            if ( parametros.switch_active_value == 1 ) {
+                $('.ocultar_direccion_administrador').show();
+            }else if( parametros.switch_active_value == 0 ){
+                //ocultar direccion registrar usuario
+                $('.ocultar_direccion_administrador').hide();
+            };     
             $.ajax({
                     data:  parametros,
                     url:   '{{ URL::to('ajax_permissions_create_admin') }}',
