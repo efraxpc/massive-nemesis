@@ -24,13 +24,12 @@ class AdminController extends Controller
 
     public function ajax_permissions_create_admin(){
       $switch_active_value = Input::get('switch_active_value');
-      DB::select('CALL update_permissions_create_admin(?)',array($switch_active_value));
+      $can = DB::select('CALL update_permissions_create_admin_(?)',array($switch_active_value));
     }
 
     public function doLogin()
     {     
       return Redirect::to_action('Users@main');
-      //return View::make('backend.admin.home_admin');
     }
 
     public function administrar_usuarios()

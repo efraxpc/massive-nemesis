@@ -322,15 +322,12 @@ class UsersController extends Controller
      */
     public function mostrar($qrcode)
     {
-
         $user = DB::table('users')->where('qrcode', $qrcode)->first();
         $grupo_sanguineo_id = $user->grupo_sanguineo_id;
 
         $grupo_sanguineo = TipoDeSangre::find($grupo_sanguineo_id);
         $nome=Request::root().'/usuario/mostrar/'.$qrcode;
-        $imagenes_de_usuario = DB::select('call select_imagenes_de_usuario(?)',array($user->id));
-        //dd($user);
-        //die;        
+        $imagenes_de_usuario = DB::select('call select_imagenes_de_usuario(?)',array($user->id));    
         return View::make('backend.user.mostrar',['user' =>$user,'grupo_sanguineo'=>$grupo_sanguineo,'qrcode'=>$nome,'imagenes_de_usuario'=>$imagenes_de_usuario]);
     }
 
@@ -344,9 +341,11 @@ class UsersController extends Controller
         $id = Auth::id();
         $user = DB::table('users')->find($id);
         $tipo_de_sangre = DB::table('tipo_de_sangre')->orderBy('nombre', 'asc')->lists('nombre','id');
+        $select_habilitar_registro_admin_option = DB::select('call select_habilitar_registro_admin_option()');
         $array = array('user' => $user,
                        'tipo_de_sangre' => $tipo_de_sangre,
-                       'id'             => $id );
+                       'id'             => $id,
+                       'habilitar_registro_admin_option'=>$select_habilitar_registro_admin_option[0]->confirmed );
         $select_role_of_user = DB::select('CALL select_role_of_user(?)',array($id));
 
         $rol_usuario = $select_role_of_user[0]->rol_usuario;

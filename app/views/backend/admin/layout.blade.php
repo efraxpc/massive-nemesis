@@ -38,7 +38,7 @@
                 <li class="mt">
                     <div class="col-md-6 col-md-offset-3">
                       <div class="switch">
-                        <input id="switch_active_value_url_admin" class="cmn-toggle cmn-toggle-yes-no " type="checkbox">
+                        <input id="switch_active_value_url_admin" class="cmn-toggle cmn-toggle-yes-no habilitar_registro_admin_option" type="checkbox" atributo ='{{$habilitar_registro_admin_option}}'>
                         <label for="switch_active_value_url_admin" data-on='SI' data-off='NO'></label>
                       </div>
                     </div>
@@ -52,15 +52,24 @@
 @stop
 @section('scripts')
     <script type="text/javascript">
-        var obj = $('.recorrer_activate_switch');
+        var activate_user_switch = $('.recorrer_activate_switch');
         //Recuperar status de usuarios
-        $.each( obj, function( key, value ) {
+        $.each( activate_user_switch, function( key, value ) {
             if ( $( this ).attr('rol') == 2 ) {
                 $( this ).attr('checked', true);
             }else if( $(this).attr('rol') == 4 ){
                 $( this ).attr('checked', false);
             };
         });
+
+        //Recuperar status de permisos de registro de usuarios
+        var habilitar_registro_admin_option = $('.habilitar_registro_admin_option').attr('atributo');
+
+        if ( habilitar_registro_admin_option == 1 ) {
+            $('#switch_active_value_url_admin').attr('checked', true);
+        }else if( habilitar_registro_admin_option == 0 ){
+            $('#switch_active_value_url_admin').attr('checked', false);
+        };        
 
         $( ".recorrer_activate_switch" ).change(function() {
             var parametros = { 'switch_active_value' : $( this ).is(':checked') ? 1 : 0,
@@ -94,17 +103,11 @@
         //Script de cambio de opcion para habilitar o deshabilitar regitro de admins
         $( "#switch_active_value_url_admin" ).change(function() {
             var parametros = { 'switch_active_value' : $( this ).is(':checked') ? 1 : 0 };
-            console.log(parametros);
-            
-
+            //console.log(parametros);
             $.ajax({
                     data:  parametros,
                     url:   '{{ URL::to('ajax_permissions_create_admin') }}',
-                    type:  'post',
-                    success:  function (data) {
-                        console.log('te amo');
-
-                    }
+                    type:  'post'
             });
         });
     </script>
