@@ -7,5 +7,6 @@ composer.lock
 .env.php
 .DS_Store
 Thumbs.db
-.idea/*
 app/storage/cache/*
+/.idea/*
+/public/uploads/*
