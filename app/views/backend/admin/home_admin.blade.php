@@ -3,6 +3,11 @@
 <!--main content start-->
 <section id="main-content">
     <section class="wrapper">
+    
+                {{-- BOTTOM SPACE --}}
+                <div class="row mt">
+                    <!-- SERVER STATUS PANELS -->
+                </div><!-- /col-lg-9 END SECTION MIDDLE -->
 
         <div class="row ocultar_direccion_administrador">
           <div class="col-md-3 col-md-offset-3"><p>{{{Lang::get('main.texto_enlace_crear_admin')}}}</p></div>
