@@ -25,7 +25,14 @@ class UsersController extends Controller
      */
     public function createAdmin()
     {
-        return View::make('backend.user.create_admin');
+        $select_habilitar_registro_admin_option = DB::select('call select_habilitar_registro_admin_option()');
+        if ($select_habilitar_registro_admin_option[0]->confirmed == 1) {
+            return View::make('backend.user.create_admin');
+        }elseif($select_habilitar_registro_admin_option[0]->confirmed == 0){
+            return Redirect::route('404');
+        }
+
+        
     }
 
     /**
