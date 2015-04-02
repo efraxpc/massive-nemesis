@@ -51,4 +51,6 @@ return array(
     'administrar_usuarios'           => 'Administrar Usuarios',
     'habilitar_registro_admin'       => 'Habilitar Registro de Administradores',
     'lista_de_usuarios'              => 'Lista de Usuarios',
+    'activo_mayus'                   => 'ACTIVO',
+    'inactivo_mayus'                 => 'INACTIVO',
 );

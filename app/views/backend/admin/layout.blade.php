@@ -42,7 +42,7 @@
                         <label for="switch_active_value_url_admin" data-on='SI' data-off='NO'></label>
                       </div>
                     </div>
-                    <span>{{{Lang::get('main.habilitar_registro_admin') }}}</span>
+                    <p align="center"><b>{{{Lang::get('main.habilitar_registro_admin') }}}</b></p>
                 </li>
             </ul>
             <!-- sidebar menu end-->

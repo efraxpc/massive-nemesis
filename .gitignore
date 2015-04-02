@@ -9,4 +9,4 @@ composer.lock
 Thumbs.db
 app/storage/cache/*
 /.idea/*
-/public/uploads/*
+public/uploads/*
