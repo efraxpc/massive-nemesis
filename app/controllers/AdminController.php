@@ -29,6 +29,7 @@ class AdminController extends Controller
 
     public function doLogin()
     {
+      
       return View::make('backend.admin.home_admin');
     }
 

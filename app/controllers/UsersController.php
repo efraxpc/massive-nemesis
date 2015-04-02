@@ -346,7 +346,13 @@ class UsersController extends Controller
         $array = array('user' => $user,
                        'tipo_de_sangre' => $tipo_de_sangre,
                        'id'             => $id );
-        return View::make('backend.user.home_user',$array);
+        $select_role_of_user = DB::select('CALL select_role_of_user(?)',array($id));
 
+        $rol_usuario = $select_role_of_user[0]->rol_usuario;
+        if ($rol_usuario == 'admin') {
+            return View::make('backend.admin.home_admin',$array);
+        }else{
+            return View::make('backend.user.home_user',$array);
+        }
     }
 }

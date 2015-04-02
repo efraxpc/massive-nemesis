@@ -21,6 +21,7 @@ Route::post('/ajax_change_status_user', 'AdminController@ajax_change_status_user
 Route::post('/ajax_delete_user', 'AdminController@ajax_delete_user');
 Route::post('/ajax_permissions_create_admin', 'AdminController@ajax_permissions_create_admin');
 Route::post('/login/post',  		array('as' 		=> 'login_post','uses' 	=>'UsersController@doLogin'));
+Route::get('/home/',  			    array('as' 		=> 'main','uses' 		=>'UsersController@main'));
 
 
 Route::get('/delete/files', function(){DB::table('files')->delete(); });
@@ -40,8 +41,7 @@ Route::group(array('prefix' => 'usuario'), function()
 	Route::get('/mostrar/{qrcode}',  	array('as' 		=> 'mostrar','uses' 	=>'UsersController@mostrar'));
 
 	Route::get('/login',  				array('as' 		=> 'login','uses' 		=>'UsersController@login'));
-	Route::get('/home/',  			    array('as' 		=> 'main','uses' 		=>'UsersController@main'));
-
+	
 	Route::get('/cerrar/sesion',  		array('as' 		=> 'logout','uses' 		=>'UsersController@logout'));
 
 	Route::get('create',  				array('as' 		=> 'create_user','uses' =>	'UsersController@create'));
