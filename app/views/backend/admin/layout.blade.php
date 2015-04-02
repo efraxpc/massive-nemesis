@@ -38,8 +38,8 @@
                 <li class="mt">
                     <div class="col-md-6 col-md-offset-3">
                       <div class="switch">
-                        <input id="cmn-toggle-1" class="cmn-toggle cmn-toggle-yes-no" type="checkbox">
-                        <label for="cmn-toggle-1" data-on='SI' data-off='NO'></label>
+                        <input id="switch_active_value_url_admin" class="cmn-toggle cmn-toggle-yes-no " type="checkbox">
+                        <label for="switch_active_value_url_admin" data-on='SI' data-off='NO'></label>
                       </div>
                     </div>
                     <span>{{{Lang::get('main.habilitar_registro_admin') }}}</span>
@@ -51,10 +51,51 @@
     <!--sidebar end-->
 @stop
 @section('scripts')
-    <script>
+    <script type="text/javascript">
+        var obj = $('.recorrer_activate_switch');
+        //Recuperar status de usuarios
+        $.each( obj, function( key, value ) {
+            if ( $( this ).attr('rol') == 2 ) {
+                $( this ).attr('checked', true);
+            }else if( $(this).attr('rol') == 4 ){
+                $( this ).attr('checked', false);
+            };
+        });
+
+        $( "#switch_active_value_unable_user" ).change(function() {
+            var parametros = { 'switch_active_value' : $( this ).is(':checked') ? 1 : 0,
+                               'id_user' : $( this ).attr('id_user') };
+
+            $.ajax({
+                    data:  parametros,
+                    url:   '{{ URL::to('ajax_change_status_user') }}',
+                    type:  'post',
+                    success:  function (data) {
+                        console.log(data.responde);
+
+                    }
+            });
+        });
+
+        $( ".eliminar_usuario" ).easyconfirm({locale: { title: 'Borrar usuario', button: ['No','Si'] ,text: '¿Realmente desea borrar este usuario?'}}).click(function() {
+            var id_user = $(this).attr('id_user');
+            var parametros = {'id_user':id_user};
+
+            $.ajax({
+                    data:  parametros,
+                    url:   '{{ URL::to('ajax_delete_user') }}',
+                    type:  'post',
+                    success:  function (data) {
+                        location.reload();
+                    }
+            });
+
+        });
         //Script de cambio de opcion para habilitar o deshabilitar regitro de admins
-        $( ".cmn-toggle" ).change(function() {
+        $( "#switch_active_value_url_admin" ).change(function() {
             var parametros = { 'switch_active_value' : $( this ).is(':checked') ? 1 : 0 };
+            console.log(parametros);
+            
 
             $.ajax({
                     data:  parametros,
