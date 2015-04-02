@@ -62,7 +62,7 @@
             };
         });
 
-        $( "#switch_active_value_unable_user" ).change(function() {
+        $( ".recorrer_activate_switch" ).change(function() {
             var parametros = { 'switch_active_value' : $( this ).is(':checked') ? 1 : 0,
                                'id_user' : $( this ).attr('id_user') };
 

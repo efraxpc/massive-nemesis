@@ -47,8 +47,8 @@
                                                      </td>
                                                      <td>
                                                          <div class="switch">
-                                                             <input id="switch_active_value_unable_user" class="cmn-toggle cmn-toggle-yes-no recorrer_activate_switch" id_user = '{{$user->id}}' type="checkbox" counter={{$i}} rol='{{ $assigned_roles[$i]->role_id }}'>
-                                                             <label for="switch_active_value_unable_user" data-on="{{{Lang::get('main.activo_mayus') }}}" data-off="{{{Lang::get('main.inactivo_mayus') }}}"></label>
+                                                             <input id="switch_active_value_unable_user_{{$user->id}}" class="cmn-toggle cmn-toggle-yes-no recorrer_activate_switch" id_user = '{{$user->id}}' type="checkbox" counter={{$i}} rol='{{ $assigned_roles[$i]->role_id }}'>
+                                                             <label for="switch_active_value_unable_user_{{$user->id}}" data-on="{{{Lang::get('main.activo_mayus') }}}" data-off="{{{Lang::get('main.inactivo_mayus') }}}"></label>
                                                          </div>
                                                      </td>
                                                      <td>
