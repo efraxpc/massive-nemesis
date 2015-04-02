@@ -162,14 +162,13 @@ class UsersController extends Controller
      * @return  Illuminate\Http\Response
      */
         public function login()
-    {
-        
-        $user = Auth::user();
-        if(!empty($user->id)){
+        {
+            $user = Auth::user();
+            if(!empty($user->id)){
+                return View::make('backend.user.login');
+            }
             return View::make('backend.user.login');
         }
-     return View::make('backend.user.login');
-    }
 
     /**
      * Attempt to do login
@@ -179,7 +178,6 @@ class UsersController extends Controller
     {
         $repo = App::make('UserRepository');
         $input = Input::all();
-
         if ($repo->login($input)) {
             if(Entrust::hasRole('admin')) {
                 $id = Auth::id();
@@ -314,8 +312,7 @@ class UsersController extends Controller
     public function logout()
     {
         Confide::logout();
-
-        return Redirect::to('/usuario/login');
+        return Redirect::route('login');
     }
 
     /**
