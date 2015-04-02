@@ -15,7 +15,7 @@ Route::get('/', function(){	return View::make('backend.user.login');});
 
 Route::get('/demo', function(){	return View::make('backend.demo');});
 Route::get('/upload', function(){ return View::make('backend.user.create_image'); });
-//Route::post('upload', 'FileController@upload_image');
+Route::post('upload', 'FileController@upload_image');
 Route::post('ajax_remove_image', 'FileController@remove_image');
 Route::post('/ajax_change_status_user', 'AdminController@ajax_change_status_user');
 Route::post('/ajax_delete_user', 'AdminController@ajax_delete_user');

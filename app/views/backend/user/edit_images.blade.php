@@ -121,9 +121,6 @@
     //clickamos una foto
         $( ".foto" ).easyconfirm({locale: { title: 'Borrar imagen', button: ['No','Si'] ,text: '¿Realmente desea borrar esta imagen?',}}).click(function() {
             var parametros = { 'id' : $( this ).attr('id') };
-    console.log(parametros);
-    exit;
-
             $.ajax({
                     data:  parametros,
                     url:   '{{URL::to('ajax_remove_image')}}',
@@ -150,7 +147,7 @@
 
                 this.on('complete', function () {
                     if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
-                        //location.reload();
+                        location.reload();
                     }
                 });        
             }
