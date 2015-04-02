@@ -151,20 +151,6 @@
       accept: function(file, done) {
         return done();
       },
-      init: function() {
-
-        this.on("success", function(file, responseText) {
-          responseText = "Imagen subida";
-          // Handle the responseText here. For example, add the text to the preview element:
-          file.previewTemplate.appendChild(document.createTextNode(responseText));
-        });
-
-        this.on('complete', function () {
-            if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
-                location.reload();
-            }
-        });        
-      },
       forceFallback: false,
       fallback: function() {
         var child, messageElement, span, _i, _len, _ref;

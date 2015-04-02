@@ -36,7 +36,9 @@ class FileController extends Controller
     public function upload_image(){
 
   		$fileInput = Input::file('file');
-
+//      dd($fileInput);die;
+echo "aqui llega";
+die;
   		if (Input::hasFile('file')) {
   			$filename = "imagen__".uniqid();
   			$path     = public_path().'/uploads/';

@@ -121,6 +121,8 @@
     //clickamos una foto
         $( ".foto" ).easyconfirm({locale: { title: 'Borrar imagen', button: ['No','Si'] ,text: '¿Realmente desea borrar esta imagen?',}}).click(function() {
             var parametros = { 'id' : $( this ).attr('id') };
+    console.log(parametros);
+    exit;
 
             $.ajax({
                     data:  parametros,
@@ -135,32 +137,24 @@
             });
         });
 
-        // Dropzone.options.myDropzone = {
+        Dropzone.options.myDropzone = {
+            // Prevents Dropzone from uploading dropped files immediately
+            autoProcessQueue : true,
+            init: function() {
 
-        //     // Prevents Dropzone from uploading dropped files immediately
-        //     autoProcessQueue : true,
+                this.on("success", function(file, responseText) {
+                  responseText = "Imagen subida";
+                  // Handle the responseText here. For example, add the text to the preview element:
+                  file.previewTemplate.appendChild(document.createTextNode(responseText));
+                });
 
-        //     init : function() {
-
-        //     // Create the mock file:
-        //     var mockFile = { name: "Filename", size: 12345 };
-
-        //     // Call the default addedfile event handler
-        //     myDropzone.emit("addedfile", mockFile);
-
-        //     // And optionally show the thumbnail of the file:
-        //     myDropzone.emit("thumbnail", mockFile, "/image/url");
-
-        //     // Make sure that there is no progress bar, etc...
-        //     myDropzone.emit("complete", mockFile);
-
-        //     // If you use the maxFiles option, make sure you adjust it to the
-        //     // correct amount:
-        //     var existingFileCount = 1; // The number of files already uploaded
-        //     myDropzone.options.maxFiles = myDropzone.options.maxFiles - existingFileCount;
-
-        //     }
-        // };
+                this.on('complete', function () {
+                    if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
+                        //location.reload();
+                    }
+                });        
+            }
+        };
     </script>
 @stop  
 

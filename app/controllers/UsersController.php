@@ -322,11 +322,15 @@ class UsersController extends Controller
      */
     public function mostrar($qrcode)
     {
+
         $user = DB::table('users')->where('qrcode', $qrcode)->first();
         $grupo_sanguineo_id = $user->grupo_sanguineo_id;
+
         $grupo_sanguineo = TipoDeSangre::find($grupo_sanguineo_id);
         $nome=Request::root().'/usuario/mostrar/'.$qrcode;
         $imagenes_de_usuario = DB::select('call select_imagenes_de_usuario(?)',array($user->id));
+        //dd($user);
+        //die;        
         return View::make('backend.user.mostrar',['user' =>$user,'grupo_sanguineo'=>$grupo_sanguineo,'qrcode'=>$nome,'imagenes_de_usuario'=>$imagenes_de_usuario]);
     }
 
