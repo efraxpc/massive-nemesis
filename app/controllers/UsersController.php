@@ -182,12 +182,13 @@ class UsersController extends Controller
             if(Entrust::hasRole('admin')) {
                 $id = Auth::id();
                 $user  = User::find($id);
-                return View::make('backend.admin.home_admin')->withUser($user);
+                $select_habilitar_registro_admin_option = DB::select('call select_habilitar_registro_admin_option()');
+                $array = array('habilitar_registro_admin_option'=>$select_habilitar_registro_admin_option[0]->confirmed);
+                return View::make('backend.admin.home_admin')->withUser($user)->with($array);
             }else{
                 $id = Auth::id();
                 $array = array('id'=>$id);
                 $user  = User::find($id);
-                //return Redirect::intended('users/profile');
                 return View::make('backend.user.home_user')->with($array)->withUser($user);
             }
         } else {

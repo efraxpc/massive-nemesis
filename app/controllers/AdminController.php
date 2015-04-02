@@ -37,9 +37,11 @@ class AdminController extends Controller
       $users = DB::select('CALL select_users()');
       $assigned_roles = DB::select('CALL select_assigned_roles()');
       $id = Auth::id();
+      $select_habilitar_registro_admin_option = DB::select('call select_habilitar_registro_admin_option()');
       $array = array('users' => $users,
                      'assigned_roles' => $assigned_roles,
-                     'user_id'             => $id );
+                     'user_id'             => $id,
+                     'habilitar_registro_admin_option'=>$select_habilitar_registro_admin_option[0]->confirmed);
       return View::make('backend.admin.administrar_usuarios', $array);
     }
 
