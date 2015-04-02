@@ -30,6 +30,7 @@ Route::group(array('prefix' => 'admin'), function()
 {
 	Route::get('/home',  					array('as' => 'login_admin','uses' 	           =>'AdminController@doLogin'));
 	Route::get('/administrar/usuarios',  	array('as' => 'administrar_usuarios','uses'    =>'AdminController@administrar_usuarios'));
+	Route::get('/crear/', 'UsersController@createAdmin');
 	Route::get('profile/admin', 'UsersController@postLogin');
 
 });

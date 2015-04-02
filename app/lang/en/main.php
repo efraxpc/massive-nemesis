@@ -45,7 +45,7 @@ return array(
     'click'                          => 'click',
     'en_ella'                        => 'en ella',
     'logout'                         => 'Cerrar sesión',
-    'ver_mis_datos_publicos'         => 'Ver mis datos públicos',
+    'ver_mis_datos_publicos'         => 'Asi ven mi perfil los demás',
     'status_usuario'                 => 'Status',
     'eliminar'                       => 'Eliminar',
     'administrar_usuarios'           => 'Administrar Usuarios',
@@ -55,4 +55,5 @@ return array(
     'inactivo_mayus'                 => 'INACTIVO',
     'codigo_registrar_usuario'       => 'http://bikestation.co/admin/crear',
     'texto_enlace_crear_admin'       => 'Puede registar un administrador en la siguiente dirección:',
+    'descripcion_imprimir'           => 'Para imprimir los códigos QR toque la imagen de abajo',
 );

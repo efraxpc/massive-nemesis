@@ -31,8 +31,6 @@ class UsersController extends Controller
         }elseif($select_habilitar_registro_admin_option[0]->confirmed == 0){
             return Redirect::route('404');
         }
-
-        
     }
 
     /**
@@ -168,14 +166,14 @@ class UsersController extends Controller
      * Displays the login form
      * @return  Illuminate\Http\Response
      */
-        public function login()
-        {
-            $user = Auth::user();
-            if(!empty($user->id)){
-                return View::make('backend.user.login');
-            }
+    public function login()
+    {
+        $user = Auth::user();
+        if(!empty($user->id)){
             return View::make('backend.user.login');
         }
+        return View::make('backend.user.login');
+    }
 
     /**
      * Attempt to do login
@@ -194,8 +192,12 @@ class UsersController extends Controller
                 return View::make('backend.admin.home_admin')->withUser($user)->with($array);
             }else{
                 $id = Auth::id();
-                $array = array('id'=>$id);
                 $user  = User::find($id);
+                $qrcode = $user->qrcode;
+                $nome=Request::root().'/usuario/mostrar/'.$qrcode;
+                $array = array('id'=> $id,
+                               'qrcode'=> $nome);
+
                 return View::make('backend.user.home_user')->with($array)->withUser($user);
             }
         } else {
