@@ -32,7 +32,7 @@
                         <br/>
                         <div class="space-6"></div>
                         <p> Ingresa tu información para empezar: </p>
-                        <form method="POST" action="{{{ URL::to('usuario/pipo2') }}}" accept-charset="UTF-8">
+                        <form method="POST" action="{{{ URL::route('editar_usuario') }}}" accept-charset="UTF-8">
                             <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
                             <input type="hidden" name="tipo" value="user">
                             <input type="hidden" name="editar" value="true">

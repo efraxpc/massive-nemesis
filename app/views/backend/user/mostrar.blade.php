@@ -48,8 +48,8 @@
     </tr>
     <tr>
         <td class="text-center">
-            <p><strong>{{{Lang::get('main.foto_de_la_bicicleta') }}}</strong></p>
-            <p>{{$user->fecha_nacimiento}}</p>
+            <p><strong>{{{Lang::get('main.fecha_nacimiento') }}}</strong></p>
+            <p>{{ date("d/m/Y",strtotime($user->fecha_nacimiento)) }}</p>
         </td>
     </tr>
 

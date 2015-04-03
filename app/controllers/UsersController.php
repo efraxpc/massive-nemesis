@@ -167,7 +167,9 @@ class UsersController extends Controller
 
         if (!is_null($error)) {
             $id = Auth::id();
-            $array = array('id'=>$id,'user'=>$user);
+            $qrcode = $user->qrcode;
+            $file = Request::root().'/uploads/qrcodes/'.$qrcode.'.png';
+            $array = array('id'=>$id,'user'=>$user,'file'=>$file);
             return View::make('backend.user.home_user', $array);
         }else{
 
@@ -383,7 +385,7 @@ class UsersController extends Controller
 
         $select_role_of_user = DB::select('CALL select_role_of_user(?)',array($id));
         $rol_usuario = $select_role_of_user[0]->rol_usuario;
-        
+
         if ($rol_usuario == 'admin') {
             return View::make('backend.admin.home_admin',$array);
         }else{

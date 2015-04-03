@@ -116,6 +116,7 @@ class FileController extends Controller
         $parameter['file'] = $file;
  
         $pdf = PDF::loadView('backend.user.pdf', $parameter);
-        return $pdf->stream($user->nombre_completo.'_'.$qrcode.'.pdf'); 
+        $file_name = $user->nombre_completo.'_'.$qrcode.'.pdf';
+        return $pdf->stream($file_name); 
     }    
 }

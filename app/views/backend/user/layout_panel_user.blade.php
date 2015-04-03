@@ -7,7 +7,7 @@
 @section('scripts')
     <script type="text/javascript">
 
-		$( ".qrcode_imprimir" ).easyconfirm({locale: { title: 'Imprimir codigo', button: ['No','Si'] ,text: '¿Realmente desea imprimir su código?'}}).click(function() {
+		$( ".qrcode_imprimir" ).easyconfirm({locale: { title: 'Imprimir codigo', button: ['No','Si'] ,text: '¿Desea imprimir su código QR?'}}).click(function() {
 			
 		    $.ajax({
                 url:   '{{ URL::to('imprimir') }}',
