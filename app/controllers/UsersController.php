@@ -79,6 +79,22 @@ class UsersController extends Controller
                 $role = Role::where('name','=','users')->first();
                 $user->roles()->attach($role->id);
                 $slug = 'user';
+
+                $qrcode = $user->qrcode;
+                $nome = Request::root().'/usuario/mostrar/'.$qrcode;
+                $file = Request::root().'/uploads/qrcodes/'.$qrcode.'.png';
+
+                //Escribir qrcode in server
+                $url = 'https://chart.googleapis.com/chart?';
+                $chs = 'chs=300x300';
+                $cht = 'cht=qr';
+                $chl = 'chl='.urlencode($nome);
+                $qstring = $url ."&". $chs ."&". $cht ."&". $chl;       
+                $data = file_get_contents($qstring);
+                $f = fopen('uploads/qrcodes/'.$qrcode.'.png', 'w');
+                fwrite($f, $data);
+                fclose($f);
+
                 $assigned_roles = DB::select( 'CALL insert_aux_role_in_assigned_roles_table(?,?)',array( $user_id,$slug ) );
 
             }elseif( Input::all()['tipo'] == 'admin' ){
@@ -194,9 +210,10 @@ class UsersController extends Controller
                 $id = Auth::id();
                 $user  = User::find($id);
                 $qrcode = $user->qrcode;
-                $nome=Request::root().'/usuario/mostrar/'.$qrcode;
+                $qrcode = $user->qrcode;
+                $file = Request::root().'/uploads/qrcodes/'.$qrcode.'.png';                
                 $array = array('id'=> $id,
-                               'qrcode'=> $nome);
+                               'file'=> $file);
 
                 return View::make('backend.user.home_user')->with($array)->withUser($user);
             }
@@ -337,8 +354,10 @@ class UsersController extends Controller
 
         $grupo_sanguineo = TipoDeSangre::find($grupo_sanguineo_id);
         $nome=Request::root().'/usuario/mostrar/'.$qrcode;
+        $qrcode = $user->qrcode;
+        $file = Request::root().'/uploads/qrcodes/'.$qrcode.'.png';
         $imagenes_de_usuario = DB::select('call select_imagenes_de_usuario(?)',array($user->id));    
-        return View::make('backend.user.mostrar',['user' =>$user,'grupo_sanguineo'=>$grupo_sanguineo,'qrcode'=>$nome,'imagenes_de_usuario'=>$imagenes_de_usuario]);
+        return View::make('backend.user.mostrar',['user' =>$user,'grupo_sanguineo'=>$grupo_sanguineo,'file'=>$file,'imagenes_de_usuario'=>$imagenes_de_usuario]);
     }
 
     /**
@@ -352,12 +371,14 @@ class UsersController extends Controller
         $user = DB::table('users')->find($id);
         $tipo_de_sangre = DB::table('tipo_de_sangre')->orderBy('nombre', 'asc')->lists('nombre','id');
         $select_habilitar_registro_admin_option = DB::select('call select_habilitar_registro_admin_option()');
+        
         $qrcode = $user->qrcode;
-        $nome=Request::root().'/usuario/mostrar/'.$qrcode;
+        $file = Request::root().'/uploads/qrcodes/'.$qrcode.'.png';
+
         $array = array('user' => $user,
                        'tipo_de_sangre' => $tipo_de_sangre,
                        'id'             => $id,
-                       'qrcode'         => $nome,
+                       'file'           => $file,
                        'habilitar_registro_admin_option'=>$select_habilitar_registro_admin_option[0]->confirmed );
         $select_role_of_user = DB::select('CALL select_role_of_user(?)',array($id));
 

@@ -10,8 +10,9 @@
 		"barryvdh/laravel-debugbar": "~1.8",
 		"doctrine/dbal": "v2.4.2",
 		"zizaco/entrust": "1.2.*@dev",
-		"intervention/image": "~2.1"
-
+		"intervention/image": "~2.1",
+		"thujohn/pdf": "dev-master",
+		"barryvdh/laravel-dompdf": "*"
 	},
 	"autoload": {
 		"classmap": [

@@ -108,4 +108,13 @@ class FileController extends Controller
       //Borrar imagem de bd
       DB::table('files')->where('id', '=', $id)->delete();
     }
+
+    public function imprimir()
+    {
+        $parameterr = array();
+        $parameter['qrcode'] = "livre estou";
+ 
+        $pdf = PDF::loadView('backend.user.pdf', $parameter);
+        return $pdf->stream("Hello.pdf"); 
+    }    
 }

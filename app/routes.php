@@ -23,8 +23,12 @@ Route::post('/ajax_permissions_create_admin', 'AdminController@ajax_permissions_
 Route::post('/inicio/post',  		array('as' 		=> 'login_post','uses' 	=>'UsersController@doLogin'));
 Route::get('/inicio/',  			    array('as' 		=> 'main','uses' 		=>'UsersController@main'));
 Route::get('/iniciar/sesion',  				array('as' 		=> 'login','uses' 		=>'UsersController@login'));
+Route::post('/imprimir/',  			    array('as' 		=> 'imprimir','uses' 		=>'FileController@imprimir'));
 
 Route::get('/delete/files', function(){DB::table('files')->delete(); });
+
+
+Route::get('/pdf', 'FileController@imprimir');
 
 Route::group(array('prefix' => 'admin'), function()
 {

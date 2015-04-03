@@ -66,7 +66,7 @@
     <tr>
         <td class="text-center">
             <p><strong>Código Qr</strong></p>
-            {{ HTML::image('https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=http%3A%2F%2F'.$qrcode.'%2F&choe=UTF-8') }}
+            {{ HTML::image($file) }}
 
         </td>
     </tr>      

@@ -125,8 +125,8 @@ return array(
 		'Zizaco\Entrust\EntrustServiceProvider',
 		'Clockwork\Support\Laravel\ClockworkServiceProvider',
 		'Barryvdh\Debugbar\ServiceProvider',
-		'Intervention\Image\ImageServiceProvider'
-
+		'Intervention\Image\ImageServiceProvider',
+		'Barryvdh\DomPDF\ServiceProvider',
 	),
 
 	/*
@@ -196,7 +196,8 @@ return array(
 		'Confide'    	  => 'Zizaco\Confide\Facade',
 		'Debugbar' 		  => 'Barryvdh\Debugbar\Facade',
 		'Entrust'         => 'Zizaco\Entrust\EntrustFacade',
-		'Image' 		  => 'Intervention\Image\Facades\Image'
+		'Image' 		  => 'Intervention\Image\Facades\Image',
+		'PDF'             => 'Barryvdh\DomPDF\Facade',
 	),
 
 );
