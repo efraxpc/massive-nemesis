@@ -371,7 +371,7 @@ class UsersController extends Controller
         $user = DB::table('users')->find($id);
         $tipo_de_sangre = DB::table('tipo_de_sangre')->orderBy('nombre', 'asc')->lists('nombre','id');
         $select_habilitar_registro_admin_option = DB::select('call select_habilitar_registro_admin_option()');
-        
+
         $qrcode = $user->qrcode;
         $file = Request::root().'/uploads/qrcodes/'.$qrcode.'.png';
 
@@ -380,9 +380,10 @@ class UsersController extends Controller
                        'id'             => $id,
                        'file'           => $file,
                        'habilitar_registro_admin_option'=>$select_habilitar_registro_admin_option[0]->confirmed );
-        $select_role_of_user = DB::select('CALL select_role_of_user(?)',array($id));
 
+        $select_role_of_user = DB::select('CALL select_role_of_user(?)',array($id));
         $rol_usuario = $select_role_of_user[0]->rol_usuario;
+        
         if ($rol_usuario == 'admin') {
             return View::make('backend.admin.home_admin',$array);
         }else{

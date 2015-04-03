@@ -56,7 +56,7 @@ class FileController extends Controller
           $file->tamaño = $fileSize;
 
           $file ->user()->associate($usuario);
-                  //guardamos el file en el server
+        //guardamos el file en el server
         if ( $fileInput[0]->move($path,$filename.'.'.$fileInput[0]->getClientOriginalName() ) ) {
           $file->save();
         }
@@ -86,9 +86,6 @@ class FileController extends Controller
                       'files'                 => $files,
                       'files_asociated_table' => $max_3_files_asociated_in_files_table[0]);
 
-            // echo "<pre>";
-            // dd($max_3_files_asociated_in_files_table[0]);
-            // die;
         return View::make('backend.user.edit_images', $array);
     }
 
@@ -111,10 +108,14 @@ class FileController extends Controller
 
     public function imprimir()
     {
-        $parameterr = array();
-        $parameter['qrcode'] = "livre estou";
+        $parameter = array();
+
+        $user = Auth::user();
+        $qrcode = $user->qrcode;
+        $file = '/uploads/qrcodes/'.$qrcode.'.png';
+        $parameter['file'] = $file;
  
         $pdf = PDF::loadView('backend.user.pdf', $parameter);
-        return $pdf->stream("Hello.pdf"); 
+        return $pdf->stream($user->nombre_completo.'_'.$qrcode.'.pdf'); 
     }    
 }
