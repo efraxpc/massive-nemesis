@@ -18,7 +18,7 @@
 	<div id="outer" style="width:100%">  
 	    <div id="inner">
 			<h1 class="center">{{{Lang::get('main.texto_hoja_imprimir') }}}</h1>
-			<table class='center'>
+			<table class='center' border="1">
 			@for($i=0;$i < 3;$i++)
 				<tr>
 					<td>
