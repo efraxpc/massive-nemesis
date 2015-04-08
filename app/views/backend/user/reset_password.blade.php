@@ -17,7 +17,7 @@
                 <hr/>
                 <div class="registration">
                     {{{Lang::get('main.create_account_above_message')}}}<br/>
-                    <a class="" href="{{URL::route('create_user')}}">
+                    <a class="" href="{{URL::route('register_user_get')}}">
                         {{{Lang::get('main.create_an_ccount')}}}<br/>
                     </a>
                 </div>

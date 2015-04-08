@@ -20,10 +20,10 @@ Route::post('ajax_remove_image', 'FileController@remove_image');
 Route::post('/ajax_change_status_user', 'AdminController@ajax_change_status_user');
 Route::post('/ajax_delete_user', 'AdminController@ajax_delete_user');
 Route::post('/ajax_permissions_create_admin', 'AdminController@ajax_permissions_create_admin');
-Route::post('/inicio/post',  		array('as' 		=> 'login_post','uses' 	=>'UsersController@doLogin'));
+Route::post('/inicio/post',  			array('as' 		=> 'login_post','uses' 	=>'UsersController@doLogin'));
 Route::get('/inicio/',  			    array('as' 		=> 'main','uses' 		=>'UsersController@main'));
-Route::get('/iniciar/sesion',  				array('as' 		=> 'login','uses' 		=>'UsersController@login'));
-Route::post('/imprimir/',  			    array('as' 		=> 'imprimir','uses' 		=>'FileController@imprimir'));
+Route::get('/iniciar/sesion',  			array('as' 		=> 'login','uses' 		=>'UsersController@login'));
+Route::post('/imprimir/',  			    array('as' 		=> 'imprimir','uses' 	=>'FileController@imprimir'));
 
 Route::get('/delete/files', function(){DB::table('files')->delete(); });
 
@@ -34,7 +34,7 @@ Route::group(array('prefix' => 'admin'), function()
 {
 	Route::get('/home',  					array('as' => 'login_admin','uses' 	           =>'AdminController@doLogin'));
 	Route::get('/administrar/usuarios',  	array('as' => 'administrar_usuarios','uses'    =>'AdminController@administrar_usuarios'));
-	Route::get('/crear/', 'UsersController@createAdmin');
+	Route::get('/crear',  					array('as' => 'register_admin_get','uses'    		   =>'AdminController@createAdmin'));
 	Route::get('profile/admin', 'UsersController@postLogin');
 
 });
@@ -46,7 +46,7 @@ Route::group(array('prefix' => 'usuario'), function()
 
 	Route::get('/cerrar/sesion',  		array('as' 		=> 'logout','uses' 		=>'UsersController@logout'));
 
-	Route::get('create',  				array('as' 		=> 'create_user','uses' =>	'UsersController@create'));
+	Route::get('crear',  				array('as' 		=> 'register_user_get','uses' =>	'UsersController@create'));
 	Route::post('guardado',				array('as' 		=> 'guardar_usuario','uses' 	=>	'UsersController@store'));
 	Route::get('/generar_qr/{qrcode}',  array('as' 		=> 'generar_qr','uses'  =>'UsersController@generate_qr'));
 

@@ -38,7 +38,7 @@
             </fieldset>
                     <div class="registration">
                         Don't have an account yet?<br/>
-                        <a class="" href="{{URL::route('create_user')}}">
+                        <a class="" href="{{URL::route('register_user_get')}}">
                             Create an account
                         </a>
                     </div>

@@ -40,24 +40,6 @@ class UsersController extends Controller
      */
     public function store()
     {
-        //////////////// ERRor Handling///////////
-        if (Input::all()['tipo'] == 'user') {
-            $errors =  array('email' => 'required|email|unique:users','eps'=>'required','serial_marco'=>'required','fecha_nacimiento'=>'required','password'=>'confirmed','password'=>'required');
-            $validator = Validator::make(Input::all(), $errors);
-            if ($validator->fails())
-            {
-                return Redirect::to('usuario/create')->withErrors($validator);
-            }
-        }elseif(Input::all()['tipo'] == 'admin'){
-            $errors =  array('email' => 'required|email|unique:users','password'=>'confirmed','password'=>'required');
-            $validator = Validator::make(Input::all(), $errors);
-            
-            if ($validator->fails())
-            {
-                return Redirect::to('admin/create')->withErrors($validator);
-            }
-        }
-        /////////////////
         $repo = App::make('UserRepository');
         $user = $repo->signup(Input::all());
 
@@ -106,10 +88,15 @@ class UsersController extends Controller
             return Redirect::action('UsersController@login')
                 ->with('notice', Lang::get('confide::confide.alerts.account_created'));
         } else {      
-            $error = $user->errors()->all(':message');
-            return Redirect::action('UsersController@create')
-                ->withInput(Input::except('password'))
-                ->with('error', $error);
+            if ( Input::all()['tipo'] == 'user') {
+                $errors =  array('email' => 'required|email|unique:users','eps'=>'required','serial_marco'=>'required','fecha_nacimiento'=>'required','password'=>'confirmed','password'=>'required');
+                $validator = Validator::make( Input::all(), $errors );            
+                return Redirect::route( 'register_user_get' )->withErrors( $validator )->withInput(Input::except('password'));
+            }elseif( Input::all()['tipo'] == 'admin' ){
+                $errors =  array('email' => 'required|email|unique:users','password'=>'confirmed','password'=>'required');
+                $validator = Validator::make( Input::all(), $errors );  
+                return Redirect::route( 'register_admin_get' )->withErrors( $validator )->withInput(Input::except('password'));
+            }
         }
     }
 
