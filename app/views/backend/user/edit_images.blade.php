@@ -11,11 +11,7 @@
             <div class="signup-box visible widget-box no-border">
                 <div class="widget-body">
                     <div class="widget-main">
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
+
 
                         {{-- Tratamiento de imagenes --}}
                         <div class="row-fluid">

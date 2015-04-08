@@ -198,6 +198,7 @@ return array(
 		'Entrust'         => 'Zizaco\Entrust\EntrustFacade',
 		'Image' 		  => 'Intervention\Image\Facades\Image',
 		'PDF'             => 'Barryvdh\DomPDF\Facade',
+		
 	),
 
 );

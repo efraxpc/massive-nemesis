@@ -137,7 +137,7 @@
       addRemoveLinks: false,
       previewsContainer: null,
       capture: null,
-      dictDefaultMessage: "Ponlos aqui",
+      dictDefaultMessage: "Arrastre aqui",
       dictFallbackMessage: "Tu navenagor no soporta Drag and Drop, prueba dando click",
       dictFallbackText: "Please use the fallback form below to upload your files like in the olden days.",
       dictFileTooBig: "File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB.",

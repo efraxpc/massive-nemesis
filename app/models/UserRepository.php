@@ -17,9 +17,6 @@ class UserRepository
      */
    public function signup($input)
     {
-        // echo "<pre>";
-        // dd($input);
-        // die;
         $user = new User;
         $user->email            = array_get($input, 'email');
         $user->password         = array_get($input, 'password');

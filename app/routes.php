@@ -44,16 +44,15 @@ Route::group(array('prefix' => 'usuario'), function()
 {
 	Route::get('/mostrar/{qrcode}',  	array('as' 		=> 'mostrar','uses' 	=>'UsersController@mostrar'));
 
-	
-	
 	Route::get('/cerrar/sesion',  		array('as' 		=> 'logout','uses' 		=>'UsersController@logout'));
 
 	Route::get('create',  				array('as' 		=> 'create_user','uses' =>	'UsersController@create'));
+	Route::post('guardado',				array('as' 		=> 'guardar_usuario','uses' 	=>	'UsersController@store'));
 	Route::get('/generar_qr/{qrcode}',  array('as' 		=> 'generar_qr','uses'  =>'UsersController@generate_qr'));
 
 	Route::get('editar/{id}',  			array('as' 		=> 'edit_user','uses' 	=>	'UsersController@edit'));
 	Route::get('editar/imagen/{id}',  	array('as' 		=> 'edit_imagen_user','uses' =>	'FileController@edit_imagen'));
-	Route::post('guardado',				array('as' 		=> 'guardar_usuario','uses' 	=>	'UsersController@store'));
+	
 	Route::post('editado',  			array('as' 		=> 'editar_usuario','uses' 	=>	'UsersController@storeEdit'));
 	
 	Route::get('confirm/{code}', 'UsersController@confirm');

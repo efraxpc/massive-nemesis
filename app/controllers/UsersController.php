@@ -212,7 +212,6 @@ class UsersController extends Controller
                 $id = Auth::id();
                 $user  = User::find($id);
                 $qrcode = $user->qrcode;
-                $qrcode = $user->qrcode;
                 $file = Request::root().'/uploads/qrcodes/'.$qrcode.'.png';                
                 $array = array('id'=> $id,
                                'file'=> $file);
