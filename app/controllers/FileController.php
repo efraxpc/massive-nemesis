@@ -69,6 +69,7 @@ class FileController extends Controller
     public function edit_imagen($id)
     {
         $user = User::find($id);
+        $id_user = Auth::id();
         if (is_null($user))
         {
             return Redirect::route('login');
@@ -82,9 +83,10 @@ class FileController extends Controller
 
         $max_7_files_asociated_in_files_table = DB::select('SELECT max_7_files_asociated_in_files_table(?) as files_aso',array($id));
 
-        $array = array('user'                 => $user,
-                      'files'                 => $files,
-                      'files_asociated_table' => $max_7_files_asociated_in_files_table[0]);
+        $array = array('user'                  => $user,
+                       'files'                 => $files,
+                       'files_asociated_table' => $max_7_files_asociated_in_files_table[0],
+                       'id'                    => $id_user);
 
         return View::make('backend.user.edit_images', $array);
     }

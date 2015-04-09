@@ -116,7 +116,8 @@ class UsersController extends Controller
             ->get();
         $array = array('tipo_de_sangre' => $tipo_de_sangre,
                       'user'            => $user,
-                      'files'            => $files,);
+                      'files'           => $files,
+                      'id'              => $id);
         return View::make('backend.user.edit', $array);
     }
 

@@ -2,15 +2,39 @@
 @section('scripts_imagem')
     @include('backend.includes.styledropzone')
 @stop  
+@section('sidebar')
+    <aside>
+        <div id="sidebar"  class="nav-collapse ">
+            <!-- sidebar menu start-->
+            <ul class="sidebar-menu" id="nav-accordion">
 
+                <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                <h5 class="centered">{{$user->nombre_completo}}</h5>
+
+                <li class="mt">
+                    <a class="active" href="{{ URL::to('usuario/editar', array($id)) }}">
+                        <i class="fa fa-dashboard"></i>
+                        <span>{{{Lang::get('main.editar_datos_de_usuario')}}}</span>
+                    </a>
+                </li>
+                <li class="mt">
+                    <a class="active" href="{{ URL::to('usuario/editar/imagen', array($id)) }}">
+                        <i class="fa fa-dashboard"></i>
+                        <span>{{{Lang::get('main.administrar_imagenes')}}}</span>
+                    </a>
+                </li>                
+            </ul>
+            <!-- sidebar menu end-->
+        </div>
+    </aside>
+    <!--sidebar end-->
+@stop
 @section('content')
 
-<div class="row-fluid">
-    <div class="col-md-6 col-md-offset-3">
-        <div class="position-relative">
-            <div class="signup-box visible widget-box no-border">
-                <div class="widget-body">
-                    <div class="widget-main">
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3">
 
 
                         {{-- Tratamiento de imagenes --}}
@@ -106,11 +130,11 @@
                             </div>
                         </div>
                     </div>
-                </div><!--/widget-body-->
-            </div><!--/signup-box-->
-        </div><!--/position-relative-->
-    </div>
-</div>
+                    
+          </div>
+        </div>
+    </section>
+</section>
 @stop
 @section('scripts')
     <script type="text/javascript">
