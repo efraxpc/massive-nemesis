@@ -356,13 +356,12 @@ class UsersController extends Controller
      */
     public function main()
     {
-        $id = Auth::id();
-        $user = DB::table('users')->find($id);
+        $user = Auth::user();
+        $id   = $user->id;
         $tipo_de_sangre = DB::table('tipo_de_sangre')->orderBy('nombre', 'asc')->lists('nombre','id');
         $select_habilitar_registro_admin_option = DB::select('call select_habilitar_registro_admin_option()');
-
         $qrcode = $user->qrcode;
-        $file = Request::root().'/uploads/qrcodes/'.$qrcode.'.png';
+        $file   = Request::root().'/uploads/qrcodes/'.$qrcode.'.png';
 
         $array = array('user' => $user,
                        'tipo_de_sangre' => $tipo_de_sangre,

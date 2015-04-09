@@ -29,6 +29,7 @@
     </aside>
     <!--sidebar end-->
 @stop
+
 @section('content')
 
 <section id="main-content">
@@ -123,14 +124,14 @@
                         </div>
                         <div class="row-fluid">
                             <div class="col-md-12 col-md-offset-0">
-                                <h5>{{{Lang::get('main.solo_podra_subir')}}} <strong>3</strong> {{{Lang::get('main.imagenes')}}}</h5>  
+                                <h5>{{{Lang::get('main.solo_podra_subir')}}} <strong>7</strong> {{{Lang::get('main.imagenes')}}}</h5>  
                             </div>
                             <div class="col-md-12 col-md-offset-0">
                                 <h6>{{{Lang::get('main.para_hacer_aparecer')}}}<strong>{{{Lang::get('main.click')}}}</strong>{{{Lang::get('main.en_ella')}}}</h6>  
                             </div>
                         </div>
                     </div>
-                    
+
           </div>
         </div>
     </section>
