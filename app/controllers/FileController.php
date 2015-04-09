@@ -140,7 +140,7 @@ class FileController extends Controller
 
       $array_datos['user']        = $user;
       $array_datos['id']          = $user->id;
-      $array_datos['files']       = $profile_image_asociated_in_files_table;
+      $array_datos['profile_image']       = $profile_image_asociated_in_files_table;
 
       // dd($profile_image_asociated_in_files_table[0]);
       // die;

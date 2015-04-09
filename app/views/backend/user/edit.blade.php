@@ -13,8 +13,12 @@
         <div id="sidebar"  class="nav-collapse ">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
-
-                <p class="centered"><a href="profile.html"> {{ HTML::image('/uploads/'. $files[0]->nombre .'.'. $files[0]->tipo, 'a picture', array('class' => 'img-circle','width' => 150, 'height' => 130, 'id'=>$files[0]->id)) }}</a></p>
+            
+                @if ($profile_image[0]->id === null)
+                    <p class="centered"><a href="{{URL::route('main')}}"> {{ HTML::image('/assets/img/avatar_perfil.png', 'a picture', array('class' => 'img-circle','width' => 150, 'height' => 130)) }}</a></p>
+                @else
+                    <p class="centered"><a href="{{URL::route('main')}}"> {{ HTML::image('/uploads/'. $profile_image[0]->nombre .'.'. $profile_image[0]->tipo, 'a picture', array('class' => 'img-circle','width' => 150, 'height' => 130, 'id'=>$profile_image[0]->id)) }}</a></p>
+                @endif
                 <h5 class="centered">{{$user->nombre_completo}}</h5>
 
                 <li class="mt">

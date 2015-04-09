@@ -102,23 +102,28 @@ class UsersController extends Controller
 
     public function edit($id)
     {
+        $array_datos = array();
         $user = User::find($id);
         if (is_null($user))
         {
             return Redirect::route('login');
         }
         $tipo_de_sangre = DB::table('tipo_de_sangre')->orderBy('nombre', 'asc')->lists('nombre','id');
+        $profile_image_asociated_in_files_table = DB::select('CALL profile_image_asociated_in_files_table(?)',array($id));
 
         $files = DB::table('users')
             ->join('files', 'users.id', '=', 'files.user_id')
             ->select('files.id','files.nombre','files.tipo')
             ->where('files.user_id', $user->id)
             ->get();
-        $array = array('tipo_de_sangre' => $tipo_de_sangre,
-                      'user'            => $user,
-                      'files'           => $files,
-                      'id'              => $id);
-        return View::make('backend.user.edit', $array);
+
+        $array_datos['profile_image']       = $profile_image_asociated_in_files_table;
+        $array_datos['tipo_de_sangre']      = $tipo_de_sangre;
+        $array_datos['user']                = $user;
+        $array_datos['files']               = $files;
+        $array_datos['id']                  = $id;
+
+        return View::make('backend.user.edit', $array_datos);
     }
 
     public function storeEdit()

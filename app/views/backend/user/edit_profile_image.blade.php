@@ -8,8 +8,13 @@
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
 
-                <p class="centered"><a href="profile.html"> {{ HTML::image('/uploads/'. $files[0]->nombre .'.'. $files[0]->tipo, 'a picture', array('class' => 'img-circle','width' => 150, 'height' => 130, 'id'=>$files[0]->id)) }}</a></p>
-
+                @if ($profile_image[0]->id === null)
+                    <p class="centered"><a href="{{URL::route('main')}}"> {{ HTML::image('/assets/img/avatar_perfil.png', 'a picture', array('class' => 'img-circle','width' => 150, 'height' => 130)) }}</a></p>
+                @else
+                    <p class="centered"><a href="{{URL::route('main')}}"> {{ HTML::image('/uploads/'. $profile_image[0]->nombre .'.'. $profile_image[0]->tipo, 'a picture', array('class' => 'img-circle','width' => 150, 'height' => 130, 'id'=>$profile_image[0]->id)) }}</a></p>
+                @endif
+                <h5 class="centered">{{$user->nombre_completo}}</h5>
+                
                 <li class="mt">
                     <a class="active" href="{{ URL::route('edit_user', array($id)) }}">
                         <i class="fa fa-dashboard"></i>
@@ -51,7 +56,7 @@
                             <div class="col-md-12 col-md-offset-0">
                                 <div class="bs-example">
                                     <!-- Button HTML (to Trigger Modal) -->
-                                    @if($files[0]->max_file < 1)
+                                    @if($profile_image[0]->max_file < 1)
                                         <a href="#myModal" class="btn btn-lg btn-primary" data-toggle="modal">{{{Lang::get('main.subir_imagenes')}}}</a>
                                     @endif
                                     <!-- Modal HTML -->
@@ -109,13 +114,13 @@
 
                             <div class="col-md-12 col-md-offset-0">
                                 <h4>Imagenes Subidas</h4>
-                                @if ($files[0]->id != null)
+                                @if ($profile_image[0]->id != null)
                                     <table class="table">
-                                        @for ($i = 0; $i <= count($files); $i++)
+                                        @for ($i = 0; $i <= count($profile_image); $i++)
                                             <tr>
                                                 <td>
-                                                    @for ($i = 0; $i < count($files); $i++)
-                                                        {{ HTML::image('/uploads/'. $files[$i]->nombre .'.'. $files[$i]->tipo, 'a picture', array('class' => 'img-rounded foto','width' => 150, 'height' => 130, 'id'=>$files[$i]->id)) }}
+                                                    @for ($i = 0; $i < count($profile_image); $i++)
+                                                        {{ HTML::image('/uploads/'. $profile_image[$i]->nombre .'.'. $profile_image[$i]->tipo, 'a picture', array('class' => 'img-rounded foto','width' => 150, 'height' => 130, 'id'=>$profile_image[$i]->id)) }}
                                                     @endfor  
                                                 </td>
                                             </tr>
@@ -171,7 +176,7 @@
 
                 this.on('complete', function () {
                     if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
-                        //location.reload();
+                        location.reload();
                     }
                 });        
             }
