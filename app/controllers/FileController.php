@@ -85,13 +85,16 @@ class FileController extends Controller
             ->get();
 
         $max_7_files_asociated_in_files_table = DB::select('SELECT max_7_files_asociated_in_files_table(?) as files_aso',array($id));
+        $profile_image_asociated_in_files_table = DB::select('CALL profile_image_asociated_in_files_table(?)',array($id));
 
-        $array = array('user'                  => $user,
-                       'files'                 => $files,
-                       'files_asociated_table' => $max_7_files_asociated_in_files_table[0],
-                       'id'                    => $id_user);
+        $array_datos['profile_image']               = $profile_image_asociated_in_files_table;
+        $array_datos['files']                       = $files;
+        $array_datos['user']                        = $user;
+        $array_datos['files_asociated_table']       = $max_7_files_asociated_in_files_table[0];
+        $array_datos['id']                          = $id_user;
 
-        return View::make('backend.user.edit_images', $array);
+
+        return View::make('backend.user.edit_images', $array_datos);
     }
 
     public function remove_image()
