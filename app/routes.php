@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function(){	return View::make('backend.user.login');});
+//Route::get('/', function(){	return View::make('backend.user.login');});
 
 Route::get('/demo', function(){	return View::make('backend.demo');});
 Route::get('/upload', function(){ return View::make('backend.user.create_image'); });
@@ -22,7 +22,7 @@ Route::post('/ajax_delete_user', 'AdminController@ajax_delete_user');
 Route::post('/ajax_permissions_create_admin', 'AdminController@ajax_permissions_create_admin');
 Route::post('/inicio/post',  			array('as' 		=> 'login_post','uses' 	=>'UsersController@doLogin'));
 Route::get('/inicio/',  			    array('as' 		=> 'main','uses' 		=>'UsersController@main'));
-Route::get('/iniciar/sesion',  			array('as' 		=> 'login','uses' 		=>'UsersController@login'));
+Route::get('/',  			array('as' 		=> 'login','uses' 		=>'UsersController@login'));
 Route::post('/imprimir/',  			    array('as' 		=> 'imprimir','uses' 	=>'FileController@imprimir'));
 
 Route::get('/delete/files', function(){DB::table('files')->delete(); });
@@ -42,19 +42,16 @@ Route::when('admin/*', 'admin');
 //Rudas usuario
 Route::group(array('prefix' => 'usuario'), function()
 {
-	Route::get('/mostrar/{qrcode}',  	array('as' 		=> 'mostrar','uses' 	=>'UsersController@mostrar'));
+	Route::get('/mostrar/{qrcode}',  				array('as' 		=> 'mostrar','uses' 	=>'UsersController@mostrar'));
+	Route::get('/cerrar/sesion',  					array('as' 		=> 'logout','uses' 		=>'UsersController@logout'));
+	Route::get('crear',  							array('as' 		=> 'register_user_get','uses' =>	'UsersController@create'));
+	Route::post('guardado',							array('as' 		=> 'guardar_usuario','uses' 	=>	'UsersController@store'));
+	Route::get('/generar_qr/{qrcode}',  			array('as' 		=> 'generar_qr','uses'  =>'UsersController@generate_qr'));
+	Route::get('editar/{id}',  						array('as' 		=> 'edit_user','uses' 	=>	'UsersController@edit'));
+	Route::get('editar/imagen/{id}',  				array('as' 		=> 'edit_imagen_user','uses' =>	'FileController@edit_imagen'));
+	Route::post('editado',  						array('as' 		=> 'editar_usuario','uses' 	=>	'UsersController@storeEdit'));
+	Route::get('cambiar/foto/perfil',  	array('as' 		=> 'cambiar_foto_perfil','uses' 	=>	'FileController@cambiar_foto_perfil'));
 
-	Route::get('/cerrar/sesion',  		array('as' 		=> 'logout','uses' 		=>'UsersController@logout'));
-
-	Route::get('crear',  				array('as' 		=> 'register_user_get','uses' =>	'UsersController@create'));
-	Route::post('guardado',				array('as' 		=> 'guardar_usuario','uses' 	=>	'UsersController@store'));
-	Route::get('/generar_qr/{qrcode}',  array('as' 		=> 'generar_qr','uses'  =>'UsersController@generate_qr'));
-
-	Route::get('editar/{id}',  			array('as' 		=> 'edit_user','uses' 	=>	'UsersController@edit'));
-	Route::get('editar/imagen/{id}',  	array('as' 		=> 'edit_imagen_user','uses' =>	'FileController@edit_imagen'));
-	
-	Route::post('editado',  			array('as' 		=> 'editar_usuario','uses' 	=>	'UsersController@storeEdit'));
-	
 	Route::get('confirm/{code}', 'UsersController@confirm');
 	Route::get('forgot_password', 'UsersController@forgotPassword');
 	Route::post('forgot_password', 'UsersController@doForgotPassword');

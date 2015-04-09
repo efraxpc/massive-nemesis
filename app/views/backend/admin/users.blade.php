@@ -1,4 +1,14 @@
 @extends('backend/user/layout_create')
+@section('header')
+<header class="header black-bg">
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+    </div>
+    <!--logo start-->
+    <a href="{{URL::route('login')}}" class="logo"><b><strong>{{{Lang::get('main.app_name_title_page') }}}</strong></b></a>
+    <!--logo end-->
+</header>
+@stop
 @section('content')
 <div class="row-fluid">
     <div class="col-md-6 col-md-offset-3">
@@ -6,13 +16,13 @@
             <div class="signup-box visible widget-box no-border">
                 <div class="widget-body">
                     <div class="widget-main">
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
+                        <div class="row mt"></div>
+                        <div class="row mt"></div>
+                        <div class="row mt"></div>
+                        <div class="row mt"></div>
+
                         <div class="space-6"></div>
-                        <p> Ingresa tu información para empezar: </p>
+                        <p>{{{Lang::get('main.ingresar_informacion_empezar')}}}</p>
                         <form method="POST" action="{{{ URL::route('guardar_usuario') }}}" accept-charset="UTF-8">
                             <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
                             <input type="hidden" name="tipo" value="user">

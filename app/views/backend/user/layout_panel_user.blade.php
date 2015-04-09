@@ -44,20 +44,53 @@
                 <h5 class="centered">{{$user->nombre_completo}}</h5>
 
                 <li class="mt">
-                    <a class="active" href="{{ URL::to('usuario/editar', array($id)) }}">
+                    <a class="active" href="{{ URL::route('edit_user', array($id)) }}">
                         <i class="fa fa-dashboard"></i>
                         <span>{{{Lang::get('main.editar_datos_de_usuario')}}}</span>
                     </a>
                 </li>
                 <li class="mt">
-                    <a class="active" href="{{ URL::to('usuario/editar/imagen', array($id)) }}">
+                    <a class="active" href="{{ URL::route('edit_imagen_user', array($id)) }}">
                         <i class="fa fa-dashboard"></i>
                         <span>{{{Lang::get('main.administrar_imagenes')}}}</span>
                     </a>
-                </li>                
+                </li>      
+                <li class="mt">
+                    <a class="active" href="{{ URL::route('cambiar_foto_perfil', array($id)) }}">
+                        <i class="fa fa-dashboard"></i>
+                        <span>{{{Lang::get('main.cambiar_foto_perfil')}}}</span>
+                    </a>
+                </li>  
             </ul>
             <!-- sidebar menu end-->
         </div>
     </aside>
     <!--sidebar end-->
 @stop
+@section('sidebar')
+    <ul class="sidebar-menu" id="nav-accordion">
+
+        <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+        <h5 class="centered">{{$user->nombre_completo}}</h5>
+
+        <li class="mt">
+            <a class="active" href="{{ URL::route('edit_user', array($id)) }}">
+                <i class="fa fa-dashboard"></i>
+                <span>{{{Lang::get('main.editar_datos_de_usuario')}}}</span>
+            </a>
+        </li>
+        <li class="mt">
+            <a class="active" href="{{ URL::route('edit_imagen_user', array($id)) }}">
+                <i class="fa fa-dashboard"></i>
+                <span>{{{Lang::get('main.administrar_imagenes')}}}</span>
+            </a>
+        </li>      
+        <li class="mt">
+            <a class="active" href="{{ URL::route('cambiar_foto_perfil', array($id)) }}">
+                <i class="fa fa-dashboard"></i>
+                <span>{{{Lang::get('main.cambiar_foto_perfil')}}}</span>
+            </a>
+        </li>  
+    </ul>
+@stop
+            

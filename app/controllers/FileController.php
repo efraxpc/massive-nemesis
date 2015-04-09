@@ -35,8 +35,9 @@ class FileController extends Controller
 
     public function upload_image(){
 
-  		$fileInput = Input::file('file');
-      
+  		$fileInput      = Input::file('file');
+      $profile_image  = Input::all()['profile_image'];
+
   		if (Input::hasFile('file')) {
   			$filename = "imagen__".uniqid();
   			$path     = public_path().'/uploads/';
@@ -50,10 +51,11 @@ class FileController extends Controller
 
         if ($max_7_files_asociated_in_files_table[0]->files_aso == 0) {
           $file = New Archivo;
-          $file->nombre = $filename;
-          $file->ruta   = $path;
-          $file->tipo   = $fileType;
-          $file->tamaño = $fileSize;
+          $file->nombre  = $filename;
+          $file->ruta    = $path;
+          $file->tipo    = $fileType;
+          $file->tamaño  = $fileSize;
+          $file->profile = $profile_image;
 
           $file ->user()->associate($usuario);
         //guardamos el file en el server
@@ -79,6 +81,7 @@ class FileController extends Controller
             ->join('files', 'users.id', '=', 'files.user_id')
             ->select('files.id','files.nombre','files.tipo','users.email')
             ->where('users.id', '=', $id)
+            ->where('files.profile', '=', 0)
             ->get();
 
         $max_7_files_asociated_in_files_table = DB::select('SELECT max_7_files_asociated_in_files_table(?) as files_aso',array($id));
@@ -120,5 +123,24 @@ class FileController extends Controller
         $pdf = PDF::loadView('backend.user.pdf', $parameter);
         $file_name = $user->nombre_completo.'_'.$qrcode.'.pdf';
         return $pdf->stream($file_name); 
-    }    
+    }   
+
+    public function cambiar_foto_perfil(){
+      $array_datos = array();
+      $user = Auth::user();
+      $id   = $user->id; 
+      if (is_null($user->id))
+      {
+          return Redirect::route('login');
+      }
+      $profile_image_asociated_in_files_table = DB::select('CALL profile_image_asociated_in_files_table(?)',array($id));
+
+      $array_datos['user']        = $user;
+      $array_datos['id']          = $user->id;
+      $array_datos['files']       = $profile_image_asociated_in_files_table;
+
+      // dd($profile_image_asociated_in_files_table[0]);
+      // die;
+      return View::make('backend.user.edit_profile_image', $array_datos);
+    } 
 }

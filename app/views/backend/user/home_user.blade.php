@@ -68,30 +68,3 @@
     </section>
 </section>
 @stop
-@section('sidebar')
-    <aside>
-        <div id="sidebar"  class="nav-collapse ">
-            <!-- sidebar menu start-->
-            <ul class="sidebar-menu" id="nav-accordion">
-
-                <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                <h5 class="centered">{{$user->nombre_completo}}</h5>
-
-                <li class="mt">
-                    <a class="active" href="{{ URL::to('usuario/editar', array($id)) }}">
-                        <i class="fa fa-dashboard"></i>
-                        <span>{{{Lang::get('main.editar_datos_de_usuario')}}}</span>
-                    </a>
-                </li>
-                <li class="mt">
-                    <a class="active" href="{{ URL::to('usuario/editar/imagen', array($id)) }}">
-                        <i class="fa fa-dashboard"></i>
-                        <span>{{{Lang::get('main.administrar_imagenes')}}}</span>
-                    </a>
-                </li>                
-            </ul>
-            <!-- sidebar menu end-->
-        </div>
-    </aside>
-    <!--sidebar end-->
-@stop

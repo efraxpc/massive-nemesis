@@ -1,4 +1,4 @@
-@extends('backend/base')
+@extends('backend/user/layout_create')
 @section('scripts_imagem')
     @include('backend.includes.styledropzone')
 @stop  
@@ -7,16 +7,7 @@
     {{ HTML::script('http://code.jquery.com/ui/1.10.3/jquery-ui.js') }}
     {{ HTML::style('http://code.jquery.com/ui/1.10.3/themes/blitzer/jquery-ui.css') }}
 @stop
-@section('header')
-<header class="header black-bg">
-    <div class="sidebar-toggle-box">
-        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-    </div>
-    <!--logo start-->
-    <a href="{{URL::route('main')}}" class="logo"><b><strong>{{{Lang::get('main.app_name_title_page') }}}</strong></b></a>
-    <!--logo end-->
-</header>
-@stop
+
 @section('sidebar')
     <aside>
         <div id="sidebar"  class="nav-collapse ">
@@ -27,17 +18,23 @@
                 <h5 class="centered">{{$user->nombre_completo}}</h5>
 
                 <li class="mt">
-                    <a class="active" href="{{ URL::to('usuario/editar', array($id)) }}">
+                    <a class="active" href="{{ URL::route('edit_user', array($id)) }}">
                         <i class="fa fa-dashboard"></i>
                         <span>{{{Lang::get('main.editar_datos_de_usuario')}}}</span>
                     </a>
                 </li>
                 <li class="mt">
-                    <a class="active" href="{{ URL::to('usuario/editar/imagen', array($id)) }}">
+                    <a class="active" href="{{ URL::route('edit_imagen_user', array($id)) }}">
                         <i class="fa fa-dashboard"></i>
                         <span>{{{Lang::get('main.administrar_imagenes')}}}</span>
                     </a>
-                </li>                
+                </li>      
+                <li class="mt">
+                    <a class="active" href="{{ URL::route('cambiar_foto_perfil') }}">
+                        <i class="fa fa-dashboard"></i>
+                        <span>{{{Lang::get('main.cambiar_foto_perfil')}}}</span>
+                    </a>
+                </li>  
             </ul>
             <!-- sidebar menu end-->
         </div>
@@ -49,7 +46,10 @@
     <section class="wrapper">
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
-          
+            <div class="row mt"></div>
+            <div class="row mt"></div>
+            <div class="row mt"></div>
+            <div class="row mt"></div>
                <p> Ingresa tu información para empezar: </p>
                <form method="POST" action="{{{ URL::route('editar_usuario') }}}" accept-charset="UTF-8">
                     <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
