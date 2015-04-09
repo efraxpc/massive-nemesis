@@ -9,7 +9,7 @@
             <ul class="sidebar-menu" id="nav-accordion">
 
                 @if ($profile_image[0]->id === null)
-                    <p class="centered"><a href="{{URL::route('main')}}"> {{ HTML::image('/assets/img/avatar_perfil.png', 'a picture', array('class' => 'img-circle','width' => 150, 'height' => 130)) }}</a></p>
+                    <p class="centered"><a href="{{URL::route('cambiar_foto_perfil')}}"> {{ HTML::image('/assets/img/avatar_perfil.png', 'a picture', array('class' => 'img-circle','width' => 150, 'height' => 130)) }}</a></p>
                 @else
                     <p class="centered"><a href="{{URL::route('main')}}"> {{ HTML::image('/uploads/'. $profile_image[0]->nombre .'.'. $profile_image[0]->tipo, 'a picture', array('class' => 'img-circle','width' => 150, 'height' => 130, 'id'=>$profile_image[0]->id)) }}</a></p>
                 @endif

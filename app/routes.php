@@ -22,7 +22,7 @@ Route::post('/ajax_delete_user', 'AdminController@ajax_delete_user');
 Route::post('/ajax_permissions_create_admin', 'AdminController@ajax_permissions_create_admin');
 Route::post('/inicio/post',  			array('as' 		=> 'login_post','uses' 	=>'UsersController@doLogin'));
 Route::get('/inicio/',  			    array('as' 		=> 'main','uses' 		=>'UsersController@main'));
-Route::get('/',  			array('as' 		=> 'login','uses' 		=>'UsersController@login'));
+Route::get('/',  						array('as' 		=> 'login','uses' 		=>'UsersController@login'));
 Route::post('/imprimir/',  			    array('as' 		=> 'imprimir','uses' 	=>'FileController@imprimir'));
 
 Route::get('/delete/files', function(){DB::table('files')->delete(); });
