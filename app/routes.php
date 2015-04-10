@@ -48,6 +48,15 @@ Route::get('/cerrar/sesion',  			array('as' 		=> 'logout','uses' 		=>'UsersContr
 Route::get('crear/usuario',  			array('as' 		=> 'register_user_get','uses' =>	'UsersController@create'));
 Route::post('guardar/usuario',			array('as' 		=> 'guardar_usuario','uses' 	=>	'UsersController@store'));
 
+Route::get('confirm/{code}', 'UsersController@confirm');
+
+Route::get('forgot_password',  			array('as' 		=> 'forgot_password_get','uses' =>	'UsersController@forgotPassword'));
+Route::post('forgot_password',			array('as' 		=> 'forgot_password_post','uses' 	=>	'UsersController@doForgotPassword'));
+
+Route::get('reiniciar/contraseña/{token}', 'UsersController@resetPassword');
+Route::post('resetear_password',			array('as' 		=> 'reset_password_post','uses' 	=>	'UsersController@doResetPassword'));
+Route::get('logout', 'UsersController@logout');
+
 
 
 
@@ -75,12 +84,7 @@ Route::group(array('prefix' => 'usuario'), function()
 	Route::post('editado',  						array('as' 		=> 'editar_usuario','uses' 	=>	'UsersController@storeEdit'));
 	Route::get('cambiar/foto/perfil',  	array('as' 		=> 'cambiar_foto_perfil','uses' 	=>	'FileController@cambiar_foto_perfil'));
 
-	Route::get('confirm/{code}', 'UsersController@confirm');
-	Route::get('forgot_password', 'UsersController@forgotPassword');
-	Route::post('forgot_password', 'UsersController@doForgotPassword');
-	Route::get('reset_password/{token}', 'UsersController@resetPassword');
-	Route::post('resetear_password', 'UsersController@doResetPassword');
-	Route::get('logout', 'UsersController@logout');
+
 });
 
 /*App::error(function($exception, $code)

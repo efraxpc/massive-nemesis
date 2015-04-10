@@ -59,4 +59,11 @@ return array(
     'texto_hoja_imprimir'            => 'Recorte los códigos QR',
     'ingresar_informacion_empezar'   => 'Ingresa tu información para empezar:',
     'cambiar_foto_perfil'            => 'Cambiar foto de perfil',
+    'todavia_no_tener_cuenta'        => '¿Todavia no tienes cuenta?',
+    'crear_cuenta'                   => 'Crear cuenta',
+    'entrar'                         => 'Entrar',
+    'texto_colocar_email'            => 'Ingrese el email donde desea recibir el e-mail de recuperación de contraseña',
+    'reiniciar_contraseña'           => 'Ingrese nueva contraseña',
+    'iniciar_sesion'                 => 'Iniciar sesión',
+    'recuperar_contraseña'           => 'Recuperar contraseña',
 );
