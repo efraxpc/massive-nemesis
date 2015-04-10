@@ -45,6 +45,10 @@ Route::get('/inicio/',  			    array('as' 		=> 'main','uses' 		=>'UsersControlle
 Route::get('/',  						array('as' 		=> 'login','uses' 		=>'UsersController@login'));
 Route::post('/imprimir/',  			    array('as' 		=> 'imprimir','uses' 	=>'FileController@imprimir'));
 Route::get('/cerrar/sesion',  			array('as' 		=> 'logout','uses' 		=>'UsersController@logout'));
+Route::get('crear/usuario',  			array('as' 		=> 'register_user_get','uses' =>	'UsersController@create'));
+Route::post('guardar/usuario',			array('as' 		=> 'guardar_usuario','uses' 	=>	'UsersController@store'));
+
+
 
 
 Route::get('/delete/files', function(){DB::table('files')->delete(); });
@@ -65,8 +69,6 @@ Route::when('admin/*', 'admin');
 Route::group(array('prefix' => 'usuario'), function()
 {
 	Route::get('/mostrar/{qrcode}',  				array('as' 		=> 'mostrar','uses' 	=>'UsersController@mostrar'));
-	Route::get('crear',  							array('as' 		=> 'register_user_get','uses' =>	'UsersController@create'));
-	Route::post('guardado',							array('as' 		=> 'guardar_usuario','uses' 	=>	'UsersController@store'));
 	Route::get('/generar_qr/{qrcode}',  			array('as' 		=> 'generar_qr','uses'  =>'UsersController@generate_qr'));
 	Route::get('editar/{id}',  						array('as' 		=> 'edit_user','uses' 	=>	'UsersController@edit'));
 	Route::get('editar/imagen/{id}',  				array('as' 		=> 'edit_imagen_user','uses' =>	'FileController@edit_imagen'));
