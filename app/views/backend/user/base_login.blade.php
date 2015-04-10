@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="author" content="Dashboard">
         <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-        <title>DASHGUM - Bootstrap Admin Template</title>
+        <title>{{{ Lang::get('main.app_name_title_page') }}}</title>
         <!-- Bootstrap core CSS -->
         {{ HTML::style('assets/css/bootstrap.css') }}
         <!--external css-->

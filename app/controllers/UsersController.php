@@ -201,21 +201,18 @@ class UsersController extends Controller
         $array_datos = array();
         $repo = App::make('UserRepository');
         $input = Input::all();
-
         $id = Auth::id();
+
         $profile_image_asociated_in_files_table = DB::select('CALL profile_image_asociated_in_files_table(?)',array($id));
         $array_datos['profile_image']       = $profile_image_asociated_in_files_table;
 
-
         if ($repo->login($input)) {
             if(Entrust::hasRole('admin')) {
-                $id = Auth::id();
                 $user  = User::find($id);
                 $select_habilitar_registro_admin_option               = DB::select('call select_habilitar_registro_admin_option()');
                 $array_datos['habilitar_registro_admin_option']       = $select_habilitar_registro_admin_option[0]->confirmed;
                 return View::make('backend.admin.home_admin')->withUser($user)->with($array_datos);
             }else{
-                $id = Auth::id();
                 $user  = User::find($id);
                 $qrcode = $user->qrcode;
                 $file = Request::root().'/uploads/qrcodes/'.$qrcode.'.png';                
@@ -223,6 +220,7 @@ class UsersController extends Controller
                 $array_datos['profile_image']       = $profile_image_asociated_in_files_table;
                 $array_datos['id']                  = $id;
                 $array_datos['file']                = $file;
+//dd(Entrust::hasRole('users'));die;
 
                 return View::make('backend.user.home_user')->with($array_datos)->withUser($user);
             }

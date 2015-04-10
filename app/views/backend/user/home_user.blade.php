@@ -56,7 +56,7 @@
 
                     <div class="row">
                       <div class="col-md- col-md-offset-6">
-                            <a class="active" href="{{ URL::to('usuario/mostrar', array($user->qrcode)) }}">
+                            <a class="active" href="{{ URL::route('mostrar', array($user->qrcode)) }}">
                                 <button type="button" class="btn btn-default btn-lg">
                                   <span class="glyphicon glyphicon-globe" aria-hidden="true"></span> {{{ Lang::get('main.ver_mis_datos_publicos') }}}
                                 </button>

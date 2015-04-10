@@ -22,7 +22,7 @@ Route::filter('admin_owner', function()
 
 Route::filter('user_owner', function()
 {
-    if (!Entrust::hasRole('user')) {
+    if (!Entrust::hasRole('users')) {
         App::abort(403);
     }
 
@@ -47,6 +47,8 @@ Route::post('/imprimir/',  			    array('as' 		=> 'imprimir','uses' 	=>'FileCont
 Route::get('/cerrar/sesion',  			array('as' 		=> 'logout','uses' 		=>'UsersController@logout'));
 Route::get('crear/usuario',  			array('as' 		=> 'register_user_get','uses' =>	'UsersController@create'));
 Route::post('guardar/usuario',			array('as' 		=> 'guardar_usuario','uses' 	=>	'UsersController@store'));
+Route::get('/mostrar/{qrcode}',  		array('as' 		=> 'mostrar','uses' 	=>'UsersController@mostrar'));
+
 
 Route::get('confirm/{code}', 'UsersController@confirm');
 
@@ -77,7 +79,6 @@ Route::when('admin/*', 'admin');
 //Rudas usuario
 Route::group(array('prefix' => 'usuario'), function()
 {
-	Route::get('/mostrar/{qrcode}',  				array('as' 		=> 'mostrar','uses' 	=>'UsersController@mostrar'));
 	Route::get('/generar_qr/{qrcode}',  			array('as' 		=> 'generar_qr','uses'  =>'UsersController@generate_qr'));
 	Route::get('editar/{id}',  						array('as' 		=> 'edit_user','uses' 	=>	'UsersController@edit'));
 	Route::get('editar/imagen/{id}',  				array('as' 		=> 'edit_imagen_user','uses' =>	'FileController@edit_imagen'));
