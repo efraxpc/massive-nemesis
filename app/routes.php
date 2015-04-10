@@ -12,8 +12,28 @@
 */
 
 //Route::get('/', function(){	return View::make('backend.user.login');});
+Route::filter('admin_owner', function()
+{
+    if (!Entrust::hasRole('admin')) {
+        App::abort(403);
+    }
 
-Route::get('/demo', function(){	return View::make('backend.demo');});
+});
+
+Route::filter('user_owner', function()
+{
+    if (!Entrust::hasRole('user')) {
+        App::abort(403);
+    }
+
+});
+// only owners will have access to routes within admin/advanced
+Route::when('admin*'   , 'admin_owner');
+Route::when('usuario*' , 'user_owner');
+
+Route::get('/demo', function(){	
+	return View::make('backend.demo');
+});
 Route::get('/upload', function(){ return View::make('backend.user.create_image'); });
 Route::post('upload', 'FileController@upload_image');
 Route::post('ajax_remove_image', 'FileController@remove_image');
@@ -24,6 +44,8 @@ Route::post('/inicio/post',  			array('as' 		=> 'login_post','uses' 	=>'UsersCon
 Route::get('/inicio/',  			    array('as' 		=> 'main','uses' 		=>'UsersController@main'));
 Route::get('/',  						array('as' 		=> 'login','uses' 		=>'UsersController@login'));
 Route::post('/imprimir/',  			    array('as' 		=> 'imprimir','uses' 	=>'FileController@imprimir'));
+Route::get('/cerrar/sesion',  			array('as' 		=> 'logout','uses' 		=>'UsersController@logout'));
+
 
 Route::get('/delete/files', function(){DB::table('files')->delete(); });
 
@@ -43,7 +65,6 @@ Route::when('admin/*', 'admin');
 Route::group(array('prefix' => 'usuario'), function()
 {
 	Route::get('/mostrar/{qrcode}',  				array('as' 		=> 'mostrar','uses' 	=>'UsersController@mostrar'));
-	Route::get('/cerrar/sesion',  					array('as' 		=> 'logout','uses' 		=>'UsersController@logout'));
 	Route::get('crear',  							array('as' 		=> 'register_user_get','uses' =>	'UsersController@create'));
 	Route::post('guardado',							array('as' 		=> 'guardar_usuario','uses' 	=>	'UsersController@store'));
 	Route::get('/generar_qr/{qrcode}',  			array('as' 		=> 'generar_qr','uses'  =>'UsersController@generate_qr'));
@@ -60,23 +81,23 @@ Route::group(array('prefix' => 'usuario'), function()
 	Route::get('logout', 'UsersController@logout');
 });
 
-// App::error(function($exception, $code)
-// {
-//     switch ($code)
-//     {
-//         case 403:
-//             return Response::view('backend.errors.home_403', array(), 403);
+/*App::error(function($exception, $code)
+{
+    switch ($code)
+    {
+        case 403:
+            return Response::view('backend.errors.home_403', array(), 403);
 
-//         case 404:
-//             return Response::view('backend.errors.home_404', array(), 404);
+        case 404:
+            return Response::view('backend.errors.home_404', array(), 404);
 
-//         case 500:
-//             return Response::view('backend.errors.home_500', array(), 500);
+        case 500:
+            return Response::view('backend.errors.home_500', array(), 500);
 
-//         default:
-//             return Response::view('errors.default', array(), $code);
-//     }
-// });
+        default:
+            return Response::view('errors.default', array(), $code);
+    }
+});*/
 
 Route::get('/teste_role',function(){
 	$user = Auth::user();//obtenemos el usuario logueado
