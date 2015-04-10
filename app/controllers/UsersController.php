@@ -198,24 +198,33 @@ class UsersController extends Controller
      */
     public function doLogin()
     {
+        $array_datos = array();
         $repo = App::make('UserRepository');
         $input = Input::all();
+
+        $id = Auth::id();
+        $profile_image_asociated_in_files_table = DB::select('CALL profile_image_asociated_in_files_table(?)',array($id));
+        $array_datos['profile_image']       = $profile_image_asociated_in_files_table;
+
+
         if ($repo->login($input)) {
             if(Entrust::hasRole('admin')) {
                 $id = Auth::id();
                 $user  = User::find($id);
-                $select_habilitar_registro_admin_option = DB::select('call select_habilitar_registro_admin_option()');
-                $array = array('habilitar_registro_admin_option'=>$select_habilitar_registro_admin_option[0]->confirmed);
-                return View::make('backend.admin.home_admin')->withUser($user)->with($array);
+                $select_habilitar_registro_admin_option               = DB::select('call select_habilitar_registro_admin_option()');
+                $array_datos['habilitar_registro_admin_option']       = $select_habilitar_registro_admin_option[0]->confirmed;
+                return View::make('backend.admin.home_admin')->withUser($user)->with($array_datos);
             }else{
                 $id = Auth::id();
                 $user  = User::find($id);
                 $qrcode = $user->qrcode;
                 $file = Request::root().'/uploads/qrcodes/'.$qrcode.'.png';                
-                $array = array('id'=> $id,
-                               'file'=> $file);
 
-                return View::make('backend.user.home_user')->with($array)->withUser($user);
+                $array_datos['profile_image']       = $profile_image_asociated_in_files_table;
+                $array_datos['id']                  = $id;
+                $array_datos['file']                = $file;
+
+                return View::make('backend.user.home_user')->with($array_datos)->withUser($user);
             }
         } else {
             if ($repo->isThrottled($input)) {
@@ -382,7 +391,6 @@ class UsersController extends Controller
         $array_datos['id']                                  = $id;
         $array_datos['file']                                = $file;
         $array_datos['habilitar_registro_admin_option']     = $select_habilitar_registro_admin_option[0]->confirmed;
-
 
         $select_role_of_user = DB::select('CALL select_role_of_user(?)',array($id));
         $rol_usuario = $select_role_of_user[0]->rol_usuario;

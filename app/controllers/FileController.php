@@ -56,8 +56,8 @@ class FileController extends Controller
           $file->tipo    = $fileType;
           $file->tamaño  = $fileSize;
           $file->profile = $profile_image;
+          $file->user()->associate($usuario);
 
-          $file ->user()->associate($usuario);
         //guardamos el file en el server
         if ( $fileInput[0]->move($path,$filename.'.'.$fileInput[0]->getClientOriginalName() ) ) {
           $file->save();
@@ -138,8 +138,8 @@ class FileController extends Controller
       }
       $profile_image_asociated_in_files_table = DB::select('CALL profile_image_asociated_in_files_table(?)',array($id));
 
-      $array_datos['user']        = $user;
-      $array_datos['id']          = $user->id;
+      $array_datos['user']                = $user;
+      $array_datos['id']                  = $user->id;
       $array_datos['profile_image']       = $profile_image_asociated_in_files_table;
 
       // dd($profile_image_asociated_in_files_table[0]);

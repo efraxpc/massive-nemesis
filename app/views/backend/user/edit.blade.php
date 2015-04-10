@@ -13,7 +13,7 @@
         <div id="sidebar"  class="nav-collapse ">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
-            
+
                 @if ($profile_image[0]->id === null)
                     <p class="centered"><a href="{{URL::route('cambiar_foto_perfil')}}"> {{ HTML::image('/assets/img/avatar_perfil.png', 'a picture', array('class' => 'img-circle','width' => 150, 'height' => 130)) }}</a></p>
                 @else
@@ -50,8 +50,6 @@
     <section class="wrapper">
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
-            <div class="row mt"></div>
-            <div class="row mt"></div>
             <div class="row mt"></div>
             <div class="row mt"></div>
                <p> Ingresa tu información para empezar: </p>
