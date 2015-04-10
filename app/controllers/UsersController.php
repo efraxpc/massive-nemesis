@@ -58,7 +58,7 @@ class UsersController extends Controller
             }
             $user_id = $user->id;
             if ( Input::all()['tipo'] == 'user' ) {
-                $role = Role::where('name','=','users')->first();
+                $role = Role::where('name','=','redemption')->first();
                 $user->roles()->attach($role->id);
                 $slug = 'user';
 
@@ -208,20 +208,20 @@ class UsersController extends Controller
 
         if ($repo->login($input)) {
             if(Entrust::hasRole('admin')) {
-                $user  = User::find($id);
+                $user = Auth::user();
+                $id = $user->id;
                 $select_habilitar_registro_admin_option               = DB::select('call select_habilitar_registro_admin_option()');
                 $array_datos['habilitar_registro_admin_option']       = $select_habilitar_registro_admin_option[0]->confirmed;
                 return View::make('backend.admin.home_admin')->withUser($user)->with($array_datos);
             }else{
-                $user  = User::find($id);
+                $user = Auth::user();
+                $id = $user->id;
                 $qrcode = $user->qrcode;
                 $file = Request::root().'/uploads/qrcodes/'.$qrcode.'.png';                
-
                 $array_datos['profile_image']       = $profile_image_asociated_in_files_table;
                 $array_datos['id']                  = $id;
                 $array_datos['file']                = $file;
 //dd(Entrust::hasRole('users'));die;
-
                 return View::make('backend.user.home_user')->with($array_datos)->withUser($user);
             }
         } else {
