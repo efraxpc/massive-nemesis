@@ -363,6 +363,7 @@ class UsersController extends Controller
         $grupo_sanguineo = TipoDeSangre::find($grupo_sanguineo_id);
         $nome=Request::root().'/usuario/mostrar/'.$qrcode;
         $qrcode = $user->qrcode;
+
         $file = Request::root().'/uploads/qrcodes/'.$qrcode.'.png';
         $imagenes_de_usuario = DB::select('call select_imagenes_de_usuario(?)',array($user->id));    
         return View::make('backend.user.mostrar',['user' =>$user,'grupo_sanguineo'=>$grupo_sanguineo,'file'=>$file,'imagenes_de_usuario'=>$imagenes_de_usuario]);

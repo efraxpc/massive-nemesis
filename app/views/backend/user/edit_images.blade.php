@@ -46,6 +46,7 @@
     <section class="wrapper">
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
+          <div class="row mt"></div><!-- /col-lg-9 END SECTION MIDDLE -->
                         {{-- Tratamiento de imagenes --}}
                         <div class="row-fluid">
                             <div class="col-md-12 col-md-offset-0">
@@ -77,10 +78,10 @@
 
                                                                         <div class="widget-main">
                                                                             <div class="row">
-                                                        <br/>
-                                                        <br/>
-                                                        <br/>
-                                                                                 <div class="col-md-10">
+                                                                                <div class="row mt"></div><!-- /col-lg-9 END SECTION MIDDLE -->
+                                                                                <div class="row mt"></div><!-- /col-lg-9 END SECTION MIDDLE -->
+                                                                                <div class="row mt"></div><!-- /col-lg-9 END SECTION MIDDLE -->
+                                                                                 <div class="col-md-6 col-md-offset-3">
                                                                                     <div class="panel panel-primary">
                                                                                         {{Form::open(array(
                                                                                             'url'=> 'upload',

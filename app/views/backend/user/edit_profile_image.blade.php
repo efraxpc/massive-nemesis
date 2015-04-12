@@ -46,10 +46,11 @@
     <section class="wrapper">
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
+            <div class="row mt"></div><!-- /col-lg-9 END SECTION MIDDLE -->
                         {{-- Tratamiento de imagenes --}}
                         <div class="row-fluid">
                             <div class="col-md-12 col-md-offset-0">
-                                <h1>Subir imagenes</h1>
+                                <h1>{{{Lang::get('main.subir_imagen')}}}</h1>
                             </div>
                         </div>
                         <div class="row-fluid">
@@ -57,7 +58,7 @@
                                 <div class="bs-example">
                                     <!-- Button HTML (to Trigger Modal) -->
                                     @if($profile_image[0]->max_file < 1)
-                                        <a href="#myModal" class="btn btn-lg btn-primary" data-toggle="modal">{{{Lang::get('main.subir_imagenes')}}}</a>
+                                        <a href="#myModal" class="btn btn-lg btn-primary" data-toggle="modal">{{{Lang::get('main.subir_imagen')}}}</a>
                                     @endif
                                     <!-- Modal HTML -->
                                     <div id="myModal" class="modal fade">
@@ -76,10 +77,10 @@
 
                                                                         <div class="widget-main">
                                                                             <div class="row">
-                                                        <br/>
-                                                        <br/>
-                                                        <br/>
-                                                                                 <div class="col-md-10">
+                                                                                <div class="row mt"></div><!-- /col-lg-9 END SECTION MIDDLE -->
+                                                                                <div class="row mt"></div><!-- /col-lg-9 END SECTION MIDDLE -->
+                                                                                <div class="row mt"></div><!-- /col-lg-9 END SECTION MIDDLE -->
+                                                                                 <div class="col-md-6 col-md-offset-3">
                                                                                     <div class="panel panel-primary">
                                                                                         {{Form::open(array(
                                                                                             'url'=> 'upload',
@@ -113,7 +114,7 @@
                         <div class="row-fluid">
 
                             <div class="col-md-12 col-md-offset-0">
-                                <h4>Imagenes Subidas</h4>
+                                <h4>Imagen Subida</h4>
                                 @if ($profile_image[0]->id != null)
                                     <table class="table">
                                         @for ($i = 0; $i <= count($profile_image); $i++)

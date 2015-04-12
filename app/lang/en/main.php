@@ -66,4 +66,5 @@ return array(
     'reiniciar_contraseña'           => 'Ingrese nueva contraseña',
     'iniciar_sesion'                 => 'Iniciar sesión',
     'recuperar_contraseña'           => 'Recuperar contraseña',
+    'subir_imagen'                   => 'Subir imagen',
 );

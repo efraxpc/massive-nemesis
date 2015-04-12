@@ -23,26 +23,19 @@
 <!--main content start-->
 <section id="main-content">
     <section class="wrapper">
-
         <div class="row">
             <div class="col-lg-9 main-chart">
-                <div class="row mt">
-                    <!-- SERVER STATUS PANELS -->
-                </div><!-- /col-lg-9 END SECTION MIDDLE -->
-
-
+                <div class="row mt"></div><!-- /col-lg-9 END SECTION MIDDLE -->
                 <!-- **********************************************************************************************************************************************************
                 RIGHT SIDEBAR CONTENT
                 *********************************************************************************************************************************************************** -->
                 <div class="row">
                       <div class=" col-md-offset-6">
-                        <p><h4>{{{ Lang::get('main.descripcion_imprimir') }}}</h4></p>
+                        <p><h5>{{{ Lang::get('main.descripcion_imprimir') }}}</h5></p>
                       </div>
                     </div>  
                     
-                    <div class="row mt">
-                        <!-- SERVER STATUS PANELS -->
-                    </div><!-- /col-lg-9 END SECTION MIDDLE -->
+                    <div class="row mt"></div><!-- /col-lg-9 END SECTION MIDDLE -->
 
                     <div class="row">
                       <div class="col-md-offset-6 qrcode_imprimir">

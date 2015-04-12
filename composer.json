@@ -13,7 +13,8 @@
 		"intervention/image": "~2.1",
 		"thujohn/pdf": "dev-master",
 		"barryvdh/laravel-dompdf": "*",
-		"raveren/kint": "dev-master"
+		"raveren/kint": "0.9.*@dev"
+
 	},
 	"autoload": {
 		"classmap": [

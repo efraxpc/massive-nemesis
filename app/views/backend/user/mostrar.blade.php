@@ -10,65 +10,72 @@
 </header>
 @stop
 @section('content')
-<br>
-<br>
-<br>
-<br>
-<table class="table table-hover">
+<section id="main-content">
+    <section class="wrapper">
+        <div class="row">
+            <div class="col-lg-9 main-chart">
+                <div class="row mt"> </div><!-- /col-lg-9 END SECTION MIDDLE -->
 
-    <tr>
-        <td class="text-center">
-            <p><strong>Nombre Completo</strong></p>
-            <p>{{$user->nombre_completo}}</p>
-        </td>
-    </tr>
-    <tr>
-        <td class="text-center">
-            <p><strong>Grupo Sanguíneo</strong></p>
-            <p>{{$grupo_sanguineo->nombre}}</p>
-        </td>
-    </tr>
-    <tr>
-        <td class="text-center">
-            <p><strong>Facebook</strong></p>
-            <p>{{$user->facebook}}</p>
-        </td>
-    </tr>
-    <tr>
-        <td class="text-center">
-            <p><strong>Twitter</strong></p>
-            <p>{{$user->twitter}}</p>
-        </td>
-    </tr>
-    <tr>
-        <td class="text-center">
-            <p><strong>{{{Lang::get('main.serial_marco') }}}</strong></p>
-            <p>{{$user->serial_marco}}</p>
-        </td>
-    </tr>
-    <tr>
-        <td class="text-center">
-            <p><strong>{{{Lang::get('main.fecha_nacimiento') }}}</strong></p>
-            <p>{{ date("d/m/Y",strtotime($user->fecha_nacimiento)) }}</p>
-        </td>
-    </tr>
+                <table class="table table-hover">
 
-    @for ($i = 0; $i < count($imagenes_de_usuario); $i++)
-        @if($imagenes_de_usuario[$i])
-        <tr>
-            <td class="text-center">
-                <p><strong>{{{Lang::get('main.foto_de_la_bicicleta') }}}</strong></p>
-                {{ HTML::image('/uploads/'.$imagenes_de_usuario[$i]->nombre.'.'.$imagenes_de_usuario[$i]->tipo, 'a picture', array('class' => 'img-thumbnail','width' => 150, 'height' => 130)) }}
-            </td>
-        </tr>
-        @endif
-    @endfor     
-    <tr>
-        <td class="text-center">
-            <p><strong>Código Qr</strong></p>
-            {{ HTML::image($file) }}
+                    <tr>
+                        <td class="text-center">
+                            <p><strong>Nombre Completo</strong></p>
+                            <p>{{$user->nombre_completo}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <p><strong>Grupo Sanguíneo</strong></p>
+                            <p>{{$grupo_sanguineo->nombre}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <p><strong>Facebook</strong></p>
+                            <p>{{$user->facebook}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <p><strong>Twitter</strong></p>
+                            <p>{{$user->twitter}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <p><strong>{{{Lang::get('main.serial_marco') }}}</strong></p>
+                            <p>{{$user->serial_marco}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <p><strong>{{{Lang::get('main.fecha_nacimiento') }}}</strong></p>
+                            <p>{{ date("d/m/Y",strtotime($user->fecha_nacimiento)) }}</p>
+                        </td>
+                    </tr>
 
-        </td>
-    </tr>      
-</table>
+                    @for ($i = 0; $i < count($imagenes_de_usuario); $i++)
+                        @if($imagenes_de_usuario[$i])
+                        <tr>
+                            <td class="text-center">
+                                <p><strong>{{{Lang::get('main.foto_de_la_bicicleta') }}}</strong></p>
+                                {{ HTML::image('/uploads/'.$imagenes_de_usuario[$i]->nombre.'.'.$imagenes_de_usuario[$i]->tipo, 'a picture', array('class' => 'img-thumbnail','width' => 150, 'height' => 130)) }}
+                            </td>
+                        </tr>
+                        @endif
+                    @endfor     
+                    <tr>
+                        <td class="text-center">
+                            <p><strong>Código Qr</strong></p>
+                            {{ HTML::image($file) }}
+
+                        </td>
+                    </tr>      
+                </table>
+                
+            </div>
+    </section>
+</section>
+
 @stop
