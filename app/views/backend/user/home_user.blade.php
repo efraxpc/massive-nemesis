@@ -35,8 +35,8 @@
                 RIGHT SIDEBAR CONTENT
                 *********************************************************************************************************************************************************** -->
                 <div class="row">
-                      <div class="col-md- col-md-offset-6">
-                        <p><h6>{{{ Lang::get('main.descripcion_imprimir') }}}</h6></p
+                      <div class=" col-md-offset-6">
+                        <p><h4>{{{ Lang::get('main.descripcion_imprimir') }}}</h4></p>
                       </div>
                     </div>  
                     
@@ -45,8 +45,8 @@
                     </div><!-- /col-lg-9 END SECTION MIDDLE -->
 
                     <div class="row">
-                      <div class="col-md- col-md-offset-6 qrcode_imprimir">
-                        {{ HTML::image($file) }}
+                      <div class="col-md-offset-6 qrcode_imprimir">
+                        {{ HTML::image($file, 'alt', array( 'width' => 420, 'height' => 420 )) }}
                       </div>
                     </div>
 

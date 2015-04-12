@@ -22,10 +22,10 @@
 			@for($i=0;$i < 3;$i++)
 				<tr>
 					<td>
-						{{ HTML::image($file) }}
+						{{ HTML::image($file, 'alt', array( 'width' => 300, 'height' => 300 )) }}
 					</td>
 					<td>
-						{{ HTML::image($file) }}
+						{{ HTML::image($file, 'alt', array( 'width' => 300, 'height' => 300 )) }}
 					</td>
 				</tr>
 			@endfor

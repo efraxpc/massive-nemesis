@@ -10,7 +10,7 @@
 		$( ".qrcode_imprimir" ).easyconfirm({locale: { title: 'Imprimir codigo', button: ['No','Si'] ,text: '¿Desea imprimir su código QR?'}}).click(function() {
 			
 		    $.ajax({
-                url:   '{{ URL::to('imprimir') }}',
+                url:   '{{ URL::route('imprimir') }}',
                 type:  'post',
                 success:  function (data) {
                     //location.reload();

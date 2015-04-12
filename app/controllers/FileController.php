@@ -72,10 +72,7 @@ class FileController extends Controller
     {
         $user = User::find($id);
         $id_user = Auth::id();
-        if (is_null($user))
-        {
-            return Redirect::route('login');
-        }
+        if (is_null($user)) return Redirect::route('login');
 
         $files = DB::table('users')
             ->join('files', 'users.id', '=', 'files.user_id')
@@ -120,7 +117,8 @@ class FileController extends Controller
 
         $user = Auth::user();
         $qrcode = $user->qrcode;
-        $file = '/uploads/qrcodes/'.$qrcode.'.png';
+        $file   = '/uploads/qrcodes/'.$qrcode.'.png';
+        //dd($file);
         $parameter['file'] = $file;
  
         $pdf = PDF::loadView('backend.user.pdf', $parameter);
@@ -128,7 +126,8 @@ class FileController extends Controller
         return $pdf->stream($file_name); 
     }   
 
-    public function cambiar_foto_perfil(){
+    public function cambiar_foto_perfil()
+    {
       $array_datos = array();
       $user = Auth::user();
       $id   = $user->id; 
@@ -142,8 +141,6 @@ class FileController extends Controller
       $array_datos['id']                  = $user->id;
       $array_datos['profile_image']       = $profile_image_asociated_in_files_table;
 
-      // dd($profile_image_asociated_in_files_table[0]);
-      // die;
       return View::make('backend.user.edit_profile_image', $array_datos);
     } 
 }

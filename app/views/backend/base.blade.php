@@ -8,7 +8,7 @@
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
     <title>{{{Lang::get('main.app_name_title_page') }}}</title>
-
+    {{ HTML::script('assets/js/jquery-1.8.3.min.js') }}
     <!-- Bootstrap core CSS -->
     {{ HTML::style('assets/css/bootstrap.css') }}
 
@@ -24,26 +24,18 @@
     {{ HTML::style('assets/css/style.css') }}
     {{ HTML::style('assets/css/style-responsive.css') }}
     {{ HTML::style('assets/css/style_swith.css') }}
-    
-
     {{ HTML::style('assets/googlemaps/style.css') }}
-
     {{ HTML::script('assets/js/chart-master/Chart.js') }}
-    {{ HTML::script('assets/js/jquery-1.8.3.min.js') }}
-    @section('scripts_imagem')
-    @show
-    @section('scripts_header')
-    @show
-       
+    @section('scripts_imagem')@show
+    @section('scripts_header')@show
+    @section('scripts_tadatables')@show
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-
   <body>
-
   <section id="container" >
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
@@ -73,9 +65,7 @@
       </footer>
       <!--footer end-->
   </section>
-
     <!-- js placed at the end of the document so the pages load faster -->
-    
     {{ HTML::script('assets/js/bootstrap.min.js') }}
     {{ HTML::script('bower/bootstrap-datepicker/js/bootstrap-datepicker.js') }}
     {{ HTML::script('bower/bootstrap-datepicker/js/locales/bootstrap-datepicker.es.js') }}
@@ -83,7 +73,6 @@
     {{ HTML::script('assets/js/jquery.scrollTo.min.js') }}
     {{ HTML::script('assets/js/jquery.nicescroll.js') }}
     {{ HTML::script('assets/js/jquery.sparkline.js') }}
-
 
     <!--common script for all pages-->
     {{ HTML::script('assets/js/common-scripts.js') }}

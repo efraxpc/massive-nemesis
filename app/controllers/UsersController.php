@@ -68,7 +68,7 @@ class UsersController extends Controller
 
                 //Escribir qrcode in server
                 $url = 'https://chart.googleapis.com/chart?';
-                $chs = 'chs=300x300';
+                $chs = 'chs=600x600';
                 $cht = 'cht=qr';
                 $chl = 'chl='.urlencode($nome);
                 $qstring = $url ."&". $chs ."&". $cht ."&". $chl;       
@@ -204,7 +204,7 @@ class UsersController extends Controller
         $id = Auth::id();
 
         $profile_image_asociated_in_files_table = DB::select('CALL profile_image_asociated_in_files_table(?)',array($id));
-        $array_datos['profile_image']       = $profile_image_asociated_in_files_table;
+        $array_datos['profile_image']           = $profile_image_asociated_in_files_table;
 
         if ($repo->login($input)) {
             if(Entrust::hasRole('admin')) {
@@ -213,16 +213,17 @@ class UsersController extends Controller
                 $select_habilitar_registro_admin_option               = DB::select('call select_habilitar_registro_admin_option()');
                 $array_datos['habilitar_registro_admin_option']       = $select_habilitar_registro_admin_option[0]->confirmed;
                 return View::make('backend.admin.home_admin')->withUser($user)->with($array_datos);
-            }else{
+            }elseif(Entrust::hasRole('users')){
                 $user = Auth::user();
                 $id = $user->id;
                 $qrcode = $user->qrcode;
                 $file = Request::root().'/uploads/qrcodes/'.$qrcode.'.png';                
-                $array_datos['profile_image']       = $profile_image_asociated_in_files_table;
                 $array_datos['id']                  = $id;
                 $array_datos['file']                = $file;
 //dd(Entrust::hasRole('users'));die;
                 return View::make('backend.user.home_user')->with($array_datos)->withUser($user);
+            }elseif(Entrust::hasRole('redemption')){
+                App::abort(403, 'User not found');
             }
         } else {
             if ($repo->isThrottled($input)) {
