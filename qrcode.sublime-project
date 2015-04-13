@@ -1,0 +1,18 @@
+{
+	"folders":
+	[
+		{
+			"path": "C:\\wamp\\www\\zoccos"
+		},
+		{
+			"path": "."
+		}
+	],
+	"settings":
+	{
+		"xdebug":
+		{
+			"url": "http://localhost/qrcode/public"
+		}
+	}
+}

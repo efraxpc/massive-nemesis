@@ -56,8 +56,8 @@
                             </a>           
                       </div>
                     </div>          
-                </div><! --/row -->
-
+                </div>
+            </div>
     </section>
 </section>
 @stop

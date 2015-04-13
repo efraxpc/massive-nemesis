@@ -6,6 +6,7 @@
  */
 class UsersController extends Controller
 {
+    private $array_datos = array();
 
     /**
      * Displays the form for account creation
@@ -58,17 +59,17 @@ class UsersController extends Controller
             }
             $user_id = $user->id;
             if ( Input::all()['tipo'] == 'user' ) {
-                $role = Role::where('name','=','redemption')->first();
+                $role = Role::where('name','=','users')->first();
                 $user->roles()->attach($role->id);
                 $slug = 'user';
 
                 $qrcode = $user->qrcode;
-                $nome = Request::root().'/usuario/mostrar/'.$qrcode;
+                $nome = Request::root().'/mostrar/'.$qrcode;
                 $file = Request::root().'/uploads/qrcodes/'.$qrcode.'.png';
 
                 //Escribir qrcode in server
                 $url = 'https://chart.googleapis.com/chart?';
-                $chs = 'chs=600x600';
+                $chs = 'chs=500x500';
                 $cht = 'cht=qr';
                 $chl = 'chl='.urlencode($nome);
                 $qstring = $url ."&". $chs ."&". $cht ."&". $chl;       
@@ -102,7 +103,6 @@ class UsersController extends Controller
 
     public function edit($id)
     {
-        $array_datos = array();
         $user = User::find($id);
         if (is_null($user))
         {
@@ -159,17 +159,18 @@ class UsersController extends Controller
         $error = $user->errors()->all(':message');
 
         if (!is_null($error)) {
-            $array = array();
             $id = Auth::id();
             $qrcode = $user->qrcode;
             $file = Request::root().'/uploads/qrcodes/'.$qrcode.'.png';
+            //dd($file);die;
             $profile_image_asociated_in_files_table = DB::select('CALL profile_image_asociated_in_files_table(?)',array($id));
-            $array_datos['files']       = $profile_image_asociated_in_files_table;
-            $array_datos['id']          = $id;
-            $array_datos['user']        = $user;
-            $array_datos['file']        = $file;
+            $array_datos['files']               = $profile_image_asociated_in_files_table;
+            $array_datos['id']                  = $id;
+            $array_datos['user']                = $user;
+            $array_datos['file']                = $file;
+            $array_datos['profile_image']       = $profile_image_asociated_in_files_table;
 
-            return View::make('backend.user.home_user', $array);
+            return View::make('backend.user.home_user', $array_datos);
         }else{
 
             return Redirect::action('UsersController@edit')
@@ -220,7 +221,6 @@ class UsersController extends Controller
                 $file = Request::root().'/uploads/qrcodes/'.$qrcode.'.png';                
                 $array_datos['id']                  = $id;
                 $array_datos['file']                = $file;
-//dd(Entrust::hasRole('users'));die;
                 return View::make('backend.user.home_user')->with($array_datos)->withUser($user);
             }elseif(Entrust::hasRole('redemption')){
                 App::abort(403, 'User not found');

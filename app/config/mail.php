@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => "bikestationcol@gmail.com", 'name' => "Efrain"),
+	'from' => array('address' => "bikestationcol@gmail.com", 'name' => ".::Bikestation::."),
 
 	/*
 	|--------------------------------------------------------------------------

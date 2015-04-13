@@ -70,7 +70,7 @@ return array(
 				"string"  => "El campo :attribute debe tener :size caracteres.",
 				"array"   => "El campo :attribute debe contener :size elementos.",
 	),
-	"unique" => "El campo :attribute ya ha sido tomado.",
+	"unique" => "Este :attribute ya existe.",
 	"url"    => "El formato de :attribute es inválido.",
 	/*
 	|--------------------------------------------------------------------------

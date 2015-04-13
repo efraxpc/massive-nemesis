@@ -47,7 +47,7 @@ Route::get('/cerrar/sesion',  			array('as' 		=> 'logout','uses' 		=>'UsersContr
 Route::get('crear/usuario',  			array('as' 		=> 'register_user_get','uses'   =>	'UsersController@create'));
 Route::post('guardar/usuario',			array('as' 		=> 'guardar_usuario','uses' 	=>	'UsersController@store'));
 Route::get('/mostrar/{qrcode}',  		array('as' 		=> 'mostrar','uses' 	=>'UsersController@mostrar'));
-Route::get('confirm/{code}', 'UsersController@confirm');
+Route::get('confirmar/{code}', 'UsersController@confirm');
 Route::get('forgot_password',  			array('as' 		=> 'forgot_password_get','uses'     =>	'UsersController@forgotPassword'));
 Route::post('forgot_password',			array('as' 		=> 'forgot_password_post','uses' 	=>	'UsersController@doForgotPassword'));
 Route::get('reiniciar/contraseña/{token}', 'UsersController@resetPassword');

@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `admin_permission` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bike_3qr_nuevo.admin_permission: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla bike_3qr_nuevo.admin_permission: ~1 rows (aproximadamente)
 DELETE FROM `admin_permission`;
 /*!40000 ALTER TABLE `admin_permission` DISABLE KEYS */;
 INSERT INTO `admin_permission` (`id`, `confirmed`, `created_at`, `updated_at`) VALUES
@@ -38,21 +38,24 @@ CREATE TABLE IF NOT EXISTS `assigned_roles` (
   KEY `assigned_roles_role_id_foreign` (`role_id`),
   CONSTRAINT `assigned_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
   CONSTRAINT `assigned_roles_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=65 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Volcando datos para la tabla bike_3qr_nuevo.assigned_roles: ~4 rows (aproximadamente)
 DELETE FROM `assigned_roles`;
 /*!40000 ALTER TABLE `assigned_roles` DISABLE KEYS */;
 INSERT INTO `assigned_roles` (`id`, `user_id`, `role_id`, `role_auxilar`) VALUES
 	(56, 53, 1, 'admin'),
-	(63, 74, 4, 'user'),
-	(64, 75, 2, 'user');
+	(63, 74, 2, 'user'),
+	(64, 75, 2, 'user'),
+	(65, 76, 2, 'user');
 /*!40000 ALTER TABLE `assigned_roles` ENABLE KEYS */;
 
 
 -- Volcando estructura para procedimiento bike_3qr_nuevo.delete_user
 DELIMITER //
-CREATE   PROCEDURE `delete_user`(IN `id_user` INT)
+CREATE   PROCEDURE `delete_user`(
+  IN id_user int
+)
 BEGIN
 	DELETE FROM users WHERE id = id_user;
 	DELETE FROM assigned_roles WHERE user_id = id_user;
@@ -74,13 +77,15 @@ CREATE TABLE IF NOT EXISTS `files` (
   PRIMARY KEY (`id`),
   KEY `files_user_id_foreign` (`user_id`),
   CONSTRAINT `files_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=105 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bike_3qr_nuevo.files: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla bike_3qr_nuevo.files: ~3 rows (aproximadamente)
 DELETE FROM `files`;
 /*!40000 ALTER TABLE `files` DISABLE KEYS */;
 INSERT INTO `files` (`id`, `nombre`, `ruta`, `tipo`, `tamaño`, `user_id`, `profile`, `created_at`, `updated_at`) VALUES
-	(102, 'imagen__552835a2c1026', 'C:\\wamp\\www\\qrcode\\public/uploads/', 'Desert.jpg', '826.1142578125', 75, 1, '2015-04-10 20:42:10', '2015-04-10 20:42:10');
+	(102, 'imagen__552835a2c1026', 'C:\\wamp\\www\\qrcode\\public/uploads/', 'Desert.jpg', '826.1142578125', 75, 1, '2015-04-10 20:42:10', '2015-04-10 20:42:10'),
+	(103, 'imagen__552ab69897ca5', 'C:\\wamp\\www\\qrcode\\public/uploads/', 'IMG-20150411-WA0032.jpeg', '267.1162109375', 76, 1, '2015-04-12 18:16:56', '2015-04-12 18:16:56'),
+	(104, 'imagen__552ab6a07402e', 'C:\\wamp\\www\\qrcode\\public/uploads/', 'page_1.jpg', '274.37890625', 76, 0, '2015-04-12 18:17:04', '2015-04-12 18:17:04');
 /*!40000 ALTER TABLE `files` ENABLE KEYS */;
 
 
@@ -126,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bike_3qr_nuevo.migrations: ~20 rows (aproximadamente)
+-- Volcando datos para la tabla bike_3qr_nuevo.migrations: ~25 rows (aproximadamente)
 DELETE FROM `migrations`;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
@@ -165,7 +170,7 @@ CREATE TABLE IF NOT EXISTS `password_reminders` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bike_3qr_nuevo.password_reminders: ~4 rows (aproximadamente)
+-- Volcando datos para la tabla bike_3qr_nuevo.password_reminders: ~7 rows (aproximadamente)
 DELETE FROM `password_reminders`;
 /*!40000 ALTER TABLE `password_reminders` DISABLE KEYS */;
 INSERT INTO `password_reminders` (`email`, `token`, `created_at`) VALUES
@@ -267,7 +272,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   UNIQUE KEY `roles_name_unique` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bike_3qr_nuevo.roles: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla bike_3qr_nuevo.roles: ~3 rows (aproximadamente)
 DELETE FROM `roles`;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
 INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -398,15 +403,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`),
   KEY `users_grupo_sanguineo_id_foreign` (`grupo_sanguineo_id`),
   CONSTRAINT `users_grupo_sanguineo_id_foreign` FOREIGN KEY (`grupo_sanguineo_id`) REFERENCES `tipo_de_sangre` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=76 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=77 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bike_3qr_nuevo.users: ~6 rows (aproximadamente)
+-- Volcando datos para la tabla bike_3qr_nuevo.users: ~4 rows (aproximadamente)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `email`, `password`, `confirmation_code`, `remember_token`, `confirmed`, `created_at`, `updated_at`, `eps`, `observaciones_generales`, `facebook`, `twitter`, `fecha_nacimiento`, `serial_marco`, `grupo_sanguineo_id`, `active`, `nombre_completo`, `qrcode`, `lat`, `lng`, `role_auxilar`) VALUES
-	(53, 'efraxpc@gmail.com', '$2y$10$hLM89QazAUkqRAn7dNzvT.nC5iIq13tvKuVjTd8dl07LMQBplseNW', '7a3800619a9042cf57e0092bc9cba43f', 't8B7KLuslq0wFDn9vsFyYL0D6IdwgRslkbqoPIbdxWJKQKJKWo3B24i1bKAa', 1, '2015-04-01 17:58:49', '2015-04-10 20:52:19', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '551c31d9901b7', NULL, NULL, 'admin'),
+	(53, 'efraxpc@gmail.com', '$2y$10$hLM89QazAUkqRAn7dNzvT.nC5iIq13tvKuVjTd8dl07LMQBplseNW', '7a3800619a9042cf57e0092bc9cba43f', 'rcy9XFBwpNmDZQSBcqpTSRJgroOJ0NYOwIwwj55gMi7A4BnIQo9yGtKv1D3D', 1, '2015-04-01 17:58:49', '2015-04-12 16:28:19', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '551c31d9901b7', NULL, NULL, 'admin'),
 	(74, 'cameliaguerrero@hotmail.com', '$2y$10$JFj29mIrWlQYrciiPILwWeoEIe1.wNVe5iV1JSjWYxTu5R/reKG3K', '6d82f5c90a26d33c6206ffe86547fc91', 'VdfuqHnHq22R9gZaM46zB1w6A6mjYBFRQ9agQmeg3NnybF2Ok2GVoXQ2zZtW', 1, '2015-04-10 18:24:35', '2015-04-10 19:23:53', 'Eps', 'Observaciones Generales ', 'Facebook', 'Twitter', '1970/01/01 00:00:00', 'Serial de Marco', 2, 1, 'Nombre Completo', '5528156322406', '4.589', '-73.930', 'redemption'),
-	(75, 'pedrorejon@hotmail.com', '$2y$10$QU2k9U2kWgGk3GhDgZykDO05/g.yxC8xuFDcDooYet6Dmpn1cE2lu', '64b10919002896136c80d7bbff37a157', 'mg3mYNV2EMKdNDEELKs1oUNcNBPS9dEy8y75mR3QT2cx2P0r4wUHhE3laC93', 1, '2015-04-10 19:24:47', '2015-04-10 20:52:13', 'Eps', 'Observaciones Generales ', 'Facebook', 'Twitter', '1970/01/01 00:00:00', 'Serial de Marco', 2, 1, 'Nombre Completo', '5528237f4a74d', '4.589', '-73.930', 'redemption');
+	(75, 'pedrorejon@hotmail.com', '$2y$10$QU2k9U2kWgGk3GhDgZykDO05/g.yxC8xuFDcDooYet6Dmpn1cE2lu', '64b10919002896136c80d7bbff37a157', '1LTxs6SyueNcwazkoZ3zYvZOsvoq0FClTWR3qkcOsZoRL3nNMiSd2MCc4ucy', 1, '2015-04-10 19:24:47', '2015-04-11 14:50:52', 'Eps', 'Observaciones Generales ', 'Facebook', 'Twitter', '1970/01/01 00:00:00', 'Serial de Marco', 2, 1, 'Nombre Completo', '5528237f4a74d', '4.589', '-73.930', 'redemption'),
+	(76, 'wdEfraxpc@Gmail.Com', '$2y$10$Pe4tuRCE3sguH.2asGI9f.E/1sWDYwvRv47o04iXmsmmgfubKslc6', 'b5b37f59c82d7e60e21e3b1d543e84e8', 'HCVRRAZQDy6EJFsYNgMjhxEaxCrWuPzeKctrFFWr2e3UAYLOogLZ1KtNf66D', 1, '2015-04-12 16:23:04', '2015-04-12 19:29:27', 'Eps', 'Observaciones Generales ', 'Facebook', 'Twitter', '1970/01/01 00:00:00', 'Serial de Marco', 1, 1, 'Nombre Completo', '552a9be81c671', '4.589', '-73.930', 'redemption');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

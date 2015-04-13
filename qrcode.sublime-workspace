@@ -1,0 +1,1116 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"arr",
+				"array_data"
+			],
+			[
+				"res",
+				"restar"
+			],
+			[
+				"cal",
+				"calculadora"
+			],
+			[
+				"con",
+				"constante1"
+			],
+			[
+				"opera",
+				"operacion_aleatoria"
+			],
+			[
+				"ech",
+				"echo"
+			],
+			[
+				"pa",
+				"param2"
+			],
+			[
+				"para",
+				"param1"
+			],
+			[
+				"el",
+				"else"
+			],
+			[
+				"ar",
+				"array_data"
+			],
+			[
+				"producto",
+				"producto_id"
+			],
+			[
+				"home_",
+				"home_admin"
+			],
+			[
+				"files",
+				"files_aso"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "vendor/zizaco/confide/src/views/reset_password.blade.php",
+			"settings":
+			{
+				"buffer_size": 1255,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/routes.php",
+			"settings":
+			{
+				"buffer_size": 5642,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/controllers/UsersController.php",
+			"settings":
+			{
+				"buffer_size": 15603,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/views/backend/user/home_user.blade.php",
+			"settings":
+			{
+				"buffer_size": 2791,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/config/app.php",
+			"settings":
+			{
+				"buffer_size": 7988,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "$_COOKIE = array[3]\n	$_COOKIE['PHPSESSID'] = (string) mo63uvnptnodik7r8ourpe7n07\n	$_COOKIE['XDEBUG_SESSION'] = (string) sublime.xdebug\n	$_COOKIE['laravel_session'] = (string) eyJpdiI6IkxaV3pObnRSRmNPUjBuV2ZQT3N6aHc9PSIsInZhbHVlIjoiV1UrWHU4ZW1HRWl1NVNrd3RqN3hvR2xlNHZId2puMkF1XC9HdEswWFpuc2ZFSzE5Y2V5d3psanZOM1Z0VVd4OEJzUzZcL3BWKzZUNEx5bnVIUmZLRytZUT09IiwibWFjIjoiYmFlYmIxNmRiZjIxODJjNTU5MjBlOGMwMThiODE4OWFhYTI0MDE1NzIyYzZkOTViNjcxZjU1ZDg2Yjk5ZmM0MCJ9\n$_ENV = array[0]\n$_FILES = array[0]\n$_GET = array[0]\n$_POST = array[14]\n	$_POST['_token'] = (string) VB4h9VTiyOyZzPQj5zQOXWVCaKBp2GF7oPybwUBb\n	$_POST['tipo'] = (string) user\n	$_POST['editar'] = (string) true\n	$_POST['id'] = (string) 88\n	$_POST['email'] = (string) programador.jtguerrero@hotmail.com\n	$_POST['grupo_sanguineo_id'] = (string) 2\n	$_POST['eps'] = (string) ef\n	$_POST['observaciones_generales'] = (string) efefefe\n	$_POST['serial_marco'] = (string) ef\n	$_POST['facebook'] = (string) ef\n	$_POST['twitter'] = (string) ef\n	$_POST['fecha_nacimiento'] = (string) 05/08/2015\n	$_POST['lat'] = (string) 4.589\n	$_POST['lng'] = (string) -73.930\n$_REQUEST = array[14]\n	$_REQUEST['_token'] = (string) VB4h9VTiyOyZzPQj5zQOXWVCaKBp2GF7oPybwUBb\n	$_REQUEST['tipo'] = (string) user\n	$_REQUEST['editar'] = (string) true\n	$_REQUEST['id'] = (string) 88\n	$_REQUEST['email'] = (string) programador.jtguerrero@hotmail.com\n	$_REQUEST['grupo_sanguineo_id'] = (string) 2\n	$_REQUEST['eps'] = (string) ef\n	$_REQUEST['observaciones_generales'] = (string) efefefe\n	$_REQUEST['serial_marco'] = (string) ef\n	$_REQUEST['facebook'] = (string) ef\n	$_REQUEST['twitter'] = (string) ef\n	$_REQUEST['fecha_nacimiento'] = (string) 05/08/2015\n	$_REQUEST['lat'] = (string) 4.589\n	$_REQUEST['lng'] = (string) -73.930\n$_SERVER = array[41]\n	$_SERVER['REDIRECT_STATUS'] = (string) 200\n	$_SERVER['HTTP_HOST'] = (string) localhost\n	$_SERVER['HTTP_CONNECTION'] = (string) keep-alive\n	$_SERVER['CONTENT_LENGTH'] = (string) 271\n	$_SERVER['HTTP_CACHE_CONTROL'] = (string) max-age=0\n	$_SERVER['HTTP_ACCEPT'] = (string) text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\n	$_SERVER['HTTP_ORIGIN'] = (string) http://localhost\n	$_SERVER['HTTP_USER_AGENT'] = (string) Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 Safari/537.36\n	$_SERVER['CONTENT_TYPE'] = (string) application/x-www-form-urlencoded\n	$_SERVER['HTTP_REFERER'] = (string) http://localhost/qrcode/public/usuario/editar/88\n	$_SERVER['HTTP_ACCEPT_ENCODING'] = (string) gzip, deflate\n	$_SERVER['HTTP_ACCEPT_LANGUAGE'] = (string) es-419,es;q=0.8,en;q=0.6,fr;q=0.4\n	$_SERVER['HTTP_COOKIE'] = (string) PHPSESSID=mo63uvnptnodik7r8ourpe7n07; XDEBUG_SESSION=sublime.xdebug; laravel_session=eyJpdiI6IkxaV3pObnRSRmNPUjBuV2ZQT3N6aHc9PSIsInZhbHVlIjoiV1UrWHU4ZW1HRWl1NVNrd3RqN3hvR2xlNHZId2puMkF1XC9HdEswWFpuc2ZFSzE5Y2V5d3psanZOM1Z0VVd4OEJzUzZcL3BWKzZUNEx5bnVIUmZLRytZUT09IiwibWFjIjoiYmFlYmIxNmRiZjIxODJjNTU5MjBlOGMwMThiODE4OWFhYTI0MDE1NzIyYzZkOTViNjcxZjU1ZDg2Yjk5ZmM0MCJ9\n	$_SERVER['PATH'] = (string) C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Broadcom\\Broadcom 802.11\\Driver;C:\\wamp\\bin\\php\\php5.5.12;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files (x86)\\Git\\cmd;C:\\Program Files (x86)\\Git\\bin;C:\\Program Files (x86)\\Skype\\Phone\\;\n	$_SERVER['SystemRoot'] = (string) C:\\Windows\n	$_SERVER['COMSPEC'] = (string) C:\\Windows\\system32\\cmd.exe\n	$_SERVER['PATHEXT'] = (string) .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC\n	$_SERVER['WINDIR'] = (string) C:\\Windows\n	$_SERVER['SERVER_SIGNATURE'] = (string) <address>Apache/2.4.9 (Win64) PHP/5.5.12 Server at localhost Port 80</address> \n	$_SERVER['SERVER_SOFTWARE'] = (string) Apache/2.4.9 (Win64) PHP/5.5.12\n	$_SERVER['SERVER_NAME'] = (string) localhost\n	$_SERVER['SERVER_ADDR'] = (string) 127.0.0.1\n	$_SERVER['SERVER_PORT'] = (string) 80\n	$_SERVER['REMOTE_ADDR'] = (string) 127.0.0.1\n	$_SERVER['DOCUMENT_ROOT'] = (string) C:/wamp/www/\n	$_SERVER['REQUEST_SCHEME'] = (string) http\n	$_SERVER['CONTEXT_PREFIX'] = <string>\n	$_SERVER['CONTEXT_DOCUMENT_ROOT'] = (string) C:/wamp/www/\n	$_SERVER['SERVER_ADMIN'] = (string) admin@example.com\n	$_SERVER['SCRIPT_FILENAME'] = (string) C:/wamp/www/qrcode/public/index.php\n	$_SERVER['REMOTE_PORT'] = (string) 56474\n	$_SERVER['REDIRECT_URL'] = (string) /qrcode/public/usuario/editado\n	...\n$GLOBALS = array[18]\n	$GLOBALS['_GET'] = array[0]\n	$GLOBALS['_POST'] = array[14]\n		...\n	$GLOBALS['_COOKIE'] = array[3]\n		...\n	$GLOBALS['_FILES'] = array[0]\n	$GLOBALS['_ENV'] = array[0]\n	$GLOBALS['_REQUEST'] = array[14]\n		...\n	$GLOBALS['_SERVER'] = array[41]\n		...\n	$GLOBALS['GLOBALS'] = <array>\n	$GLOBALS['_kint_settings'] = array[12]\n		...\n	$GLOBALS['compiled'] = (string) C:\\wamp\\www\\qrcode\\bootstrap/compiled.php\n	$GLOBALS['workbench'] = (string) C:\\wamp\\www\\qrcode\\bootstrap/../workbench\n	$GLOBALS['app'] = Illuminate\\Foundation\\Application[17]\n		...\n	$GLOBALS['env'] = (string) production\n	$GLOBALS['framework'] = (string) C:\\wamp\\www\\qrcode/vendor/laravel/framework/src\n	$GLOBALS['envVariables'] = Illuminate\\Config\\EnvironmentVariables[1]\n		...\n	$GLOBALS['config'] = array[10]\n		...\n	$GLOBALS['aliases'] = array[43]\n		...\n	$GLOBALS['providers'] = array[32]\n		...\n$anio = (string) 2015\n$array = array[0]\n$array_datos = array[4]\n	$array_datos['files'] = array[1]\n		...\n	$array_datos['id'] = (int) 88\n	$array_datos['user'] = User[29]\n		...\n	$array_datos['file'] = (string) http://localhost/qrcode/public/uploads/qrcodes/552c2a376ca13.png\n$dia = (string) 05\n$error = array[0]\n$errors = array[4]\n	$errors['email'] = (string) required|email|\n	$errors['eps'] = (string) required\n	$errors['serial_marco'] = (string) required\n	$errors['fecha_nacimiento'] = (string) required\n$file = (string) http://localhost/qrcode/public/uploads/qrcodes/552c2a376ca13.png\n$id = (int) 88\n$mes = (string) 08\n$pieces = array[3]\n	$pieces[0] = (string) 05\n	$pieces[1] = (string) 08\n	$pieces[2] = (string) 2015\n$profile_image_asociated_in_files_table = array[1]\n	$profile_image_asociated_in_files_table[0] = stdClass[4]\n		...\n$qrcode = (string) 552c2a376ca13\n$repo = UserRepository[0]\n$user = User[29]\n	$user::snakeAttributes = (bool) 1\n	$user::resolver = Illuminate\\Database\\DatabaseManager[4]\n		...\n	$user::dispatcher = Illuminate\\Events\\Dispatcher[5]\n		...\n	$user::booted = array[3]\n		...\n	$user::globalScopes = array[0]\n	$user::unguarded = (bool) 0\n	$user::mutatorCache = array[3]\n		...\n	$user::manyMethods = array[3]\n		...\n	$user->connection = <null>\n	$user->table = <null>\n	$user->primaryKey = (string) id\n	$user->perPage = (int) 15\n	$user->incrementing = (bool) 1\n	$user->timestamps = (bool) 1\n	$user->attributes = array[21]\n		...\n	$user->original = array[21]\n		...\n	$user->relations = array[0]\n	$user->hidden = array[0]\n	$user->visible = array[0]\n	$user->appends = array[0]\n	$user->fillable = array[0]\n	$user->guarded = array[1]\n		...\n	$user->dates = array[0]\n	$user->touches = array[0]\n	$user->observables = array[0]\n	$user->with = array[0]\n	$user->morphClass = <null>\n	$user->exists = (bool) 1\n	$user->errors = Illuminate\\Support\\MessageBag[2]\n		...\n$validator = Illuminate\\Validation\\Validator[17]\n	$validator->translator = Illuminate\\Translation\\Translator[5]\n		...\n	$validator->presenceVerifier = Illuminate\\Validation\\DatabasePresenceVerifier[2]\n		...\n	$validator->failedRules = array[0]\n	$validator->messages = Illuminate\\Support\\MessageBag[2]\n		...\n	$validator->data = array[14]\n		...\n	$validator->files = array[0]\n	$validator->rules = array[4]\n		...\n	$validator->customMessages = array[0]\n	$validator->fallbackMessages = array[0]\n	$validator->customAttributes = array[0]\n	$validator->customValues = array[0]\n	$validator->extensions = array[0]\n	$validator->replacers = array[0]\n	$validator->sizeRules = array[4]\n		...\n	$validator->numericRules = array[2]\n		...\n	$validator->implicitRules = array[7]\n		...\n	$validator->container = Illuminate\\Foundation\\Application[17]\n		...\n$this = UsersController[4]\n	$this::filterer = Illuminate\\Routing\\Router[15]\n		...\n	$this->beforeFilters = array[0]\n	$this->afterFilters = array[0]\n	$this->layout = <null>\n",
+			"settings":
+			{
+				"buffer_size": 8152,
+				"line_ending": "Windows",
+				"name": "Xdebug Context",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Windows",
+				"name": "Xdebug Watch",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "[0] file:///C:/wamp/www/qrcode/app/controllers/UsersController.php.UsersController->storeEdit:172\n[1] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Routing/Controller.php.call_user_func_array:{C:\\wamp\\www\\qrcode\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php:231}:231\n[2] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Routing/Controller.php.Illuminate\\Routing\\Controller->callAction:231\n[3] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php.Illuminate\\Routing\\ControllerDispatcher->call:93\n[4] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php.Illuminate\\Routing\\ControllerDispatcher->dispatch:62\n[5] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Routing/Router.php.Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}:967\n[6] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Routing/Route.php.call_user_func_array:{C:\\wamp\\www\\qrcode\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php:109}:109\n[7] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Routing/Route.php.Illuminate\\Routing\\Route->run:109\n[8] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Routing/Router.php.Illuminate\\Routing\\Router->dispatchToRoute:1033\n[9] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Routing/Router.php.Illuminate\\Routing\\Router->dispatch:1001\n[10] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Foundation/Application.php.Illuminate\\Foundation\\Application->dispatch:775\n[11] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Foundation/Application.php.Illuminate\\Foundation\\Application->handle:745\n[12] file:///C:/wamp/www/qrcode/vendor/barryvdh/laravel-debugbar/src/Middleware/Stack.php.Barryvdh\\Debugbar\\Middleware\\Stack->handle:34\n[13] file:///C:/wamp/www/qrcode/vendor/itsgoingd/clockwork/Clockwork/Support/Laravel/ClockworkLegacyMiddleware.php.Clockwork\\Support\\Laravel\\ClockworkLegacyMiddleware->handle:20\n[14] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Session/Middleware.php.Illuminate\\Session\\Middleware->handle:72\n[15] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Cookie/Queue.php.Illuminate\\Cookie\\Queue->handle:47\n[16] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Cookie/Guard.php.Illuminate\\Cookie\\Guard->handle:51\n[17] file:///C:/wamp/www/qrcode/vendor/stack/builder/src/Stack/StackedHttpKernel.php.Stack\\StackedHttpKernel->handle:23\n[18] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Foundation/Application.php.Illuminate\\Foundation\\Application->run:641\n[19] file:///C:/wamp/www/qrcode/public/index.php.{main}:49\n",
+			"settings":
+			{
+				"buffer_size": 2805,
+				"line_ending": "Windows",
+				"name": "Xdebug Stack",
+				"read_only": true,
+				"scratch": true
+			}
+		},
+		{
+			"contents": "=> C:\\wamp\\www\\qrcode\\app\\controllers\\UsersController.php\n	|+| 172\n",
+			"settings":
+			{
+				"buffer_size": 67,
+				"line_ending": "Windows",
+				"name": "Xdebug Breakpoint",
+				"read_only": true,
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"last_filter": "Package Control: ",
+		"selected_items":
+		[
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'eb2297e1a458f27d836c04bb0cbaf282' + 'd0e7a3098092775ccb37ca9d6b2e4b7d'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/wamp/www/qrcode",
+		"/C/wamp/www/qrcode/app",
+		"/C/wamp/www/qrcode/app/controllers"
+	],
+	"file_history":
+	[
+		"/C/wamp/www/qrcode/qrcode.sublime-project",
+		"/C/wamp/www/zoccos/zoccos.sublime-project",
+		"/C/Users/efraxpc/AppData/Roaming/Sublime Text 3/Packages/Xdebug Client/Xdebug.sublime-settings",
+		"/C/wamp/www/qrcode/vendor/zizaco/confide/src/views/emails/passwordreset.blade.php",
+		"/C/wamp/www/qrcode/vendor/zizaco/confide/src/views/emails/confirm.blade.php",
+		"/C/wamp/www/qrcode/app/storage/views/e84d12c65101182bd8035977cc125b03",
+		"/C/wamp/www/qrcode/vendor/zizaco/confide/src/views/login.blade.php",
+		"/C/wamp/www/qrcode/vendor/zizaco/confide/src/views/forgot_password.blade.php",
+		"/C/wamp/www/qrcode/app/lang/en/validation.php",
+		"/C/wamp/www/qrcode/vendor/zizaco/confide/src/lang/en/confide.php",
+		"/C/wamp/www/zoccos/app/views/backend/layouts/layout_base.blade.php",
+		"/C/wamp/www/zoccos/app/views/backend/templates/customer/agregar_imagenes.blade.php",
+		"/C/wamp/www/zoccos/app/controllers/FileController.php",
+		"/C/wamp/www/zoccos/composer.json",
+		"/C/wamp/www/zoccos/app/controllers/BaseController.php",
+		"/C/wamp/www/zoccos/app/views/frontend/templates/home.blade.php",
+		"/C/wamp/www/zoccos/app/routes.php",
+		"/C/wamp/www/zoccos/app/controllers/UsersController.php",
+		"/C/wamp/www/zoccos/app/config/app.php",
+		"/C/wamp/www/zoccos/app/controllers/ImageController.php",
+		"/C/wamp/www/zoccos/app/config/assets.php",
+		"/C/wamp/www/qrcode/app/models/UserRepository.php",
+		"/C/wamp/www/qrcode/app/controllers/UsersController.php",
+		"/C/wamp/www/qrcode/app/controllers/AdminController.php",
+		"/C/wamp/www/qrcode/app/config/app.php",
+		"/C/wamp/www/qrcode/app/routes.php",
+		"/C/wamp/www/qrcode/app/config/mail.php",
+		"/C/wamp/www/qrcode/vendor/zizaco/confide/src/lang/es_ES/confide.php",
+		"/C/wamp/www/qrcode/dump/bike_3qr_nuevo.sql",
+		"/C/wamp/www/zoccos/app/views/backend/templates/customer/agregar_productos.blade.php",
+		"/C/wamp/www/zoccos/app/views/frontend/templates/login.blade.php",
+		"/C/wamp/www/zoccos/app/views/backend/templates/customer/home_customer.blade.php",
+		"/C/wamp/www/zoccos/app/controllers/CustomersController.php",
+		"/C/wamp/www/qrcode/app/views/backend/base.blade.php",
+		"/C/wamp/www/qrcode/app/views/backend/datatable.blade.php",
+		"/C/wamp/www/qrcode/app/views/backend/admin/layout.blade.php",
+		"/C/wamp/www/qrcode/composer.json",
+		"/C/wamp/www/qrcode/app/lang/en/main.php",
+		"/C/wamp/www/zoccos/app/views/backend/templates/customer/administrar_productos.blade.php",
+		"/C/wamp/www/qrcode/app/views/backend/admin/administrar_usuarios.blade.php",
+		"/C/wamp/www/qrcode/app/views/backend/user/mostrar.blade.php",
+		"/C/wamp/www/qrcode/app/controllers/FileController.php",
+		"/C/wamp/www/qrcode/app/views/backend/user/home_user.blade.php",
+		"/C/wamp/www/qrcode/app/views/backend/user/edit_profile_image.blade.php",
+		"/C/wamp/www/qrcode/app/views/backend/user/edit_images.blade.php",
+		"/C/wamp/www/qrcode/vendor/zizaco/confide/src/Confide/EloquentRepository.php",
+		"/C/wamp/www/qrcode/app/views/backend/user/pdf.blade.php",
+		"/C/wamp/www/qrcode/public/.htaccess",
+		"/C/wamp/www/zoccos/app/views/backend/templates/customer/edit_profile_image.blade.php",
+		"/C/wamp/www/zoccos/app/lang/en/main.php",
+		"/C/wamp/www/zoccos/app/views/backend/base.blade.php",
+		"/C/wamp/www/zoccos/app/views/backend/datatable.blade.php",
+		"/C/wamp/www/zoccos/app/views/backend/templates/customer/agregar_imagen_producto_principal_portada.blade.php",
+		"/C/Users/efraxpc/Desktop/.htaccess",
+		"/C/wamp/www/oop/oop_1.php",
+		"/C/wamp/www/zoccos/app/views/frontend/layouts/layout_login_register.blade.php",
+		"/C/wamp/www/qrcode/app/models/User.php",
+		"/C/wamp/www/qrcode/app/views/backend/user/layout_panel_user.blade.php",
+		"/C/wamp/www/qrcode/app/views/backend/user/edit.blade.php",
+		"/C/wamp/www/qrcode/app/views/backend/admin/home_admin.blade.php",
+		"/C/wamp/www/qrcode/app/views/backend/user/reset_password.blade.php",
+		"/C/wamp/www/qrcode/app/views/backend/user/forgot_password.blade.php",
+		"/C/wamp/www/qrcode/app/views/backend/user/login.blade.php",
+		"/C/wamp/www/qrcode/app/views/backend/user/base_login.blade.php",
+		"/C/wamp/www/qrcode/app/views/backend/user/create_admin.blade.php",
+		"/C/wamp/www/qrcode/app/storage/views/299196d99fd40d36be300e40098a26e2",
+		"/C/wamp/www/qrcode/app/views/backend/demo.blade.php",
+		"/C/wamp/www/qrcode/app/views/backend/admin/users.blade.php",
+		"/C/wamp/www/qrcode/app/views/backend/errors/home_403.blade.php",
+		"/C/wamp/www/qrcode/app/database/migrations/2015_04_09_150830_add_profile_boolean_field_in_files_tables.php",
+		"/C/wamp/www/qrcode/app/views/backend/user/layout_login.blade.php",
+		"/C/wamp/www/qrcode/app/views/backend/user/layout_create.blade.php",
+		"/C/wamp/www/qrcode/public/dropzone/dist/dropzone.js",
+		"/C/wamp/www/zoccos/app/models/Archivo.php",
+		"/C/wamp/www/zoccos/app/views/frontend/layouts/home_layout.blade.php",
+		"/C/wamp/www/zoccos/app/start/global.php",
+		"/C/wamp/www/zoccos/app/controllers/blade_extensions.php",
+		"/C/wamp/www/zoccos/app/views/frontend/includes/menu_bottom_opciones_basicas.blade.php",
+		"/C/wamp/www/zoccos/app/database/migrations/2015_04_08_121817_add_featured.php",
+		"/C/wamp/www/qrcode/app/views/backend/user/create_image.blade.php",
+		"/C/wamp/www/zoccos/app/models/User.php",
+		"/C/wamp/www/zoccos/app/models/Producto.php",
+		"/C/wamp/www/zoccos/app/database/migrations/2015_04_07_113600_create_files_table.php",
+		"/C/wamp/www/zoccos/public/dropzone/dist/dropzone.css",
+		"/C/wamp/www/zoccos/public/dropzone/dist/dropzone.js",
+		"/C/wamp/www/zoccos/app/views/backend/includes/styledropzone.blade.php",
+		"/C/wamp/www/qrcode/app/database/migrations/2015_03_25_135704_create_file_table.php",
+		"/C/wamp/www/zoccos/app/database/migrations/2015_04_06_153450_rename_producto_to_productos_table.php",
+		"/C/wamp/www/zoccos/app/database/migrations/2015_04_06_151023_create_producto_table.php",
+		"/C/wamp/www/qrcode/app/database/migrations/2015_04_01_181724_create_admin_permission_table.php",
+		"/C/wamp/www/zoccos/app/database/migrations/2015_04_05_131452_add_role_auxilar_in_assigned_roles.php",
+		"/C/wamp/www/zoccos/app/views/frontend/templates/signup_user.blade.php",
+		"/C/wamp/www/zoccos/app/views/frontend/templates/signup_customer.blade.php",
+		"/C/wamp/www/zoccos/app/views/backend/templates/agregar_productos.blade.php",
+		"/C/wamp/www/zoccos/app/views/backend/templates/customer/administrar_usuarios.blade.php",
+		"/C/wamp/www/laravel-test/vendor/zizaco/confide/src/views/signup.blade.php",
+		"/C/wamp/www/zoccos/app/models/UserRepository.php",
+		"/C/wamp/www/zoccos/app/config/mail.php",
+		"/C/wamp/www/qrcode/app/database/migrations/2015_04_01_145006_add_role_auxilar_in_assigned_roles.php",
+		"/C/wamp/www/zoccos/app/models/Permission.php",
+		"/C/wamp/www/zoccos/app/models/Role.php",
+		"/C/wamp/www/zoccos/app/database/migrations/2015_04_05_002634_add_role_auxiliar_to_users_table.php",
+		"/C/wamp/www/laravel-test/app/controllers/UsersController.php",
+		"/C/wamp/www/laravel-test/app/config/app.php",
+		"/C/wamp/www/laravel-test/app/models/User.php",
+		"/C/wamp/www/laravel-test/composer.json",
+		"/C/wamp/www/laravel-test/app/config/mail.php",
+		"/C/wamp/www/laravel-test/app/config/database.php",
+		"/C/wamp/www/zoccos/app/database/migrations/2015_04_04_162604_extending_users_table_with_ocacionally_user_fields.php",
+		"/C/wamp/www/Eshopper/login.html",
+		"/C/wamp/www/Eshopper/index.html",
+		"/C/wamp/www/zoccos/app/views/frontend/base.blade.php",
+		"/C/wamp/www/zoccos/vendor/zizaco/confide/src/views/signup.blade.php",
+		"/C/wamp/www/zoccos/vendor/zizaco/confide/src/views/login.blade.php",
+		"/C/wamp/www/zoccos/vendor/zizaco/confide/src/Confide/Confide.php",
+		"/C/wamp/www/qrcode/app/views/backend/layout.blade.php",
+		"/C/wamp/www/zoccos/vendor/zizaco/confide/src/Confide/EloquentRepository.php",
+		"/C/wamp/www/zoccos/app/config/database.php",
+		"/C/wamp/www/qrcode/public/assets/css/tomorrow-night.css",
+		"/C/Users/efraxpc/Desktop/highlight/highlight.pack.js",
+		"/C/wamp/www/qrcode/app/views/backend/includes/styledropzone.blade.php",
+		"/C/wamp/www/dashgumfree_v2/responsive_table.html",
+		"/C/wamp/www/qrcode/.gitignore",
+		"/C/Users/efraxpc/Desktop/.gitignore",
+		"/C/wamp/www/dashgumfree_v2/index.html",
+		"/C/wamp/www/dashgumfree_v2/chartjs.html",
+		"/C/wamp/www/qrcode/app/database/migrations/2015_04_01_120104_create_role_aux_nullable_field_in_users_table.php",
+		"/C/wamp/www/css-toggle-switch-source/index.html"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\wamp\\www\\qrcode",
+			"C:\\wamp\\www\\qrcode\\app\\lang\\en",
+			"C:\\wamp\\www\\qrcode\\vendor",
+			"C:\\wamp\\www\\qrcode",
+			"C:\\wamp\\www\\zoccos\\app\\views\\backend",
+			"C:\\wamp\\www\\zoccos\\app\\views\\frontend",
+			"C:\\wamp\\www\\zoccos\\app\\views",
+			"C:\\wamp\\www\\qrcode\\app",
+			"C:\\wamp\\www\\qrcode\\vendor\\zizaco\\confide",
+			"C:\\wamp\\www\\qrcode\\app",
+			"C:\\wamp\\www\\qrcode\\app\\views",
+			"C:\\wamp\\www\\qrcode\\app\\controllers",
+			"C:\\wamp\\www\\qrcode\\app\\views",
+			"C:\\wamp\\www\\qrcode\\app",
+			"C:\\wamp\\www\\qrcode\\app\\controllers",
+			"C:\\wamp\\www\\zoccos\\app\\views",
+			"C:\\wamp\\www\\zoccos\\app\\views\\backend",
+			"C:\\wamp\\www\\qrcode",
+			"C:\\wamp\\www\\qrcode\\app\\views",
+			"C:\\wamp\\www\\qrcode\\app\\controllers",
+			"C:\\wamp\\www\\qrcode\\public\\assets",
+			"C:\\wamp\\www\\qrcode\\app\\views",
+			"C:\\wamp\\www\\qrcode",
+			"C:\\wamp\\www\\qrcode\\app\\views",
+			"C:\\wamp\\www\\qrcode\\app\\views\\backend",
+			"C:\\wamp\\www\\qrcode\\app\\views"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"dd",
+			"ff",
+			"users/reset",
+			"users/confirm",
+			"tomado",
+			"ya ha sido tomado",
+			"ya ha sido tomado.",
+			"users",
+			"uses",
+			"users",
+			"/users/",
+			"ajax_change_status_user",
+			"DEFINER=`root`@`localhost`",
+			"'class' => 'the-class'",
+			"mostrar",
+			"nombre_completo",
+			"user",
+			"img",
+			"logout",
+			"auth",
+			"DEFINER=`root`@`localhost`",
+			"DEFINER=`root`@`localhost",
+			"AUTH",
+			"edit_user",
+			"continua",
+			"users/reset_password/",
+			"to",
+			"sign in now",
+			"createAdmin",
+			"doLogin",
+			"DEFINER=`root`@`localhost`",
+			"files",
+			"edit_profile_image",
+			"edit_ima",
+			"img",
+			"di",
+			"uploads",
+			"array_files",
+			"files_asociated_table ",
+			"logo",
+			"Auth",
+			"3",
+			"edit_ima",
+			"edit",
+			"home_user",
+			"home",
+			"\">",
+			"create_user",
+			"max_3_files_asociated_in_files_table",
+			"img",
+			"Designed by",
+			"foto",
+			"login",
+			"Route ",
+			"Route",
+			"login",
+			"files",
+			"files ",
+			"imagenes",
+			"call",
+			"site-footer",
+			"dd",
+			"echo",
+			"auth",
+			"usuario/creat",
+			"route",
+			"url",
+			"signup",
+			"signup_form",
+			"usuario/pipo2",
+			"DEFINER=`root`@`localhost`",
+			"auth",
+			"home_user",
+			"\n    ",
+			"select_habilitar_registro_admin_option",
+			"habilitar_registro_admin_option ",
+			"mostrar",
+			"login",
+			"logout",
+			"login/post",
+			"nombre_completo",
+			"user",
+			"DEFINER=`root`@`localhost`",
+			"root",
+			"DEFINER=`root`@`localhost`",
+			"                \n",
+			"DASHGUM FREE",
+			"administrar/usuarios",
+			"cmn",
+			"//clickamos una foto",
+			"$.ajax({",
+			"Input::",
+			"ajax_chenge_status_user",
+			"ajax",
+			"json",
+			"switch",
+			"home user",
+			"class=\"logout\"",
+			"user::",
+			"backend.user.home_user",
+			"<!--logo start-->",
+			"root",
+			"header black-bg",
+			"<!--logo start-->",
+			"users/confirm",
+			"/users/confirm/",
+			"3qr_nuevo/",
+			"#myModal",
+			"existingFileCount ",
+			"2",
+			"maxfilesexceeded ",
+			"index.html",
+			"<!--logo start-->",
+			"href=\"index.html",
+			"login",
+			"select",
+			"root@localhost",
+			"Definer='root@localhost'",
+			"HTML::image(",
+			"{{ HTML::image",
+			"img",
+			"Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo. Free ",
+			"6",
+			"img",
+			"init",
+			"queuecomplete",
+			"queuecomplete "
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			" ",
+			"max_7_files_asociated_in_files_table",
+			" "
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "vendor/zizaco/confide/src/views/reset_password.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1255,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								837,
+								837
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/routes.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5642,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1982,
+								1989
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 650.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/controllers/UsersController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 15603,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7303,
+								7303
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3223.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/views/backend/user/home_user.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2791,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 530.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/config/app.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7988,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								159,
+								159
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 8152,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8152,
+								8152
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 388.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2805,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2805,
+								2805
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 67,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								67,
+								67
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Xdebug Client/Xdebug.tmLanguage",
+							"word_wrap": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				2,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.7,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.xdebug":
+	{
+		"height": 142.0
+	},
+	"pinned_build_system": "",
+	"project": "qrcode.sublime-project",
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"mail",
+				"qrcode\\app\\config\\mail.php"
+			],
+			[
+				"main.php",
+				"qrcode\\app\\lang\\en\\main.php"
+			],
+			[
+				"route",
+				"qrcode\\app\\routes.php"
+			],
+			[
+				"file",
+				"zoccos\\app\\controllers\\FileController.php"
+			],
+			[
+				"main",
+				"zoccos\\app\\lang\\en\\main.php"
+			],
+			[
+				"custo",
+				"zoccos\\app\\controllers\\CustomersController.php"
+			],
+			[
+				"edit_profile_image",
+				"qrcode\\app\\views\\backend\\user\\edit_profile_image.blade.php"
+			],
+			[
+				"usercon",
+				"qrcode\\app\\controllers\\UsersController.php"
+			],
+			[
+				"user",
+				"qrcode\\app\\models\\User.php"
+			],
+			[
+				"layout_base",
+				"zoccos\\app\\views\\backend\\layouts\\layout_base.blade.php"
+			],
+			[
+				"layout_panel_user",
+				"qrcode\\app\\views\\backend\\user\\layout_panel_user.blade.php"
+			],
+			[
+				"home_user",
+				"qrcode\\app\\views\\backend\\user\\home_user.blade.php"
+			],
+			[
+				"rou",
+				"zoccos\\app\\routes.php"
+			],
+			[
+				"filecon",
+				"zoccos\\app\\controllers\\FileController.php"
+			],
+			[
+				"filecontroller",
+				"qrcode\\app\\controllers\\FileController.php"
+			],
+			[
+				"forgot",
+				"qrcode\\app\\views\\backend\\user\\forgot_password.blade.php"
+			],
+			[
+				"dropz",
+				"qrcode\\public\\dropzone\\dist\\dropzone.js"
+			],
+			[
+				"app.",
+				"zoccos\\app\\config\\app.php"
+			],
+			[
+				"app",
+				"app\\config\\app.php"
+			],
+			[
+				"composer",
+				"composer.json"
+			],
+			[
+				"layout_create",
+				"app\\views\\backend\\user\\layout_create.blade.php"
+			],
+			[
+				"dropzone.",
+				"public\\dropzone\\dist\\dropzone.js"
+			],
+			[
+				"edit_images",
+				"app\\views\\backend\\user\\edit_images.blade.php"
+			],
+			[
+				"mostrar",
+				"app\\views\\backend\\user\\mostrar.blade.php"
+			],
+			[
+				"lay",
+				"app\\views\\backend\\user\\layout_create.blade.php"
+			],
+			[
+				"laypu_",
+				"app\\views\\backend\\user\\layout_panel_user.blade.php"
+			],
+			[
+				"home_us",
+				"app\\views\\backend\\user\\home_user.blade.php"
+			],
+			[
+				"drop",
+				"public\\dropzone\\dist\\dropzone.js"
+			],
+			[
+				"base",
+				"app\\views\\backend\\base.blade.php"
+			],
+			[
+				"layout",
+				"app\\views\\backend\\user\\layout_create.blade.php"
+			],
+			[
+				"layou",
+				"app\\views\\backend\\user\\layout_create.blade.php"
+			],
+			[
+				"edit_im",
+				"app\\views\\backend\\user\\edit_images.blade.php"
+			],
+			[
+				"mostar",
+				"app\\views\\backend\\user\\mostrar.blade.php"
+			],
+			[
+				"rout",
+				"app\\routes.php"
+			],
+			[
+				"dropzone.js",
+				"public\\dropzone\\dist\\dropzone.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+		"xdebug":
+		{
+			"hide_conflict": false,
+			"restore_index":
+			{
+				"17":
+				{
+					"group": 0,
+					"index": 0
+				},
+				"18":
+				{
+					"group": 0,
+					"index": 1
+				},
+				"19":
+				{
+					"group": 0,
+					"index": 2
+				},
+				"20":
+				{
+					"group": 0,
+					"index": 3
+				},
+				"21":
+				{
+					"group": 0,
+					"index": 4
+				},
+				"37":
+				{
+					"group": 0,
+					"index": 8
+				},
+				"38":
+				{
+					"group": 0,
+					"index": 5
+				},
+				"39":
+				{
+					"group": 0,
+					"index": 7
+				},
+				"40":
+				{
+					"group": 0,
+					"index": 6
+				}
+			},
+			"restore_layout":
+			{
+				"cells":
+				[
+					[
+						0,
+						0,
+						2,
+						1
+					],
+					[
+						0,
+						1,
+						1,
+						2
+					],
+					[
+						1,
+						1,
+						2,
+						2
+					]
+				],
+				"cols":
+				[
+					0.0,
+					0.5,
+					1.0
+				],
+				"rows":
+				[
+					0.0,
+					0.710510510511,
+					1.0
+				]
+			}
+		}
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 153.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
