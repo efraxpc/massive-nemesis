@@ -53,7 +53,7 @@ return array(
     'lista_de_usuarios'              => 'Lista de Usuarios',
     'activo_mayus'                   => 'ACTIVO',
     'inactivo_mayus'                 => 'INACTIVO',
-    'codigo_registrar_usuario'       => 'http://bikestation.co/public/admin/crear',
+    'codigo_registrar_usuario'       => 'http://bikestation.co/qrcode/public/admin/crear',
     'texto_enlace_crear_admin'       => 'Puede registar un administrador en la siguiente dirección:',
     'descripcion_imprimir'           => 'Para imprimir los códigos QR toque la imagen de abajo',
     'texto_hoja_imprimir'            => 'Recorte los códigos QR',
