@@ -15,19 +15,19 @@
                 @endif
                 <h5 class="centered">{{$user->nombre_completo}}</h5>
                 
-                <li class="mt">
+                <li>
                     <a class="active" href="{{ URL::route('edit_user', array($id)) }}">
                         <i class="fa fa-dashboard"></i>
                         <span>{{{Lang::get('main.editar_datos_de_usuario')}}}</span>
                     </a>
                 </li>
-                <li class="mt">
+                <li>
                     <a class="active" href="{{ URL::route('edit_imagen_user', array($id)) }}">
                         <i class="fa fa-dashboard"></i>
                         <span>{{{Lang::get('main.administrar_imagenes')}}}</span>
                     </a>
                 </li>      
-                <li class="mt">
+                <li>
                     <a class="active" href="{{ URL::route('cambiar_foto_perfil') }}">
                         <i class="fa fa-dashboard"></i>
                         <span>{{{Lang::get('main.cambiar_foto_perfil')}}}</span>

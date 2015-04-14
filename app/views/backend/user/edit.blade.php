@@ -7,7 +7,6 @@
     {{ HTML::script('http://code.jquery.com/ui/1.10.3/jquery-ui.js') }}
     {{ HTML::style('http://code.jquery.com/ui/1.10.3/themes/blitzer/jquery-ui.css') }}
 @stop
-
 @section('sidebar')
     <aside>
         <div id="sidebar"  class="nav-collapse ">
@@ -20,20 +19,19 @@
                     <p class="centered"><a href="{{URL::route('main')}}"> {{ HTML::image('/uploads/'. $profile_image[0]->nombre .'.'. $profile_image[0]->tipo, 'a picture', array('class' => 'img-circle','width' => 150, 'height' => 130, 'id'=>$profile_image[0]->id)) }}</a></p>
                 @endif
                 <h5 class="centered">{{$user->nombre_completo}}</h5>
-
-                <li class="mt">
+                <li >
                     <a class="active" href="{{ URL::route('edit_user', array($id)) }}">
                         <i class="fa fa-dashboard"></i>
                         <span>{{{Lang::get('main.editar_datos_de_usuario')}}}</span>
                     </a>
                 </li>
-                <li class="mt">
+                <li >
                     <a class="active" href="{{ URL::route('edit_imagen_user', array($id)) }}">
                         <i class="fa fa-dashboard"></i>
                         <span>{{{Lang::get('main.administrar_imagenes')}}}</span>
                     </a>
                 </li>      
-                <li class="mt">
+                <li >
                     <a class="active" href="{{ URL::route('cambiar_foto_perfil') }}">
                         <i class="fa fa-dashboard"></i>
                         <span>{{{Lang::get('main.cambiar_foto_perfil')}}}</span>
@@ -59,18 +57,14 @@
                     <input type="hidden" name="editar" value="true">
                     <input type="hidden" name="id" value="{{$user->id}}">
                     <fieldset>
-                        @if (Cache::remember('username_in_confide', 5, function() {
-                            return Schema::hasColumn(Config::get('auth.table'), 'username');
-                        }))
                         <div class="form-group">
-                            <label for="username">{{{ Lang::get('confide::confide.username') }}}</label>
-                            <input class="form-control" placeholder="{{{ Lang::get('confide::confide.username') }}}" type="text" name="username" id="username" value="{{{ Input::old('username') }}}">
-                            @if ($errors->has('username')) 
-                            <div class="alert alert-danger">{{ $errors->first('username')  }}</div> @endif
+                            <label for="username">{{{Lang::get('main.nombre_completo')}}}</label>
+                            <input class="form-control" placeholder="{{{Lang::get('main.nombre_completo')}}}" type="text" name="nombre_completo" id="nombre_completo"value="{{$user->nombre_completo}}">
+                            @if ($errors->has('nombre_completo'))
+                            <div class="alert alert-danger">{{ $errors->first('nombre_completo')  }}</div> @endif
                         </div>
-                        @endif
                         <div class="form-group">
-                            <label for="email">{{{ Lang::get('confide::confide.e_mail') }}} <small>{{ Lang::get('confide::confide.signup.confirmation_required') }}</small></label>
+                            <label for="email">{{{ Lang::get('confide::confide.e_mail') }}}</label>
                             <input class="form-control" placeholder="{{{ Lang::get('confide::confide.e_mail') }}}" type="text" name="email" id="email" value="{{$user->email}}">
                             @if ($errors->has('email')) 
                             <div class="alert alert-danger">{{ $errors->first('email')  }}</div> 
@@ -86,6 +80,12 @@
                             <input class="form-control" placeholder="{{{Lang::get('main.eps')}}}" type="text" name="eps" id="eps" value="{{$user->eps}}">
                             @if ($errors->has('eps')) 
                             <div class="alert alert-danger">{{ $errors->first('eps')  }}</div> @endif
+                        </div>
+                        <div class="form-group">
+                            <label for="eps">{{{Lang::get('main.emergencia')}}}</label>
+                            <input class="form-control" placeholder="{{{Lang::get('main.ingrese_numero')}}}" type="text" name="emergencia" id="emergencia" value="{{ $user->emergencia }}">
+                            @if ($errors->has('emergencia'))
+                            <div class="alert alert-danger">{{ $errors->first('emergencia')  }}</div> @endif
                         </div>
                         <div class="form-group">
                             {{{Lang::get('main.observaciones_generales') }}}

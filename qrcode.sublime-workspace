@@ -60,43 +60,19 @@
 	"buffers":
 	[
 		{
-			"file": "vendor/zizaco/confide/src/views/reset_password.blade.php",
+			"file": "/C/wamp/www/zoccos/app/controllers/FileController.php",
 			"settings":
 			{
-				"buffer_size": 1255,
+				"buffer_size": 5209,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/C/wamp/www/zoccos/app/controllers/UsersController.php",
+			"settings":
+			{
+				"buffer_size": 7335,
 				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/routes.php",
-			"settings":
-			{
-				"buffer_size": 5642,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/controllers/UsersController.php",
-			"settings":
-			{
-				"buffer_size": 15735,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/views/backend/user/home_user.blade.php",
-			"settings":
-			{
-				"buffer_size": 2796,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/config/app.php",
-			"settings":
-			{
-				"buffer_size": 7988,
-				"line_ending": "Windows"
 			}
 		},
 		{
@@ -133,10 +109,10 @@
 			}
 		},
 		{
-			"contents": "=> C:\\wamp\\www\\qrcode\\app\\controllers\\UsersController.php\n	|+| 172\n",
+			"contents": "=> C:\\wamp\\www\\qrcode\\app\\controllers\\UsersController.php\n	|+| 172\n=> C:\\wamp\\www\\zoccos\\app\\controllers\\UsersController.php\n	|+| 15\n",
 			"settings":
 			{
-				"buffer_size": 67,
+				"buffer_size": 133,
 				"line_ending": "Windows",
 				"name": "Xdebug Breakpoint",
 				"read_only": true,
@@ -183,18 +159,16 @@
 		"side_bar_visible": false,
 		"status_bar_visible": false
 	},
-	"expanded_folders":
-	[
-		"/C/wamp/www/qrcode/app",
-		"/C/wamp/www/qrcode/app/controllers",
-		"/C/wamp/www/laravel-test/app",
-		"/C/wamp/www/laravel-test/app/config"
-	],
 	"file_history":
 	[
+		"/C/wamp/www/zoccos/zoccos.sublime-project",
+		"/C/wamp/www/qrcode/app/config/app.php",
+		"/C/wamp/www/qrcode/app/views/backend/user/home_user.blade.php",
+		"/C/wamp/www/qrcode/app/controllers/UsersController.php",
+		"/C/wamp/www/qrcode/app/routes.php",
+		"/C/wamp/www/qrcode/vendor/zizaco/confide/src/views/reset_password.blade.php",
 		"/C/wamp/www/laravel-test/app/config/mail.php",
 		"/C/wamp/www/qrcode/qrcode.sublime-project",
-		"/C/wamp/www/zoccos/zoccos.sublime-project",
 		"/C/Users/efraxpc/AppData/Roaming/Sublime Text 3/Packages/Xdebug Client/Xdebug.sublime-settings",
 		"/C/wamp/www/qrcode/vendor/zizaco/confide/src/views/emails/passwordreset.blade.php",
 		"/C/wamp/www/qrcode/vendor/zizaco/confide/src/views/emails/confirm.blade.php",
@@ -215,10 +189,7 @@
 		"/C/wamp/www/zoccos/app/controllers/ImageController.php",
 		"/C/wamp/www/zoccos/app/config/assets.php",
 		"/C/wamp/www/qrcode/app/models/UserRepository.php",
-		"/C/wamp/www/qrcode/app/controllers/UsersController.php",
 		"/C/wamp/www/qrcode/app/controllers/AdminController.php",
-		"/C/wamp/www/qrcode/app/config/app.php",
-		"/C/wamp/www/qrcode/app/routes.php",
 		"/C/wamp/www/qrcode/app/config/mail.php",
 		"/C/wamp/www/qrcode/vendor/zizaco/confide/src/lang/es_ES/confide.php",
 		"/C/wamp/www/qrcode/dump/bike_3qr_nuevo.sql",
@@ -235,7 +206,6 @@
 		"/C/wamp/www/qrcode/app/views/backend/admin/administrar_usuarios.blade.php",
 		"/C/wamp/www/qrcode/app/views/backend/user/mostrar.blade.php",
 		"/C/wamp/www/qrcode/app/controllers/FileController.php",
-		"/C/wamp/www/qrcode/app/views/backend/user/home_user.blade.php",
 		"/C/wamp/www/qrcode/app/views/backend/user/edit_profile_image.blade.php",
 		"/C/wamp/www/qrcode/app/views/backend/user/edit_images.blade.php",
 		"/C/wamp/www/qrcode/vendor/zizaco/confide/src/Confide/EloquentRepository.php",
@@ -318,8 +288,7 @@
 		"/C/Users/efraxpc/Desktop/.gitignore",
 		"/C/wamp/www/dashgumfree_v2/index.html",
 		"/C/wamp/www/dashgumfree_v2/chartjs.html",
-		"/C/wamp/www/qrcode/app/database/migrations/2015_04_01_120104_create_role_aux_nullable_field_in_users_table.php",
-		"/C/wamp/www/css-toggle-switch-source/index.html"
+		"/C/wamp/www/qrcode/app/database/migrations/2015_04_01_120104_create_role_aux_nullable_field_in_users_table.php"
 	],
 	"find":
 	{
@@ -510,105 +479,16 @@
 	"groups":
 	[
 		{
-			"selected": 2,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "vendor/zizaco/confide/src/views/reset_password.blade.php",
+					"file": "/C/wamp/www/zoccos/app/controllers/FileController.php",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1255,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								837,
-								837
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/routes.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5642,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1982,
-								1989
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 650.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/controllers/UsersController.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 15735,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7435,
-								7495
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 3223.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/views/backend/user/home_user.blade.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2796,
+						"buffer_size": 5209,
 						"regions":
 						{
 						},
@@ -622,47 +502,54 @@
 						"settings":
 						{
 							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 530.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/config/app.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7988,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								159,
-								159
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 216.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 1,
+					"file": "/C/wamp/www/zoccos/app/controllers/UsersController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7335,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								337,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 2,
 					"semi_transient": false,
 					"settings":
 					{
@@ -690,7 +577,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 3,
 					"semi_transient": false,
 					"settings":
 					{
@@ -716,9 +603,15 @@
 					},
 					"stack_index": 2,
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
-					"buffer": 7,
+					"buffer": 4,
 					"semi_transient": false,
 					"settings":
 					{
@@ -746,19 +639,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 5,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 67,
+						"buffer_size": 133,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								67,
-								67
+								133,
+								133
 							]
 						],
 						"settings":
@@ -773,16 +666,6 @@
 					"stack_index": 4,
 					"type": "text"
 				}
-			]
-		},
-		{
-			"sheets":
-			[
-			]
-		},
-		{
-			"sheets":
-			[
 			]
 		}
 	],
@@ -1021,50 +904,15 @@
 			"hide_conflict": false,
 			"restore_index":
 			{
-				"17":
+				"46":
 				{
 					"group": 0,
 					"index": 0
 				},
-				"18":
+				"47":
 				{
 					"group": 0,
 					"index": 1
-				},
-				"19":
-				{
-					"group": 0,
-					"index": 2
-				},
-				"20":
-				{
-					"group": 0,
-					"index": 3
-				},
-				"21":
-				{
-					"group": 0,
-					"index": 4
-				},
-				"37":
-				{
-					"group": 0,
-					"index": 8
-				},
-				"38":
-				{
-					"group": 0,
-					"index": 5
-				},
-				"39":
-				{
-					"group": 0,
-					"index": 7
-				},
-				"40":
-				{
-					"group": 0,
-					"index": 6
 				}
 			},
 			"restore_layout":
@@ -1099,7 +947,7 @@
 				"rows":
 				[
 					0.0,
-					0.710510510511,
+					0.722522522523,
 					1.0
 				]
 			}

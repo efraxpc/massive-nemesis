@@ -138,14 +138,16 @@ class UsersController extends Controller
         }      
         /////////////////
         $repo = App::make('UserRepository');
-        $user = User::find($id); 
-        $user->email = Input::all()['email'];  
+        $user = User::find($id);
+        $user->nombre_completo = Input::all()['nombre_completo'];
+        $user->email = Input::all()['email'];
         $pieces = explode("/", Input::all()['fecha_nacimiento']);
         $dia  = $pieces[0];
         $mes  = $pieces[1];
         $anio = $pieces[2]; 
         $user->fecha_nacimiento = \Carbon\Carbon::createFromDate($anio,$mes,$dia)->toDateTimeString();
         $user->grupo_sanguineo_id = Input::all()['grupo_sanguineo_id'];
+        $user->emergencia = Input::all()['emergencia'];
         $user->eps = Input::all()['eps'];
         $user->observaciones_generales = Input::all()['observaciones_generales'];
         $user->facebook = Input::all()['facebook'];
