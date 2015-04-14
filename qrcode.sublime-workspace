@@ -79,7 +79,7 @@
 			"file": "app/controllers/UsersController.php",
 			"settings":
 			{
-				"buffer_size": 15603,
+				"buffer_size": 15735,
 				"line_ending": "Windows"
 			}
 		},
@@ -87,7 +87,7 @@
 			"file": "app/views/backend/user/home_user.blade.php",
 			"settings":
 			{
-				"buffer_size": 2791,
+				"buffer_size": 2796,
 				"line_ending": "Windows"
 			}
 		},
@@ -100,10 +100,10 @@
 			}
 		},
 		{
-			"contents": "$_COOKIE = array[3]\n	$_COOKIE['PHPSESSID'] = (string) mo63uvnptnodik7r8ourpe7n07\n	$_COOKIE['XDEBUG_SESSION'] = (string) sublime.xdebug\n	$_COOKIE['laravel_session'] = (string) eyJpdiI6IkxaV3pObnRSRmNPUjBuV2ZQT3N6aHc9PSIsInZhbHVlIjoiV1UrWHU4ZW1HRWl1NVNrd3RqN3hvR2xlNHZId2puMkF1XC9HdEswWFpuc2ZFSzE5Y2V5d3psanZOM1Z0VVd4OEJzUzZcL3BWKzZUNEx5bnVIUmZLRytZUT09IiwibWFjIjoiYmFlYmIxNmRiZjIxODJjNTU5MjBlOGMwMThiODE4OWFhYTI0MDE1NzIyYzZkOTViNjcxZjU1ZDg2Yjk5ZmM0MCJ9\n$_ENV = array[0]\n$_FILES = array[0]\n$_GET = array[0]\n$_POST = array[14]\n	$_POST['_token'] = (string) VB4h9VTiyOyZzPQj5zQOXWVCaKBp2GF7oPybwUBb\n	$_POST['tipo'] = (string) user\n	$_POST['editar'] = (string) true\n	$_POST['id'] = (string) 88\n	$_POST['email'] = (string) programador.jtguerrero@hotmail.com\n	$_POST['grupo_sanguineo_id'] = (string) 2\n	$_POST['eps'] = (string) ef\n	$_POST['observaciones_generales'] = (string) efefefe\n	$_POST['serial_marco'] = (string) ef\n	$_POST['facebook'] = (string) ef\n	$_POST['twitter'] = (string) ef\n	$_POST['fecha_nacimiento'] = (string) 05/08/2015\n	$_POST['lat'] = (string) 4.589\n	$_POST['lng'] = (string) -73.930\n$_REQUEST = array[14]\n	$_REQUEST['_token'] = (string) VB4h9VTiyOyZzPQj5zQOXWVCaKBp2GF7oPybwUBb\n	$_REQUEST['tipo'] = (string) user\n	$_REQUEST['editar'] = (string) true\n	$_REQUEST['id'] = (string) 88\n	$_REQUEST['email'] = (string) programador.jtguerrero@hotmail.com\n	$_REQUEST['grupo_sanguineo_id'] = (string) 2\n	$_REQUEST['eps'] = (string) ef\n	$_REQUEST['observaciones_generales'] = (string) efefefe\n	$_REQUEST['serial_marco'] = (string) ef\n	$_REQUEST['facebook'] = (string) ef\n	$_REQUEST['twitter'] = (string) ef\n	$_REQUEST['fecha_nacimiento'] = (string) 05/08/2015\n	$_REQUEST['lat'] = (string) 4.589\n	$_REQUEST['lng'] = (string) -73.930\n$_SERVER = array[41]\n	$_SERVER['REDIRECT_STATUS'] = (string) 200\n	$_SERVER['HTTP_HOST'] = (string) localhost\n	$_SERVER['HTTP_CONNECTION'] = (string) keep-alive\n	$_SERVER['CONTENT_LENGTH'] = (string) 271\n	$_SERVER['HTTP_CACHE_CONTROL'] = (string) max-age=0\n	$_SERVER['HTTP_ACCEPT'] = (string) text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8\n	$_SERVER['HTTP_ORIGIN'] = (string) http://localhost\n	$_SERVER['HTTP_USER_AGENT'] = (string) Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 Safari/537.36\n	$_SERVER['CONTENT_TYPE'] = (string) application/x-www-form-urlencoded\n	$_SERVER['HTTP_REFERER'] = (string) http://localhost/qrcode/public/usuario/editar/88\n	$_SERVER['HTTP_ACCEPT_ENCODING'] = (string) gzip, deflate\n	$_SERVER['HTTP_ACCEPT_LANGUAGE'] = (string) es-419,es;q=0.8,en;q=0.6,fr;q=0.4\n	$_SERVER['HTTP_COOKIE'] = (string) PHPSESSID=mo63uvnptnodik7r8ourpe7n07; XDEBUG_SESSION=sublime.xdebug; laravel_session=eyJpdiI6IkxaV3pObnRSRmNPUjBuV2ZQT3N6aHc9PSIsInZhbHVlIjoiV1UrWHU4ZW1HRWl1NVNrd3RqN3hvR2xlNHZId2puMkF1XC9HdEswWFpuc2ZFSzE5Y2V5d3psanZOM1Z0VVd4OEJzUzZcL3BWKzZUNEx5bnVIUmZLRytZUT09IiwibWFjIjoiYmFlYmIxNmRiZjIxODJjNTU5MjBlOGMwMThiODE4OWFhYTI0MDE1NzIyYzZkOTViNjcxZjU1ZDg2Yjk5ZmM0MCJ9\n	$_SERVER['PATH'] = (string) C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Broadcom\\Broadcom 802.11\\Driver;C:\\wamp\\bin\\php\\php5.5.12;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files (x86)\\Git\\cmd;C:\\Program Files (x86)\\Git\\bin;C:\\Program Files (x86)\\Skype\\Phone\\;\n	$_SERVER['SystemRoot'] = (string) C:\\Windows\n	$_SERVER['COMSPEC'] = (string) C:\\Windows\\system32\\cmd.exe\n	$_SERVER['PATHEXT'] = (string) .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC\n	$_SERVER['WINDIR'] = (string) C:\\Windows\n	$_SERVER['SERVER_SIGNATURE'] = (string) <address>Apache/2.4.9 (Win64) PHP/5.5.12 Server at localhost Port 80</address> \n	$_SERVER['SERVER_SOFTWARE'] = (string) Apache/2.4.9 (Win64) PHP/5.5.12\n	$_SERVER['SERVER_NAME'] = (string) localhost\n	$_SERVER['SERVER_ADDR'] = (string) 127.0.0.1\n	$_SERVER['SERVER_PORT'] = (string) 80\n	$_SERVER['REMOTE_ADDR'] = (string) 127.0.0.1\n	$_SERVER['DOCUMENT_ROOT'] = (string) C:/wamp/www/\n	$_SERVER['REQUEST_SCHEME'] = (string) http\n	$_SERVER['CONTEXT_PREFIX'] = <string>\n	$_SERVER['CONTEXT_DOCUMENT_ROOT'] = (string) C:/wamp/www/\n	$_SERVER['SERVER_ADMIN'] = (string) admin@example.com\n	$_SERVER['SCRIPT_FILENAME'] = (string) C:/wamp/www/qrcode/public/index.php\n	$_SERVER['REMOTE_PORT'] = (string) 56474\n	$_SERVER['REDIRECT_URL'] = (string) /qrcode/public/usuario/editado\n	...\n$GLOBALS = array[18]\n	$GLOBALS['_GET'] = array[0]\n	$GLOBALS['_POST'] = array[14]\n		...\n	$GLOBALS['_COOKIE'] = array[3]\n		...\n	$GLOBALS['_FILES'] = array[0]\n	$GLOBALS['_ENV'] = array[0]\n	$GLOBALS['_REQUEST'] = array[14]\n		...\n	$GLOBALS['_SERVER'] = array[41]\n		...\n	$GLOBALS['GLOBALS'] = <array>\n	$GLOBALS['_kint_settings'] = array[12]\n		...\n	$GLOBALS['compiled'] = (string) C:\\wamp\\www\\qrcode\\bootstrap/compiled.php\n	$GLOBALS['workbench'] = (string) C:\\wamp\\www\\qrcode\\bootstrap/../workbench\n	$GLOBALS['app'] = Illuminate\\Foundation\\Application[17]\n		...\n	$GLOBALS['env'] = (string) production\n	$GLOBALS['framework'] = (string) C:\\wamp\\www\\qrcode/vendor/laravel/framework/src\n	$GLOBALS['envVariables'] = Illuminate\\Config\\EnvironmentVariables[1]\n		...\n	$GLOBALS['config'] = array[10]\n		...\n	$GLOBALS['aliases'] = array[43]\n		...\n	$GLOBALS['providers'] = array[32]\n		...\n$anio = (string) 2015\n$array = array[0]\n$array_datos = array[4]\n	$array_datos['files'] = array[1]\n		...\n	$array_datos['id'] = (int) 88\n	$array_datos['user'] = User[29]\n		...\n	$array_datos['file'] = (string) http://localhost/qrcode/public/uploads/qrcodes/552c2a376ca13.png\n$dia = (string) 05\n$error = array[0]\n$errors = array[4]\n	$errors['email'] = (string) required|email|\n	$errors['eps'] = (string) required\n	$errors['serial_marco'] = (string) required\n	$errors['fecha_nacimiento'] = (string) required\n$file = (string) http://localhost/qrcode/public/uploads/qrcodes/552c2a376ca13.png\n$id = (int) 88\n$mes = (string) 08\n$pieces = array[3]\n	$pieces[0] = (string) 05\n	$pieces[1] = (string) 08\n	$pieces[2] = (string) 2015\n$profile_image_asociated_in_files_table = array[1]\n	$profile_image_asociated_in_files_table[0] = stdClass[4]\n		...\n$qrcode = (string) 552c2a376ca13\n$repo = UserRepository[0]\n$user = User[29]\n	$user::snakeAttributes = (bool) 1\n	$user::resolver = Illuminate\\Database\\DatabaseManager[4]\n		...\n	$user::dispatcher = Illuminate\\Events\\Dispatcher[5]\n		...\n	$user::booted = array[3]\n		...\n	$user::globalScopes = array[0]\n	$user::unguarded = (bool) 0\n	$user::mutatorCache = array[3]\n		...\n	$user::manyMethods = array[3]\n		...\n	$user->connection = <null>\n	$user->table = <null>\n	$user->primaryKey = (string) id\n	$user->perPage = (int) 15\n	$user->incrementing = (bool) 1\n	$user->timestamps = (bool) 1\n	$user->attributes = array[21]\n		...\n	$user->original = array[21]\n		...\n	$user->relations = array[0]\n	$user->hidden = array[0]\n	$user->visible = array[0]\n	$user->appends = array[0]\n	$user->fillable = array[0]\n	$user->guarded = array[1]\n		...\n	$user->dates = array[0]\n	$user->touches = array[0]\n	$user->observables = array[0]\n	$user->with = array[0]\n	$user->morphClass = <null>\n	$user->exists = (bool) 1\n	$user->errors = Illuminate\\Support\\MessageBag[2]\n		...\n$validator = Illuminate\\Validation\\Validator[17]\n	$validator->translator = Illuminate\\Translation\\Translator[5]\n		...\n	$validator->presenceVerifier = Illuminate\\Validation\\DatabasePresenceVerifier[2]\n		...\n	$validator->failedRules = array[0]\n	$validator->messages = Illuminate\\Support\\MessageBag[2]\n		...\n	$validator->data = array[14]\n		...\n	$validator->files = array[0]\n	$validator->rules = array[4]\n		...\n	$validator->customMessages = array[0]\n	$validator->fallbackMessages = array[0]\n	$validator->customAttributes = array[0]\n	$validator->customValues = array[0]\n	$validator->extensions = array[0]\n	$validator->replacers = array[0]\n	$validator->sizeRules = array[4]\n		...\n	$validator->numericRules = array[2]\n		...\n	$validator->implicitRules = array[7]\n		...\n	$validator->container = Illuminate\\Foundation\\Application[17]\n		...\n$this = UsersController[4]\n	$this::filterer = Illuminate\\Routing\\Router[15]\n		...\n	$this->beforeFilters = array[0]\n	$this->afterFilters = array[0]\n	$this->layout = <null>\n",
+			"contents": "",
 			"settings":
 			{
-				"buffer_size": 8152,
+				"buffer_size": 0,
 				"line_ending": "Windows",
 				"name": "Xdebug Context",
 				"read_only": true,
@@ -122,10 +122,10 @@
 			}
 		},
 		{
-			"contents": "[0] file:///C:/wamp/www/qrcode/app/controllers/UsersController.php.UsersController->storeEdit:172\n[1] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Routing/Controller.php.call_user_func_array:{C:\\wamp\\www\\qrcode\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Controller.php:231}:231\n[2] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Routing/Controller.php.Illuminate\\Routing\\Controller->callAction:231\n[3] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php.Illuminate\\Routing\\ControllerDispatcher->call:93\n[4] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php.Illuminate\\Routing\\ControllerDispatcher->dispatch:62\n[5] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Routing/Router.php.Illuminate\\Routing\\Router->Illuminate\\Routing\\{closure}:967\n[6] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Routing/Route.php.call_user_func_array:{C:\\wamp\\www\\qrcode\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Route.php:109}:109\n[7] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Routing/Route.php.Illuminate\\Routing\\Route->run:109\n[8] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Routing/Router.php.Illuminate\\Routing\\Router->dispatchToRoute:1033\n[9] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Routing/Router.php.Illuminate\\Routing\\Router->dispatch:1001\n[10] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Foundation/Application.php.Illuminate\\Foundation\\Application->dispatch:775\n[11] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Foundation/Application.php.Illuminate\\Foundation\\Application->handle:745\n[12] file:///C:/wamp/www/qrcode/vendor/barryvdh/laravel-debugbar/src/Middleware/Stack.php.Barryvdh\\Debugbar\\Middleware\\Stack->handle:34\n[13] file:///C:/wamp/www/qrcode/vendor/itsgoingd/clockwork/Clockwork/Support/Laravel/ClockworkLegacyMiddleware.php.Clockwork\\Support\\Laravel\\ClockworkLegacyMiddleware->handle:20\n[14] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Session/Middleware.php.Illuminate\\Session\\Middleware->handle:72\n[15] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Cookie/Queue.php.Illuminate\\Cookie\\Queue->handle:47\n[16] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Cookie/Guard.php.Illuminate\\Cookie\\Guard->handle:51\n[17] file:///C:/wamp/www/qrcode/vendor/stack/builder/src/Stack/StackedHttpKernel.php.Stack\\StackedHttpKernel->handle:23\n[18] file:///C:/wamp/www/qrcode/vendor/laravel/framework/src/Illuminate/Foundation/Application.php.Illuminate\\Foundation\\Application->run:641\n[19] file:///C:/wamp/www/qrcode/public/index.php.{main}:49\n",
+			"contents": "",
 			"settings":
 			{
-				"buffer_size": 2805,
+				"buffer_size": 0,
 				"line_ending": "Windows",
 				"name": "Xdebug Stack",
 				"read_only": true,
@@ -185,12 +185,14 @@
 	},
 	"expanded_folders":
 	[
-		"/C/wamp/www/qrcode",
 		"/C/wamp/www/qrcode/app",
-		"/C/wamp/www/qrcode/app/controllers"
+		"/C/wamp/www/qrcode/app/controllers",
+		"/C/wamp/www/laravel-test/app",
+		"/C/wamp/www/laravel-test/app/config"
 	],
 	"file_history":
 	[
+		"/C/wamp/www/laravel-test/app/config/mail.php",
 		"/C/wamp/www/qrcode/qrcode.sublime-project",
 		"/C/wamp/www/zoccos/zoccos.sublime-project",
 		"/C/Users/efraxpc/AppData/Roaming/Sublime Text 3/Packages/Xdebug Client/Xdebug.sublime-settings",
@@ -297,7 +299,6 @@
 		"/C/wamp/www/laravel-test/app/config/app.php",
 		"/C/wamp/www/laravel-test/app/models/User.php",
 		"/C/wamp/www/laravel-test/composer.json",
-		"/C/wamp/www/laravel-test/app/config/mail.php",
 		"/C/wamp/www/laravel-test/app/config/database.php",
 		"/C/wamp/www/zoccos/app/database/migrations/2015_04_04_162604_extending_users_table_with_ocacionally_user_fields.php",
 		"/C/wamp/www/Eshopper/login.html",
@@ -577,15 +578,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 15603,
+						"buffer_size": 15735,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7303,
-								7303
+								7435,
+								7495
 							]
 						],
 						"settings":
@@ -607,7 +608,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2791,
+						"buffer_size": 2796,
 						"regions":
 						{
 						},
@@ -665,15 +666,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 8152,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								8152,
-								8152
+								0,
+								0
 							]
 						],
 						"settings":
@@ -682,7 +683,7 @@
 							"word_wrap": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 388.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
@@ -721,15 +722,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2805,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2805,
-								2805
+								0,
+								0
 							]
 						],
 						"settings":

@@ -20,25 +20,37 @@
 
                     <tr>
                         <td class="text-center">
-                            <p><strong>Nombre Completo</strong></p>
+                            <p><strong>{{{Lang::get('main.nombre_completo') }}}</strong></p>
                             <p>{{$user->nombre_completo}}</p>
                         </td>
                     </tr>
                     <tr>
                         <td class="text-center">
-                            <p><strong>Grupo Sanguíneo</strong></p>
-                            <p>{{$grupo_sanguineo->nombre}}</p>
+                            <p><strong>{{{Lang::get('main.grupo_sanguineo') }}}</strong></p>
+                            <p>{{$grupo_sanguineo}}</p>
                         </td>
                     </tr>
                     <tr>
                         <td class="text-center">
-                            <p><strong>Facebook</strong></p>
+                            <p><strong>{{{Lang::get('main.eps') }}}</strong></p>
+                            <p>{{$user->eps}}</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <p><strong>{{{Lang::get('main.emergencia') }}}</strong></p>
+                            <p>{{$user->emergencia}}</p>
+                        </td>
+                    </tr>                    
+                    <tr>
+                        <td class="text-center">
+                            <p><strong>{{{Lang::get('main.facebook') }}}</strong></p>
                             <p>{{$user->facebook}}</p>
                         </td>
                     </tr>
                     <tr>
                         <td class="text-center">
-                            <p><strong>Twitter</strong></p>
+                            <p><strong>{{{Lang::get('main.twitter') }}}</strong></p>
                             <p>{{$user->twitter}}</p>
                         </td>
                     </tr>
@@ -67,7 +79,7 @@
                     @endfor     
                     <tr>
                         <td class="text-center">
-                            <p><strong>Código Qr</strong></p>
+                            <p><strong>{{{Lang::get('main.codigo_qr') }}}</strong></p>
                             {{ HTML::image($file) }}
 
                         </td>

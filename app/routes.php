@@ -75,23 +75,23 @@ Route::group(array('prefix' => 'usuario'), function()
 	Route::get('cambiar/foto/perfil',  				array('as' 		=> 'cambiar_foto_perfil','uses' =>	'FileController@cambiar_foto_perfil'));
 });
 
-// App::error(function($exception, $code)
-// {
-//     switch ($code)
-//     {
-//         case 403:
-//             return Response::view('backend.errors.home_403', array(), 403);
+ App::error(function($exception, $code)
+ {
+     switch ($code)
+     {
+         case 403:
+             return Response::view('backend.errors.home_403', array(), 403);
 
-//         case 404:
-//             return Response::view('backend.errors.home_404', array(), 404);
+         case 404:
+             return Response::view('backend.errors.home_404', array(), 404);
 
-//         case 500:
-//             return Response::view('backend.errors.home_500', array(), 500);
+         case 500:
+             return Response::view('backend.errors.home_500', array(), 500);
 
-//         default:
-//             return Response::view('errors.default', array(), $code);
-//     }
-// });
+         default:
+             return Response::view('errors.default', array(), $code);
+     }
+ });
 
 Route::get('/teste_role',function(){
 	$user = Auth::user();//obtenemos el usuario logueado

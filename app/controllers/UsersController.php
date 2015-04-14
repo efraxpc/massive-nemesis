@@ -365,8 +365,12 @@ class UsersController extends Controller
         $qrcode = $user->qrcode;
 
         $file = Request::root().'/uploads/qrcodes/'.$qrcode.'.png';
-        $imagenes_de_usuario = DB::select('call select_imagenes_de_usuario(?)',array($user->id));    
-        return View::make('backend.user.mostrar',['user' =>$user,'grupo_sanguineo'=>$grupo_sanguineo,'file'=>$file,'imagenes_de_usuario'=>$imagenes_de_usuario]);
+        $imagenes_de_usuario = DB::select('call select_imagenes_de_usuario(?)',array($user->id));  
+        $array_datos['user'] = $user;
+        $array_datos['grupo_sanguineo'] = $grupo_sanguineo->nombre;
+        $array_datos['file'] = $file;
+        $array_datos['imagenes_de_usuario'] = $imagenes_de_usuario;
+        return View::make('backend.user.mostrar',$array_datos);
     }
 
     /**
@@ -393,6 +397,7 @@ class UsersController extends Controller
         $array_datos['habilitar_registro_admin_option']     = $select_habilitar_registro_admin_option[0]->confirmed;
 
         $select_role_of_user = DB::select('CALL select_role_of_user(?)',array($id));
+        //dd($array_datos);die;
         $rol_usuario = $select_role_of_user[0]->rol_usuario;
 
         if ($rol_usuario == 'admin') {

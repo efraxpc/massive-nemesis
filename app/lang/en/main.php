@@ -63,8 +63,13 @@ return array(
     'crear_cuenta'                   => 'Crear cuenta',
     'entrar'                         => 'Entrar',
     'texto_colocar_email'            => 'Ingrese el email donde desea recibir el e-mail de recuperación de contraseña',
-    'reiniciar_contraseña'           => 'Ingrese nueva contraseña',
+    'reiniciar_contraseña'          => 'Ingrese nueva contraseña',
     'iniciar_sesion'                 => 'Iniciar sesión',
-    'recuperar_contraseña'           => 'Recuperar contraseña',
+    'recuperar_contraseña'          => 'Recuperar contraseña',
     'subir_imagen'                   => 'Subir imagen',
+    'emergencia'                     => 'En caso de emergencia llamar al: ',
+    'ingrese_numero'                 => 'Ingrese número',
+	'codigo_qr'                 	 => 'C�digo QR',
+
+
 );

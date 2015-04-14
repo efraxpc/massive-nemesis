@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'host' => 'smtp.gmail.com',
+	'host' => 'server.reinodejusticia.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return array(
 	*/
 
 	'port' => 465,
-	
+
 	/*
 	|--------------------------------------------------------------------------
 	| Global "From" Address
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => "bikestationcol@gmail.com", 'name' => ".::Bikestation::."),
+	'from' => array('address' => "qr@bikestation.co", 'name' => ".::Bikestation::."),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => "bikestationcol@gmail.com",
+	'username' => "qr@bikestation.co",
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => "xaihmdlxsmsblnuo",
+	'password' => "mateo633",
 
 	/*
 	|--------------------------------------------------------------------------
