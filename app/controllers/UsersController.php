@@ -135,7 +135,7 @@ class UsersController extends Controller
         if ($validator->fails())
         {
             return Redirect::route('edit_user', array('id' => $id))->withErrors($validator);
-        }      
+        }
         /////////////////
         $repo = App::make('UserRepository');
         $user = User::find($id);
@@ -361,7 +361,7 @@ class UsersController extends Controller
     {
         $user = DB::table('users')->where('qrcode', $qrcode)->first();
         $grupo_sanguineo_id = $user->grupo_sanguineo_id;
-
+        $id = Auth::id();
         $grupo_sanguineo = TipoDeSangre::find($grupo_sanguineo_id);
         $nome=Request::root().'/usuario/mostrar/'.$qrcode;
         $qrcode = $user->qrcode;
@@ -372,6 +372,8 @@ class UsersController extends Controller
         $array_datos['grupo_sanguineo'] = $grupo_sanguineo->nombre;
         $array_datos['file'] = $file;
         $array_datos['imagenes_de_usuario'] = $imagenes_de_usuario;
+        $array_datos['id_validation'] = $id;
+
         return View::make('backend.user.mostrar',$array_datos);
     }
 

@@ -5,7 +5,7 @@
 @section('header')
 <header class="header black-bg">
     <div class="sidebar-toggle-box">
-        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
+        <div class="fa fa-bars tooltips" data-placement="right" data-original-title="{{{Lang::get('main.app_name_title_page') }}}"></div>
     </div>
     <!--logo start-->
     <a href="{{URL::route('main')}}" class="logo"><b><strong>{{{Lang::get('main.app_name_title_page') }}}</strong></b></a>
