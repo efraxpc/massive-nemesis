@@ -18,14 +18,14 @@ return array(
     'app_name_title_page'            => '.::BikeStation.co::.',
 
     //Register form
-    'fecha_nacimiento'               => 'Fecha de Nacimiento',
+    'fecha_nacimiento'               => 'Fecha de nacimiento',
     'twitter'                        => 'Twitter',
     'facebook'                       => 'Facebook',
-    'serial_marco'                   => 'Serial de Marco',
-    'observaciones_generales'        => 'Observaciones Generales',
+    'serial_marco'                   => 'Serial del marco',
+    'observaciones_generales'        => 'Observaciones generales',
     'eps'                            => 'Eps',
-    'grupo_sanguineo'                => 'Grupo Sanguineo',
-    'nombre_completo'                => 'Nombre Completo',
+    'grupo_sanguineo'                => 'Grupo sanguineo',
+    'nombre_completo'                => 'Nombre completo',
     'mail'                           => 'Email',
 
     //Login Form
@@ -63,13 +63,18 @@ return array(
     'crear_cuenta'                   => 'Crear cuenta',
     'entrar'                         => 'Entrar',
     'texto_colocar_email'            => 'Ingrese el email donde desea recibir el e-mail de recuperación de contraseña',
-    'reiniciar_contraseña'          => 'Ingrese nueva contraseña',
+    'reiniciar_contraseña'           => 'Ingrese nueva contraseña',
     'iniciar_sesion'                 => 'Iniciar sesión',
-    'recuperar_contraseña'          => 'Recuperar contraseña',
+    'recuperar_contraseña'           => 'Recuperar contraseña',
     'subir_imagen'                   => 'Subir imagen',
-    'emergencia'                     => 'En caso de emergencia llamar al: ',
-    'ingrese_numero'                 => 'Ingrese número',
-	'codigo_qr'                 	 => 'C�digo QR',
+    'emergencia'                     => 'Número de persona/familiar a llamar en caso de emergencia',
+    'ingrese_numero'                 => 'Ingrese número de persona/familiar',
+	'codigo_qr'                 	 => 'Código QR',
+    'persona_emrgencia'              => 'Nombre',
+    'persona_emergencia_nombre'      => 'Nombre de persona/familiar a llamar en caso de emergencia',
+    'ingrese_nombre_emergencia'      => 'Ingrese nombre de persona/familiar',
+    'emergencia_llamar_a'            => 'En caso de emergencia llamar a:'
+
 
 
 );

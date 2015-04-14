@@ -147,6 +147,7 @@ class UsersController extends Controller
         $anio = $pieces[2]; 
         $user->fecha_nacimiento = \Carbon\Carbon::createFromDate($anio,$mes,$dia)->toDateTimeString();
         $user->grupo_sanguineo_id = Input::all()['grupo_sanguineo_id'];
+        $user->persona_emergencia = Input::all()['persona_emergencia'];
         $user->emergencia = Input::all()['emergencia'];
         $user->eps = Input::all()['eps'];
         $user->observaciones_generales = Input::all()['observaciones_generales'];
@@ -373,6 +374,8 @@ class UsersController extends Controller
         $array_datos['file'] = $file;
         $array_datos['imagenes_de_usuario'] = $imagenes_de_usuario;
         $array_datos['id_validation'] = $id;
+
+
 
         return View::make('backend.user.mostrar',$array_datos);
     }

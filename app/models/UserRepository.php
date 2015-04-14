@@ -28,6 +28,7 @@ class UserRepository
         if ($input['tipo'] == 'user') {
             $user->grupo_sanguineo_id = array_get($input, 'grupo_sanguineo_id');
             $user->eps = array_get($input, 'eps');
+            $user->persona_emergencia = array_get($input, 'persona_emergencia');
             $user->emergencia = array_get($input, 'emergencia');
             $user->observaciones_generales = array_get($input, 'observaciones_generales');
             $user->facebook = array_get($input, 'facebook');

@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS `admin_permission` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bike_3qr_nuevo.admin_permission: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla bike_3qr_nuevo.admin_permission: ~0 rows (aproximadamente)
 DELETE FROM `admin_permission`;
 /*!40000 ALTER TABLE `admin_permission` DISABLE KEYS */;
 INSERT INTO `admin_permission` (`id`, `confirmed`, `created_at`, `updated_at`) VALUES
@@ -38,16 +38,16 @@ CREATE TABLE IF NOT EXISTS `assigned_roles` (
   KEY `assigned_roles_role_id_foreign` (`role_id`),
   CONSTRAINT `assigned_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
   CONSTRAINT `assigned_roles_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bike_3qr_nuevo.assigned_roles: ~4 rows (aproximadamente)
+-- Volcando datos para la tabla bike_3qr_nuevo.assigned_roles: ~3 rows (aproximadamente)
 DELETE FROM `assigned_roles`;
 /*!40000 ALTER TABLE `assigned_roles` DISABLE KEYS */;
 INSERT INTO `assigned_roles` (`id`, `user_id`, `role_id`, `role_auxilar`) VALUES
 	(56, 53, 1, 'admin'),
 	(71, 83, 2, 'user'),
-	(72, 84, 2, 'user'),
-	(77, 119, 2, 'user');
+	(72, 84, 4, 'user'),
+	(80, 122, 2, 'user');
 /*!40000 ALTER TABLE `assigned_roles` ENABLE KEYS */;
 
 
@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bike_3qr_nuevo.migrations: ~25 rows (aproximadamente)
+-- Volcando datos para la tabla bike_3qr_nuevo.migrations: ~20 rows (aproximadamente)
 DELETE FROM `migrations`;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
@@ -269,7 +269,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   UNIQUE KEY `roles_name_unique` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bike_3qr_nuevo.roles: ~3 rows (aproximadamente)
+-- Volcando datos para la tabla bike_3qr_nuevo.roles: ~2 rows (aproximadamente)
 DELETE FROM `roles`;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
 INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -384,6 +384,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `emergencia` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `persona_emergencia` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `eps` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `observaciones_generales` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
   `facebook` varchar(30) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -401,16 +402,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`),
   KEY `users_grupo_sanguineo_id_foreign` (`grupo_sanguineo_id`),
   CONSTRAINT `users_grupo_sanguineo_id_foreign` FOREIGN KEY (`grupo_sanguineo_id`) REFERENCES `tipo_de_sangre` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=120 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=123 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bike_3qr_nuevo.users: ~4 rows (aproximadamente)
+-- Volcando datos para la tabla bike_3qr_nuevo.users: ~3 rows (aproximadamente)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` (`id`, `email`, `password`, `confirmation_code`, `remember_token`, `confirmed`, `created_at`, `updated_at`, `emergencia`, `eps`, `observaciones_generales`, `facebook`, `twitter`, `fecha_nacimiento`, `serial_marco`, `grupo_sanguineo_id`, `active`, `nombre_completo`, `qrcode`, `lat`, `lng`, `role_auxilar`) VALUES
-	(53, 'efraxpc@gmail.com', '$2y$10$hLM89QazAUkqRAn7dNzvT.nC5iIq13tvKuVjTd8dl07LMQBplseNW', '7a3800619a9042cf57e0092bc9cba43f', 'zTEHUVWQmwczJjGUEkLb1r3HK5diWQbjjO6kU0SCoB4XHzqIfCs7rR8QjVSG', 1, '2015-04-01 17:58:49', '2015-04-14 14:11:49', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '551c31d9901b7', NULL, NULL, 'admin'),
-	(83, 'pedrorejon@hotmail.com', '$2y$10$b6g59FaftquwGz.WtPqmvubmu9poCosDn8fo94Ghh406Qc3zp7lSK', '939ad7e16f31540c73893962ee70bc48', 'H61qbrmah3QxZrNCDpClaNOEPI78wNUt1kVByGDrTb10MGZrFV8yZkk8KzfG', 1, '2015-04-12 22:18:57', '2015-04-12 22:20:06', NULL, 'ed', 'ed', 'ede', 'ed', '1970/01/01 00:00:00', 'ed', 2, 1, 'eed', '552aef51c2fdf', '4.589', '-73.930', 'users'),
-	(84, 'moflejon@gmail.com', '$2y$10$IWMeYDLwQk4lbn7sBC.p8u6wuyouMYuiVtqufcMMM4kT0yebk1Jb.', '2fd4f8bf8d4aea30fac411c5294bb6ac', '8B6BDsz47foEixdYr3uJ9JHdmfq3zdtmQmNAVsg6yc3LTB7YMdo45B5ClwCg', 1, '2015-04-12 22:20:50', '2015-04-12 22:21:27', NULL, 'Eps', 'Observaciones Generales ', 'Facebook', 'Twitter', '2015/08/04 00:00:00', 'Serial de Marco', 2, 1, 'Nombre Completo', '552aefc2cc620', '4.589', '-73.930', 'users'),
-	(119, 'programador.jtguerrero@hotmail.com', '$2y$10$IdRjC5GlVYOKj8FiWLSK5eWcbkxtRa76YLwOhORZfy4Vioca.KbfS', 'd6c2c3e3c1408878b150c27ebdc652e5', NULL, 0, '2015-04-14 17:20:08', '2015-04-14 17:20:08', 'efe', 'ed', 'ef', 'ef', 'ef', '1970/01/01 00:00:00', 'ef', 2, 1, 'feded', '552d4c481a373', '4.589', '-73.930', 'users');
+INSERT INTO `users` (`id`, `email`, `password`, `confirmation_code`, `remember_token`, `confirmed`, `created_at`, `updated_at`, `emergencia`, `persona_emergencia`, `eps`, `observaciones_generales`, `facebook`, `twitter`, `fecha_nacimiento`, `serial_marco`, `grupo_sanguineo_id`, `active`, `nombre_completo`, `qrcode`, `lat`, `lng`, `role_auxilar`) VALUES
+	(53, 'efraxpc@gmail.com', '$2y$10$hLM89QazAUkqRAn7dNzvT.nC5iIq13tvKuVjTd8dl07LMQBplseNW', '7a3800619a9042cf57e0092bc9cba43f', 'BXhh6vofniDoWiBH4MaFaPxJKNf0Bda8hxWVyRWk4M1MhSi7SdCuwYhT8dnv', 1, '2015-04-01 17:58:49', '2015-04-14 18:52:16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '551c31d9901b7', NULL, NULL, 'admin'),
+	(83, 'pedrorejon@hotmail.com', '$2y$10$b6g59FaftquwGz.WtPqmvubmu9poCosDn8fo94Ghh406Qc3zp7lSK', '939ad7e16f31540c73893962ee70bc48', 'H61qbrmah3QxZrNCDpClaNOEPI78wNUt1kVByGDrTb10MGZrFV8yZkk8KzfG', 1, '2015-04-12 22:18:57', '2015-04-12 22:20:06', NULL, NULL, 'ed', 'ed', 'ede', 'ed', '1970/01/01 00:00:00', 'ed', 2, 1, 'eed', '552aef51c2fdf', '4.589', '-73.930', 'users'),
+	(84, 'moflejon@gmail.com', '$2y$10$IWMeYDLwQk4lbn7sBC.p8u6wuyouMYuiVtqufcMMM4kT0yebk1Jb.', '2fd4f8bf8d4aea30fac411c5294bb6ac', '8B6BDsz47foEixdYr3uJ9JHdmfq3zdtmQmNAVsg6yc3LTB7YMdo45B5ClwCg', 1, '2015-04-12 22:20:50', '2015-04-12 22:21:27', NULL, NULL, 'Eps', 'Observaciones Generales ', 'Facebook', 'Twitter', '2015/08/04 00:00:00', 'Serial de Marco', 2, 1, 'Nombre Completo', '552aefc2cc620', '4.589', '-73.930', 'users'),
+	(122, 'programador.jtguerrero@hotmail.com', '$2y$10$WcpSkPJ/bk0FMHbCm1LZ.uBsoDHodwUinOu7dgUAXB.aFC6RaS4ky', '04802c3e5c83c2e5ab81a36b25520061', NULL, 1, '2015-04-14 19:14:39', '2015-04-14 19:28:08', '04145569903', 'maria', 'Eps', 'Observaciones Generales ', 'Facebook', 'Twitter', '1970-01-01 19:28:08', 'Serial de Marco', 2, 1, 'Nombre Completo', '552d671f9b5f8', '4.589', '-73.930', 'users');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

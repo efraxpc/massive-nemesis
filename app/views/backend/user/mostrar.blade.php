@@ -43,7 +43,8 @@
                     </tr>
                     <tr>
                         <td class="text-center">
-                            <p><strong>{{{Lang::get('main.emergencia') }}}</strong></p>
+                            <p><strong>{{{Lang::get('main.emergencia_llamar_a') }}}</strong></p>
+                            <p>{{$user->persona_emergencia}}</p>
                             <p>{{$user->emergencia}}</p>
                         </td>
                     </tr>                    

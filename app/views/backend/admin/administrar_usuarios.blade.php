@@ -37,7 +37,7 @@
                                                          {{$user->email}}
                                                      </td>
                                                      <td>
-                                                         {{$user->fecha_nacimiento}}
+                                                         {{ date("d/m/Y",strtotime($user->fecha_nacimiento)) }}
                                                      </td>
                                                      <td>
                                                          {{$user->eps}}

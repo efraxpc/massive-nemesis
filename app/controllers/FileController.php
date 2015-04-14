@@ -46,25 +46,25 @@ class FileController extends Controller
 
   			//Ahora procedemos a guardar en la bd
   			$id = Auth::user()->id;
-        $max_7_files_asociated_in_files_table = DB::select('SELECT max_7_files_asociated_in_files_table(?) as files_aso',array($id));
-        $usuario = User::find($id);  
+            $max_7_files_asociated_in_files_table = DB::select('SELECT max_7_files_asociated_in_files_table(?) as files_aso',array($id));
+            $usuario = User::find($id);
 
-        if ($max_7_files_asociated_in_files_table[0]->files_aso == 0) {
-          $file = New Archivo;
-          $file->nombre  = $filename;
-          $file->ruta    = $path;
-          $file->tipo    = $fileType;
-          $file->tamaño  = $fileSize;
-          $file->profile = $profile_image;
-          $file->user()->associate($usuario);
+            if ($max_7_files_asociated_in_files_table[0]->files_aso == 0) {
+              $file = New Archivo;
+              $file->nombre  = $filename;
+              $file->ruta    = $path;
+              $file->tipo    = $fileType;
+              $file->tamaño  = $fileSize;
+              $file->profile = $profile_image;
+              $file->user()->associate($usuario);
 
-        //guardamos el file en el server
-        if ( $fileInput[0]->move($path,$filename.'.'.$fileInput[0]->getClientOriginalName() ) ) {
-          $file->save();
-        }
-        }else{
-          echo "tienes ma de 3";
-        }
+            //guardamos el file en el server
+            if ( $fileInput[0]->move($path,$filename.'.'.$fileInput[0]->getClientOriginalName() ) ) {
+              $file->save();
+            }
+            }else{
+              echo "tienes ma de 3";
+            }
   		}
     }
 

@@ -62,7 +62,13 @@
                                     <div class="alert alert-danger">{{ $errors->first('eps')  }}</div> @endif
                                 </div>
                                 <div class="form-group">
-                                    <label for="eps">{{{Lang::get('main.emergencia')}}}</label>
+                                    <label for="persona_emergencia">{{{Lang::get('main.persona_emergencia_nombre')}}}</label>
+                                    <input class="form-control" placeholder="{{{Lang::get('main.ingrese_nombre_emergencia')}}}" type="text" name="persona_emergencia" id="persona_emergencia" value="{{{ Input::old('persona_emergencia') }}}">
+                                    @if ($errors->has('persona_emergencia'))
+                                    <div class="alert alert-danger">{{ $errors->first('persona_emergencia')  }}</div> @endif
+                                </div>                                
+                                <div class="form-group">
+                                    <label for="emergencia">{{{Lang::get('main.emergencia')}}}</label>
                                     <input class="form-control" placeholder="{{{Lang::get('main.ingrese_numero')}}}" type="text" name="emergencia" id="emergencia" value="{{{ Input::old('emergencia') }}}">
                                     @if ($errors->has('emergencia'))
                                     <div class="alert alert-danger">{{ $errors->first('emergencia')  }}</div> @endif
