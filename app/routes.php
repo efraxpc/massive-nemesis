@@ -61,8 +61,10 @@ Route::group(array('prefix' => 'admin'), function()
 	Route::get('/administrar/usuarios',  	array('as' => 'administrar_usuarios','uses'    =>'AdminController@administrar_usuarios'));
 	Route::get('/crear',  					array('as' => 'register_admin_get','uses'    		   =>'UsersController@createAdmin'));
 	Route::get('profile/admin', 'UsersController@postLogin');
+    Route::get('editar/usuario/{id}/{admin?}',  						array('as' 		=> 'edit_user_from_admin','uses' 	=>'UsersController@edit'));
 
 });
+
 Route::when('admin/*', 'admin');
 //Rudas usuario
 Route::group(array('prefix' => 'usuario'), function()
@@ -75,6 +77,8 @@ Route::group(array('prefix' => 'usuario'), function()
 	Route::get('cambiar/foto/perfil',  				array('as' 		=> 'cambiar_foto_perfil','uses' =>	'FileController@cambiar_foto_perfil'));
 });
 
+
+/*
  App::error(function($exception, $code)
  {
      switch ($code)
@@ -92,7 +96,7 @@ Route::group(array('prefix' => 'usuario'), function()
              return Response::view('errors.default', array(), $code);
      }
  });
-
+*/
 Route::get('/teste_role',function(){
 	$user = Auth::user();//obtenemos el usuario logueado
 	if ($user->hasRole('users'))

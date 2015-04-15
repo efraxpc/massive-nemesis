@@ -73,8 +73,8 @@ return array(
     'persona_emrgencia'              => 'Nombre',
     'persona_emergencia_nombre'      => 'Nombre de persona/familiar a llamar en caso de emergencia',
     'ingrese_nombre_emergencia'      => 'Ingrese nombre de persona/familiar',
-    'emergencia_llamar_a'            => 'En caso de emergencia llamar a:'
-
-
-
+    'emergencia_llamar_a'            => 'En caso de emergencia llamar a:',
+    'editar_usuario'                 => 'Modificar datos',
+    'editar'                         => 'Editar',
+    'modificar_datos'                => 'Puede modificar los siguientes datos:',
 );

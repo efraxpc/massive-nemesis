@@ -126,7 +126,7 @@
                 },
                 legend: [
                     {type: "text", label: "Special event", badge: "00"},
-                    {type: "block", label: "Regular event", }
+                    {type: "block", label: "Regular event" }
                 ]
             });
         });

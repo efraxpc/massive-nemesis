@@ -14,8 +14,10 @@
 		"thujohn/pdf": "dev-master",
 		"barryvdh/laravel-dompdf": "*",
 		"raveren/kint": "0.9.*@dev"
-
 	},
+    "require-dev": {
+        "phpunit/phpunit": "4.8.*@dev"
+    },
 	"autoload": {
 		"classmap": [
 			"app/commands",

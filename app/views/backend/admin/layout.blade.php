@@ -14,7 +14,6 @@
     </div>
 </header>
 @stop
-
 @section('scripts_header')
     {{ HTML::script('jquery.easy-confirm-dialog/jquery.easy-confirm-dialog.js') }}
     {{ HTML::script('http://code.jquery.com/ui/1.10.3/jquery-ui.js') }}
@@ -25,10 +24,7 @@
         <div id="sidebar"  class="nav-collapse ">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
-
                 <p class="centered"><a href="{{URL::route('main')}}"> {{ HTML::image('/assets/img/avatar_perfil.png', 'a picture', array('class' => 'img-circle','width' => 150, 'height' => 130)) }}</a></p>
-                <h5 class="centered">{{$user->nombre_completo}}</h5>
-
                 <li class="mt">
                     <a class="active" href="{{URL::route('administrar_usuarios')}}">
                         <i class="fa fa-dashboard"></i>
