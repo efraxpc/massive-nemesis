@@ -31,7 +31,15 @@
                         <span>{{{Lang::get('main.administrar_usuarios') }}}</span>
                     </a>
                 </li>
-                <li class="mt">
+                <li>
+                        <div align="center" class="row ocultar_direccion_administrador">
+                        <a href="{{URL::route('register_admin_get')}}">
+                            <button type="button" class="btn btn-primary btn-lg">{{{Lang::get('main.crear_admin') }}}</button>
+                        </a>
+                        </div>
+                </li>
+
+                <li>
                     <div class="col-md-6 col-md-offset-3">
                       <div class="switch">
                         <input id="switch_active_value_url_admin" class="cmn-toggle cmn-toggle-yes-no habilitar_registro_admin_option" type="checkbox" atributo ='{{$habilitar_registro_admin_option}}'>

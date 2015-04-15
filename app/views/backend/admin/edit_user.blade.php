@@ -10,12 +10,14 @@
             <div class="row mt"></div>
             <div class="row mt"></div>
                <p>{{{Lang::get('main.modificar_datos')}}}</p>
-               <form method="POST" action="{{{ URL::route('editar_usuario') }}}" accept-charset="UTF-8">
+               <form method="POST" action="{{{ URL::route('admin_editar_usuario') }}}" accept-charset="UTF-8">
                     <input type="hidden" name="_token" value="{{{ Session::getToken() }}}">
                     <input type="hidden" name="tipo" value="user">
                     <input type="hidden" name="habilitar_registro_admin_option_edit" class="habilitar_registro_admin_option_edit" atributo="{{$habilitar_registro_admin_option}}">
                     <input type="hidden" name="editar" value="true">
                     <input type="hidden" name="id" value="{{$user->id}}">
+                    <input type="hidden" name="admin" value= true">
+
                     <fieldset>
                         <div class="form-group">
                             <label for="username">{{{Lang::get('main.nombre_completo')}}}</label>

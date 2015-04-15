@@ -129,6 +129,7 @@ class UsersController extends Controller
     public function storeEdit()
     {     
         $id = Input::all()['id'];
+        $admin = Input::all()['admin'] = 1;
         //////////////// ERRor Handling///////////
         $errors =  array('email' => 'required|email|','eps'=>'required','serial_marco'=>'required','fecha_nacimiento'=>'required');
         $validator = Validator::make(Input::all(), $errors);
@@ -172,8 +173,20 @@ class UsersController extends Controller
             $array_datos['user']                = $user;
             $array_datos['file']                = $file;
             $array_datos['profile_image']       = $profile_image_asociated_in_files_table;
+            if($admin == 1)
+            {
+                $users = DB::select('CALL select_users()');
+                $assigned_roles = DB::select('CALL select_assigned_roles()');
+                $select_habilitar_registro_admin_option               = DB::select('call select_habilitar_registro_admin_option()');
+                $array_datos['habilitar_registro_admin_option']       = $select_habilitar_registro_admin_option[0]->confirmed;
+                $array_datos['assigned_roles']          = $assigned_roles;
+                $array_datos['id']                      = $id;
+                $array_datos['users']                   = $users;
 
-            return View::make('backend.user.home_user', $array_datos);
+                return View::make('backend.admin.administrar_usuarios', $array_datos);
+            }else {
+                return View::make('backend.user.home_user', $array_datos);
+            }
         }else{
 
             return Redirect::action('UsersController@edit')
