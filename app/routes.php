@@ -34,6 +34,7 @@ Route::when('usuario*' , 'user_owner');
 Route::get('/datatable', function(){	
 	return View::make('backend.datatable');
 });
+
 Route::get('/upload', function(){ return View::make('backend.user.create_image'); });
 Route::post('upload', 'FileController@upload_image');
 Route::post('ajax_remove_image', 'FileController@remove_image');
