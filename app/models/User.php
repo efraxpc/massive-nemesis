@@ -11,5 +11,10 @@ class User extends Eloquent implements ConfideUserInterface
 
     public function archivo(){
     	return $this->hasMany('Archivo','user_id');
-    }    
+    }
+
+    public function stringMailAdminRoot()
+    {
+        return  DB::select(' CALL select_string_mail_admin_root() ')[0]->email;
+    }
 }
