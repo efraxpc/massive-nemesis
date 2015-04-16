@@ -79,17 +79,14 @@
         };
 
         //Recuperar status de boton de habilitar/deshabiltar administrador
-        var habilitar_registro_admin_option = $('.habilitar_registro_admin_option').attr('atributo');
-
-        if ( habilitar_registro_admin_option == 1 ) {
-            $('#switch_active_value_url_admin').attr('checked', true);
-            $('.ocultar_direccion_administrador').show();
-        }else if( habilitar_registro_admin_option == 0 ){
-            $('#switch_active_value_url_admin').attr('checked', false);
-            //ocultar direccion registrar usuario
-            $('.ocultar_direccion_administrador').hide();
-        };
-
+        jQuery.each( $('.switch_activate_admin_option'), function( i, val ) {
+          var habilitar_registro_admin_option = $( this ).attr('atributo');
+          if ( habilitar_registro_admin_option == "admin" ) {
+              $(this).attr('checked', true);
+          }else if( habilitar_registro_admin_option == "user" ){
+              $(this).attr('checked', false);
+          };
+        });
         $( ".recorrer_activate_switch" ).change(function() {
             var parametros = { 'switch_active_value' : $( this ).is(':checked') ? 1 : 0,
                                'id_user' : $( this ).attr('id_user') };

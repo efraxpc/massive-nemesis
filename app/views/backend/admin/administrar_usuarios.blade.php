@@ -52,7 +52,7 @@
                                                  </td>
                                                  <td align="center">
                                                      <div class="switch">
-                                                         <input id="switch_activate_admin_option_{{$user->id}}" id_user = '{{$user->id}}' class="cmn-toggle cmn-toggle-yes-no switch_activate_admin_option" type="checkbox" atributo ='{{$habilitar_registro_admin_option}}' >
+                                                         <input id="switch_activate_admin_option_{{$user->id}}" id_user = '{{$user->id}}' class="cmn-toggle cmn-toggle-yes-no switch_activate_admin_option" type="checkbox" atributo ='{{ $admin_status_from_users[$i]->role_auxilar }}' >
                                                          <label for="switch_activate_admin_option_{{$user->id}}" data-on="{{{Lang::get('main.si_mayus') }}}" data-off="{{{Lang::get('main.no_mayus') }}}"></label>
                                                      </div>
                                                  </td>
