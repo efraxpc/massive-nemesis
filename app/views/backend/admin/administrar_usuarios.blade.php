@@ -1,6 +1,5 @@
 @extends('backend/admin/layout')
 @section('content')
-
   <section id="container" >
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
@@ -29,34 +28,40 @@
                                          @foreach ($users as $user)
                                      <tbody>
                                              <tr>
-                                                     <td>
-                                                         {{$user->nombre_completo}}
-                                                     </td>
+                                                 <td>
+                                                     {{$user->nombre_completo}}
+                                                 </td>
 
-                                                     <td>
-                                                         {{$user->email}}
-                                                     </td>
-                                                     <td>
-                                                         {{ date("d/m/Y",strtotime($user->fecha_nacimiento)) }}
-                                                     </td>
-                                                     <td>
-                                                         {{$user->eps}}
-                                                     </td>
-                                                     <td>
-                                                         {{$user->observaciones_generales}}
-                                                     </td>
-                                                     <td align="center">
-                                                         <div class="switch">
-                                                             <input id="switch_active_value_unable_user_{{$user->id}}" class="cmn-toggle cmn-toggle-yes-no recorrer_activate_switch" id_user = '{{$user->id}}' type="checkbox" counter={{$i}} rol='{{ $assigned_roles[$i]->role_id }}'>
-                                                             <label for="switch_active_value_unable_user_{{$user->id}}" data-on="{{{Lang::get('main.activo_mayus') }}}" data-off="{{{Lang::get('main.inactivo_mayus') }}}"></label>
-                                                         </div>
-                                                     </td>
-                                                     <td align="center">
-                                                     <a href="{{ URL::route('edit_user_from_admin', array($user->id,1)) }}"><button type="button" class="btn btn-info btn-lg ">{{{ Lang::get('main.editar') }}}</button></a>
-                                                     </td>
-                                                     <td align="center">
-                                                         <button type="button" class="btn btn-danger eliminar_usuario" id_user = '{{$user->id}}'>{{{ Lang::get('main.eliminar') }}}</button>
-                                                     </td>
+                                                 <td>
+                                                     {{$user->email}}
+                                                 </td>
+                                                 <td>
+                                                     {{ date("d/m/Y",strtotime($user->fecha_nacimiento)) }}
+                                                 </td>
+                                                 <td>
+                                                     {{$user->eps}}
+                                                 </td>
+                                                 <td>
+                                                     {{$user->observaciones_generales}}
+                                                 </td>
+                                                 <td align="center">
+                                                     <div class="switch">
+                                                         <input id="switch_active_value_unable_user_{{$user->id}}" class="cmn-toggle cmn-toggle-yes-no recorrer_activate_switch" id_user = '{{$user->id}}' type="checkbox" counter={{$i}} rol='{{ $assigned_roles[$i]->role_id }}'>
+                                                         <label for="switch_active_value_unable_user_{{$user->id}}" data-on="{{{Lang::get('main.activo_mayus') }}}" data-off="{{{Lang::get('main.inactivo_mayus') }}}"></label>
+                                                     </div>
+                                                 </td>
+                                                 <td align="center">
+                                                     <div class="switch">
+                                                         <input id="switch_activate_admin_option_{{$user->id}}" id_user = '{{$user->id}}' class="cmn-toggle cmn-toggle-yes-no switch_activate_admin_option" type="checkbox" atributo ='{{$habilitar_registro_admin_option}}' >
+                                                         <label for="switch_activate_admin_option_{{$user->id}}" data-on="{{{Lang::get('main.si_mayus') }}}" data-off="{{{Lang::get('main.no_mayus') }}}"></label>
+                                                     </div>
+                                                 </td>
+                                                 <td align="center">
+                                                 <a href="{{ URL::route('edit_user_from_admin', array($user->id,1)) }}"><button type="button" class="btn btn-info btn-lg ">{{{ Lang::get('main.editar') }}}</button></a>
+                                                 </td>
+                                                 <td align="center">
+                                                     <button type="button" class="btn btn-danger eliminar_usuario" id_user = '{{$user->id}}'>{{{ Lang::get('main.eliminar') }}}</button>
+                                                 </td>
                                              </tr>
                                              {{--*/ $i++ /*--}}
                                          @endforeach

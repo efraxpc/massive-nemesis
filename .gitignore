@@ -10,3 +10,4 @@ Thumbs.db
 app/storage/cache/*
 /.idea/*
 public/uploads/*
+tests/_output/*

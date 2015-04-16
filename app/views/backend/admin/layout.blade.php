@@ -26,17 +26,17 @@
             <ul class="sidebar-menu" id="nav-accordion">
                 <p class="centered"><a href="{{URL::route('main')}}"> {{ HTML::image('/assets/img/avatar_perfil.png', 'a picture', array('class' => 'img-circle','width' => 150, 'height' => 130)) }}</a></p>
                 <li class="mt">
-                    <a class="active" href="{{URL::route('administrar_usuarios')}}">
+                    <a class="active" id='buton_administrar_usuarios' href="{{URL::route('administrar_usuarios')}}">
                         <i class="fa fa-dashboard"></i>
-                        <span>{{{Lang::get('main.administrar_usuarios') }}}</span>
+                        <span >{{{Lang::get('main.administrar_usuarios') }}}</span>
                     </a>
                 </li>
                 <li>
-                        <div align="center" class="row ocultar_direccion_administrador">
+                    <div align="center" class="row ocultar_direccion_administrador">
                         <a href="{{URL::route('register_admin_get')}}">
-                            <button type="button" class="btn btn-primary btn-lg">{{{Lang::get('main.crear_admin') }}}</button>
+                            <button type="button" class="btn btn-primary btn-lg boton_create_admin">{{{Lang::get('main.crear_admin') }}}</button>
                         </a>
-                        </div>
+                    </div>
                 </li>
 
                 <li>
@@ -76,7 +76,19 @@
             $('#switch_active_value_url_admin').attr('checked', false);
             //ocultar direccion registrar usuario
             $('.ocultar_direccion_administrador').hide();
-        };        
+        };
+
+        //Recuperar status de boton de habilitar/deshabiltar administrador
+        var habilitar_registro_admin_option = $('.habilitar_registro_admin_option').attr('atributo');
+
+        if ( habilitar_registro_admin_option == 1 ) {
+            $('#switch_active_value_url_admin').attr('checked', true);
+            $('.ocultar_direccion_administrador').show();
+        }else if( habilitar_registro_admin_option == 0 ){
+            $('#switch_active_value_url_admin').attr('checked', false);
+            //ocultar direccion registrar usuario
+            $('.ocultar_direccion_administrador').hide();
+        };
 
         $( ".recorrer_activate_switch" ).change(function() {
             var parametros = { 'switch_active_value' : $( this ).is(':checked') ? 1 : 0,
@@ -121,6 +133,18 @@
                     data:  parametros,
                     url:   '{{ URL::to('ajax_permissions_create_admin') }}',
                     type:  'post'
+            });
+        });
+        //$('#test_button_works').hide();
+        $( ".switch_activate_admin_option" ).click(function() {
+        var id_user = $(this).attr('id_user');
+            var parametros = {'id_user':id_user,
+                              'boolean_parameter': $( this ).is(':checked') ? 1 : 0};
+
+            $.ajax({
+                   data:  parametros,
+                   url:   '{{ URL::to('ajax_set_user_as_admin') }}',
+                   type:  'post'
             });
         });
     </script>

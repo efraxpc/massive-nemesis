@@ -33,7 +33,7 @@
                     <div class="alert">{{{ Session::get('notice') }}}</div>
                 @endif
                 <div class="form-group">
-                    <button tabindex="3" type="submit" class="btn btn-default">{{{Lang::get('main.entrar')}}}</button>
+                    <input tabindex="3" type="submit" value="{{{Lang::get('main.entrar')}}}" class="btn btn-default"> </input>
                 </div>
             </fieldset>
                     <div class="registration">

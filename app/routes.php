@@ -40,6 +40,8 @@ Route::post('ajax_remove_image', 'FileController@remove_image');
 Route::post('/ajax_change_status_user', 'AdminController@ajax_change_status_user');
 Route::post('/ajax_delete_user', 'AdminController@ajax_delete_user');
 Route::post('/ajax_permissions_create_admin', 'AdminController@ajax_permissions_create_admin');
+Route::post('/ajax_set_user_as_admin', 'AdminController@ajax_set_user_as_admin');
+
 Route::post('inicio/post',  			array('as' 		=> 'login_post','uses' 	=>'UsersController@doLogin'));
 Route::get('/inicio/',  			    array('as' 		=> 'main','uses' 		=>'UsersController@main'));
 Route::get('/',  						array('as' 		=> 'login','uses' 		=>'UsersController@login'));
@@ -78,7 +80,7 @@ Route::group(array('prefix' => 'usuario'), function()
 });
 
 
-
+/*
  App::error(function($exception, $code)
  {
      switch ($code)
@@ -96,7 +98,7 @@ Route::group(array('prefix' => 'usuario'), function()
              return Response::view('errors.default', array(), $code);
      }
  });
-
+*/
 Route::get('/teste_role',function(){
 	$user = Auth::user();//obtenemos el usuario logueado
 	if ($user->hasRole('users'))

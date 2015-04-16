@@ -17,6 +17,13 @@ class AdminController extends Controller
       $update_role_user = DB::select('CALL update_role_user(?,?)',array($id,$switch_active_value));
     }
 
+    public function ajax_set_user_as_admin()
+    {
+        $id_user_entrante = Input::get('id_user');
+        $boolean_parameter = Input::get('boolean_parameter');
+        $update_role_user = DB::select('CALL set_user_as_admin_or_not(?,?)',array($id_user_entrante,$boolean_parameter));
+    }
+
     public function ajax_delete_user(){
       $id = Input::get('id_user');
       $delete_user = DB::select('CALL delete_user(?)',array($id));
@@ -34,15 +41,14 @@ class AdminController extends Controller
 
     public function administrar_usuarios()
     {
-      $users = DB::select('CALL select_users()');
-      $assigned_roles = DB::select('CALL select_assigned_roles()');
-      $id = Auth::id();
-      $select_habilitar_registro_admin_option = DB::select('call select_habilitar_registro_admin_option()');
-      $array = array('users' => $users,
-                     'assigned_roles' => $assigned_roles,
-                     'user_id'             => $id,
-                     'habilitar_registro_admin_option'=>$select_habilitar_registro_admin_option[0]->confirmed);
-      return View::make('backend.admin.administrar_usuarios', $array);
+        $users = DB::select('CALL select_users()');
+        $assigned_roles = DB::select('CALL select_assigned_roles()');
+        $id = Auth::id();
+        $select_habilitar_registro_admin_option = DB::select('call select_habilitar_registro_admin_option()');
+        $array = array('users' => $users,
+            'assigned_roles' => $assigned_roles,
+            'user_id' => $id,
+            'habilitar_registro_admin_option' => $select_habilitar_registro_admin_option[0]->confirmed);
+        return View::make('backend.admin.administrar_usuarios', $array);
     }
-
 }
