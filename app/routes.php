@@ -78,7 +78,7 @@ Route::group(array('prefix' => 'usuario'), function()
 });
 
 
-/*
+
  App::error(function($exception, $code)
  {
      switch ($code)
@@ -96,7 +96,7 @@ Route::group(array('prefix' => 'usuario'), function()
              return Response::view('errors.default', array(), $code);
      }
  });
-*/
+
 Route::get('/teste_role',function(){
 	$user = Auth::user();//obtenemos el usuario logueado
 	if ($user->hasRole('users'))

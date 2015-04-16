@@ -78,4 +78,5 @@ return array(
     'editar'                         => 'Editar',
     'modificar_datos'                => 'Puede modificar los siguientes datos:',
     'crear_admin'                    => 'Crear admin',
+    'administador'                   => 'Administador',
 );

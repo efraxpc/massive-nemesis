@@ -22,13 +22,13 @@
                                              <th>{{{Lang::get('main.eps') }}}</th>
                                              <th>{{{Lang::get('main.observaciones_generales') }}}</th>
                                              <th>{{{Lang::get('main.status_usuario') }}}</th>
+                                             <th>{{{Lang::get('main.administador') }}}</th>
                                          </tr>
                                      </thead>
                                          {{--*/ $i = 0 /*--}}
                                          @foreach ($users as $user)
                                      <tbody>
                                              <tr>
-                                                 @if( $user->role_auxilar <> 'admin' )
                                                      <td>
                                                          {{$user->nombre_completo}}
                                                      </td>
@@ -57,7 +57,6 @@
                                                      <td align="center">
                                                          <button type="button" class="btn btn-danger eliminar_usuario" id_user = '{{$user->id}}'>{{{ Lang::get('main.eliminar') }}}</button>
                                                      </td>
-                                                 @endif
                                              </tr>
                                              {{--*/ $i++ /*--}}
                                          @endforeach
