@@ -32,7 +32,6 @@
                                                              <td>
                                                                  {{$user->nombre_completo}}
                                                              </td>
-
                                                              <td>
                                                                  {{$user->email}}
                                                              </td>

@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 /**
- * ProductController Class
+ * AdminController Class
  *
  * Implements actions regarding user management
  */
@@ -19,9 +19,10 @@ class AdminController extends Controller
 
     public function ajax_set_user_as_admin()
     {
+        $user              = new User();
         $id_user_entrante  = Input::get('id_user');
         $boolean_parameter = Input::get('boolean_parameter');
-        DB::select('CALL set_user_as_admin_or_not(?,?)',array($id_user_entrante,$boolean_parameter));
+        $user->userAsAdminOrNot($id_user_entrante,$boolean_parameter);
     }
 
     public function ajax_delete_user(){

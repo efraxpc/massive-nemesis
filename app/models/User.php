@@ -17,4 +17,9 @@ class User extends Eloquent implements ConfideUserInterface
     {
         return  DB::select(' CALL select_string_mail_admin_root() ')[0]->email;
     }
+
+    public function userAsAdminOrNot($id_user_entrante,$boolean_parameter)
+    {
+        return DB::select('CALL set_user_as_admin_or_not(?,?)',array($id_user_entrante,$boolean_parameter));
+    }
 }
