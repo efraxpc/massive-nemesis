@@ -42,19 +42,15 @@ class AdminController extends Controller
 
     public function administrar_usuarios()
     {
-        $AdminPermission = new AdminPermission();
         $User            = new User();
         $users = DB::select('CALL select_users()');
         $assigned_roles = DB::select('CALL select_assigned_roles()');
         $id = Auth::id();
-        $select_habilitar_registro_admin_option = DB::select(' CALL select_habilitar_registro_admin_option() ');
-        $AdminPermission->habilitar_registro_admin_option();
         $select_admin_status_from_users = DB::select(' CALL select_admin_status_from_users()');
         $string_mail_admin_root = $User->stringMailAdminRoot();
         $array = array('users' => $users,
                         'assigned_roles'   => $assigned_roles,
                         'user_id'          => $id,
-                        'habilitar_registro_admin_option' => $select_habilitar_registro_admin_option[0]->confirmed,
                         'admin_status_from_users'         => $select_admin_status_from_users,
                         'string_mail_admin_root'          => $string_mail_admin_root);
 

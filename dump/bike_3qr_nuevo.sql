@@ -19,11 +19,11 @@ CREATE TABLE IF NOT EXISTS `admin_permission` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bike_3qr_nuevo.admin_permission: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla bike_3qr_nuevo.admin_permission: ~0 rows (aproximadamente)
 DELETE FROM `admin_permission`;
 /*!40000 ALTER TABLE `admin_permission` DISABLE KEYS */;
 INSERT INTO `admin_permission` (`id`, `confirmed`, `created_at`, `updated_at`) VALUES
-	(1, 1, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+	(1, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `admin_permission` ENABLE KEYS */;
 
 
@@ -38,22 +38,22 @@ CREATE TABLE IF NOT EXISTS `assigned_roles` (
   KEY `assigned_roles_role_id_foreign` (`role_id`),
   CONSTRAINT `assigned_roles_role_id_foreign` FOREIGN KEY (`role_id`) REFERENCES `roles` (`id`),
   CONSTRAINT `assigned_roles_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=83 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Volcando datos para la tabla bike_3qr_nuevo.assigned_roles: ~4 rows (aproximadamente)
 DELETE FROM `assigned_roles`;
 /*!40000 ALTER TABLE `assigned_roles` DISABLE KEYS */;
 INSERT INTO `assigned_roles` (`id`, `user_id`, `role_id`, `role_auxilar`) VALUES
 	(56, 53, 1, 'admin'),
-	(71, 83, 2, 'user'),
+	(71, 83, 4, 'user'),
 	(72, 84, 4, 'user'),
-	(80, 122, 2, 'user');
+	(81, 123, 1, 'admin');
 /*!40000 ALTER TABLE `assigned_roles` ENABLE KEYS */;
 
 
 -- Volcando estructura para procedimiento bike_3qr_nuevo.delete_user
 DELIMITER //
-CREATE   PROCEDURE `delete_user`(
+CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_user`(
   IN id_user int
 )
 BEGIN
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `files` (
   PRIMARY KEY (`id`),
   KEY `files_user_id_foreign` (`user_id`),
   CONSTRAINT `files_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- Volcando datos para la tabla bike_3qr_nuevo.files: ~0 rows (aproximadamente)
 DELETE FROM `files`;
@@ -87,7 +87,7 @@ DELETE FROM `files`;
 
 -- Volcando estructura para procedimiento bike_3qr_nuevo.insert_aux_role_in_assigned_roles_table
 DELIMITER //
-CREATE   PROCEDURE `insert_aux_role_in_assigned_roles_table`(IN `id_user` INT, IN `slug` VARCHAR(50))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_aux_role_in_assigned_roles_table`(IN `id_user` INT, IN `slug` VARCHAR(50))
 BEGIN
 	UPDATE assigned_roles 
 	SET role_auxilar = slug
@@ -98,7 +98,7 @@ DELIMITER ;
 
 -- Volcando estructura para función bike_3qr_nuevo.max_7_files_asociated_in_files_table
 DELIMITER //
-CREATE   FUNCTION `max_7_files_asociated_in_files_table`(`user_id` INT) RETURNS tinyint(4)
+CREATE DEFINER=`root`@`localhost` FUNCTION `max_7_files_asociated_in_files_table`(`user_id` INT) RETURNS tinyint(4)
 BEGIN
 	DECLARE cantidad_reistros_usuario_files INT DEFAULT 0;
 	DECLARE total_count INT DEFAULT 0;
@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `migrations` (
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bike_3qr_nuevo.migrations: ~25 rows (aproximadamente)
+-- Volcando datos para la tabla bike_3qr_nuevo.migrations: ~20 rows (aproximadamente)
 DELETE FROM `migrations`;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
 INSERT INTO `migrations` (`migration`, `batch`) VALUES
@@ -224,7 +224,7 @@ INSERT INTO `permission_role` (`id`, `permission_id`, `role_id`) VALUES
 
 -- Volcando estructura para procedimiento bike_3qr_nuevo.profile_image_asociated_in_files_table
 DELIMITER //
-CREATE   PROCEDURE `profile_image_asociated_in_files_table`(IN `user_id_entrada` INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `profile_image_asociated_in_files_table`(IN `user_id_entrada` INT)
 BEGIN
 	DECLARE id_ int(5); 
 	DECLARE nombre_ VARCHAR(50); 
@@ -269,7 +269,7 @@ CREATE TABLE IF NOT EXISTS `roles` (
   UNIQUE KEY `roles_name_unique` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bike_3qr_nuevo.roles: ~3 rows (aproximadamente)
+-- Volcando datos para la tabla bike_3qr_nuevo.roles: ~2 rows (aproximadamente)
 DELETE FROM `roles`;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
 INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
@@ -279,18 +279,27 @@ INSERT INTO `roles` (`id`, `name`, `created_at`, `updated_at`) VALUES
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 
 
+-- Volcando estructura para procedimiento bike_3qr_nuevo.select_admin_status_from_users
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_admin_status_from_users`()
+BEGIN
+  SELECT * FROM assigned_roles ORDER BY user_id DESC;
+END//
+DELIMITER ;
+
+
 -- Volcando estructura para procedimiento bike_3qr_nuevo.select_assigned_roles
 DELIMITER //
-CREATE   PROCEDURE `select_assigned_roles`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_assigned_roles`()
 BEGIN
-	SELECT * FROM assigned_roles ORDER BY role_auxilar DESC;
+	SELECT * FROM assigned_roles ORDER BY id DESC;
 END//
 DELIMITER ;
 
 
 -- Volcando estructura para procedimiento bike_3qr_nuevo.select_habilitar_registro_admin_option
 DELIMITER //
-CREATE   PROCEDURE `select_habilitar_registro_admin_option`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_habilitar_registro_admin_option`()
 BEGIN
 	SELECT confirmed FROM admin_permission;
 END//
@@ -299,7 +308,7 @@ DELIMITER ;
 
 -- Volcando estructura para procedimiento bike_3qr_nuevo.select_imagenes_de_usuario
 DELIMITER //
-CREATE   PROCEDURE `select_imagenes_de_usuario`(IN `id_user` int)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_imagenes_de_usuario`(IN `id_user` int)
 BEGIN
 	#Routine body goes here...
 SELECT * FROM files WHERE user_id = id_user;
@@ -309,18 +318,56 @@ DELIMITER ;
 
 -- Volcando estructura para procedimiento bike_3qr_nuevo.select_role_of_user
 DELIMITER //
-CREATE   PROCEDURE `select_role_of_user`(IN `id_user` INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_role_of_user`(IN `id_user` INT)
 BEGIN
-	SELECT role_auxilar as rol_usuario FROM users WHERE id = id_user;
+	SELECT role_auxilar as rol_usuario FROM users WHERE id = id_user ORDER BY id DESC;
+END//
+DELIMITER ;
+
+
+-- Volcando estructura para procedimiento bike_3qr_nuevo.select_string_mail_admin_root
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_string_mail_admin_root`()
+BEGIN
+  SELECT
+    email
+  FROM users
+  WHERE email = 'admin@admin.com';
 END//
 DELIMITER ;
 
 
 -- Volcando estructura para procedimiento bike_3qr_nuevo.select_users
 DELIMITER //
-CREATE   PROCEDURE `select_users`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `select_users`()
 BEGIN
-	SELECT * FROM users ORDER BY role_auxilar DESC;
+	SELECT * FROM users ORDER BY id DESC;
+END//
+DELIMITER ;
+
+
+-- Volcando estructura para procedimiento bike_3qr_nuevo.set_user_as_admin_or_not
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `set_user_as_admin_or_not`(IN `id_user_entrante` INT, IN `boolean_parameter` INT)
+BEGIN
+  IF boolean_parameter = 1 THEN
+  	UPDATE users
+  	SET role_auxilar = 'admin'
+  	WHERE id = id_user_entrante ;
+
+  	UPDATE assigned_roles
+  	SET role_auxilar = 'admin',role_id = 1
+  	WHERE user_id = id_user_entrante ;
+
+  ELSEIF boolean_parameter = 0 THEN
+  	UPDATE users
+  	SET role_auxilar = 'users'
+  	WHERE id = id_user_entrante ;
+
+    UPDATE assigned_roles
+  	SET role_auxilar = 'user',role_id = 4
+  	WHERE user_id = id_user_entrante ;
+  END IF;
 END//
 DELIMITER ;
 
@@ -349,7 +396,7 @@ INSERT INTO `tipo_de_sangre` (`id`, `nombre`) VALUES
 
 -- Volcando estructura para procedimiento bike_3qr_nuevo.update_permissions_create_admin_
 DELIMITER //
-CREATE   PROCEDURE `update_permissions_create_admin_`(IN `switch_active_value` INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_permissions_create_admin_`(IN `switch_active_value` INT)
 BEGIN
 	IF (switch_active_value = 1) THEN
 		UPDATE admin_permission SET confirmed = 1 WHERE id = 1;
@@ -362,7 +409,7 @@ DELIMITER ;
 
 -- Volcando estructura para procedimiento bike_3qr_nuevo.update_role_user
 DELIMITER //
-CREATE   PROCEDURE `update_role_user`(IN `id_user` INT, IN `switch_active_value` INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `update_role_user`(IN `id_user` INT, IN `switch_active_value` INT)
 BEGIN
     IF (switch_active_value = 0) THEN
         UPDATE assigned_roles SET role_id = 4 WHERE user_id = id_user;
@@ -402,16 +449,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `users_email_unique` (`email`),
   KEY `users_grupo_sanguineo_id_foreign` (`grupo_sanguineo_id`),
   CONSTRAINT `users_grupo_sanguineo_id_foreign` FOREIGN KEY (`grupo_sanguineo_id`) REFERENCES `tipo_de_sangre` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=123 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=134 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Volcando datos para la tabla bike_3qr_nuevo.users: ~4 rows (aproximadamente)
+-- Volcando datos para la tabla bike_3qr_nuevo.users: ~5 rows (aproximadamente)
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `email`, `password`, `confirmation_code`, `remember_token`, `confirmed`, `created_at`, `updated_at`, `emergencia`, `persona_emergencia`, `eps`, `observaciones_generales`, `facebook`, `twitter`, `fecha_nacimiento`, `serial_marco`, `grupo_sanguineo_id`, `active`, `nombre_completo`, `qrcode`, `lat`, `lng`, `role_auxilar`) VALUES
-	(53, 'efraxpc@gmail.com', '$2y$10$hLM89QazAUkqRAn7dNzvT.nC5iIq13tvKuVjTd8dl07LMQBplseNW', '7a3800619a9042cf57e0092bc9cba43f', 'BXhh6vofniDoWiBH4MaFaPxJKNf0Bda8hxWVyRWk4M1MhSi7SdCuwYhT8dnv', 1, '2015-04-01 17:58:49', '2015-04-14 18:52:16', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '551c31d9901b7', NULL, NULL, 'admin'),
-	(83, 'pedrorejon@hotmail.com', '$2y$10$b6g59FaftquwGz.WtPqmvubmu9poCosDn8fo94Ghh406Qc3zp7lSK', '939ad7e16f31540c73893962ee70bc48', 'H61qbrmah3QxZrNCDpClaNOEPI78wNUt1kVByGDrTb10MGZrFV8yZkk8KzfG', 1, '2015-04-12 22:18:57', '2015-04-12 22:20:06', NULL, NULL, 'ed', 'ed', 'ede', 'ed', '1970/01/01 00:00:00', 'ed', 2, 1, 'eed', '552aef51c2fdf', '4.589', '-73.930', 'users'),
-	(84, 'moflejon@gmail.com', '$2y$10$IWMeYDLwQk4lbn7sBC.p8u6wuyouMYuiVtqufcMMM4kT0yebk1Jb.', '2fd4f8bf8d4aea30fac411c5294bb6ac', '8B6BDsz47foEixdYr3uJ9JHdmfq3zdtmQmNAVsg6yc3LTB7YMdo45B5ClwCg', 1, '2015-04-12 22:20:50', '2015-04-12 22:21:27', NULL, NULL, 'Eps', 'Observaciones Generales ', 'Facebook', 'Twitter', '2015/08/04 00:00:00', 'Serial de Marco', 2, 1, 'Nombre Completo', '552aefc2cc620', '4.589', '-73.930', 'users'),
-	(122, 'programador.jtguerrero@hotmail.com', '$2y$10$WcpSkPJ/bk0FMHbCm1LZ.uBsoDHodwUinOu7dgUAXB.aFC6RaS4ky', '04802c3e5c83c2e5ab81a36b25520061', '5uLAKGhe0afm4HVzZGy3XPUpwSD2wG8sOovdMgFh3yZ7m7Hfb4FhCwcJrWWg', 1, '2015-04-14 19:14:39', '2015-04-14 19:51:18', '04145569903', 'maria', 'Eps', 'Observaciones Generales ', 'Facebook', 'Twitter', '1970-01-01 19:28:08', 'Serial de Marco', 2, 1, 'Nombre Completo', '552d671f9b5f8', '4.589', '-73.930', 'users');
+	(53, 'efraxpc@gmail.com', '$2y$10$hLM89QazAUkqRAn7dNzvT.nC5iIq13tvKuVjTd8dl07LMQBplseNW', '7a3800619a9042cf57e0092bc9cba43f', '5FXS9iIhWwtxJ1N5viIGviOyfF4GqCGnKghIksuTSrgjZUskrHzryexWcBK7', 1, '2015-04-01 17:58:49', '2015-04-16 22:34:18', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '551c31d9901b7', NULL, NULL, 'admin'),
+	(83, 'pedrorejon@hotmail.com', '$2y$10$b6g59FaftquwGz.WtPqmvubmu9poCosDn8fo94Ghh406Qc3zp7lSK', '939ad7e16f31540c73893962ee70bc48', 'wtuvHUaQH8jkrQrHBElVdOv5dJJlj7OTbhcly2uXO2Z52Ro5xLlfkHRUllNH', 1, '2015-04-12 22:18:57', '2015-04-15 04:12:36', '', '', 'ed', 'ed', 'ede', 'ed', '1970-04-11 04:12:36', 'ed', 2, 1, 'Nelson Ned', '552aef51c2fdf', '2.484', '-76.677', 'users'),
+	(84, 'moflejon@gmail.com', '$2y$10$IWMeYDLwQk4lbn7sBC.p8u6wuyouMYuiVtqufcMMM4kT0yebk1Jb.', '2fd4f8bf8d4aea30fac411c5294bb6ac', 'VMZ7j40CX3g7BeNd0D3St75LrCnDcJq3oytlixDenyDQ2wYWyG8aZnLNOcb8', 1, '2015-04-12 22:20:50', '2015-04-15 04:12:30', '', '', 'Eps', 'Observaciones Generales ', 'Facebook', 'Twitter', '2015-08-04 04:12:30', 'Serial de Marco', 2, 1, 'Moflejillox4', '552aefc2cc620', '1.979', '-70.964', 'users'),
+	(123, 'cvdf@gmali.com', '$2y$10$24z8quDUamBfru9PQB8Xoem7ufUZIsFYobdJtBdb09zn6unImG7Re', 'f33703bef842f648380227ca3b224c45', NULL, 0, '2015-04-15 04:02:34', '2015-04-15 04:02:34', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '552de2da3c365', NULL, NULL, 'admin'),
+	(133, 'admin@admin.com', '$2y$10$xYWACDtz38Yr2tKYkcm.vOCeI1umuT3R6ll4/rAofIdqWnJuKK01a', '80114521419b1b63400a2c03ad6bcf39', NULL, 1, '2015-04-16 20:36:10', '2015-04-16 20:36:10', '+573192510721', 'joaquin Aranzazu', 'COOEMEVA', 'Lider de proyecto', 'N/A', 'N/A', '1970/01/01 00:00:00', '111111111', 1, 1, 'Administrador Root', '55301d399ccc5', '4.589', '-73.930', 'admin');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;

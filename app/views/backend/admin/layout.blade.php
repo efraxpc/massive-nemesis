@@ -31,23 +31,6 @@
                         <span >{{{Lang::get('main.administrar_usuarios') }}}</span>
                     </a>
                 </li>
-                <li>
-                    <div align="center" class="row ocultar_direccion_administrador">
-                        <a href="{{URL::route('register_admin_get')}}">
-                            <button type="button" class="btn btn-primary btn-lg boton_create_admin">{{{Lang::get('main.crear_admin') }}}</button>
-                        </a>
-                    </div>
-                </li>
-
-                <li>
-                    <div class="col-md-6 col-md-offset-3">
-                      <div class="switch">
-                        <input id="switch_active_value_url_admin" class="cmn-toggle cmn-toggle-yes-no habilitar_registro_admin_option" type="checkbox" atributo ='{{$habilitar_registro_admin_option}}'>
-                        <label for="switch_active_value_url_admin" data-on='SI' data-off='NO'></label>
-                      </div>
-                    </div>
-                    <p align="center"><b>{{{Lang::get('main.habilitar_registro_admin') }}}</b></p>
-                </li>
             </ul>
             <!-- sidebar menu end-->
         </div>
@@ -65,18 +48,6 @@
                 $( this ).attr('checked', false);
             };
         });
-
-        //Recuperar status de permisos de registro de usuarios
-        var habilitar_registro_admin_option = $('.habilitar_registro_admin_option').attr('atributo');
-
-        if ( habilitar_registro_admin_option == 1 ) {
-            $('#switch_active_value_url_admin').attr('checked', true);
-            $('.ocultar_direccion_administrador').show();
-        }else if( habilitar_registro_admin_option == 0 ){
-            $('#switch_active_value_url_admin').attr('checked', false);
-            //ocultar direccion registrar usuario
-            $('.ocultar_direccion_administrador').hide();
-        };
 
         //Recuperar status de boton de habilitar/deshabiltar administrador
         jQuery.each( $('.switch_activate_admin_option'), function( i, val ) {

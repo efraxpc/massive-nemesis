@@ -20,21 +20,6 @@ class UsersController extends Controller
     }
 
     /**
-     * Displays the form for admin account creation
-     *
-     * @return  Illuminate\Http\Response
-     */
-    public function createAdmin()
-    {
-        $select_habilitar_registro_admin_option = DB::select('call select_habilitar_registro_admin_option()');
-        if ($select_habilitar_registro_admin_option[0]->confirmed == 1) {
-            return View::make('backend.user.create_admin');
-        }elseif($select_habilitar_registro_admin_option[0]->confirmed == 0){
-            return Redirect::route('404');
-        }
-    }
-
-    /**
      * Stores new account
      *
      * @return  Illuminate\Http\Response
@@ -112,17 +97,11 @@ class UsersController extends Controller
         $array_datos['user'] = $user;
         $array_datos['id'] = $id;
 
-        if ($admin == 1) {
-            $select_habilitar_registro_admin_option = DB::select('call select_habilitar_registro_admin_option()');
-            $array_datos['habilitar_registro_admin_option']       = $select_habilitar_registro_admin_option[0]->confirmed;
-            return View::make('backend.admin.edit_user', $array_datos);
-        } else {
-            $files = DB::table('users')->join('files', 'users.id', '=', 'files.user_id')->select('files.id', 'files.nombre', 'files.tipo')->where('files.user_id', $user->id)->get();
-            $array_datos['files'] = $files;
-            $profile_image_asociated_in_files_table = DB::select('CALL profile_image_asociated_in_files_table(?)', array($id));
-            $array_datos['profile_image'] = $profile_image_asociated_in_files_table;
-            return View::make('backend.user.edit', $array_datos);
-        }
+        $files = DB::table('users')->join('files', 'users.id', '=', 'files.user_id')->select('files.id', 'files.nombre', 'files.tipo')->where('files.user_id', $user->id)->get();
+        $array_datos['files'] = $files;
+        $profile_image_asociated_in_files_table = DB::select('CALL profile_image_asociated_in_files_table(?)', array($id));
+        $array_datos['profile_image'] = $profile_image_asociated_in_files_table;
+        return View::make('backend.user.edit', $array_datos);
     }
 
 
@@ -177,8 +156,6 @@ class UsersController extends Controller
             {
                 $users = DB::select('CALL select_users()');
                 $assigned_roles = DB::select('CALL select_assigned_roles()');
-                $select_habilitar_registro_admin_option               = DB::select('call select_habilitar_registro_admin_option()');
-                $array_datos['habilitar_registro_admin_option']       = $select_habilitar_registro_admin_option[0]->confirmed;
                 $array_datos['assigned_roles']          = $assigned_roles;
                 $array_datos['id']                      = $id;
                 $array_datos['users']                   = $users;
@@ -227,8 +204,6 @@ class UsersController extends Controller
             if(Entrust::hasRole('admin')) {
                 $user = Auth::user();
                 $id = $user->id;
-                $select_habilitar_registro_admin_option               = DB::select('call select_habilitar_registro_admin_option()');
-                $array_datos['habilitar_registro_admin_option']       = $select_habilitar_registro_admin_option[0]->confirmed;
                 return View::make('backend.admin.home_admin')->withUser($user)->with($array_datos);
             }elseif(Entrust::hasRole('users')){
                 $user = Auth::user();
@@ -404,7 +379,6 @@ class UsersController extends Controller
         $user = Auth::user();
         $id   = $user->id;
         $tipo_de_sangre = DB::table('tipo_de_sangre')->orderBy('nombre', 'asc')->lists('nombre','id');
-        $select_habilitar_registro_admin_option = DB::select('call select_habilitar_registro_admin_option()');
         $qrcode = $user->qrcode;
         $file   = Request::root().'/uploads/qrcodes/'.$qrcode.'.png';
         $profile_image_asociated_in_files_table = DB::select('CALL profile_image_asociated_in_files_table(?)',array($id));
@@ -414,7 +388,6 @@ class UsersController extends Controller
         $array_datos['tipo_de_sangre']                      = $tipo_de_sangre;
         $array_datos['id']                                  = $id;
         $array_datos['file']                                = $file;
-        $array_datos['habilitar_registro_admin_option']     = $select_habilitar_registro_admin_option[0]->confirmed;
 
         $select_role_of_user = DB::select('CALL select_role_of_user(?)',array($id));
         //dd($array_datos);die;

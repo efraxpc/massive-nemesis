@@ -57,7 +57,7 @@
                                                                  </div>
                                                              </td>
                                                              <td align="center">
-                                                             <a href="{{ URL::route('edit_user_from_admin', array($user->id,1)) }}"><button type="button" class="btn btn-info btn-lg ">{{{ Lang::get('main.editar') }}}</button></a>
+                                                                <a href="{{ URL::route('edit_user_from_admin', array($user->id,1)) }}"><button type="button" class="btn btn-info btn-lg ">{{{ Lang::get('main.editar') }}}</button></a>
                                                              </td>
                                                              <td align="center">
                                                                  <button type="button" class="btn btn-danger eliminar_usuario" id_user = '{{$user->id}}'>{{{ Lang::get('main.eliminar') }}}</button>
