@@ -88,26 +88,34 @@
 
         });
         //Script de cambio de opcion para habilitar o deshabilitar regitro de admins
-        $( "#switch_active_value_url_admin" ).change(function() {
-            var parametros = { 'switch_active_value' : $( this ).is(':checked') ? 1 : 0 };
+        //$( "#switch_active_value_url_admin" ).change(function() {
+          //  var parametros = { 'switch_active_value' : $( this ).is(':checked') ? 1 : 0 };
 
-            if ( parametros.switch_active_value == 1 ) {
-                $('.ocultar_direccion_administrador').show();
-            }else if( parametros.switch_active_value == 0 ){
+
+            //if ( parametros.switch_active_value == 1 ) {
+              //  $('.ocultar_direccion_administrador').show();
+            //}else if( parametros.switch_active_value == 0 ){
                 //ocultar direccion registrar usuario
-                $('.ocultar_direccion_administrador').hide();
-            };     
-            $.ajax({
-                    data:  parametros,
-                    url:   '{{ URL::to('ajax_permissions_create_admin') }}',
-                    type:  'post'
-            });
-        });
+              //  $('.ocultar_direccion_administrador').hide();
+            //};
+            //$.ajax({
+              //      data:  parametros,
+                //    url:   '{{ URL::to('ajax_permissions_create_admin') }}',
+                //    type:  'post'
+           // });
+        //});
         //$('#test_button_works').hide();
         $( ".switch_activate_admin_option" ).click(function() {
-        var id_user = $(this).attr('id_user');
-            var parametros = {'id_user':id_user,
-                              'boolean_parameter': $( this ).is(':checked') ? 1 : 0};
+
+            if ( $(this).is(":checked")) {
+                $(this).attr('checked', true); // Checks it
+            }else if( $(this).not(":checked")){
+                $(this).attr('checked', false); // Checks it
+            };
+
+            var id_user = $(this).attr('id_user');
+                var parametros = {'id_user':id_user,
+                                  'boolean_parameter': $( this ).is(':checked') ? 1 : 0};
 
             $.ajax({
                    data:  parametros,

@@ -200,6 +200,7 @@ class UsersController extends Controller
         $profile_image_asociated_in_files_table = DB::select('CALL profile_image_asociated_in_files_table(?)',array($id));
         $array_datos['profile_image']           = $profile_image_asociated_in_files_table;
 
+        //dd(Entrust::hasRole('users'));die;
         if ($repo->login($input)) {
             if(Entrust::hasRole('admin')) {
                 $user = Auth::user();

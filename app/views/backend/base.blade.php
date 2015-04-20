@@ -7,7 +7,7 @@
     <meta name="author" content="Dashboard">
     <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-    <title>{{{Lang::get('main.app_name_title_page') }}}</title>
+    <title>{{{ Lang::get('main.app_name_title_page') }}}</title>
     {{ HTML::script('assets/js/jquery-1.8.3.min.js') }}
     <!-- Bootstrap core CSS -->
     {{ HTML::style('assets/css/bootstrap.css') }}
