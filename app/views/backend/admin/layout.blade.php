@@ -106,8 +106,10 @@
         //});
         //$('#test_button_works').hide();
         $( ".switch_activate_admin_option" ).click(function() {
-
             if ( $(this).is(":checked")) {
+                if($(this).parent().parent().prev().children().children().not(":checked")){
+                    $(this).parent().parent().prev().children().children().attr('checked', true);
+                }
                 $(this).attr('checked', true); // Checks it
             }else if( $(this).not(":checked")){
                 $(this).attr('checked', false); // Checks it
