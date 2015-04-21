@@ -22,4 +22,9 @@ class User extends Eloquent implements ConfideUserInterface
     {
         return DB::select('CALL set_user_as_admin_or_not(?,?)',array($id_user_entrante,$boolean_parameter));
     }
+
+    public function activeStatusFromUsers()
+    {
+        return DB::select('CALL select_active_status_from_users()');
+    }
 }

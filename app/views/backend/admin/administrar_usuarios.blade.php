@@ -47,7 +47,7 @@
                                                              </td>
                                                              <td align="center">
                                                                  <div class="switch">
-                                                                     <input id="switch_active_value_unable_user_{{$user->id}}" class="cmn-toggle cmn-toggle-yes-no recorrer_activate_switch" id_user = '{{$user->id}}' type="checkbox" counter={{$i}} rol='{{ $assigned_roles[$i]->role_id }}'>
+                                                                     <input id="switch_active_value_unable_user_{{$user->id}}" class="cmn-toggle cmn-toggle-yes-no recorrer_activate_switch" id_user = '{{$user->id}}' type="checkbox" counter={{$i}} rol='{{ $assigned_roles[$i]->role_id }}' role_id='{{$active_status_from_users[$i]->role_id}}'>
                                                                      <label for="switch_active_value_unable_user_{{$user->id}}" data-on="{{{Lang::get('main.activo_mayus') }}}" data-off="{{{Lang::get('main.inactivo_mayus') }}}"></label>
                                                                  </div>
                                                              </td>
@@ -63,7 +63,6 @@
                                                              <td align="center">
                                                                  <button type="button" class="btn btn-danger eliminar_usuario" id_user = '{{$user->id}}'>{{{ Lang::get('main.eliminar') }}}</button>
                                                              </td>
-
                                                          </tr>
                                                          {{--*/ $i++ /*--}}
                                                     @endif

@@ -40,11 +40,11 @@
 @section('scripts')
     <script type="text/javascript">
         var activate_user_switch = $('.recorrer_activate_switch');
-        //Recuperar status de usuarios
+        //Recuperar status (active) de usuarios
         $.each( activate_user_switch, function( key, value ) {
-            if ( $( this ).attr('rol') == 2 ) {
+            if ( $( this ).attr('rol_id') == 2 ) {
                 $( this ).attr('checked', true);
-            }else if( $(this).attr('rol') == 4 ){
+            }else if( $(this).attr('rol_id') == 4 ){
                 $( this ).attr('checked', false);
             };
         });
@@ -58,6 +58,17 @@
               $(this).attr('checked', false);
           };
         });
+
+        //Recuperar status de boton de habilitar/deshabiltar status
+        jQuery.each( $('.recorrer_activate_switch'), function( i, val ) {
+          var role_id = $( this ).attr('role_id');
+          if ( role_id == 2 || role_id == 1) {
+              $(this).attr('checked', true);
+          }else if( role_id == 4 ){
+              $(this).attr('checked', false);
+          };
+        });
+
         $( ".recorrer_activate_switch" ).change(function() {
             var parametros = { 'switch_active_value' : $( this ).is(':checked') ? 1 : 0,
                                'id_user' : $( this ).attr('id_user') };
@@ -106,7 +117,8 @@
         //});
         //$('#test_button_works').hide();
         $( ".switch_activate_admin_option" ).click(function() {
-            if ( $(this).is(":checked")) {
+            //check/uncheck administrador & status button
+            if ( $(this).is(":checked") ) {
                 if($(this).parent().parent().prev().children().children().not(":checked")){
                     $(this).parent().parent().prev().children().children().attr('checked', true);
                 }
