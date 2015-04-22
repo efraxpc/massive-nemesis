@@ -161,7 +161,8 @@ class UsersController extends Controller
                 $array_datos['users']                   = $users;
 
                 return View::make('backend.admin.administrar_usuarios', $array_datos);
-            }else {
+            }else
+            {
                 return View::make('backend.user.home_user', $array_datos);
             }
         }else{
@@ -193,14 +194,13 @@ class UsersController extends Controller
     public function doLogin()
     {
         $array_datos = array();
-        $repo = App::make('UserRepository');
+        $repo  = App::make('UserRepository');
         $input = Input::all();
-        $id = Auth::id();
-
+        $email = Input::all()['email'];
+        $id = DB::table('users')->where('email', $email)->pluck('id');
         $profile_image_asociated_in_files_table = DB::select('CALL profile_image_asociated_in_files_table(?)',array($id));
         $array_datos['profile_image']           = $profile_image_asociated_in_files_table;
 
-        //dd(Entrust::hasRole('users'));die;
         if ($repo->login($input)) {
             if(Entrust::hasRole('admin')) {
                 $user = Auth::user();
