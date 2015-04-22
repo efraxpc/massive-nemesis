@@ -83,5 +83,6 @@ return array(
     'si_mayus'                       => 'SI',
     'no_mayus'                       => 'NO',
     'ver'                            => 'Ver',
-    'descripcion_imprimir'           => 'Para imprimir los códios Qr por favor toque la imaen correspondiente'
+    'descripcion_imprimir'           => 'Para imprimir los códios Qr por favor toque la imaen correspondiente',
+    'admin'                          => 'Admin',
 );

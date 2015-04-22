@@ -391,7 +391,6 @@ class UsersController extends Controller
         $array_datos['file']                                = $file;
 
         $select_role_of_user = DB::select('CALL select_role_of_user(?)',array($id));
-        //dd($array_datos);die;
         $rol_usuario = $select_role_of_user[0]->rol_usuario;
 
         if ($rol_usuario == 'admin') {
