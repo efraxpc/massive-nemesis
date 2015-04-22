@@ -52,26 +52,33 @@
         //Recuperar status de boton de habilitar/deshabiltar administrador
         jQuery.each( $('.switch_activate_admin_option'), function( i, val ) {
           var habilitar_registro_admin_option = $( this ).attr('atributo');
-          if ( habilitar_registro_admin_option == "admin" ) {
+          if ( habilitar_registro_admin_option == 1 ) {
               $(this).attr('checked', true);
-          }else if( habilitar_registro_admin_option == "user" ){
+          }else if( habilitar_registro_admin_option == 4 ){
               $(this).attr('checked', false);
           };
         });
-
+         var rol_user = 2;
+         var rol_redemption = 4;
+         var rol_admin = 1;
         //Recuperar status de boton de habilitar/deshabiltar status
         jQuery.each( $('.recorrer_activate_switch'), function( i, val ) {
           var role_id = $( this ).attr('role_id');
-          if ( role_id == 2 || role_id == 1) {
+          if ( role_id == rol_user || role_id == rol_admin) {
               $(this).attr('checked', true);
-          }else if( role_id == 4 ){
+          }else if( role_id == rol_redemption ){
               $(this).attr('checked', false);
+
           };
         });
 
         $( ".recorrer_activate_switch" ).change(function() {
             var parametros = { 'switch_active_value' : $( this ).is(':checked') ? 1 : 0,
                                'id_user' : $( this ).attr('id_user') };
+
+           if($(this).parent().parent().next().children().children().is(":checked")){
+               $(this).parent().parent().next().children().children().attr('checked', false);
+           }
 
             $.ajax({
                     data:  parametros,
