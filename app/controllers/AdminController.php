@@ -53,6 +53,7 @@ class AdminController extends Controller
         $select_admin_status_from_users = DB::select(' CALL select_admin_status_from_users()');
         $string_mail_admin_root = $User->stringMailAdminRoot();
         $select_active_status_from_users = $User->activeStatusFromUsers();
+        $user = Auth::user();
 
         $array_datos['users_list']   = $users;
         $array_datos['user_id'] = $id;
@@ -61,6 +62,8 @@ class AdminController extends Controller
         $array_datos['assigned_roles']              = $assigned_roles;
         $array_datos['active_status_from_users']    = $select_active_status_from_users;
         $array_datos['user']   = $user_actual;
+        $array_datos['user_email']                  = $user->email;
+        //dd($array_datos);die;
 
         return View::make('backend.admin.administrar_usuarios', $array_datos);
     }

@@ -65,7 +65,7 @@ Route::group(array('prefix' => 'admin'), function()
 	Route::get('profile/admin', 'UsersController@postLogin');
     Route::get('editar/usuario/{id}/{admin?}',  			array('as' 		=> 'edit_user_from_admin','uses' 	=>'UsersController@edit'));
     Route::post('editado/',  				                array('as' 		=> 'admin_editar_usuario','uses' 	=>'UsersController@storeEdit'));
-    Route::get('cambiar/foto/perfil/{admin}',  			    array('as' 		=> 'cambiar_foto_perfil','uses'     =>'FileController@cambiar_foto_perfil'));
+    Route::get('cambiar/foto/perfil/',  			        array('as' 		=> 'cambiar_foto_perfil_admin','uses'     =>'FileController@cambiar_foto_perfil'));
 });
 
 Route::when('admin/*', 'admin');

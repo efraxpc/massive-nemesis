@@ -204,7 +204,8 @@ class UsersController extends Controller
         if ($repo->login($input)) {
             if(Entrust::hasRole('admin')) {
                 $user = Auth::user();
-                $id = $user->id;
+                //dd($user_email);die;
+                $array_datos['user_email']           = (string)$user->email;
                 return View::make('backend.admin.home_admin')->withUser($user)->with($array_datos);
             }elseif(Entrust::hasRole('users')){
                 $user = Auth::user();

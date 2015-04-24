@@ -10,6 +10,8 @@ use Illuminate\Routing\Controller;
  */
 class FileController extends Controller
 {
+
+    private $array_datos = array();
     /**
      * Displays the form for account creation
      *
@@ -36,7 +38,7 @@ class FileController extends Controller
     public function upload_image(){
 
   		$fileInput      = Input::file('file');
-      $profile_image  = Input::all()['profile_image'];
+        $profile_image  = Input::all()['profile_image'];
 
   		if (Input::hasFile('file')) {
   			$filename = "imagen__".uniqid();
@@ -128,7 +130,6 @@ class FileController extends Controller
 
     public function cambiar_foto_perfil()
     {
-      $array_datos = array();
       $user = Auth::user();
       $id   = $user->id; 
       if (is_null($user->id))
@@ -142,5 +143,22 @@ class FileController extends Controller
       $array_datos['profile_image']       = $profile_image_asociated_in_files_table;
 
       return View::make('backend.user.edit_profile_image', $array_datos);
-    } 
+    }
+
+    public function cambiar_foto_perfil_admin()
+    {
+        $user = Auth::user();
+        $id   = $user->id;
+        if (is_null($user->id))
+        {
+            return Redirect::route('login');
+        }
+        $profile_image_asociated_in_files_table = DB::select('CALL profile_image_asociated_in_files_table(?)',array($id));
+
+        $array_datos['user']                = $user;
+        $array_datos['id']                  = $user->id;
+        $array_datos['profile_image']       = $profile_image_asociated_in_files_table;
+
+        return View::make('backend.user.edit_profile_image', $array_datos);
+    }
 }

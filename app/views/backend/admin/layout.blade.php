@@ -24,8 +24,8 @@
         <div id="sidebar"  class="nav-collapse ">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
-                <p class="centered"><a href="{{URL::route('main')}}"> {{ HTML::image('/assets/img/avatar_perfil.png', 'a picture', array('class' => 'img-circle','width' => 150, 'height' => 130)) }}</a></p>
-                <h5 class="centered">{{$user->email}}</h5>
+                <p class="centered"><a href="{{URL::route('cambiar_foto_perfil_admin')}}"> {{ HTML::image('/assets/img/avatar_perfil.png', 'a picture', array('class' => 'img-circle','width' => 150, 'height' => 130)) }}</a></p>
+                <h5 class="centered">{{$user_email}}</h5>
                 <h6 class="centered">{{{Lang::get('main.admin') }}}</h6>
                 <li class="mt">
                     <a class="active" id='buton_administrar_usuarios' href="{{URL::route('administrar_usuarios')}}">
