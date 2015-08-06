@@ -5,7 +5,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="{{{Lang::get('main.app_name') }}}"></div>
     </div>
     <!--logo start-->
-    <a href="{{URL::route('main')}}" class="logo"><b>{{{Lang::get('main.app_name') }}}</b></a>
+    <a href="#" class="logo"><b>{{{Lang::get('main.app_name') }}}</b></a>
     <!--logo end-->
     <div class="top-menu">
         <ul class="nav pull-right top-menu">
@@ -24,7 +24,7 @@
         <div id="sidebar"  class="nav-collapse ">
             <!-- sidebar menu start-->
             <ul class="sidebar-menu" id="nav-accordion">
-                <p class="centered"><a href="{{URL::route('cambiar_foto_perfil_admin')}}"> {{ HTML::image('/assets/img/avatar_perfil.png', 'a picture', array('class' => 'img-circle','width' => 150, 'height' => 130)) }}</a></p>
+                <p class="centered"><a href="#"> {{ HTML::image('/assets/img/avatar_perfil.png', 'a picture', array('class' => 'img-circle','width' => 150, 'height' => 130)) }}</a></p>
                 <h5 class="centered">{{$user_email}}</h5>
                 <h6 class="centered">{{{Lang::get('main.admin') }}}</h6>
                 <li class="mt">
@@ -60,9 +60,9 @@
               $(this).attr('checked', false);
           };
         });
-         var rol_user = 2;
-         var rol_redemption = 4;
-         var rol_admin = 1;
+        var rol_user = 2;
+        var rol_redemption = 4;
+        var rol_admin = 1;
         //Recuperar status de boton de habilitar/deshabiltar status
         jQuery.each( $('.recorrer_activate_switch'), function( i, val ) {
           var role_id = $( this ).attr('role_id');
